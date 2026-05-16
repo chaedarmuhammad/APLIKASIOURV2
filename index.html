@@ -10808,8 +10808,8 @@ const _KB_LOOKUP = (function() {
 
   // ── ANGGOTA TUBUH ──
   add('__tubuh__', [
-    'karada','atama','kao','me','mimi','kuchi','ha',
-    'kubi','yubi','tsume','onaka','senaka','ashi','tsumekiri',
+    'karada','atama','kao','me','mimi','kuchi',
+    'kubi','yubi','tsume','onaka','senaka','ashi',
   ]);
 
   // ── WAKTU & KALENDER ──
@@ -10859,6 +10859,7 @@ const _KB_LOOKUP = (function() {
   add('__pakaian__', [
     'kutsu','nekutai','shatsu','tī shatsu','kōto','sūtsu',
     'sētā','bōshi','megane','saifu','kaban','kasa','kimono','saizu','fuku',
+    'kutsushita',
   ]);
 
   // ── MAKANAN & MINUMAN ──
@@ -10880,7 +10881,7 @@ const _KB_LOOKUP = (function() {
     'haru','natsu','aki','fuyu',
     'jishin',
     'dōbutsu','zō','uma','inu','neko',
-    'ki','hana','midori',
+    'ki','midori',
     'jinkō',
   ]);
 
@@ -10919,7 +10920,7 @@ const _KB_LOOKUP = (function() {
   add('__benda__', [
     'enpitsu','bōrupen','shāpu penshiru','kagi','tokei',
     'terebi','kamera','keitai denwa','pasokon','tsukue','isu',
-    'hasami','hotchikisu','serotēpu','keshigomu',
+    'hasami','hotchikisu','serotēpu','keshigomu','tsumekiri',
     'hako','doa','mado','suicchi','reizōko','tēburu','beddo',
     'tana','denchi','mono','ē tī emu','kopī ki','jidōhanbaiki',
     'denshi renji','eakon','denkiseihin','botan','kikai','oto',
@@ -10943,18 +10944,19 @@ function kbSubCat(word) {
   if (rom === 'hana')  return id.includes('hidung') ? '__tubuh__' : '__alam__';
   if (rom === 'kami')  return id.includes('rambut') ? '__tubuh__' : '__benda__';
   if (rom === 'te')    return id.includes('tangan') ? '__tubuh__' : '__benda__';
+  if (rom === 'ha')    return id.includes('gigi') ? '__tubuh__' : '__alam__';
 
   // 3. Partial match romaji untuk nama kota/stasiun/prefektur
   if (/eki$|eki /.test(rom)) return '__transport__';
   if (/ken$/.test(rom))       return '__tempat__';
 
   // 4. Fallback berbasis id (Indonesia)
-  if (/\btubuh\b|kepala|rambut|wajah|muka|\bmata\b|telinga|hidung|\bmulut\b|gigi|\btangan\b|\bkaki\b|perut|\bbadan\b/.test(id)) return '__tubuh__';
+  if (/\btubuh\b|kepala|rambut|wajah|muka|\bmata\b|telinga|hidung|\bmulut\b|\bgigi\b|\btangan\b|(?<!kaus )\bkaki\b|perut|\bbadan\b/.test(id)) return '__tubuh__';
   if (/dokter|apoteker|guru|siswa|mahasiswa|pegawai|karyawan|peneliti|pasien|orang\b|wanita|pria|\banak\b|kakak|adik|\bayah\b|\bibu\b|teman|keluarga|saudara|kakek|nenek|istri|suami|\bsaya\b|\banda\b/.test(id)) return '__orang__';
   if (/\bpagi\b|\bsiang\b|\bmalam\b|hari ini|kemarin|besok|sekarang|senin|selasa|rabu|kamis|jumat|sabtu|\bminggu\b|akhir pekan|ulang tahun|setiap/.test(id)) return '__waktu__';
   if (/kereta|pesawat|kapal|\bbus\b|taksi|sepeda|bandara|paspor|koper|transportasi/.test(id)) return '__transport__';
   if (/sekolah|universitas|kantor|rumah sakit|perpustakaan|museum|gedung kesenian|negara|negeri|kota|kuil|luar negeri/.test(id)) return '__tempat__';
-  if (/sepatu|dasi|kemeja|\bkaus\b|jaket|sweter|topi\b|kacamata|dompet|\btas\b|payung|pakaian|kimono/.test(id)) return '__pakaian__';
+  if (/sepatu|dasi|kemeja|\bkaus\b|jaket|sweter|topi\b|kacamata|dompet|\btas\b|payung|pakaian|kimono|kaus kaki/.test(id)) return '__pakaian__';
   if (/\bnasi\b|\broti\b|daging\b|\bikan\b|telur\b|susu\b|kopi\b|\bteh\b|\bbir\b|\bjus\b|\bair\b|\bkue\b|makanan|minuman|masakan|sarapan|makan siang|makan malam/.test(id)) return '__makanan__';
   if (/hujan|salju|cerah|berawan|cuaca|gempa|hewan|binatang|anjing|kucing|pohon|bunga|musim semi|musim panas|musim gugur|musim dingin/.test(id)) return '__alam__';
   if (/\bsakit\b|demam|\bflu\b|\bobat\b|asuransi|shower|bak mandi|kondisi/.test(id)) return '__kesehatan__';
@@ -11254,7 +11256,10 @@ const _THEMATIC_GROUPS = (function() {
 
   // ── Anggota tubuh (atas → bawah) ──
   grp('atama','kao','me','mimi','hana','kuchi','ha','kubi',
-      'karada','te','yubi','onaka','senaka','ashi','tsume','tsumekiri');
+      'karada','te','yubi','onaka','senaka','ashi','tsume');
+
+  // ── Alat kebersihan/perawatan ──
+  grp('tsumekiri','hasami','hotchikisu','serotēpu','keshigomu');
 
   // ── Makanan pokok ──
   grp('gohan','pan','niku','sakana','yasai','kudamono','tamago');
@@ -11290,6 +11295,9 @@ const _THEMATIC_GROUPS = (function() {
 
   // ── Alat tulis ──
   grp('enpitsu','bōrupen','pen','keshigomu','hasami','hotchikisu','serotēpu');
+
+  // ── Pakaian & Aksesori ──
+  grp('shatsu','tī shatsu','sūtsu','kōto','sētā','fuku','kutsu','kutsushita','bōshi','nekutai','kimono');
 
   // ── Posisi: vertikal ──
   grp('ue','shita');
@@ -11493,7 +11501,9 @@ const _GROUP_ORDER = (function() {
       'kodomo','okosan','gokazoku');
   // Tubuh: atas → bawah
   seq('atama','kao','me','mimi','hana','kuchi','ha','kubi',
-      'karada','te','yubi','onaka','senaka','ashi','tsume','tsumekiri');
+      'karada','te','yubi','onaka','senaka','ashi','tsume');
+  // Alat tulis & peralatan kecil
+  seq('tsumekiri');
   // Waktu relatif: lampau → sekarang → depan
   seq('ototoi','kinō','kyō','ashita','asatte');
   seq('senshū','konshū','raishū');
