@@ -195,7 +195,7 @@ const _KB_LOOKUP = (function() {
     'jimu shitsu','kissaten','izakaya','onsen','pūru',
     'shiyakusho','taishikan','nihongo gakkō','hanaya',
     'otera','kinkakuji',
-    'machi','tokoro','biru',
+    'machi','tokoro','biru','michi',
     'indoneshia','nihon','kankoku','chūgoku','igirisu','furansu',
     'shingapōru','burajiru','amerika','firipin','betonamu','myānmā',
     'taiwan','gaikoku','sekai',
@@ -204,13 +204,14 @@ const _KB_LOOKUP = (function() {
     'jakarta','fukuoka',
     'ken','(o)kuni','(go)shusshin',
     'yama','umi','eberesuto','fuji san',
+    'shōgakkō','chūgakkō','kōkō',
   ]);
 
   // ── TRANSPORTASI & PERJALANAN ──
   add('__transport__', [
     'densha','hikōki','fune','basu','takushī','jitensha',
     'chikatetsu','shinkansen','baiku','jidōsha','eki','kūkō',
-    'noriba','jei āru','pasupōto','biza','chizu','jūsho','michi','shingō',
+    'noriba','jei āru','pasupōto','biza','chizu',
     'kōtsū','rasshu','sūtsukēsu','chiketto','kippu','nimotsu',
     'shītoberto',
   ]);
@@ -230,7 +231,6 @@ const _KB_LOOKUP = (function() {
     'bentō','(o)bentō','hanbāgā','kukkī','chokoreeto','kōhī','gyūnyū','miruku',
     'gyūdon','aisukurīmu','tenpura','nihonshu','yakisoba','okonomiyaki',
     '(o)sake','tabemono','nomimono','ryōri','nihon ryōri','okinawa no ryōri',
-    'hashi','supūn','fōku','naifu','osara',
     'ringo','mikan',
     '(go)chūmon','(o)kashi',
   ]);
@@ -251,10 +251,10 @@ const _KB_LOOKUP = (function() {
     'yomikata','hatsuon','imi',
     'hon','jisho','shinbun','zasshi','nōto','meishi','kādo',
     'shiken','tesuto','shukudai','tegami','mēru','mēru adoresu',
-    'shashin','eiga','ongaku','dī bī dī','shī dī','repōto','sakubun',
-    'shiryō','pen','senmon','bangō annai','denwa bangō','denwa',
+    'eiga','ongaku','dī bī dī','shī dī','repōto','sakubun',
+    'shiryō','senmon','bangō annai','denwa bangō',
     'nyūsu','supīchi','iken','anaunsu','nikki',
-    'shōgakkō','chūgakkō','kōkō','ai-tī','uta','e','ji',
+    'ai-tī','uta','e','ji',
     'horā eiga',"ren'ai eiga",'rekishi',
     'rekishi','kurashikku','kurasu','jugyō',
     'igaku',
@@ -265,20 +265,20 @@ const _KB_LOOKUP = (function() {
     'ryokō','pātī','omatsuri','sakkā','tenisu',
     'basukettobōru','sukī','yoga','sumō','tsuri','gādeningu',
     '(o)hanami','keiken','kaigi','yakusoku','purezento','omiyage',
-    'shumi','arubaito','risō','konsāto','karaoke','dansu','yakyū',
+    'shumi','arubaito','konsāto','karaoke','dansu','yakyū',
     'kabuki','ikebana','piano','gitā','gakki','supōtsu','kaimono',
-    'junbi','yōji','benkyō','(o)mimai',
+    'junbi','benkyō','(o)mimai',
   ]);
 
   // ── KESEHATAN & MEDIS ──
   add('__kesehatan__', [
     'kaze','netsu','kusuri','byōki',
-    '(kenkō) hokenshō','ofuro','shawā','chōshi','guai',
+    '(kenkō) hokenshō','chōshi','guai',
   ]);
 
   // ── BENDA & PERALATAN SEHARI-HARI (sisa yang tidak masuk kategori lain) ──
   add('__benda__', [
-    'enpitsu','bōrupen','shāpu penshiru','kagi','tokei',
+    'enpitsu','bōrupen','shāpu penshiru','pen','kagi','tokei',
     'terebi','kamera','keitai denwa','pasokon','tsukue','isu',
     'hasami','hotchikisu','serotēpu','keshigomu','tsumekiri',
     'hako','doa','mado','suicchi','reizōko','tēburu','beddo',
@@ -288,6 +288,10 @@ const _KB_LOOKUP = (function() {
     'okane','genkin','komakai okane','kurejittokādo','nedan','yachin',
     'seikatsu','(o)shigoto','mondai','kotae','hajime','owari',
     'keizai','tabako','jinkō',
+    'hashi','supūn','fōku','naifu','osara',
+    'jūsho','shingō','denwa','shashin',
+    'ofuro','shawā',
+    'risō','yōji',
   ]);
 
   return T;
