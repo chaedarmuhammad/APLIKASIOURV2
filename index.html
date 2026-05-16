@@ -1041,6 +1041,131 @@ body {
 .rsum-form { font-family: 'Noto Sans JP', sans-serif; font-size: 0.78rem; color: var(--text); line-height:2; white-space: nowrap; }
 .rsum-form b { color: var(--red); }
 
+/* ── KONJUGASI TAB: Accordion / Collapsible ── */
+.konj-accordion {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  margin-bottom: 10px;
+  overflow: hidden;
+  background: var(--surface);
+  transition: box-shadow 0.2s;
+}
+.konj-accordion:hover { box-shadow: 0 2px 12px rgba(124,106,247,0.08); }
+.konj-accordion-head {
+  display: flex; align-items: center; gap: 10px;
+  padding: 12px 16px; cursor: pointer;
+  transition: background 0.15s;
+  user-select: none;
+}
+.konj-accordion-head:hover { background: rgba(124,106,247,0.06); }
+.konj-accordion-chevron {
+  font-size: 0.7rem; color: var(--text2);
+  transition: transform 0.3s ease; flex-shrink: 0;
+}
+.konj-accordion.open .konj-accordion-chevron { transform: rotate(90deg); }
+.konj-accordion-body {
+  display: none;
+  padding: 0 16px 16px;
+  animation: konjSlideDown 0.25s ease;
+}
+.konj-accordion.open .konj-accordion-body { display: block; }
+@keyframes konjSlideDown {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.konj-accordion-count {
+  font-size: 0.7rem; color: var(--text2);
+  background: var(--surface2); padding: 2px 8px;
+  border-radius: 20px; flex-shrink: 0; margin-left: auto;
+}
+
+/* Collapsible Ragam Explanation */
+.konj-collapsible-toggle {
+  display: flex; align-items: center; gap: 8px;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 10px; padding: 10px 16px;
+  cursor: pointer; margin-bottom: 14px;
+  transition: all 0.2s; width: 100%;
+  font-family: inherit; color: var(--text);
+}
+.konj-collapsible-toggle:hover { border-color: var(--accent); }
+.konj-collapsible-toggle .toggle-chevron {
+  font-size: 0.7rem; color: var(--text2);
+  transition: transform 0.3s ease;
+}
+.konj-collapsible-toggle.open .toggle-chevron { transform: rotate(90deg); }
+.konj-collapsible-toggle .toggle-label {
+  font-size: 0.82rem; font-weight: 600;
+}
+.konj-collapsible-toggle .toggle-hint {
+  font-size: 0.72rem; color: var(--text2); margin-left: auto;
+}
+.konj-collapsible-body {
+  display: none;
+  animation: konjSlideDown 0.25s ease;
+}
+.konj-collapsible-body.open { display: block; }
+
+/* Contoh Kalimat collapsible */
+.konj-example-toggle {
+  display: inline-flex; align-items: center; gap: 5px;
+  background: none; border: 1px solid var(--border);
+  border-radius: 6px; padding: 4px 10px;
+  cursor: pointer; font-size: 0.72rem; color: var(--text2);
+  font-family: inherit; margin-top: 8px;
+  transition: all 0.2s;
+}
+.konj-example-toggle:hover { border-color: var(--accent); color: var(--accent); }
+.konj-example-body {
+  display: none; margin-top: 6px;
+  background: var(--surface2); border-radius: 8px;
+  padding: 10px 14px; font-size: 0.8rem; line-height: 2;
+  font-family: 'Noto Sans JP', sans-serif;
+  border: 1px solid var(--border);
+}
+.konj-example-body.open { display: block; }
+
+/* Quick Nav sticky */
+.konj-quicknav-sticky {
+  position: sticky; top: 48px; z-index: 50;
+  background: var(--bg); padding: 8px 0 6px;
+  border-bottom: 1px solid var(--border);
+  margin: 0 -14px; padding-left: 14px; padding-right: 14px;
+}
+.rsum-qnav-btn.active {
+  background: var(--accent); border-color: var(--accent); color: white;
+}
+
+/* Note pembeda tab */
+.konj-tab-note {
+  display: flex; align-items: flex-start; gap: 10px;
+  background: rgba(124,106,247,0.08);
+  border: 1px solid rgba(124,106,247,0.25);
+  border-radius: 10px; padding: 10px 14px;
+  margin-bottom: 16px; font-size: 0.78rem;
+  line-height: 1.6; color: var(--text2);
+}
+.konj-tab-note b { color: var(--accent); }
+
+/* Compact layout for forms with few columns */
+.konj-compact-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 6px; margin-bottom: 8px;
+}
+.konj-compact-cell {
+  background: var(--surface2); border: 1px solid var(--border);
+  border-radius: 8px; padding: 8px 12px;
+}
+.konj-compact-cell-label {
+  font-size: 0.62rem; color: var(--text2); font-weight: 600;
+  margin-bottom: 3px; text-transform: uppercase; letter-spacing: 0.04em;
+}
+.konj-compact-cell-form {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 0.88rem; color: var(--text); font-weight: 500;
+  line-height: 2;
+}
+
 /* ── MOBILE OPTIMISASI RANGKUMAN ── */
 @media (max-width: 480px) {
   /* Tab bar scroll-able & chip kecil */
@@ -1089,6 +1214,15 @@ body {
   .rsum-vv-table td { font-size: 0.72rem; padding: 5px 6px; }
   .rsum-table th { font-size: 0.62rem; padding: 5px 6px; }
   .rsum-table td { font-size: 0.72rem; padding: 5px 6px; }
+
+  /* Konjugasi accordion mobile */
+  .konj-accordion-head { padding: 10px 12px; gap: 8px; }
+  .konj-collapsible-toggle { padding: 8px 12px; }
+  .konj-compact-grid { grid-template-columns: 1fr 1fr; }
+  .konj-compact-cell { padding: 6px 10px; }
+  .konj-compact-cell-form { font-size: 0.8rem; }
+  .konj-tab-note { font-size: 0.74rem; padding: 8px 12px; }
+  .konj-quicknav-sticky { top: 44px; }
 }
 
 #crossScr { padding: 20px; }
@@ -9352,39 +9486,44 @@ function renderRangkuman() {
   // ─── Tab 3: Konjugasi KK ───
   // Grup dasar I/II/III/⚠️ = N5. Grup たら/可能/ても/ながら = N4 (bab 36+)
   const konjN4Groups = ['たら', '可能', 'ても', 'ながら', '受身', '使役', '命令・禁止', '尊敬', '謙譲'];
-  // Bab references per grup for babChipsHtml
   const konjBabMap = {
-    'I': [14,19,20],
-    'II': [14,19,20],
-    'III': [14,19,20],
-    '⚠️': [10,14],
-    'たら': [37,38],
-    '可能': [42],
-    'ても': [39],
-    'ながら': [43],
-    '受身': [58,59],
-    '使役': [60],
-    '命令・禁止': [61],
-    '尊敬': [65,66],
-    '謙譲': [67,68],
+    'I': [14,19,20], 'II': [14,19,20], 'III': [14,19,20], '⚠️': [10,14],
+    'たら': [37,38], '可能': [42], 'ても': [39], 'ながら': [43],
+    '受身': [58,59], '使役': [60], '命令・禁止': [61], '尊敬': [65,66], '謙譲': [67,68],
   };
-  // Helper: strip ruby tags for matching
+  // Contoh kalimat per grup
+  const konjExamples = {
+    'I': {jp:'<ruby>友<rt>とも</rt></ruby>だちに <ruby>手紙<rt>てがみ</rt></ruby>を <b>書いて</b>、<ruby>送<rt>おく</rt></ruby>りました。', id:'Menulis surat ke teman, lalu mengirimkannya.'},
+    'II': {jp:'<ruby>朝<rt>あさ</rt></ruby> <ruby>早<rt>はや</rt></ruby>く <b>起きて</b>、ジョギングします。', id:'Bangun pagi-pagi, lalu joging.'},
+    'III': {jp:'<ruby>毎日<rt>まいにち</rt></ruby> <ruby>日本語<rt>にほんご</rt></ruby>を <b>勉強して</b>います。', id:'Setiap hari sedang belajar bahasa Jepang.'},
+    '⚠️': {jp:'<ruby>冷蔵庫<rt>れいぞうこ</rt></ruby>に <ruby>牛乳<rt>ぎゅうにゅう</rt></ruby>が <b>ない</b>から、<ruby>買<rt>か</rt></ruby>いに <ruby>行<rt>い</rt></ruby>きます。', id:'Karena tidak ada susu di kulkas, pergi beli.'},
+    'たら': {jp:'<ruby>雨<rt>あめ</rt></ruby>が <b>降ったら</b>、うちに います。', id:'Kalau hujan, saya di rumah.'},
+    '可能': {jp:'<ruby>日本語<rt>にほんご</rt></ruby>が <b>話せます</b>。', id:'Bisa berbicara bahasa Jepang.'},
+    'ても': {jp:'<ruby>雨<rt>あめ</rt></ruby>が <b>降っても</b>、サッカーを します。', id:'Walaupun hujan, tetap bermain sepak bola.'},
+    'ながら': {jp:'<ruby>音楽<rt>おんがく</rt></ruby>を <b>聞きながら</b>、<ruby>勉強<rt>べんきょう</rt></ruby>します。', id:'Belajar sambil mendengarkan musik.'},
+    '受身': {jp:'<ruby>電車<rt>でんしゃ</rt></ruby>で <ruby>足<rt>あし</rt></ruby>を <b>踏まれました</b>。', id:'Kaki saya diinjak di kereta.'},
+    '使役': {jp:'<ruby>先生<rt>せんせい</rt></ruby>は <ruby>学生<rt>がくせい</rt></ruby>に <ruby>本<rt>ほん</rt></ruby>を <b>読ませました</b>。', id:'Guru menyuruh murid membaca buku.'},
+    '命令・禁止': {jp:'<b>止まれ</b>！ ここに <ruby>入<rt>はい</rt></ruby>る<b>な</b>！', id:'Berhenti! Jangan masuk sini!'},
+    '尊敬': {jp:'<ruby>先生<rt>せんせい</rt></ruby>は もう <b>帰られました</b>。', id:'Guru sudah pulang. (hormat)'},
+    '謙譲': {jp:'わたしが ご<ruby>案内<rt>あんない</rt></ruby><b>します</b>。', id:'Saya yang akan memandu. (merendah)'},
+  };
   const stripRuby = (s) => s.replace(/<[^>]*>/g,'');
   let konjHtml = '';
-  // Build quick-nav buttons
+  let konjIdx = 0;
   const konjVisibleGroups = RANGKUMAN_KONJUGASI.filter(g => {
     const isN4Group = konjN4Groups.some(k => stripRuby(g.grup).includes(k));
     if (rsumLevel === 'n5' && isN4Group) return false;
     if (rsumLevel === 'n4' && !isN4Group) return false;
     return true;
   });
-  const konjQuickNav = `<div class="rsum-quicknav" style="margin-bottom:14px">
-    ${konjVisibleGroups.map(g => `<button class="rsum-qnav-btn" onclick="document.getElementById('konj-sec-${stripRuby(g.grup).replace(/[<>\/\s]/g,'_')}').scrollIntoView({behavior:'smooth',block:'start'});this.parentNode.querySelectorAll('.rsum-qnav-btn').forEach(b=>b.classList.remove('active'));this.classList.add('active');">${stripRuby(g.grup)}</button>`).join('')}
+  const konjQuickNav = `<div class="konj-quicknav-sticky" id="konjQuickNavBar">
+    <div class="rsum-quicknav" style="margin-bottom:0">
+    ${konjVisibleGroups.map(g => `<button class="rsum-qnav-btn" data-konj-nav="${stripRuby(g.grup).replace(/[<>\/\s]/g,'_')}" onclick="document.getElementById('konj-sec-${stripRuby(g.grup).replace(/[<>\/\s]/g,'_')}').scrollIntoView({behavior:'smooth',block:'start'});">${stripRuby(g.grup)}</button>`).join('')}
+    </div>
   </div>`;
 
   RANGKUMAN_KONJUGASI.forEach(g => {
     const isN4Group = konjN4Groups.some(k => stripRuby(g.grup).includes(k));
-    // Filter by level
     if (rsumLevel === 'n5' && isN4Group) return;
     if (rsumLevel === 'n4' && !isN4Group) return;
 
@@ -9399,76 +9538,86 @@ function renderRangkuman() {
     const isSonkei = grupPlain.includes('尊敬');
     const isKenjou = grupPlain.includes('謙譲');
     const isAdvanced = isTara || isTemo || isKano || isNagara || isUkemi || isShieki || isMeirei || isSonkei || isKenjou;
-    const n4Badge = '';
+    const isCompact = isNagara || isMeirei; // bentuk yang banyak kolom kosong
 
-    let headerHtml, rowsHtml;
-    if (isAdvanced) {
-      // Konjugasi lanjutan: 6 kolom (Dasar, ✅ Kini +, ❌ Kini −, ⏮️ Lampau +, ⏮️❌ Lampau −, Kamus, Ket.)
-      headerHtml = `<th>〜ます</th>
-       <th style="color:#60a5fa">✅ Kini +</th>
-       <th style="color:#f87171">❌ Kini −</th>
-       <th style="color:#fbbf24">⏮️ Lampau +</th>
-       <th style="color:#fb923c">⏮️❌ Lampau −</th>
-       <th><span class="rsum-vv-chip vv-kamus" style="font-size:0.62rem">辞</span> Kamus</th>
-       <th>Ket.</th>`;
-      rowsHtml = g.contoh.map(r => `
-      <tr>
-        <td class="rsum-form">${r.masu}</td>
-        <td class="rsum-form"><b style="color:#60a5fa">${r.pos}</b></td>
-        <td class="rsum-form" style="color:#f87171"><b>${r.neg}</b></td>
-        <td class="rsum-form" style="color:#fbbf24">${r.taPlus}</td>
-        <td class="rsum-form" style="color:#fb923c">${r.taMinus}</td>
-        <td class="rsum-form">${r.kamus}</td>
-        <td style="font-size:0.68rem;color:var(--text2)">${r.catatan}</td>
-      </tr>`).join('');
+    // Check if all catatan are empty — hide Ket column
+    const hasCatatan = g.contoh.some(r => r.catatan && r.catatan.trim() !== '');
+
+    let contentHtml;
+    if (isCompact) {
+      // Layout compact grid untuk bentuk dengan banyak kolom "—"
+      const compactRows = g.contoh.map(r => {
+        const cells = [`<div class="konj-compact-cell"><div class="konj-compact-cell-label">〜ます</div><div class="konj-compact-cell-form">${r.masu}</div></div>`];
+        if (r.pos && r.pos !== '—') cells.push(`<div class="konj-compact-cell"><div class="konj-compact-cell-label" style="color:#60a5fa">✅ Bentuk</div><div class="konj-compact-cell-form" style="color:#60a5fa"><b>${r.pos}</b></div></div>`);
+        if (r.neg && r.neg !== '—') cells.push(`<div class="konj-compact-cell"><div class="konj-compact-cell-label" style="color:#f87171">❌ Negatif</div><div class="konj-compact-cell-form" style="color:#f87171"><b>${r.neg}</b></div></div>`);
+        if (r.kamus && r.kamus !== '—') cells.push(`<div class="konj-compact-cell"><div class="konj-compact-cell-label" style="color:#2dd4bf">辞 Kamus</div><div class="konj-compact-cell-form">${r.kamus}</div></div>`);
+        const catatanLine = (r.catatan && r.catatan.trim()) ? `<div style="grid-column:1/-1;font-size:0.68rem;color:var(--text2);padding:2px 4px">${r.catatan}</div>` : '';
+        return `<div class="konj-compact-grid">${cells.join('')}${catatanLine}</div>`;
+      }).join('');
+      contentHtml = compactRows;
+    } else if (isAdvanced) {
+      // Tabel lanjutan — hide Ket jika semua kosong
+      // Check kolom lampau kosong
+      const hasLampauPlus = g.contoh.some(r => r.taPlus && r.taPlus !== '—');
+      const hasLampauMinus = g.contoh.some(r => r.taMinus && r.taMinus !== '—');
+      let headerHtml = `<th>〜ます</th><th style="color:#60a5fa">✅ Kini +</th><th style="color:#f87171">❌ Kini −</th>`;
+      if (hasLampauPlus) headerHtml += `<th style="color:#fbbf24">⏮️ Lampau +</th>`;
+      if (hasLampauMinus) headerHtml += `<th style="color:#fb923c">⏮️❌ Lampau −</th>`;
+      headerHtml += `<th><span class="rsum-vv-chip vv-kamus" style="font-size:0.62rem">辞</span> Kamus</th>`;
+      if (hasCatatan) headerHtml += `<th>Ket.</th>`;
+      const rowsHtml = g.contoh.map(r => {
+        let row = `<td class="rsum-form">${r.masu}</td><td class="rsum-form"><b style="color:#60a5fa">${r.pos}</b></td><td class="rsum-form" style="color:#f87171"><b>${r.neg}</b></td>`;
+        if (hasLampauPlus) row += `<td class="rsum-form" style="color:#fbbf24">${r.taPlus}</td>`;
+        if (hasLampauMinus) row += `<td class="rsum-form" style="color:#fb923c">${r.taMinus}</td>`;
+        row += `<td class="rsum-form">${r.kamus}</td>`;
+        if (hasCatatan) row += `<td style="font-size:0.68rem;color:var(--text2)">${r.catatan}</td>`;
+        return `<tr>${row}</tr>`;
+      }).join('');
+      contentHtml = `<div class="tbl-scroll-wrap"><table class="rsum-table"><thead><tr>${headerHtml}</tr></thead><tbody>${rowsHtml}</tbody></table></div>`;
     } else {
-      // Konjugasi dasar (I/II/III/⚠️): 6 kolom (ます, て, た, ない, 辞書, Ket.)
-      headerHtml = `<th>〜ます</th>
-       <th><span class="rsum-vv-chip vv-te" style="font-size:0.62rem">て</span> 〜て</th>
-       <th><span class="rsum-vv-chip vv-ta" style="font-size:0.62rem">た</span> 〜た</th>
-       <th><span class="rsum-vv-chip vv-nai" style="font-size:0.62rem">ない</span> 〜ない</th>
-       <th><span class="rsum-vv-chip vv-kamus" style="font-size:0.62rem">辞</span> Kamus</th>
-       <th>Ket.</th>`;
-      rowsHtml = g.contoh.map(r => `
-      <tr>
-        <td class="rsum-form">${r.masu.replace(/⚠️/g,'')}${r.masu.includes('⚠️')?'<span style="color:var(--amber);font-size:0.7rem"> ⚠️</span>':''}</td>
-        <td class="rsum-form"><b>${r.te}</b></td>
-        <td class="rsum-form" style="color:var(--amber)">${r.te.replace(/て$/,'た').replace(/で$/,'だ')}</td>
-        <td class="rsum-form"><b style="color:var(--red)">${r.nai}</b></td>
-        <td class="rsum-form">${r.kamus}</td>
-        <td style="font-size:0.68rem;color:var(--text2)">${r.catatan}</td>
-      </tr>`).join('');
+      // Konjugasi dasar — hide Ket jika semua kosong
+      let headerHtml = `<th>〜ます</th><th><span class="rsum-vv-chip vv-te" style="font-size:0.62rem">て</span> 〜て</th><th><span class="rsum-vv-chip vv-ta" style="font-size:0.62rem">た</span> 〜た</th><th><span class="rsum-vv-chip vv-nai" style="font-size:0.62rem">ない</span> 〜ない</th><th><span class="rsum-vv-chip vv-kamus" style="font-size:0.62rem">辞</span> Kamus</th>`;
+      if (hasCatatan) headerHtml += `<th>Ket.</th>`;
+      const rowsHtml = g.contoh.map(r => {
+        let row = `<td class="rsum-form">${r.masu.replace(/⚠️/g,'')}${r.masu.includes('⚠️')?'<span style="color:var(--amber);font-size:0.7rem"> ⚠️</span>':''}</td><td class="rsum-form"><b>${r.te}</b></td><td class="rsum-form" style="color:var(--amber)">${r.te.replace(/て$/,'た').replace(/で$/,'だ')}</td><td class="rsum-form"><b style="color:var(--red)">${r.nai}</b></td><td class="rsum-form">${r.kamus}</td>`;
+        if (hasCatatan) row += `<td style="font-size:0.68rem;color:var(--text2)">${r.catatan}</td>`;
+        return `<tr>${row}</tr>`;
+      }).join('');
+      contentHtml = `<div class="tbl-scroll-wrap"><table class="rsum-table"><thead><tr>${headerHtml}</tr></thead><tbody>${rowsHtml}</tbody></table></div>`;
     }
+
     const aturanHtml = g.aturan.map(a => `<li style="margin-bottom:4px">${a}</li>`).join('');
-    // Poin 2: babChipsHtml — link ke bab terkait
     const grupKey = stripRuby(g.grup);
     const babNums = konjBabMap[grupKey] || [];
-    let babChipsHtml = babNums.map(b => `<span class="rsum-bab-chip clickable" onclick="openBabFromRangkuman(${b}, 0, this)" title="Buka Bab ${b}">📖 Bab ${b}</span>`).join(' ');
+    const babChipsHtml = babNums.map(b => `<span class="rsum-bab-chip clickable" onclick="openBabFromRangkuman(${b}, 0, this)" title="Buka Bab ${b}">📖 Bab ${b}</span>`).join(' ');
     const sectionId = `konj-sec-${grupPlain.replace(/[<>\/\s]/g,'_')}`;
+    const isOpen = konjIdx === 0 ? ' open' : '';
+    // Contoh kalimat
+    const exData = konjExamples[grupKey];
+    const exHtml = exData ? `<button class="konj-example-toggle" onclick="this.nextElementSibling.classList.toggle('open');this.querySelector('.ex-chev').textContent=this.nextElementSibling.classList.contains('open')?'▾':'▸'"><span class="ex-chev">▸</span> Contoh Kalimat</button><div class="konj-example-body"><span style="color:var(--text)">${exData.jp}</span><br><span style="color:var(--text2);font-size:0.76rem;font-family:inherit">${exData.id}</span></div>` : '';
+
     konjHtml += `
-      <div id="${sectionId}" style="margin-bottom:18px;scroll-margin-top:60px">
-        <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;flex-wrap:wrap">
+      <div id="${sectionId}" class="konj-accordion${isOpen}" style="scroll-margin-top:110px">
+        <div class="konj-accordion-head" onclick="this.parentElement.classList.toggle('open')">
+          <span class="konj-accordion-chevron">▶</span>
           <span class="rsum-conj-group ${g.warna}">Grup ${g.grup}</span>
           <span style="font-size:0.82rem;font-weight:600;color:var(--text)">${g.label}</span>
-          ${n4Badge}
-          ${babChipsHtml}
+          <span class="konj-accordion-count">${g.contoh.length} kata</span>
         </div>
-        <div style="font-size:0.75rem;color:var(--text2);margin-bottom:8px;background:var(--surface2);border-radius:8px;padding:8px 12px">
-          <ul style="padding-left:16px;margin:0;line-height:2">${aturanHtml}</ul>
-        </div>
-        <div class="tbl-scroll-wrap">
-        <table class="rsum-table">
-          <thead><tr>
-            ${headerHtml}
-          </tr></thead>
-          <tbody>${rowsHtml}</tbody>
-        </table>
+        <div class="konj-accordion-body">
+          <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px">${babChipsHtml}</div>
+          <div style="font-size:0.75rem;color:var(--text2);margin-bottom:10px;background:var(--surface2);border-radius:8px;padding:8px 12px">
+            <ul style="padding-left:16px;margin:0;line-height:2">${aturanHtml}</ul>
+          </div>
+          ${contentHtml}
+          ${exHtml}
         </div>
       </div>`;
+    konjIdx++;
   });
   const konjNotes = '';
   const kkCheatSheet = `
-    <div style="margin-bottom:18px">
+    <div style="margin-bottom:14px">
       <div style="font-size:0.75rem;font-weight:700;color:var(--text2);margin-bottom:6px;letter-spacing:0.04em">📌 RINGKASAN RUMUS CEPAT</div>
       <div class="tbl-scroll-wrap"><table class="rsum-vv-table" style="min-width:520px">
         <thead><tr>
@@ -9497,106 +9646,83 @@ function renderRangkuman() {
       </table></div>
     </div>`;
 
-  // ── Penjelasan Detail Ragam Sopan vs Ragam Biasa ──
-  const ragamExplanation = `
-    <div style="margin-bottom:22px">
-      <div style="font-size:0.75rem;font-weight:700;color:var(--accent2);margin-bottom:10px;letter-spacing:0.04em">📚 RAGAM SOPAN vs RAGAM BIASA — Penjelasan Detail</div>
-
+  // ── Penjelasan Detail Ragam Sopan vs Ragam Biasa (collapsible) ──
+  const ragamExplanationContent = `
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px">
         <div style="background:rgba(96,165,250,0.08);border:1px solid rgba(96,165,250,0.25);border-radius:10px;padding:12px 14px">
-          <div style="font-size:0.78rem;font-weight:700;color:#60a5fa;margin-bottom:6px">🎩 Ragam Sopan (丁寧体 ていねいたい)</div>
+          <div style="font-size:0.78rem;font-weight:700;color:#60a5fa;margin-bottom:6px">🎩 Ragam Sopan (丁寧体)</div>
           <div style="font-size:0.75rem;color:var(--text2);line-height:1.8">
-            <b>Kapan dipakai:</b><br>
-            • Dengan orang yang baru dikenal<br>
-            • Dengan atasan, guru, senior<br>
-            • Dalam situasi resmi / formal<br>
-            • Di tempat kerja / sekolah<br><br>
-            <b>Ciri khas:</b> berakhiran <span style="color:#60a5fa;font-family:'Noto Sans JP'">〜ます / 〜です</span><br><br>
-            <b>Contoh:</b><br>
-            <span style="font-family:'Noto Sans JP';color:var(--text)">たべ<b style="color:#60a5fa">ます</b></span> → makan (sopan)<br>
-            <span style="font-family:'Noto Sans JP';color:var(--text)">たべ<b style="color:#f87171">ません</b></span> → tidak makan<br>
-            <span style="font-family:'Noto Sans JP';color:var(--text)">たべ<b style="color:#fbbf24">ました</b></span> → sudah makan<br>
-            <span style="font-family:'Noto Sans JP';color:var(--text)">たべ<b style="color:#fb923c">ませんでした</b></span> → tidak makan (dulu)
+            <b>Kapan dipakai:</b> orang baru, atasan, guru, formal<br>
+            <b>Ciri:</b> <span style="color:#60a5fa;font-family:'Noto Sans JP'">〜ます / 〜です</span><br>
+            <span style="font-family:'Noto Sans JP';color:var(--text)">たべ<b style="color:#60a5fa">ます</b></span> / <span style="font-family:'Noto Sans JP';color:var(--text)">たべ<b style="color:#f87171">ません</b></span> / <span style="font-family:'Noto Sans JP';color:var(--text)">たべ<b style="color:#fbbf24">ました</b></span> / <span style="font-family:'Noto Sans JP';color:var(--text)">たべ<b style="color:#fb923c">ませんでした</b></span>
           </div>
         </div>
-
         <div style="background:rgba(45,212,191,0.08);border:1px solid rgba(45,212,191,0.25);border-radius:10px;padding:12px 14px">
-          <div style="font-size:0.78rem;font-weight:700;color:#2dd4bf;margin-bottom:6px">💬 Ragam Biasa (普通体 ふつうたい)</div>
+          <div style="font-size:0.78rem;font-weight:700;color:#2dd4bf;margin-bottom:6px">💬 Ragam Biasa (普通体)</div>
           <div style="font-size:0.75rem;color:var(--text2);line-height:1.8">
-            <b>Kapan dipakai:</b><br>
-            • Dengan teman dekat / keluarga<br>
-            • Dalam kalimat kasual / santai<br>
-            • Di dalam kalimat (sebelum と思う, から, のに, dll.)<br>
-            • Dalam diary / monolog batin<br><br>
-            <b>Ciri khas:</b> berakhiran <span style="color:#2dd4bf;font-family:'Noto Sans JP'">bentuk kamus / 〜ない / 〜た / 〜なかった</span><br><br>
-            <b>Contoh:</b><br>
-            <span style="font-family:'Noto Sans JP';color:var(--text)">たべ<b style="color:#2dd4bf">る</b></span> → makan (biasa)<br>
-            <span style="font-family:'Noto Sans JP';color:var(--text)">たべ<b style="color:#f87171">ない</b></span> → tidak makan<br>
-            <span style="font-family:'Noto Sans JP';color:var(--text)">たべ<b style="color:#fbbf24">た</b></span> → sudah makan<br>
-            <span style="font-family:'Noto Sans JP';color:var(--text)">たべ<b style="color:#fb923c">なかった</b></span> → tidak makan (dulu)
+            <b>Kapan dipakai:</b> teman, keluarga, di tengah kalimat<br>
+            <b>Ciri:</b> <span style="color:#2dd4bf;font-family:'Noto Sans JP'">bentuk kamus / ない / た / なかった</span><br>
+            <span style="font-family:'Noto Sans JP';color:var(--text)">たべ<b style="color:#2dd4bf">る</b></span> / <span style="font-family:'Noto Sans JP';color:var(--text)">たべ<b style="color:#f87171">ない</b></span> / <span style="font-family:'Noto Sans JP';color:var(--text)">たべ<b style="color:#fbbf24">た</b></span> / <span style="font-family:'Noto Sans JP';color:var(--text)">たべ<b style="color:#fb923c">なかった</b></span>
           </div>
         </div>
       </div>
-
-      <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:12px 14px;margin-bottom:10px">
-        <div style="font-size:0.72rem;font-weight:700;color:var(--text2);margin-bottom:8px;letter-spacing:0.04em">💡 PERBEDAAN PENTING</div>
-        <div style="font-size:0.75rem;color:var(--text2);line-height:1.8">
-          <table style="width:100%;border-collapse:collapse;font-size:0.75rem">
-            <tr style="border-bottom:1px solid var(--border)">
-              <td style="padding:6px 8px;font-weight:600;color:var(--text);width:30%">Aspek</td>
-              <td style="padding:6px 8px;color:#60a5fa;font-weight:600">🎩 Sopan</td>
-              <td style="padding:6px 8px;color:#2dd4bf;font-weight:600">💬 Biasa</td>
-            </tr>
-            <tr style="border-bottom:1px solid var(--border)">
-              <td style="padding:6px 8px;color:var(--text2)">Akhiran positif</td>
-              <td style="padding:6px 8px;font-family:'Noto Sans JP'">〜ます</td>
-              <td style="padding:6px 8px;font-family:'Noto Sans JP'">〜う/る (bentuk kamus)</td>
-            </tr>
-            <tr style="border-bottom:1px solid var(--border)">
-              <td style="padding:6px 8px;color:var(--text2)">Akhiran negatif</td>
-              <td style="padding:6px 8px;font-family:'Noto Sans JP'">〜ません</td>
-              <td style="padding:6px 8px;font-family:'Noto Sans JP'">〜ない</td>
-            </tr>
-            <tr style="border-bottom:1px solid var(--border)">
-              <td style="padding:6px 8px;color:var(--text2)">Lampau positif</td>
-              <td style="padding:6px 8px;font-family:'Noto Sans JP'">〜ました</td>
-              <td style="padding:6px 8px;font-family:'Noto Sans JP'">〜た/だ</td>
-            </tr>
-            <tr style="border-bottom:1px solid var(--border)">
-              <td style="padding:6px 8px;color:var(--text2)">Lampau negatif</td>
-              <td style="padding:6px 8px;font-family:'Noto Sans JP'">〜ませんでした</td>
-              <td style="padding:6px 8px;font-family:'Noto Sans JP'">〜なかった</td>
-            </tr>
-            <tr style="border-bottom:1px solid var(--border)">
-              <td style="padding:6px 8px;color:var(--text2)">Kapan pakai</td>
-              <td style="padding:6px 8px">Akhir kalimat (ke lawan bicara)</td>
-              <td style="padding:6px 8px">Akhir kalimat santai / di tengah kalimat (sebelum と, から, のに, dll.)</td>
-            </tr>
-            <tr>
-              <td style="padding:6px 8px;color:var(--text2)">Contoh lengkap</td>
-              <td style="padding:6px 8px;font-family:'Noto Sans JP'">あした いきます。</td>
-              <td style="padding:6px 8px;font-family:'Noto Sans JP'">あした いく。</td>
-            </tr>
-          </table>
-        </div>
-      </div>
-
       <div class="note-box note-teal" style="font-size:0.76rem;line-height:1.7;margin-bottom:0">
-        <b>⚠️ Penting:</b> Ragam Biasa (普通体) WAJIB digunakan di dalam kalimat kompleks:<br>
-        • あした <ruby>雨<rt>あめ</rt></ruby>が <b>ふる</b>と<ruby>思<rt>おも</rt></ruby>います。(Saya pikir besok hujan) — bukan ふりますと<br>
-        • <ruby>時間<rt>じかん</rt></ruby>が <b>ない</b>から、タクシーで <ruby>行<rt>い</rt></ruby>きます。(Karena tidak ada waktu, naik taksi) — bukan ありませんから<br>
-        • きのう <b>買った</b> <ruby>本<rt>ほん</rt></ruby> (Buku yang dibeli kemarin) — bukan 買いました本
+        <b>⚠️ Penting:</b> Ragam Biasa WAJIB di dalam kalimat kompleks:<br>
+        • あした <ruby>雨<rt>あめ</rt></ruby>が <b>ふる</b>と<ruby>思<rt>おも</rt></ruby>います。— bukan ふりますと<br>
+        • <ruby>時間<rt>じかん</rt></ruby>が <b>ない</b>から、タクシーで <ruby>行<rt>い</rt></ruby>きます。— bukan ありませんから
+      </div>`;
+  const ragamExplanation = `
+    <div style="margin-bottom:16px">
+      <button class="konj-collapsible-toggle" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">
+        <span class="toggle-chevron">▶</span>
+        <span class="toggle-label">📚 Ragam Sopan vs Ragam Biasa</span>
+        <span class="toggle-hint">Klik untuk buka/tutup</span>
+      </button>
+      <div class="konj-collapsible-body">
+        ${ragamExplanationContent}
       </div>
     </div>`;
 
+  // Note pembeda tab
+  const konjTabNote = `<div class="konj-tab-note">
+    <span style="font-size:1.1rem;flex-shrink:0">💡</span>
+    <span><b>Tab ini = HOW</b> (cara membentuk konjugasi per grup kata kerja).<br>
+    Tab <b>Bentuk VV = WHERE</b> (pola apa saja yang menggunakan bentuk itu).</span>
+  </div>`;
+
   document.getElementById('rsum-tab-3').innerHTML = `<div style="padding:16px 14px 20px">
     <div class="rsum-section-title">🔄 Konjugasi Kata Kerja — <span style="color:${lvColor}">${lvLabel}</span></div>
+    ${konjTabNote}
     ${ragamExplanation}
     ${kkCheatSheet}
     ${konjQuickNav}
     ${konjHtml}
     ${konjNotes}
   </div>`;
+
+  // IntersectionObserver for sticky quick-nav highlight
+  setTimeout(() => {
+    const navBar = document.getElementById('konjQuickNavBar');
+    if (!navBar) return;
+    const navBtns = navBar.querySelectorAll('[data-konj-nav]');
+    const sections = [];
+    navBtns.forEach(btn => {
+      const id = 'konj-sec-' + btn.getAttribute('data-konj-nav');
+      const el = document.getElementById(id);
+      if (el) sections.push({el, btn});
+    });
+    if (!sections.length) return;
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navBtns.forEach(b => b.classList.remove('active'));
+          const match = sections.find(s => s.el === entry.target);
+          if (match) match.btn.classList.add('active');
+        }
+      });
+    }, {rootMargin: '-120px 0px -60% 0px', threshold: 0.1});
+    sections.forEach(s => observer.observe(s.el));
+  }, 100);
 
   // ─── Tab 4: Kata Sifat ───
   const adjCell = (label, form) => `<div class="rsum-adj-cell"><div class="rsum-adj-cell-label">${label}</div><div class="rsum-adj-cell-form">${form}</div></div>`;
