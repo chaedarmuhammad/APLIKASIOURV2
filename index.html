@@ -8593,6 +8593,17 @@ const RANGKUMAN_POLA = [
 //    warna: gunakan kelas CSS rsum-conj-[nama] yang sudah ada atau tambah CSS baru.
 //    Kolom tabel: masu | te | nai | kamus | catatan ──
 const RANGKUMAN_KONJUGASI = [
+  {grup:"⚠️", warna:"rsum-conj-III", label:"Kata Kerja Khusus (あります・います)",
+   contoh: [
+    {masu:"あります", te:"あって", nai:"ない ⚠️", kamus:"ある", catatan:"ない = tiada (bukan あらない!)"},
+    {masu:"います", te:"いて", nai:"いない", kamus:"いる", catatan:"Grup II tapi sering keliru"},
+   ],
+   aturan:[
+    "ある: bentuk ない-nya adalah <b>ない</b> (bukan あらない) — pengecualian mutlak",
+    "いる: konjugasi Grup II normal, tapi maknanya 'ada (makhluk hidup)'",
+    "Keduanya = keberadaan: ある=benda mati, いる=makhluk hidup",
+   ]
+  },
   {grup:"I", warna:"rsum-conj-I", label:"Godan (う<ruby>動詞<rt>どうし</rt></ruby>)",
    contoh: [
     {masu:"かきます", te:"かいて", nai:"かかない", kamus:"かく", catatan:"き→いて"},
@@ -8630,17 +8641,6 @@ const RANGKUMAN_KONJUGASI = [
     "Bentuk ない: します→<b>しない</b> | きます→<b>こない</b>",
    ]
   },
-  {grup:"⚠️", warna:"rsum-conj-III", label:"Kata Kerja Khusus (あります・います)",
-   contoh: [
-    {masu:"あります", te:"あって", nai:"ない ⚠️", kamus:"ある", catatan:"ない = tiada (bukan あらない!)"},
-    {masu:"います", te:"いて", nai:"いない", kamus:"いる", catatan:"Grup II tapi sering keliru"},
-   ],
-   aturan:[
-    "ある: bentuk ない-nya adalah <b>ない</b> (bukan あらない) — pengecualian mutlak",
-    "いる: konjugasi Grup II normal, tapi maknanya 'ada (makhluk hidup)'",
-    "Keduanya = keberadaan: ある=benda mati, いる=makhluk hidup",
-   ]
-  },
   {grup:"たら", warna:"rsum-conj-tara", label:"Bentuk たら (dari lampau biasa + ら)",
    contoh: [
     {masu:"のみます", pos:"のんだら", neg:"のまなかったら", taPlus:"—", taMinus:"—", kamus:"のむ", catatan:"Grp I: た→たら"},
@@ -8661,6 +8661,27 @@ const RANGKUMAN_KONJUGASI = [
     "KB: あめだ → あめだった → <b>あめだったら</b>",
     "Negatif たら: ない→なかった → <b>なかったら</b>",
     "⚠️ たら tidak memiliki bentuk lampau — hanya digunakan di klausa syarat",
+   ]
+  },
+  {grup:"ても", warna:"rsum-conj-temo", label:"Bentuk ても / でも (Walaupun ~)",
+   contoh: [
+    {masu:"のみます", pos:"のんでも", neg:"のまなくても", taPlus:"のんでも (lampau konteks)", taMinus:"のまなくても", kamus:"のむ", catatan:"Grp I: て→ても"},
+    {masu:"たべます", pos:"たべても", neg:"たべなくても", taPlus:"たべても (lampau konteks)", taMinus:"たべなくても", kamus:"たべる", catatan:"Grp II: て→ても"},
+    {masu:"きます", pos:"きても", neg:"こなくても", taPlus:"きても (lampau konteks)", taMinus:"こなくても", kamus:"くる", catatan:"Grp III (<ruby>不規則<rt>ふきそく</rt></ruby>)"},
+    {masu:"あついです", pos:"あつくても", neg:"あつくなくても", taPlus:"あつかっても", taMinus:"あつくなかっても", kamus:"あつい", catatan:"KS い: く→くても"},
+    {masu:"きれいです", pos:"きれいでも", neg:"きれいじゃなくても", taPlus:"きれいだっても", taMinus:"きれいじゃなかっても", kamus:"きれいだ", catatan:"KS な: で→でも"},
+    {masu:"あめです", pos:"あめでも", neg:"あめじゃなくても", taPlus:"あめだっても", taMinus:"あめじゃなかっても", kamus:"あめだ", catatan:"KB: で→でも"},
+   ],
+   aturan:[
+    "KK: ikuti aturan bentuk <b>て</b> lalu tambah <b>も</b>",
+    "KK I: のむ → のんで → <b>のんでも</b>",
+    "KK II: たべる → たべて → <b>たべても</b>",
+    "KK III: する → して → <b>しても</b> | くる → きて → <b>きても</b>",
+    "KS い: buang い → tambah <b>くても</b> (あつい → あつ<b>くても</b>)",
+    "KS な: tambah <b>でも</b> langsung (きれい → きれい<b>でも</b>)",
+    "KB: tambah <b>でも</b> langsung (にちようび → にちようび<b>でも</b>)",
+    "Negatif ても: ない→なくて → <b>なくても</b>",
+    "⚠️ ても tidak berubah bentuk lampau — waktu ditentukan klausa utama",
    ]
   },
   {grup:"<ruby>可能<rt>かのう</rt></ruby>", warna:"rsum-conj-kano", label:"Bentuk Potensial <ruby>可能形<rt>かのうけい</rt></ruby> (bisa ~)",
@@ -8684,27 +8705,6 @@ const RANGKUMAN_KONJUGASI = [
     "⚠️ Partikel objek: <b>を → が</b> saat bentuk potensial",
     "  すしを たべます → すし<b>が</b> たべられます",
     "⚠️ Potensial terkonjugasi seperti KK Grup II (ます/ません/ました/ませんでした)",
-   ]
-  },
-  {grup:"ても", warna:"rsum-conj-temo", label:"Bentuk ても / でも (Walaupun ~)",
-   contoh: [
-    {masu:"のみます", pos:"のんでも", neg:"のまなくても", taPlus:"のんでも (lampau konteks)", taMinus:"のまなくても", kamus:"のむ", catatan:"Grp I: て→ても"},
-    {masu:"たべます", pos:"たべても", neg:"たべなくても", taPlus:"たべても (lampau konteks)", taMinus:"たべなくても", kamus:"たべる", catatan:"Grp II: て→ても"},
-    {masu:"きます", pos:"きても", neg:"こなくても", taPlus:"きても (lampau konteks)", taMinus:"こなくても", kamus:"くる", catatan:"Grp III (<ruby>不規則<rt>ふきそく</rt></ruby>)"},
-    {masu:"あついです", pos:"あつくても", neg:"あつくなくても", taPlus:"あつかっても", taMinus:"あつくなかっても", kamus:"あつい", catatan:"KS い: く→くても"},
-    {masu:"きれいです", pos:"きれいでも", neg:"きれいじゃなくても", taPlus:"きれいだっても", taMinus:"きれいじゃなかっても", kamus:"きれいだ", catatan:"KS な: で→でも"},
-    {masu:"あめです", pos:"あめでも", neg:"あめじゃなくても", taPlus:"あめだっても", taMinus:"あめじゃなかっても", kamus:"あめだ", catatan:"KB: で→でも"},
-   ],
-   aturan:[
-    "KK: ikuti aturan bentuk <b>て</b> lalu tambah <b>も</b>",
-    "KK I: のむ → のんで → <b>のんでも</b>",
-    "KK II: たべる → たべて → <b>たべても</b>",
-    "KK III: する → して → <b>しても</b> | くる → きて → <b>きても</b>",
-    "KS い: buang い → tambah <b>くても</b> (あつい → あつ<b>くても</b>)",
-    "KS な: tambah <b>でも</b> langsung (きれい → きれい<b>でも</b>)",
-    "KB: tambah <b>でも</b> langsung (にちようび → にちようび<b>でも</b>)",
-    "Negatif ても: ない→なくて → <b>なくても</b>",
-    "⚠️ ても tidak berubah bentuk lampau — waktu ditentukan klausa utama",
    ]
   },
   {grup:"ながら", warna:"rsum-conj-nagara", label:"Bentuk ながら (sambil ~)",
@@ -9488,8 +9488,8 @@ function renderRangkuman() {
   const konjN4Groups = ['たら', '可能', 'ても', 'ながら', '受身', '使役', '命令・禁止', '尊敬', '謙譲'];
   const konjBabMap = {
     'I': [14,19,20], 'II': [14,19,20], 'III': [14,19,20], '⚠️': [10,14],
-    'たら': [37,38], '可能': [42], 'ても': [39], 'ながら': [43],
-    '受身': [58,59], '使役': [60], '命令・禁止': [61], '尊敬': [65,66], '謙譲': [67,68],
+    'たら': [37,38], '可能かのう': [42], 'ても': [39], 'ながら': [43],
+    '受身うけみ': [58,59], '使役': [60], '命令・禁止': [61], '尊敬': [65,66], '謙譲': [67,68],
   };
   // Contoh kalimat per grup
   const konjExamples = {
@@ -9498,10 +9498,10 @@ function renderRangkuman() {
     'III': {jp:'<ruby>毎日<rt>まいにち</rt></ruby> <ruby>日本語<rt>にほんご</rt></ruby>を <b><ruby>勉強<rt>べんきょう</rt></ruby>して</b>います。', id:'Setiap hari sedang belajar bahasa Jepang.'},
     '⚠️': {jp:'<ruby>冷蔵庫<rt>れいぞうこ</rt></ruby>に <ruby>牛乳<rt>ぎゅうにゅう</rt></ruby>が <b>ない</b>から、<ruby>買<rt>か</rt></ruby>いに <ruby>行<rt>い</rt></ruby>きます。', id:'Karena tidak ada susu di kulkas, pergi beli.'},
     'たら': {jp:'<ruby>雨<rt>あめ</rt></ruby>が <b><ruby>降<rt>ふ</rt></ruby>ったら</b>、うちに います。', id:'Kalau hujan, saya di rumah.'},
-    '可能': {jp:'<ruby>日本語<rt>にほんご</rt></ruby>が <b><ruby>話<rt>はな</rt></ruby>せます</b>。', id:'Bisa berbicara bahasa Jepang.'},
+    '可能かのう': {jp:'<ruby>日本語<rt>にほんご</rt></ruby>が <b><ruby>話<rt>はな</rt></ruby>せます</b>。', id:'Bisa berbicara bahasa Jepang.'},
     'ても': {jp:'<ruby>雨<rt>あめ</rt></ruby>が <b><ruby>降<rt>ふ</rt></ruby>っても</b>、サッカーを します。', id:'Walaupun hujan, tetap bermain sepak bola.'},
     'ながら': {jp:'<ruby>音楽<rt>おんがく</rt></ruby>を <b><ruby>聞<rt>き</rt></ruby>きながら</b>、<ruby>勉強<rt>べんきょう</rt></ruby>します。', id:'Belajar sambil mendengarkan musik.'},
-    '受身': {jp:'<ruby>電車<rt>でんしゃ</rt></ruby>で <ruby>足<rt>あし</rt></ruby>を <b><ruby>踏<rt>ふ</rt></ruby>まれました</b>。', id:'Kaki saya diinjak di kereta.'},
+    '受身うけみ': {jp:'<ruby>電車<rt>でんしゃ</rt></ruby>で <ruby>足<rt>あし</rt></ruby>を <b><ruby>踏<rt>ふ</rt></ruby>まれました</b>。', id:'Kaki saya diinjak di kereta.'},
     '使役': {jp:'<ruby>先生<rt>せんせい</rt></ruby>は <ruby>学生<rt>がくせい</rt></ruby>に <ruby>本<rt>ほん</rt></ruby>を <b><ruby>読<rt>よ</rt></ruby>ませました</b>。', id:'Guru menyuruh murid membaca buku.'},
     '命令・禁止': {jp:'<b><ruby>止<rt>と</rt></ruby>まれ</b>！ ここに <ruby>入<rt>はい</rt></ruby>る<b>な</b>！', id:'Berhenti! Jangan masuk sini!'},
     '尊敬': {jp:'<ruby>先生<rt>せんせい</rt></ruby>は もう <b><ruby>帰<rt>かえ</rt></ruby>られました</b>。', id:'Guru sudah pulang. (hormat)'},
@@ -9538,24 +9538,12 @@ function renderRangkuman() {
     const isSonkei = grupPlain.includes('尊敬');
     const isKenjou = grupPlain.includes('謙譲');
     const isAdvanced = isTara || isTemo || isKano || isNagara || isUkemi || isShieki || isMeirei || isSonkei || isKenjou;
-    const isCompact = isNagara || isMeirei; // bentuk yang banyak kolom kosong
 
     // Check if all catatan are empty — hide Ket column
     const hasCatatan = g.contoh.some(r => r.catatan && r.catatan.trim() !== '');
 
     let contentHtml;
-    if (isCompact) {
-      // Layout compact grid untuk bentuk dengan banyak kolom "—"
-      const compactRows = g.contoh.map(r => {
-        const cells = [`<div class="konj-compact-cell"><div class="konj-compact-cell-label">〜ます</div><div class="konj-compact-cell-form">${r.masu}</div></div>`];
-        if (r.pos && r.pos !== '—') cells.push(`<div class="konj-compact-cell"><div class="konj-compact-cell-label" style="color:#60a5fa">✅ Bentuk</div><div class="konj-compact-cell-form" style="color:#60a5fa"><b>${r.pos}</b></div></div>`);
-        if (r.neg && r.neg !== '—') cells.push(`<div class="konj-compact-cell"><div class="konj-compact-cell-label" style="color:#f87171">❌ Negatif</div><div class="konj-compact-cell-form" style="color:#f87171"><b>${r.neg}</b></div></div>`);
-        if (r.kamus && r.kamus !== '—') cells.push(`<div class="konj-compact-cell"><div class="konj-compact-cell-label" style="color:#2dd4bf">辞 Kamus</div><div class="konj-compact-cell-form">${r.kamus}</div></div>`);
-        const catatanLine = (r.catatan && r.catatan.trim()) ? `<div style="grid-column:1/-1;font-size:0.68rem;color:var(--text2);padding:2px 4px">${r.catatan}</div>` : '';
-        return `<div class="konj-compact-grid">${cells.join('')}${catatanLine}</div>`;
-      }).join('');
-      contentHtml = compactRows;
-    } else if (isAdvanced) {
+    if (isAdvanced) {
       // Tabel lanjutan — hide Ket jika semua kosong
       // Check kolom lampau kosong
       const hasLampauPlus = g.contoh.some(r => r.taPlus && r.taPlus !== '—');
