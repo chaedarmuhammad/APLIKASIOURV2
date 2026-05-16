@@ -991,10 +991,10 @@ body {
 /* ── RANGKUMAN: Kata Sifat Card (Tab KS) ── */
 .rsum-adj-card {
   background: var(--surface); border: 1px solid var(--border);
-  border-radius: 12px; padding: 16px; margin-bottom: 16px;
+  border-radius: 12px; padding: 18px; margin-bottom: 16px;
 }
 .rsum-adj-head {
-  display: flex; align-items: center; gap: 10px; margin-bottom: 12px;
+  display: flex; align-items: center; gap: 10px; margin-bottom: 14px;
 }
 .rsum-adj-badge {
   font-size: 0.72rem; font-weight: 800; padding: 3px 10px;
@@ -1003,26 +1003,29 @@ body {
 .rsum-adj-i  { background: rgba(248,113,113,0.15); color: #f87171; }
 .rsum-adj-na { background: rgba(192,132,252,0.15); color: #c084fc; }
 .rsum-adj-grid {
-  display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px;
-  margin-bottom: 10px;
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 8px;
+  margin-bottom: 12px;
 }
 .rsum-adj-cell {
   background: var(--surface2); border: 1px solid var(--border);
-  border-radius: 8px; padding: 8px 10px; text-align: center;
+  border-radius: 10px; padding: 10px 12px; text-align: center;
+  transition: border-color 0.2s;
 }
+.rsum-adj-cell:hover { border-color: rgba(124,106,247,0.4); }
 .rsum-adj-cell-label {
-  font-size: 0.62rem; color: var(--text2); font-weight: 600;
-  margin-bottom: 4px; white-space: nowrap;
+  font-size: 0.64rem; color: var(--text2); font-weight: 600;
+  margin-bottom: 5px; white-space: nowrap; letter-spacing: 0.02em;
 }
 .rsum-adj-cell-form {
   font-family: 'Noto Sans JP', sans-serif;
-  font-size: 0.82rem; color: var(--text); font-weight: 500;
-  word-break: break-word;
+  font-size: 0.85rem; color: var(--text); font-weight: 500;
+  word-break: break-word; line-height: 1.8;
 }
 .rsum-adj-special {
-  font-size: 0.76rem; color: var(--text2); line-height: 1.7;
-  padding: 8px 12px; background: var(--surface2);
-  border-radius: 8px; margin-top: 8px;
+  font-size: 0.78rem; color: var(--text2); line-height: 1.8;
+  padding: 10px 14px; background: var(--surface2);
+  border-radius: 10px; margin-top: 10px;
+  border-left: 3px solid var(--amber);
 }
 
 /* VV chip colors */
@@ -1170,17 +1173,6 @@ body {
 }
 .konj-example-body.open { display: block; }
 
-/* Quick Nav sticky */
-.konj-quicknav-sticky {
-  position: sticky; top: 48px; z-index: 50;
-  background: var(--bg); padding: 8px 0 6px;
-  border-bottom: 1px solid var(--border);
-  margin: 0 -14px; padding-left: 14px; padding-right: 14px;
-}
-.rsum-qnav-btn.active {
-  background: var(--accent); border-color: var(--accent); color: white;
-}
-
 /* Note pembeda tab */
 .konj-tab-note {
   display: flex; align-items: flex-start; gap: 10px;
@@ -1240,10 +1232,10 @@ body {
   /* Ragam Sopan vs Biasa grid — 1 kolom di HP kecil */
   [style*="grid-template-columns:1fr 1fr"] { grid-template-columns: 1fr !important; }
 
-  /* Kata sifat grid — selalu 2 kolom di HP kecil */
-  .rsum-adj-grid { grid-template-columns: 1fr 1fr !important; }
-  .rsum-adj-cell { padding: 6px 8px; }
-  .rsum-adj-cell-form { font-size: 0.76rem; }
+  /* Kata sifat grid — 2 kolom di HP kecil */
+  .rsum-adj-grid { grid-template-columns: 1fr 1fr !important; gap: 6px; }
+  .rsum-adj-cell { padding: 8px 10px; }
+  .rsum-adj-cell-form { font-size: 0.78rem; }
 
   /* Note box lebih compact */
   .note-box { padding: 9px 12px; font-size: 0.78rem !important; }
@@ -9718,11 +9710,7 @@ function renderRangkuman() {
     if (rsumLevel === 'n4' && !isN4Group) return false;
     return true;
   });
-  const konjQuickNav = `<div class="konj-quicknav-sticky" id="konjQuickNavBar">
-    <div class="rsum-quicknav" style="margin-bottom:0">
-    ${konjVisibleGroups.map(g => `<button class="rsum-qnav-btn" data-konj-nav="${stripRuby(g.grup).replace(/[<>\/\s]/g,'_')}" onclick="document.getElementById('konj-sec-${stripRuby(g.grup).replace(/[<>\/\s]/g,'_')}').scrollIntoView({behavior:'smooth',block:'start'});">${stripRuby(g.grup)}</button>`).join('')}
-    </div>
-  </div>`;
+  const konjQuickNav = '';
 
   RANGKUMAN_KONJUGASI.forEach(g => {
     const isN4Group = konjN4Groups.some(k => stripRuby(g.grup).includes(k));
@@ -9972,33 +9960,9 @@ function renderRangkuman() {
     ${konjNotes}
   </div>`;
 
-  // IntersectionObserver for sticky quick-nav highlight
-  setTimeout(() => {
-    const navBar = document.getElementById('konjQuickNavBar');
-    if (!navBar) return;
-    const navBtns = navBar.querySelectorAll('[data-konj-nav]');
-    const sections = [];
-    navBtns.forEach(btn => {
-      const id = 'konj-sec-' + btn.getAttribute('data-konj-nav');
-      const el = document.getElementById(id);
-      if (el) sections.push({el, btn});
-    });
-    if (!sections.length) return;
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          navBtns.forEach(b => b.classList.remove('active'));
-          const match = sections.find(s => s.el === entry.target);
-          if (match) match.btn.classList.add('active');
-        }
-      });
-    }, {rootMargin: '-120px 0px -60% 0px', threshold: 0.1});
-    sections.forEach(s => observer.observe(s.el));
-  }, 100);
-
   // ─── Tab 4: Kata Sifat ───
   const adjCell = (label, form) => `<div class="rsum-adj-cell"><div class="rsum-adj-cell-label">${label}</div><div class="rsum-adj-cell-form">${form}</div></div>`;
-  const adjSectionLabel = (txt) => `<div style="font-size:0.72rem;font-weight:700;color:var(--text2);letter-spacing:0.04em;margin:10px 0 6px;padding:3px 8px;background:var(--surface2);border-radius:6px;display:inline-block">${txt}</div>`;
+  const adjSectionLabel = (txt) => `<div style="font-size:0.73rem;font-weight:700;color:var(--accent2);letter-spacing:0.05em;margin:14px 0 8px;padding:4px 10px;background:rgba(192,132,252,0.08);border:1px solid rgba(192,132,252,0.2);border-radius:8px;display:inline-block">${txt}</div>`;
 
   const adjCheatSheet = `
     <div class="konj-accordion" style="scroll-margin-top:110px;margin-bottom:16px;border-color:rgba(124,106,247,0.3)">
@@ -10140,7 +10104,7 @@ function renderRangkuman() {
     </div>`;
 
   const adjHtmlExtra = `
-    <div class="konj-accordion" style="scroll-margin-top:110px;margin-bottom:16px;border-color:rgba(251,191,36,0.3)">
+    <div class="konj-accordion" style="scroll-margin-top:110px;margin-bottom:12px;border-color:rgba(251,191,36,0.3)">
       <div class="konj-accordion-head" onclick="this.parentElement.classList.toggle('open')" style="background:rgba(251,191,36,0.04)">
         <span class="konj-accordion-chevron">▶</span>
         <span style="font-size:0.82rem;font-weight:700;color:var(--amber)">⚠️ Kata Sifat yang Sering Keliru Jenisnya</span>
@@ -10197,12 +10161,15 @@ function renderRangkuman() {
         <div style="margin-top:8px;font-size:0.72rem;color:var(--text2)">💡 くて = deskripsi/sifat. から/ので = alasan → akibat. Jangan pakai くて untuk hubungan sebab-akibat!</div>
       </div>
     </div>`;
-  document.getElementById('rsum-tab-4').innerHTML = `<div style="padding:16px 14px 20px">
-    <div class="rsum-section-title">✨ Kata Sifat — い & な ${rsumLevel !== 'all' ? `<span style="color:${lvColor};font-size:0.75rem">(${lvLabel})</span>` : ''}</div>
-    ${rsumLevel === 'n4' ? `<div class="note-box note-purple" style="font-size:0.8rem;line-height:1.6;margin-bottom:14px">💡 Pola kata sifat い & な adalah fondasi N5 yang terus dipakai di N4. Pastikan sudah hafal semua bentuk konjugasinya!</div>` : ''}
+  document.getElementById('rsum-tab-4').innerHTML = `<div style="padding:18px 16px 24px">
+    <div class="rsum-section-title" style="margin-bottom:16px">✨ KATA SIFAT — い & な ${rsumLevel !== 'all' ? `<span style="color:${lvColor};font-size:0.75rem">(${lvLabel})</span>` : ''}</div>
+    ${rsumLevel === 'n4' ? `<div class="note-box note-purple" style="font-size:0.8rem;line-height:1.6;margin-bottom:16px">💡 Pola kata sifat い & な adalah fondasi N5 yang terus dipakai di N4. Pastikan sudah hafal semua bentuk konjugasinya!</div>` : ''}
     ${adjCheatSheet}
+    <div style="margin-top:8px"></div>
     ${adjHtmlI}
+    <div style="margin-top:8px"></div>
     ${adjHtmlNa}
+    <div style="margin-top:12px"></div>
     ${adjHtmlExtra}
   </div>`;
 }
