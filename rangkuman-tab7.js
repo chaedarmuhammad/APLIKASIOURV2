@@ -57,7 +57,7 @@ function renderRsumTab8(lvLabel, lvColor) {
 // ── Angka / Bilangan Dasar ──
 function buildNumberSection() {
   return `
-    <div class="konj-accordion open" style="scroll-margin-top:110px;margin-bottom:16px;border-color:rgba(251,191,36,0.3)">
+    <div class="konj-accordion" style="scroll-margin-top:110px;margin-bottom:16px;border-color:rgba(251,191,36,0.3)">
       <div class="konj-accordion-head" onclick="this.parentElement.classList.toggle('open')" style="background:rgba(251,191,36,0.04)">
         <span class="konj-accordion-chevron">▶</span>
         <span style="font-size:0.82rem;font-weight:700;color:var(--amber)">🔢 <ruby>数字<rt>すうじ</rt></ruby> — Angka / Bilangan</span>
