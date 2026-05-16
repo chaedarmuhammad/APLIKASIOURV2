@@ -1430,6 +1430,29 @@ body {
   background: var(--surface2); padding: 2px 6px; border-radius: 12px;
 }
 
+/* ── KAMUS MODE TOGGLE ── */
+.kamus-mode-toggle {
+  display: flex; gap: 4px; margin-bottom: 10px;
+  background: var(--surface2); border: 1px solid var(--border);
+  border-radius: 50px; padding: 3px; width: fit-content;
+}
+.kamus-mode-btn {
+  padding: 6px 16px; border-radius: 50px; font-size: 0.78rem;
+  border: none; background: none; color: var(--text2);
+  cursor: pointer; font-family: inherit; font-weight: 600;
+  transition: all 0.2s; white-space: nowrap;
+}
+.kamus-mode-btn.active {
+  background: var(--accent); color: white;
+  box-shadow: 0 2px 8px rgba(124,106,247,0.3);
+}
+.kamus-mode-btn:hover:not(.active) { color: var(--text); }
+.kamus-row-cat-badge {
+  font-size: 0.6rem; padding: 1px 7px; border-radius: 12px;
+  background: var(--surface2); color: var(--text2);
+  border: 1px solid var(--border); flex-shrink: 0; white-space: nowrap;
+}
+
 /* ── MODE LUPA ── */
 .forget-banner {
   display: flex; align-items: center; gap: 14px;
@@ -1574,6 +1597,10 @@ body {
     <div><div class="study-title">📚 Kamus Semua Bab</div><div class="study-sub" id="kamusSubtitle">Semua kata dikelompokkan berdasarkan kategori</div></div>
   </div>
   <div class="kamus-header-bar">
+    <div class="kamus-mode-toggle" id="kamusModeToggle">
+      <button class="kamus-mode-btn active" id="kamusModeBtn_tematik" onclick="setKamusMode('tematik')">🗂️ Tematik</button>
+      <button class="kamus-mode-btn" id="kamusModeBtn_kategori" onclick="setKamusMode('kategori')">📝 Kategori</button>
+    </div>
     <div class="kamus-cat-tabs" id="kamusCatTabs"></div>
     <div class="kamus-toolbar">
       <input class="kamus-search-bar" id="kamusSearch" placeholder="Cari kata JP / Romaji / Indonesia..." oninput="renderKamusBody()">
@@ -10647,7 +10674,9 @@ function startCross() {
 // ========== GLOBAL SEARCH ==========
 // ========== KAMUS KATEGORI ==========
 
+let kamusMode = 'tematik'; // 'tematik' or 'kategori'
 let kamusActiveCat = 'Kata Kerja';
+let kamusActiveTema = null;
 let kamusCoreOnly = false;
 // Track which sub-sections are open (by key)
 let kamusOpenSections = {};
@@ -10665,6 +10694,87 @@ const KAMUS_CATS = [
   { key: 'Posisi',          icon: '📍', label: 'Posisi' },
   { key: 'Angka',           icon: '🔢', label: 'Angka' },
 ];
+
+// ── THEMATIC TOPICS (Tematik) ──
+const KAMUS_TEMATIK = [
+  { key: 'tema_orang',     icon: '👤', label: 'Orang, Profesi & Keluarga', color: '#38bdf8' },
+  { key: 'tema_tubuh',     icon: '🫀', label: 'Tubuh & Kesehatan', color: '#f87171' },
+  { key: 'tema_waktu',     icon: '📅', label: 'Waktu & Kalender', color: '#fbbf24' },
+  { key: 'tema_tempat',    icon: '🗺️', label: 'Tempat & Lokasi', color: '#34d399' },
+  { key: 'tema_transport', icon: '🚆', label: 'Transportasi & Perjalanan', color: '#2dd4bf' },
+  { key: 'tema_rumah',     icon: '🏠', label: 'Rumah & Benda Sehari-hari', color: '#f472b6' },
+  { key: 'tema_pakaian',   icon: '👕', label: 'Pakaian & Penampilan', color: '#c084fc' },
+  { key: 'tema_makanan',   icon: '🍱', label: 'Makanan & Minuman', color: '#fb923c' },
+  { key: 'tema_alam',      icon: '🌿', label: 'Alam, Cuaca & Hewan', color: '#a78bfa' },
+  { key: 'tema_pendidikan',icon: '📖', label: 'Pendidikan & Bahasa', color: '#22d3ee' },
+  { key: 'tema_aktivitas', icon: '🎭', label: 'Aktivitas, Hobi & Acara', color: '#818cf8' },
+  { key: 'tema_kerja',     icon: '💼', label: 'Pekerjaan & Kantor', color: '#60a5fa' },
+  { key: 'tema_komunikasi',icon: '📱', label: 'Komunikasi & Teknologi', color: '#4ade80' },
+  { key: 'tema_perasaan',  icon: '💭', label: 'Perasaan & Sifat', color: '#f9a8d4' },
+  { key: 'tema_angka',     icon: '🔢', label: 'Angka, Bilangan & Ukuran', color: '#fbbf24' },
+  { key: 'tema_tata',      icon: '🔗', label: 'Tata Bahasa & Partikel', color: '#7c6af7' },
+];
+
+// Universal thematic categorizer
+const _TEMA_LOOKUP = (function() {
+  const T = {};
+  const add = (tema, list) => list.forEach(r => { T[r.toLowerCase()] = tema; });
+  add('tema_orang', ['watashi','anata','minasan','ano hito','namae','boku','dare','isha','kaishain','gakusei','ginkōin','kenkyūsha','shain','sensei','yakuzaishi','tomodachi','kazoku','kare','kanojo','chichi','haha','otōsan','okāsan','ani','ane','otōto','imōto','ryōshin','ojīsan','obāsan','otoko no hito','onna no hito','otoko no ko','onna no ko','kyōdai','onīsan','onēsan','kodomo','okosan','otto','tsuma','goshujin','okusan','hosuto famirī','gokazoku','toshi ue','toshi shita','hitori','futari','nan sai','oikutsu']);
+  add('tema_tubuh', ['karada','atama','kao','me','mimi','kuchi','ha','kubi','yubi','tsume','onaka','senaka','ashi','te','kaze','netsu','kusuri','byōki','kanja','byōin','ofuro','shawā','chōshi','tsumekiri']);
+  add('tema_waktu', ['asa','hiru','yoru','gozen','gogo','ima','ototoi','kinō','kyō','ashita','asatte','kesa','konban','maiasa','maiban','mainichi','senshū','konshū','raishū','sengetsu','kongetsu','raigetsu','kyonen','kotoshi','rainen','getsuyōbi','kayōbi','suiyōbi','mokuyōbi','kinyōbi','doyōbi','nichiyōbi','shūmatsu','jikan','yasumi','hiruyasumi','tanjōbi','oshōgatsu','itsu','nan yōbi','nanji','nanpun','nangatu','nanichi','tokidoki','itsumo','yoku','saikin','mō','mada','sugu','mata','ato de','mazu','tsugi ni']);
+  add('tema_tempat', ['uchi','mise','kaisha','gakkō','daigaku','resutoran','hoteru','sūpā','kōen','konbini','kyōshitsu','shokudō','uketsuke','robī','toire','kaidan','erebētā','esukarētā','uriba','depāto','ginkō','yūbinkyoku','toshokan','bijutsukan','ryō','jimusho','kissaten','izakaya','onsen','shiyakusho','taishikan','hanaya','otera','kinkakuji','machi','tokoro','biru','indoneshia','nihon','kankoku','chūgoku','igirisu','furansu','shingapōru','burajiru','amerika','firipin','betonamu','myānmā','taiwan','gaikoku','sekai','ōsaka','hiroshima','kyōto','hokkaidō','akihabara','shibuya','shinjuku','ikebukuro','ueno','shinbashi','fukuoka','nyū yōku','jakarta','ue','shita','mae','ushiro','migi','hidari','naka','soto','chikai','tōi','doko','dochira']);
+  add('tema_transport', ['densha','hikōki','fune','basu','takushī','jitensha','chikatetsu','shinkansen','baiku','jidōsha','eki','kūkō','noriba','pasupōto','biza','chizu','jūsho','michi','shingō','kōtsū','rasshu','sūtsukēsu','chiketto','kippu','nimotsu','norimasu','orimasu','ikimasu','kimasu','kaerimasu','arukimasu','hashirimasu']);
+  add('tema_rumah', ['enpitsu','bōrupen','shāpu penshiru','kagi','tokei','tsukue','isu','hasami','hotchikisu','serotēpu','keshigomu','hako','doa','mado','suicchi','reizōko','tēburu','beddo','tana','denchi','mono','kopī ki','jidōhanbaiki','denshi renji','eakon','denkiseihin','botan','kikai','fūtō','kitte','hagaki','seikatsu','heya','okane','genkin','komakai okane','kurejittokādo','nedan','yachin','akemasu','shimemasu','tsukemasu','keshimasu','iremasu','dashimasu','tsukaimasu','pen']);
+  add('tema_pakaian', ['kutsu','nekutai','shatsu','tī shatsu','kōto','sūtsu','sētā','bōshi','megane','saifu','kaban','kasa','kimono','saizu','fuku']);
+  add('tema_makanan', ['gohan','asagohan','hirugohan','bangohan','pan','niku','sakana','yasai','kudamono','tamago','shio','satō','mizu','ocha','kōcha','jūsu','bīru','kēki','wain','bentō','hanbāgā','kukkī','chokoreeto','kōhī','gyūnyū','miruku','gyūdon','aisukurīmu','tenpura','nihonshu','yakisoba','okonomiyaki','tabemono','nomimono','ryōri','nihon ryōri','hashi','supūn','fōku','naifu','osara','ringo','mikan','tabemasu','nomimasu','tsukurimasu','oishii','mazui','amai','karai','suppai','nigai','tabako']);
+  add('tema_alam', ['hare','ame','yuki','kumori','tenki','kisetsu','haru','natsu','aki','fuyu','jishin','dōbutsu','zō','uma','inu','neko','ki','hana','midori','yama','umi','fuji san','eberesuto','atsui','samui','tsumetai','atatakai','suzushii','furimasu','jinkō']);
+  add('tema_pendidikan', ['nihongo','eigo','taigo','gaikokugo','kanji','hiragana','katakana','kotoba','bunpō','yomikata','hatsuon','imi','hon','jisho','shinbun','zasshi','nōto','meishi','kādo','shiken','tesuto','shukudai','tegami','mēru','repōto','sakubun','shiryō','senmon','shōgakkō','chūgakkō','kōkō','jugyō','kurasu','naraimasu','oshiemasu','yomimasu','kakimasu','rekishi','nikki']);
+  add('tema_aktivitas', ['ryokō','pātī','omatsuri','sakkā','tenisu','basukettobōru','sukī','yoga','sumō','tsuri','gādeningu','kaigi','yakusoku','purezento','omiyage','shumi','konsāto','karaoke','dansu','yakyū','kabuki','ikebana','piano','gitā','gakki','supōtsu','kaimono','junbi','yōji','asobimasu','oyogimasu','sanpo shimasu','eiga','ongaku','shashin','uta','arubaito']);
+  add('tema_kerja', ['shigoto','hatarakimasu','yasumimasu','kopī shimasu','isogashii']);
+  add('tema_komunikasi', ['keitai denwa','pasokon','denwa','mēru adoresu','terebi','kamera','dī bī dī','shī dī','ē tī emu','oto','bangō annai','denwa bangō','hanashimasu','kikimasu','iimasu','yobimasu','nyūsu','anaunsu','supīchi']);
+  add('tema_perasaan', ['tanoshii','tsumaranai','omoshiroi','ureshii','sabishii','suki (na)','kirai (na)','hoshii','nemui','genki (na)','shinsetsu (na)','taisetsu (na)','kirei (na)','kawaii','suteki (na)','hansamu (na)','jōzu (na)','heta (na)','muzukashii','yasashii','kantan (na)','nigiyaka (na)','shizuka (na)','ōkii','chiisai','nagai','mijikai','hiroi','semai','atarashii','furui','ii (yoi)','warui','hayai','osoi','omoi','karui','akarui','kurai','tsuyoi','yowai','abunai','daijōbu (na)','taihen (na)','benri (na)','ōi','sukunai','futoi','hosoi','wakai','sugoi','onaji']);
+  add('tema_angka', ['hyaku','sen','man','ichigatsu','nigatsu','sangatsu','shigatsu','gogatsu','rokugatsu','shichigatsu','hachigatsu','kugatsu','juugatsu','juuichigatsu','juunigatsu','tsuitachi','futsuka','mikka','yokka','itsuka','muika','nanoka','youka','kokonoka','tooka','juuyokka','hatsuka','nijuuyokka','hitotsu','futatsu','mittsu','yottsu','itsutsu','muttsu','nanatsu','yattsu','kokonotsu','tō','ikura','ikutsu','dono gurai']);
+  add('tema_tata', ['wa','ga','o','ni','de','e','to','mo','ka','yo','ne','kara','made','no','yori','soshite','sorekara','shikashi','demo','dakara','desukara']);
+  return T;
+})();
+
+function tematikSubCat(word) {
+  const rom = word.rom.toLowerCase().trim();
+  if (_TEMA_LOOKUP[rom]) return _TEMA_LOOKUP[rom];
+  const id = word.id.toLowerCase();
+  const cat = word.cat;
+  if (/dokter|apoteker|guru|siswa|mahasiswa|pegawai|orang\b|wanita|pria|\banak\b|kakak|adik|\bayah\b|\bibu\b|teman|keluarga|profesi|nama/.test(id)) return 'tema_orang';
+  if (/sakit|demam|\bflu\b|\bobat\b|tubuh|kepala|mata\b|telinga|hidung|mulut|gigi|tangan|kaki|perut|badan|mandi|kondisi/.test(id)) return 'tema_tubuh';
+  if (/\bpagi\b|\bsiang\b|\bmalam\b|\bhari\b|kemarin|besok|sekarang|senin|selasa|rabu|kamis|jumat|sabtu|minggu|akhir pekan|bulan|tahun|jam\b|menit|kapan|waktu/.test(id)) return 'tema_waktu';
+  if (/negara|kota|kuil|sekolah|universitas|kantor|rumah sakit|perpustakaan|museum|tempat|gedung|toko|luar negeri|jalan\b|stasiun|bandara|atas|bawah|depan|belakang|kanan|kiri|dalam|luar/.test(id)) return 'tema_tempat';
+  if (/kereta|pesawat|kapal|\bbus\b|taksi|sepeda|motor|mobil|transportasi|perjalanan|paspor|koper|tiket/.test(id)) return 'tema_transport';
+  if (/sepatu|dasi|kemeja|\bkaus\b|jaket|topi\b|kacamata|dompet|\btas\b|payung|pakaian|memakai|melepas/.test(id)) return 'tema_pakaian';
+  if (/\bnasi\b|\broti\b|daging\b|\bikan\b|telur\b|susu\b|kopi\b|\bteh\b|\bbir\b|\bjus\b|\bair\b|\bkue\b|makanan|minuman|masakan|makan|minum|enak|pedas|manis|pahit/.test(id)) return 'tema_makanan';
+  if (/hujan|salju|cerah|berawan|cuaca|gempa|hewan|binatang|anjing|kucing|pohon|bunga|musim|gunung|laut/.test(id)) return 'tema_alam';
+  if (/bahasa|belajar|mengajar|ujian|buku|koran|majalah|sejarah|pelajaran|menulis|membaca|kamus|huruf|arti\b/.test(id)) return 'tema_pendidikan';
+  if (/wisata|festival|olahraga|konser|hobi|bermain|berenang|film|musik|lagu|foto|memancing|sepak bola|tenis|basket/.test(id)) return 'tema_aktivitas';
+  if (/bekerja|kerja|kantor|rapat|sibuk|perusahaan/.test(id)) return 'tema_kerja';
+  if (/telepon|komputer|email|televisi|kamera|internet|berbicara|mendengar|menelepon|berita/.test(id)) return 'tema_komunikasi';
+  if (/senang|sedih|suka|benci|ingin|mengantuk|baik|buruk|cantik|tampan|pandai|sulit|mudah|besar|kecil|panjang|pendek|luas|sempit|baru|lama|cepat|lambat|kuat|lemah|terang|gelap|ramai|sepi|berbahaya|penting/.test(id)) return 'tema_perasaan';
+  if (/angka|bilangan|berapa|harga|\bsen\b|ribu|lantai|buah|lembar|unit/.test(id)) return 'tema_angka';
+  if (cat === 'Partikel' || cat === 'Konjungsi') return 'tema_tata';
+  if (cat === 'Kata Sifat') return 'tema_perasaan';
+  if (cat === 'Kata Keterangan') return 'tema_waktu';
+  if (cat === 'Kata Tanya') return 'tema_tata';
+  return 'tema_rumah';
+}
+
+function setKamusMode(mode) {
+  kamusMode = mode;
+  kamusOpenSections = {};
+  document.getElementById('kamusSearch').value = '';
+  document.getElementById('kamusModeBtn_tematik').classList.toggle('active', mode === 'tematik');
+  document.getElementById('kamusModeBtn_kategori').classList.toggle('active', mode === 'kategori');
+  document.getElementById('kamusCatTabs').style.display = mode === 'kategori' ? 'flex' : 'none';
+  const subEl = document.getElementById('kamusSubtitle');
+  if (subEl) subEl.textContent = mode === 'tematik' ? 'Semua kata dikelompokkan berdasarkan tema' : 'Semua kata dikelompokkan berdasarkan kategori';
+  renderKamusBody();
+}
 
 // Sub-category definitions per main category
 const KAMUS_SUBCAT = {
@@ -11510,6 +11620,13 @@ function initKamus() {
       ${c.icon} ${c.label} <span style="opacity:0.6">(${catCounts[c.key]})</span>
     </button>`).join('');
 
+  // Set mode toggle state
+  document.getElementById('kamusModeBtn_tematik').classList.toggle('active', kamusMode === 'tematik');
+  document.getElementById('kamusModeBtn_kategori').classList.toggle('active', kamusMode === 'kategori');
+  document.getElementById('kamusCatTabs').style.display = kamusMode === 'kategori' ? 'flex' : 'none';
+  const subEl = document.getElementById('kamusSubtitle');
+  if (subEl) subEl.textContent = kamusMode === 'tematik' ? 'Semua kata dikelompokkan berdasarkan tema' : 'Semua kata dikelompokkan berdasarkan kategori';
+
   const coreEl = document.getElementById('kamusCoreToggle');
   if (coreEl) coreEl.classList.toggle('on', kamusCoreOnly);
 
@@ -11622,6 +11739,51 @@ function renderKamusBody() {
         </div>`;
     });
     bodyEl.innerHTML = html;
+    return;
+  }
+
+  // ── MODE TEMATIK ──
+  if (kamusMode === 'tematik') {
+    let allPool = BABS.flatMap(b => b.kotoba.map(k => ({...k, babNum: b.num})));
+    if (kamusCoreOnly) allPool = allPool.filter(k => k.lv === 'core');
+    allPool = dedupeWords(allPool);
+
+    // Group by theme
+    const byTema = {};
+    KAMUS_TEMATIK.forEach(t => byTema[t.key] = []);
+    allPool.forEach(k => {
+      const tema = tematikSubCat(k);
+      if (byTema[tema]) byTema[tema].push(k);
+      else byTema['tema_rumah'].push(k); // fallback
+    });
+
+    const totalWords = allPool.length;
+    if (subEl) subEl.textContent = `🗂️ Tampilan Tematik — ${totalWords} kata${kamusCoreOnly?' (hanya inti)':''}`;
+    statEl.innerHTML = `
+      <span class="kamus-stat-chip">📊 ${totalWords} kata</span>
+      <span class="kamus-stat-chip">🗂️ ${KAMUS_TEMATIK.length} tema</span>
+      ${kamusCoreOnly ? '<span class="kamus-stat-chip" style="color:var(--green);border-color:var(--green)">✅ Hanya inti</span>' : ''}`;
+
+    let html = '';
+    KAMUS_TEMATIK.forEach(tema => {
+      const words = sortByRom(byTema[tema.key] || []);
+      if (!words.length) return;
+      const secKey = tema.key;
+      const isOpen = !!kamusOpenSections[secKey];
+      html += `
+      <div class="kamus-sub-section${isOpen?' open':''}" id="ksec_${secKey}">
+        <div class="kamus-sub-header" onclick="toggleKamusSection('${secKey}')">
+          <span class="kamus-sub-icon">${tema.icon}</span>
+          <span class="kamus-sub-title" style="color:${tema.color}">${tema.label}</span>
+          <span class="kamus-sub-count">${words.length}</span>
+          <span class="kamus-sub-chevron">▶</span>
+        </div>
+        <div class="kamus-sub-body">
+          <div class="kotoba-list">${tematikKamusRows(words, q)}</div>
+        </div>
+      </div>`;
+    });
+    bodyEl.innerHTML = html || '<div class="kamus-empty">Tidak ada kata.</div>';
     return;
   }
 
@@ -11830,6 +11992,35 @@ function kamusRow(k, q) {
     </div>
     <div class="kamus-row-id">${idText}</div>
     ${grpBadge}
+    <span class="kamus-row-bab">Bab ${escapeHtml(k.babNum)}</span>
+  </div>`;
+}
+
+// Thematic kamus rows — show category badge instead of just group
+function tematikKamusRows(words, q) {
+  let html = '';
+  let prevGid = undefined;
+  words.forEach(w => {
+    const gid = w._gid !== undefined ? w._gid : -1;
+    if (prevGid !== undefined && gid !== prevGid && gid >= 0 && prevGid >= 0) {
+      html += '<div class="kamus-group-sep"></div>';
+    }
+    html += tematikKamusRow(w, q);
+    prevGid = gid;
+  });
+  return html;
+}
+
+function tematikKamusRow(k, q) {
+  const catBadge = `<span class="kamus-row-cat-badge">${escapeHtml(k.cat)}${k.grp ? ' '+escapeHtml(k.grp) : ''}</span>`;
+  const idText = highlight(k.id, q);
+  return `<div class="kamus-row">
+    <div style="flex-shrink:0">
+      <div class="kamus-row-jp">${k.jp}</div>
+      <div class="kamus-row-rom">${highlight(k.rom, q)}</div>
+    </div>
+    <div class="kamus-row-id">${idText}</div>
+    ${catBadge}
     <span class="kamus-row-bab">Bab ${escapeHtml(k.babNum)}</span>
   </div>`;
 }
