@@ -11,7 +11,8 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="N5→N4">
 <link rel="icon" type="image/svg+xml" href="icon.svg">
-<link rel="apple-touch-icon" href="icon.svg">
+<link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+<link rel="apple-touch-icon" sizes="192x192" href="icons/icon-192.png">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -32,6 +33,17 @@
 </div>
 
 <main id="mainContent">
+<!-- NOSCRIPT FALLBACK -->
+<noscript>
+  <div style="text-align:center;padding:60px 24px;font-family:sans-serif;background:#0f0f14;color:#e8e8f0;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center">
+    <h1 style="font-size:2rem;margin-bottom:16px;background:linear-gradient(135deg,#7c6af7,#c084fc);-webkit-background-clip:text;-webkit-text-fill-color:transparent">日本語 N5→N4</h1>
+    <p style="font-size:1.1rem;margin-bottom:12px;color:#9090b0">Flashcard Bahasa Jepang</p>
+    <div style="background:#1a1a24;border:1px solid #2e2e40;border-radius:14px;padding:24px;max-width:400px;margin-top:20px">
+      <p style="font-size:1rem;margin-bottom:16px">Aplikasi ini membutuhkan <strong>JavaScript</strong> untuk berjalan.</p>
+      <p style="font-size:0.88rem;color:#9090b0;line-height:1.6">Silakan aktifkan JavaScript di pengaturan browser Anda, atau gunakan browser modern seperti Chrome, Firefox, Safari, atau Edge.</p>
+    </div>
+  </div>
+</noscript>
 <!-- HOME -->
 <div id="homeScr" class="scr active" role="region" aria-label="Halaman Utama">
   <header class="home-header">
@@ -219,16 +231,42 @@ document.addEventListener('keydown', function(e) {
 });
 </script>
 
-<!-- Load data and app -->
+<!-- Load data (split for performance) and app -->
+<script src="data-n5.js"></script>
+<script src="data-n4.js"></script>
 <script src="data.js"></script>
+<script src="src/utils.js"></script>
+<script src="src/bab-colors.js"></script>
+<script src="src/storage.js"></script>
+<script src="src/srs.js"></script>
+<script src="src/version.js"></script>
 <script src="app.js"></script>
 
 <!-- Service Worker Registration -->
 <script>
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', function() {
-    navigator.serviceWorker.register('/sw.js').catch(function() {
-      // Service worker registration failed - app still works without it
+    navigator.serviceWorker.register('./sw.js').then(function(reg) {
+      // Check for updates periodically
+      setInterval(function() { reg.update(); }, 60 * 60 * 1000); // every hour
+      
+      // Notify user when new version is available
+      reg.addEventListener('updatefound', function() {
+        var newWorker = reg.installing;
+        if (newWorker) {
+          newWorker.addEventListener('statechange', function() {
+            if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+              // New version available
+              if (typeof showToast === 'function') {
+                showToast('Update tersedia! Refresh untuk memperbarui.', 'info');
+              }
+            }
+          });
+        }
+      });
+    }).catch(function(err) {
+      console.warn('[SW] Registration failed:', err);
+      // App still works without service worker
     });
   });
 }

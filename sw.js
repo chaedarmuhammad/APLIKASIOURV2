@@ -1,16 +1,31 @@
 // ========== SERVICE WORKER — N5→N4 日本語 Flashcard ==========
 // Provides offline support via Cache-First strategy for static assets
 // and Network-First for dynamic content.
+//
+// NOTE: Uses relative paths so the app works whether deployed at root (/)
+// or in a subdirectory (e.g., /APLIKASIOURV2/ on GitHub Pages).
 
-const CACHE_NAME = 'n5n4-flashcard-v2';
+const CACHE_NAME = 'n5n4-flashcard-v2.1.0';
+const SW_SCOPE = self.registration ? self.registration.scope : self.location.href.replace(/sw\.js.*$/, '');
+
+// Static assets to pre-cache (relative to SW scope)
 const STATIC_ASSETS = [
-  '/',
-  '/index.html',
-  '/style.css',
-  '/data.js',
-  '/app.js',
-  '/icon.svg',
-  '/manifest.webmanifest'
+  './',
+  './index.html',
+  './style.css',
+  './data-n5.js',
+  './data-n4.js',
+  './data.js',
+  './src/utils.js',
+  './src/bab-colors.js',
+  './src/storage.js',
+  './src/srs.js',
+  './src/version.js',
+  './app.js',
+  './icon.svg',
+  './icons/icon-192.png',
+  './icons/icon-512.png',
+  './manifest.webmanifest'
 ];
 
 // Google Fonts to cache
@@ -22,12 +37,15 @@ const FONT_URLS = [
 self.addEventListener('install', function(event) {
   event.waitUntil(
     caches.open(CACHE_NAME).then(function(cache) {
-      console.log('[SW] Pre-caching static assets');
-      return cache.addAll(STATIC_ASSETS).catch(function(err) {
-        console.warn('[SW] Some assets failed to cache:', err);
-        // Don't fail the install if some assets are missing
-        return Promise.resolve();
-      });
+      console.log('[SW] Pre-caching static assets (v2.1.0)');
+      // Cache each asset individually to avoid failing all if one is missing
+      return Promise.allSettled(
+        STATIC_ASSETS.map(function(url) {
+          return cache.add(url).catch(function(err) {
+            console.warn('[SW] Failed to cache:', url, err.message);
+          });
+        })
+      );
     }).then(function() {
       return self.skipWaiting();
     })
@@ -52,9 +70,9 @@ self.addEventListener('activate', function(event) {
   );
 });
 
-// Fetch: Cache-First for static, Network-First for fonts
+// Fetch: Cache-First for static, Stale-While-Revalidate for fonts
 self.addEventListener('fetch', function(event) {
-  const url = new URL(event.request.url);
+  var url = new URL(event.request.url);
   
   // Skip non-GET requests
   if (event.request.method !== 'GET') return;
@@ -67,7 +85,7 @@ self.addEventListener('fetch', function(event) {
     event.respondWith(
       caches.open(CACHE_NAME).then(function(cache) {
         return cache.match(event.request).then(function(cached) {
-          const fetchPromise = fetch(event.request).then(function(response) {
+          var fetchPromise = fetch(event.request).then(function(response) {
             if (response && response.status === 200) {
               cache.put(event.request, response.clone());
             }
@@ -82,7 +100,7 @@ self.addEventListener('fetch', function(event) {
     return;
   }
   
-  // Local assets: Cache-First
+  // Local assets: Cache-First with network fallback
   if (url.origin === self.location.origin) {
     event.respondWith(
       caches.match(event.request).then(function(cached) {
@@ -90,7 +108,7 @@ self.addEventListener('fetch', function(event) {
         return fetch(event.request).then(function(response) {
           // Cache successful responses
           if (response && response.status === 200) {
-            const responseClone = response.clone();
+            var responseClone = response.clone();
             caches.open(CACHE_NAME).then(function(cache) {
               cache.put(event.request, responseClone);
             });
@@ -99,7 +117,7 @@ self.addEventListener('fetch', function(event) {
         }).catch(function() {
           // Offline fallback for navigation
           if (event.request.mode === 'navigate') {
-            return caches.match('/index.html');
+            return caches.match('./index.html');
           }
           return new Response('Offline', { status: 503, statusText: 'Offline' });
         });
