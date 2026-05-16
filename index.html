@@ -1408,7 +1408,7 @@ body {
 <div id="rangkumanScr" class="scr">
   <div class="study-header">
     <button class="btn-back" onclick="goHome()">← Beranda</button>
-    <div><div class="study-title">📋 Rangkuman N5→N4</div><div class="study-sub">Pola kalimat, partikel, konjugasi & kata sifat Bab 1–60</div></div>
+    <div><div class="study-title">📋 Rangkuman N5→N4</div><div class="study-sub">Pola kalimat, partikel, konjugasi & kata sifat Bab 1–78</div></div>
   </div>
   <!-- Level Selector N5 / N4 -->
   <div class="rsum-level-bar">
@@ -1808,7 +1808,7 @@ const BABS = [
         ["Bentuk positif (lampau)","おきました"],
         ["Bentuk negatif (lampau)","おきませんでした"]
       ],
-      note: {type:"blue", text:"<b>💡 います vs あります — kapan pakai mana?</b><br><b>います</b>: untuk makhluk hidup yang bisa bergerak sendiri (orang, hewan). 先生が <b>います</b>。<br><b>あります</b>: untuk benda mati/tak bergerak (meja, buku, dll). 本が <b>あります</b>。<br>Pengecualian: <b>Tanaman</b> pakai あります meski hidup, karena tidak bergerak sendiri."},
+      note: {type:"blue", text:"<b>💡 います vs あります — kapan pakai mana?</b><br><b>います</b>: untuk makhluk hidup yang bisa bergerak sendiri (orang, hewan). <ruby><rb>先生</rb><rt>せんせい</rt></ruby>が <b>います</b>。<br><b>あります</b>: untuk benda mati/tak bergerak (meja, buku, dll). <ruby><rb>本</rb><rt>ほん</rt></ruby>が <b>あります</b>。<br>Pengecualian: <b>Tanaman</b> pakai あります meski hidup, karena tidak bergerak sendiri."},
       reibun: [
         {jp:"<ruby><rb>毎朝</rb><rt>まいあさ</rt></ruby> ７<ruby><rb>時</rb><rt>じ</rt></ruby>に <ruby><rb>起</rb><rt>お</rt></ruby>きます。", rom:"Maiasa shichiji ni okimasu.", id:"Setiap pagi saya bangun jam 7."},
         {jp:"<ruby><rb>毎晩</rb><rt>まいばん</rt></ruby> <ruby><rb>何時</rb><rt>なんじ</rt></ruby>に <ruby><rb>寝</rb><rt>ね</rt></ruby>ますか。", rom:"Maiban nanji ni nemasu ka.", id:"Setiap malam Anda tidur jam berapa?"},
@@ -2400,8 +2400,8 @@ const BABS = [
   sub: "<ruby><rb>助数詞</rb><rt>じょすうし</rt></ruby> / 〜つ / 〜<ruby><rb>人</rb><rt>にん</rt></ruby> / 〜<ruby><rb>台</rb><rt>だい</rt></ruby> / 〜<ruby><rb>枚</rb><rt>まい</rt></ruby>",
   color: "bab-15",
   tips: [
-    {icon:"📦", title:"Panduan Memilih Kata Bantu Bilangan", text:"<table style='width:100%;font-size:0.8rem;border-collapse:collapse'><tr style='background:rgba(255,255,255,0.06)'><th style='padding:6px 8px;border:1px solid #2e2e40;text-align:left'>Counter</th><th style='padding:6px 8px;border:1px solid #2e2e40;text-align:left'>Dipakai untuk</th><th style='padding:6px 8px;border:1px solid #2e2e40;text-align:left'>Contoh</th></tr><tr><td style='padding:6px 8px;border:1px solid #2e2e40'><b>〜つ</b></td><td style='padding:6px 8px;border:1px solid #2e2e40'>Benda umum (tak beraturan)</td><td style='padding:6px 8px;border:1px solid #2e2e40'>りんご みっつ</td></tr><tr style='background:rgba(255,255,255,0.03)'><td style='padding:6px 8px;border:1px solid #2e2e40'><b>〜人 (にん)</b></td><td style='padding:6px 8px;border:1px solid #2e2e40'>Orang (kecuali 1 &amp; 2)</td><td style='padding:6px 8px;border:1px solid #2e2e40'>さんにん</td></tr><tr><td style='padding:6px 8px;border:1px solid #2e2e40'><b>〜枚 (まい)</b></td><td style='padding:6px 8px;border:1px solid #2e2e40'>Benda tipis/datar (kertas, prangko, kaos)</td><td style='padding:6px 8px;border:1px solid #2e2e40'>きって いちまい</td></tr><tr style='background:rgba(255,255,255,0.03)'><td style='padding:6px 8px;border:1px solid #2e2e40'><b>〜台 (だい)</b></td><td style='padding:6px 8px;border:1px solid #2e2e40'>Mesin, kendaraan, elektronik</td><td style='padding:6px 8px;border:1px solid #2e2e40'>くるま にだい</td></tr><tr><td style='padding:6px 8px;border:1px solid #2e2e40'><b>〜本 (ほん)</b></td><td style='padding:6px 8px;border:1px solid #2e2e40'>Benda panjang/silinder (botol, pensil, payung)</td><td style='padding:6px 8px;border:1px solid #2e2e40'>えんぴつ さんぼん</td></tr><tr style='background:rgba(255,255,255,0.03)'><td style='padding:6px 8px;border:1px solid #2e2e40'><b>〜冊 (さつ)</b></td><td style='padding:6px 8px;border:1px solid #2e2e40'>Buku, majalah, buku catatan</td><td style='padding:6px 8px;border:1px solid #2e2e40'>ほん にさつ</td></tr><tr><td style='padding:6px 8px;border:1px solid #2e2e40'><b>〜匹/頭 (ひき/とう)</b></td><td style='padding:6px 8px;border:1px solid #2e2e40'>Hewan kecil (ひき) / besar (とう)</td><td style='padding:6px 8px;border:1px solid #2e2e40'>いぬ いっぴき</td></tr></table>"},
-    {icon:"⚠️", title:"Perubahan Bunyi yang Wajib Dihapal", text:"Counter <b>〜本</b> berubah bunyi: いっ<b>ぽん</b>・に<b>ほん</b>・さん<b>ぼん</b>・よん<b>ほん</b>・ご<b>ほん</b>・ろっ<b>ぽん</b>・なな<b>ほん</b>・はっ<b>ぽん</b>・きゅう<b>ほん</b>・じゅっ<b>ぽん</b><br>Counter <b>〜匹</b>: いっ<b>ぴき</b>・に<b>ひき</b>・さん<b>びき</b>・ろっ<b>ぴき</b>・はっ<b>ぴき</b><br>Cara tanya: 〜<b>何つ/何人/何枚/何台/何本/何冊/何匹</b>？"}
+    {icon:"📦", title:"Panduan Memilih Kata Bantu Bilangan", text:"<table style='width:100%;font-size:0.8rem;border-collapse:collapse'><tr style='background:rgba(255,255,255,0.06)'><th style='padding:6px 8px;border:1px solid #2e2e40;text-align:left'>Counter</th><th style='padding:6px 8px;border:1px solid #2e2e40;text-align:left'>Dipakai untuk</th><th style='padding:6px 8px;border:1px solid #2e2e40;text-align:left'>Contoh</th></tr><tr><td style='padding:6px 8px;border:1px solid #2e2e40'><b>〜つ</b></td><td style='padding:6px 8px;border:1px solid #2e2e40'>Benda umum (tak beraturan)</td><td style='padding:6px 8px;border:1px solid #2e2e40'>りんご みっつ</td></tr><tr style='background:rgba(255,255,255,0.03)'><td style='padding:6px 8px;border:1px solid #2e2e40'><b>〜<ruby><rb>人</rb><rt>ひと</rt></ruby> (にん)</b></td><td style='padding:6px 8px;border:1px solid #2e2e40'>Orang (kecuali 1 &amp; 2)</td><td style='padding:6px 8px;border:1px solid #2e2e40'>さんにん</td></tr><tr><td style='padding:6px 8px;border:1px solid #2e2e40'><b>〜<ruby><rb>枚</rb><rt>まい</rt></ruby> (まい)</b></td><td style='padding:6px 8px;border:1px solid #2e2e40'>Benda tipis/datar (kertas, prangko, kaos)</td><td style='padding:6px 8px;border:1px solid #2e2e40'>きって いちまい</td></tr><tr style='background:rgba(255,255,255,0.03)'><td style='padding:6px 8px;border:1px solid #2e2e40'><b>〜<ruby><rb>台</rb><rt>だい</rt></ruby> (だい)</b></td><td style='padding:6px 8px;border:1px solid #2e2e40'>Mesin, kendaraan, elektronik</td><td style='padding:6px 8px;border:1px solid #2e2e40'>くるま にだい</td></tr><tr><td style='padding:6px 8px;border:1px solid #2e2e40'><b>〜<ruby><rb>本</rb><rt>ほん</rt></ruby> (ほん)</b></td><td style='padding:6px 8px;border:1px solid #2e2e40'>Benda panjang/silinder (botol, pensil, payung)</td><td style='padding:6px 8px;border:1px solid #2e2e40'>えんぴつ さんぼん</td></tr><tr style='background:rgba(255,255,255,0.03)'><td style='padding:6px 8px;border:1px solid #2e2e40'><b>〜<ruby><rb>冊</rb><rt>さつ</rt></ruby> (さつ)</b></td><td style='padding:6px 8px;border:1px solid #2e2e40'>Buku, majalah, buku catatan</td><td style='padding:6px 8px;border:1px solid #2e2e40'>ほん にさつ</td></tr><tr><td style='padding:6px 8px;border:1px solid #2e2e40'><b>〜<ruby><rb>匹</rb><rt>ひき</rt></ruby>/<ruby><rb>頭</rb><rt>あたま</rt></ruby> (ひき/とう)</b></td><td style='padding:6px 8px;border:1px solid #2e2e40'>Hewan kecil (ひき) / besar (とう)</td><td style='padding:6px 8px;border:1px solid #2e2e40'>いぬ いっぴき</td></tr></table>"},
+    {icon:"⚠️", title:"Perubahan Bunyi yang Wajib Dihapal", text:"Counter <b>〜<ruby><rb>本</rb><rt>ほん</rt></ruby></b> berubah bunyi: いっ<b>ぽん</b>・に<b>ほん</b>・さん<b>ぼん</b>・よん<b>ほん</b>・ご<b>ほん</b>・ろっ<b>ぽん</b>・なな<b>ほん</b>・はっ<b>ぽん</b>・きゅう<b>ほん</b>・じゅっ<b>ぽん</b><br>Counter <b>〜<ruby><rb>匹</rb><rt>ひき</rt></ruby></b>: いっ<b>ぴき</b>・に<b>ひき</b>・さん<b>びき</b>・ろっ<b>ぴき</b>・はっ<b>ぴき</b><br>Cara tanya: 〜<b><ruby><rb>何</rb><rt>なん</rt></ruby>つ/<ruby><rb>何</rb><rt>なん</rt></ruby><ruby><rb>人</rb><rt>ひと</rt></ruby>/<ruby><rb>何</rb><rt>なん</rt></ruby><ruby><rb>枚</rb><rt>まい</rt></ruby>/<ruby><rb>何</rb><rt>なん</rt></ruby><ruby><rb>台</rb><rt>だい</rt></ruby>/<ruby><rb>何</rb><rt>なん</rt></ruby><ruby><rb>本</rb><rt>ほん</rt></ruby>/<ruby><rb>何</rb><rt>なん</rt></ruby><ruby><rb>冊</rb><rt>さつ</rt></ruby>/<ruby><rb>何</rb><rt>なん</rt></ruby><ruby><rb>匹</rb><rt>ひき</rt></ruby></b>？"}
   ],
   bunpou: [
     {
@@ -2535,7 +2535,7 @@ const BABS = [
         {jp:"A：<ruby><rb>夏</rb><rt>なつ</rt></ruby>と <ruby><rb>冬</rb><rt>ふゆ</rt></ruby>と どちらが <ruby><rb>好</rb><rt>す</rt></ruby>きですか。 B：<ruby><rb>冬</rb><rt>ふゆ</rt></ruby>の ほうが <ruby><rb>好</rb><rt>す</rt></ruby>きです。", rom:"A: Natsu to fuyu to dochira ga suki desu ka. B: Fuyu no hō ga suki desu.", id:"A: Lebih suka musim panas atau musim dingin? B: Lebih suka musim dingin."},
         {jp:"A：ひらがなと カタカナと どちらが <ruby><rb>難</rb><rt>むずか</rt></ruby>しいですか。 B：どちらも <ruby><rb>難</rb><rt>むずか</rt></ruby>しいです。", rom:"A: Hiragana to katakana to dochira ga muzukashii desu ka. B: Dochira mo muzukashii desu.", id:"A: Hiragana atau Katakana yang lebih sulit? B: Keduanya sulit."}
       ],
-      note: {type:"amber", text:"<b>⚠️ どちら vs どれ — Jebakan Umum JLPT!</b><br><b>どちら</b> = yang mana (dari <u>DUA</u> pilihan). <b>どれ</b> = yang mana (dari <u>TIGA atau lebih</u> pilihan).<br>Contoh: 「AとBと どちらが 好きですか」(2 pilihan) ✅ vs 「A・B・C の中で どれが 好きですか」(3+ pilihan) ✅<br>Jangan tukar keduanya — salah ini sering muncul di soal ujian!"}
+      note: {type:"amber", text:"<b>⚠️ どちら vs どれ — Jebakan Umum JLPT!</b><br><b>どちら</b> = yang mana (dari <u>DUA</u> pilihan). <b>どれ</b> = yang mana (dari <u>TIGA atau lebih</u> pilihan).<br>Contoh: 「AとBと どちらが <ruby><rb>好き</rb><rt>す</rt></ruby>ですか」(2 pilihan) ✅ vs 「A・B・C の<ruby><rb>中</rb><rt>なか</rt></ruby>で どれが <ruby><rb>好き</rb><rt>す</rt></ruby>ですか」(3+ pilihan) ✅<br>Jangan tukar keduanya — salah ini sering muncul di soal ujian!"}
     },
     {
       tag: "C", label: "KB（の<ruby><rb>中</rb><rt>なか</rt></ruby>）で <ruby><rb>何</rb><rt>なに</rt></ruby>／どこ／だれ／いつが いちばん KS ですか",
@@ -2601,7 +2601,7 @@ const BABS = [
         {jp:"<ruby><rb>先週</rb><rt>せんしゅう</rt></ruby>の <ruby><rb>試験</rb><rt>しけん</rt></ruby>は <ruby><rb>簡単</rb><rt>かんたん</rt></ruby>じゃ ありませんでした。", rom:"Senshū no shiken wa kantan ja arimasendeshita.", id:"Ujian minggu lalu tidak mudah."},
         {jp:"パーティーの <ruby><rb>料理</rb><rt>りょうり</rt></ruby>は あまり おいしくなかったです。", rom:"Pātī no ryōri wa amari oishiku nakatta desu.", id:"Masakan di pesta tidak terlalu enak."}
       ],
-      note: {type:"amber", text:"<b>⚠️ Dua Cara Negatif Lampau — Jangan Tertukar!</b><br><b>KS い</b>: 語幹 + <b>くなかった(です)</b> → あつい → あつく<b>なかったです</b><br><b>KS な / KB</b>: 〜 + <b>じゃなかった(です) / じゃありませんでした</b> → べんり → べんり<b>じゃなかったです</b><br>❌ Salah umum: あつい → ×あついじゃなかったです / べんり → ×べんりくなかったです"}
+      note: {type:"amber", text:"<b>⚠️ Dua Cara Negatif Lampau — Jangan Tertukar!</b><br><b>KS い</b>: <ruby><rb>語幹</rb><rt>ごかん</rt></ruby> + <b>くなかった(です)</b> → あつい → あつく<b>なかったです</b><br><b>KS な / KB</b>: 〜 + <b>じゃなかった(です) / じゃありませんでした</b> → べんり → べんり<b>じゃなかったです</b><br>❌ Salah umum: あつい → ×あついじゃなかったです / べんり → ×べんりくなかったです"}
     }
   ],
   kotoba: [
@@ -2645,7 +2645,7 @@ const BABS = [
         {jp:"デパートで <ruby><rb>靴</rb><rt>くつ</rt></ruby>を（または が） <ruby><rb>買</rb><rt>か</rt></ruby>いたいです。", rom:"Depāto de kutsu o (mata wa ga) kaitai desu.", id:"Ingin membeli sepatu di toserba."},
         {jp:"おなかが <ruby><rb>痛</rb><rt>いた</rt></ruby>いですから、<ruby><rb>何</rb><rt>なに</rt></ruby>も <ruby><rb>食</rb><rt>た</rt></ruby>べたくないです。", rom:"Onaka ga itai desu kara, nani mo tabetaku nai desu.", id:"Karena sakit perut, tidak ingin makan apapun."}
       ],
-      note: {type:"blue", text:"<b>💡 たい + を atau が?</b><br>Objek 〜たい bisa menggunakan <b>を</b> (lebih umum) atau <b>が</b>. Keduanya benar. Negatif 〜たい: ます語幹 + <b>たくないです</b>. Contoh: たべ<b>たくない</b> = tidak ingin makan. Sama seperti ほしい, たいです juga hanya untuk orang pertama — orang ketiga pakai 〜<b>たがっています</b>."}
+      note: {type:"blue", text:"<b>💡 たい + を atau が?</b><br>Objek 〜たい bisa menggunakan <b>を</b> (lebih umum) atau <b>が</b>. Keduanya benar. Negatif 〜たい: ます<ruby><rb>語幹</rb><rt>ごかん</rt></ruby> + <b>たくないです</b>. Contoh: たべ<b>たくない</b> = tidak ingin makan. Sama seperti ほしい, たいです juga hanya untuk orang pertama — orang ketiga pakai 〜<b>たがっています</b>."}
     }
   ],
   kotoba: [
@@ -3368,10 +3368,10 @@ const BABS = [
   tips: [
     {icon:"💡", title:"KK kamus vs KK た sebelum とき — Jebakan Klasik!", points:[
       "<b>KK bentuk kamus + とき</b>: Tindakan di klausa とき BELUM terjadi saat klausa utama berlangsung.",
-      "日本へ <b>行く</b> とき、ビザを もらいました。→ Saat (mau) pergi ke Jepang, saya mendapat visa. (visa didapat SEBELUM berangkat)",
+      "<ruby><rb>日本</rb><rt>にほん</rt></ruby>へ <b><ruby><rb>行く</rb><rt>いく</rt></ruby></b> とき、ビザを もらいました。→ Saat (mau) pergi ke Jepang, saya mendapat visa. (visa didapat SEBELUM berangkat)",
       "<b>KK bentuk た + とき</b>: Tindakan di klausa とき SUDAH selesai saat klausa utama berlangsung.",
-      "日本へ <b>行った</b> とき、富士山を 見ました。→ Saat (sudah) di Jepang, saya melihat Gunung Fuji. (melihat Fuji SETELAH tiba)",
-      "Kunci: apakah tindakan とき sudah terjadi atau belum? Belum → kamus形、Sudah → た形."
+      "<ruby><rb>日本</rb><rt>にほん</rt></ruby>へ <b><ruby><rb>行</rb><rt>い</rt></ruby>った</b> とき、<ruby><rb>富士山</rb><rt>ふじさん</rt></ruby>を <ruby><rb>見</rb><rt>み</rt></ruby>ました。→ Saat (sudah) di Jepang, saya melihat Gunung Fuji. (melihat Fuji SETELAH tiba)",
+      "Kunci: apakah tindakan とき sudah terjadi atau belum? Belum → kamus<ruby><rb>形</rb><rt>けい</rt></ruby>、Sudah → た<ruby><rb>形</rb><rt>けい</rt></ruby>."
     ]}
   ],
   bunpou: [
@@ -3379,7 +3379,7 @@ const BABS = [
       tag: "A", label: "~とき、~ : Ketika ~",
       pattern: "KK/KS/KB の + とき、~",
       desc: "とき digunakan untuk menghubungkan dua kalimat saat mengungkapkan waktu atau kejadian yang dijelaskan dalam klausa utama berada atau terjadi.",
-      note: {type:"teal", text:"<b>💡 KK kamus とき vs KK た とき:</b><br>• <b>行く とき</b> = ketika (mau) pergi → tindakan とき belum selesai<br>• <b>行った とき</b> = ketika (sudah) pergi → tindakan とき sudah selesai<br>KS dan KB selalu pakai bentuk biasa/の + とき, tidak terpengaruh urutan ini."},
+      note: {type:"teal", text:"<b>💡 KK kamus とき vs KK た とき:</b><br>• <b><ruby><rb>行く</rb><rt>いく</rt></ruby> とき</b> = ketika (mau) pergi → tindakan とき belum selesai<br>• <b><ruby><rb>行</rb><rt>い</rt></ruby>った とき</b> = ketika (sudah) pergi → tindakan とき sudah selesai<br>KS dan KB selalu pakai bentuk biasa/の + とき, tidak terpengaruh urutan ini."},
       reibun: [
         {jp:"<ruby><rb>図書館</rb><rt>としょかん</rt></ruby>で <ruby><rb>本</rb><rt>ほん</rt></ruby>を <ruby><rb>借</rb><rt>か</rt></ruby>りる とき、カードが <ruby><rb>要</rb><rt>い</rt></ruby>ります。", rom:"Toshokan de hon o kariru toki, kādo ga irimasu.", id:"Ketika meminjam buku di perpustakaan, diperlukan kartu."},
         {jp:"<ruby><rb>子</rb><rt>こ</rt></ruby>どもの とき、あまり <ruby><rb>勉強</rb><rt>べんきょう</rt></ruby>しませんでした。", rom:"Kodomo no toki, amari benkyō shimasen deshita.", id:"Ketika masih anak-anak, saya jarang belajar."},
@@ -3511,8 +3511,8 @@ const BABS = [
     ]},
     {icon:"🗺️", title:"Petunjuk Arah dengan と", points:[
       "まっすぐ いくと、〜があります = kalau jalan lurus, ada 〜",
-      "角を まがると、〜がみえます = kalau belok di tikungan, terlihat 〜",
-      "交差点を わたると、右に 〜があります = kalau menyeberang persimpangan, di kanan ada 〜"
+      "<ruby><rb>角</rb><rt>かど</rt></ruby>を まがると、〜がみえます = kalau belok di tikungan, terlihat 〜",
+      "<ruby><rb>交差点</rb><rt>こうさてん</rt></ruby>を わたると、<ruby><rb>右</rb><rt>みぎ</rt></ruby>に 〜があります = kalau menyeberang persimpangan, di kanan ada 〜"
     ]}
   ],
   bunpou: [
@@ -3609,7 +3609,7 @@ const BABS = [
     {icon:"💡", title:"たら untuk urutan kejadian", points:[
       "KK たら digunakan untuk menyatakan suatu tindakan tertentu akan dilakukan SETELAH suatu hal yang dipastikan akan terjadi.",
       "Berbeda dengan たら kondisional (bab 37): di sini klausa たら lebih kepada urutan waktu.",
-      "Contoh: 駅に 着いたら、電話して ください = Setelah tiba di stasiun, tolong telepon."
+      "Contoh: <ruby><rb>駅</rb><rt>えき</rt></ruby>に <ruby><rb>着いた</rb><rt>ついた</rt></ruby>ら、<ruby><rb>電話</rb><rt>でんわ</rt></ruby>して ください = Setelah tiba di stasiun, tolong telepon."
     ]},
     {icon:"⚠️", title:"Perbedaan たら kondisional vs temporal", points:[
       "<b>Kondisional</b> (bab 37): もし 〜たら = Kalau seandainya... (belum tentu terjadi)",
@@ -3704,7 +3704,7 @@ const BABS = [
       "Gunakan 〜んです saat menjelaskan ALASAN atau KONDISI suatu situasi.",
       "Juga digunakan dalam bentuk tanya untuk meminta penjelasan: どうしたんですか？",
       "〜んです membuat percakapan terasa lebih hangat dan personal.",
-      "Bandingkan: 雨が 降っています (netral) vs 雨が 降っているんです (menjelaskan situasi/alasan)."
+      "Bandingkan: <ruby><rb>雨が</rb><rt>あめが</rt></ruby> <ruby><rb>降</rb><rt>ふ</rt></ruby>っています (netral) vs <ruby><rb>雨が</rb><rt>あめが</rt></ruby> <ruby><rb>降</rb><rt>ふ</rt></ruby>っているんです (menjelaskan situasi/alasan)."
     ]},
     {icon:"📝", title:"Konjugasi 〜んです", points:[
       "KK/KS い (bentuk biasa) + んです: たべる → <b>たべるんです</b>",
@@ -3766,7 +3766,7 @@ const BABS = [
         {jp:"<ruby><rb>日本語</rb><rt>にほんご</rt></ruby>で メールを <ruby><rb>書</rb><rt>か</rt></ruby>いたんですが、ちょっと <ruby><rb>見</rb><rt>み</rt></ruby>て いただけませんか。", rom:"Nihongo de mēru o kaita n desu ga, chotto mite itadakemasen ka.", id:"Saya telah menulis email dalam bahasa Jepang, bisakah Anda sedikit memeriksanya?"},
         {jp:"ディズニーシーへ <ruby><rb>行</rb><rt>い</rt></ruby>きたいんですが、どうやって <ruby><rb>行</rb><rt>い</rt></ruby>ったら いいですか。", rom:"Dizunīshī e ikitai n desu ga, dō yatte ittara ii desu ka.", id:"Saya ingin pergi ke DisneySea, bagaimana cara terbaik ke sana?"}
       ],
-      note: {type:"blue", text:"<b>💡 〜て いただけませんか</b><br>Bentuk yang lebih sopan untuk meminta lawan bicara melakukan sesuatu (dibanding 〜てください). Pola: KK bentuk て + いただけませんか. Contoh: 見てください → <b>見ていただけませんか</b>"}
+      note: {type:"blue", text:"<b>💡 〜て いただけませんか</b><br>Bentuk yang lebih sopan untuk meminta lawan bicara melakukan sesuatu (dibanding 〜てください). Pola: KK bentuk て + いただけませんか. Contoh: <ruby><rb>見</rb><rt>み</rt></ruby>てください → <b><ruby><rb>見</rb><rt>み</rt></ruby>ていただけませんか</b>"}
     }
   ],
   kotoba: [
@@ -3866,14 +3866,14 @@ const BABS = [
     {icon:"💡", title:"ながら vs て bentuk", points:[
       "<b>ながら</b>: dua tindakan terjadi BERSAMAAN, tindakan utama ada di KK2.",
       "<b>て bentuk</b>: urutan tindakan (pertama lakukan KK1, lalu KK2).",
-      "ながら: 音楽を 聞き<b>ながら</b> 料理します (memasak sambil dengar musik).",
-      "て bentuk: 音楽を 聞い<b>て</b> 料理します (dengar musik dulu, baru masak)."
+      "ながら: <ruby><rb>音楽</rb><rt>おんがく</rt></ruby>を <ruby><rb>聞</rb><rt>き</rt></ruby>き<b>ながら</b> <ruby><rb>料理</rb><rt>りょうり</rt></ruby>します (memasak sambil dengar musik).",
+      "て bentuk: <ruby><rb>音楽</rb><rt>おんがく</rt></ruby>を <ruby><rb>聞</rb><rt>き</rt></ruby>い<b>て</b> <ruby><rb>料理</rb><rt>りょうり</rt></ruby>します (dengar musik dulu, baru masak)."
     ]},
-    {icon:"⚠️", title:"見えます vs 見ます / 聞こえます vs 聞きます", points:[
-      "見ます = melihat secara aktif (sengaja).",
-      "見えます = terlihat secara alami (tanpa usaha).",
-      "聞きます = mendengar secara aktif / bertanya.",
-      "聞こえます = terdengar secara alami."
+    {icon:"⚠️", title:"<ruby><rb>見</rb><rt>み</rt></ruby>えます vs <ruby><rb>見</rb><rt>み</rt></ruby>ます / <ruby><rb>聞</rb><rt>き</rt></ruby>こえます vs <ruby><rb>聞</rb><rt>き</rt></ruby>きます", points:[
+      "<ruby><rb>見</rb><rt>み</rt></ruby>ます = melihat secara aktif (sengaja).",
+      "<ruby><rb>見</rb><rt>み</rt></ruby>えます = terlihat secara alami (tanpa usaha).",
+      "<ruby><rb>聞</rb><rt>き</rt></ruby>きます = mendengar secara aktif / bertanya.",
+      "<ruby><rb>聞</rb><rt>き</rt></ruby>こえます = terdengar secara alami."
     ]}
   ],
   bunpou: [
@@ -3948,7 +3948,7 @@ const BABS = [
     ]},
     {icon:"⚠️", title:"ないで: tanpa melakukan KK1", points:[
       "KK1 ないで = tanpa melakukan KK1, lakukan KK2.",
-      "ソースを つけないで 食べます = makan tanpa memakai saus.",
+      "ソースを つけないで <ruby><rb>食</rb><rt>た</rt></ruby>べます = makan tanpa memakai saus.",
       "Bisa juga menunjukkan pilihan alternatif dari dua tindakan."
     ]}
   ],
@@ -3998,8 +3998,8 @@ const BABS = [
   tips: [
     {icon:"💡", title:"Intransitif vs Transitif", points:[
       "<b><ruby>自動詞<rt>じどうし</rt></ruby> (Intransitif)</b>: Perubahan spontan dari luar, tidak ada pelaku. Partikel: <b>が</b>.",
-      "<b>他動詞 (Transitif)</b>: Ada pelaku yang melakukan tindakan. Partikel: <b>を</b>.",
-      "Contoh: 電気が <b>つきます</b> (lampu menyala—otomatis) vs 電気を <b>つけます</b> (menyalakan lampu—ada pelaku)."
+      "<b><ruby><rb>他動詞</rb><rt>たどうし</rt></ruby> (Transitif)</b>: Ada pelaku yang melakukan tindakan. Partikel: <b>を</b>.",
+      "Contoh: <ruby><rb>電気</rb><rt>でんき</rt></ruby>が <b>つきます</b> (lampu menyala—otomatis) vs <ruby><rb>電気</rb><rt>でんき</rt></ruby>を <b>つけます</b> (menyalakan lampu—ada pelaku)."
     ]},
     {icon:"📝", title:"Pasangan Intransitif & Transitif", points:[
       "つきます ↔ つけます (lampu menyala ↔ menyalakan lampu)",
@@ -4064,8 +4064,8 @@ const BABS = [
   color: "bab-46",
   tips: [
     {icon:"💡", title:"てしまいました — dua makna", points:[
-      "<b>Penyelesaian tuntas:</b> Menekankan bahwa tindakan sudah benar-benar selesai dilakukan. 図書館の本を 読んでしまいました (Sudah selesai membaca buku perpustakaan).",
-      "<b>Penyesalan/tidak disengaja:</b> Menyatakan penyesalan atas tindakan yang terjadi. どこかで パスポートを 落としてしまいました (Saya tidak sengaja menjatuhkan paspor di suatu tempat).",
+      "<b>Penyelesaian tuntas:</b> Menekankan bahwa tindakan sudah benar-benar selesai dilakukan. <ruby><rb>図書館</rb><rt>としょかん</rt></ruby>の<ruby><rb>本</rb><rt>ほん</rt></ruby>を <ruby><rb>読</rb><rt>よ</rt></ruby>んでしまいました (Sudah selesai membaca buku perpustakaan).",
+      "<b>Penyesalan/tidak disengaja:</b> Menyatakan penyesalan atas tindakan yang terjadi. どこかで パスポートを <ruby><rb>落</rb><rt>お</rt></ruby>としてしまいました (Saya tidak sengaja menjatuhkan paspor di suatu tempat).",
       "Bentuk percakapan informal: てしまいました → <b>ちゃいました</b>、でしまいました → <b>じゃいました</b>."
     ]}
   ],
@@ -4122,7 +4122,7 @@ const BABS = [
   tips: [
     {icon:"💡", title:"ておきます — persiapan terlebih dahulu", points:[
       "Digunakan saat melakukan sesuatu <b>sebagai persiapan</b> untuk kejadian mendatang.",
-      "Contoh: 友だちが 来ますから、部屋を 掃除して おきます (Karena teman akan datang, saya akan membersihkan kamar terlebih dahulu).",
+      "Contoh: <ruby><rb>友</rb><rt>とも</rt></ruby>だちが <ruby><rb>来</rb><rt>き</rt></ruby>ますから、<ruby><rb>部屋</rb><rt>へや</rt></ruby>を <ruby><rb>掃除</rb><rt>そうじ</rt></ruby>して おきます (Karena teman akan datang, saya akan membersihkan kamar terlebih dahulu).",
       "Bentuk informal: ておきます → <b>とく</b>、ておいてください → <b>といてください</b>."
     ]}
   ],
@@ -4164,8 +4164,8 @@ const BABS = [
   color: "bab-48",
   tips: [
     {icon:"💡", title:"てあります vs ています", points:[
-      "<b>KK-transitif て あります</b>: Menyatakan keadaan berkelanjutan yang dihasilkan dari tindakan yang memiliki tujuan. Partikel が setelah KB. Contoh: ポスターが 貼って あります (Poster sudah ditempel).",
-      "<b>KK-intransitif て います</b>: Menyatakan keadaan hasil yang terjadi alami. Contoh: ドアが 開いて います (Pintu terbuka).",
+      "<b>KK-transitif て あります</b>: Menyatakan keadaan berkelanjutan yang dihasilkan dari tindakan yang memiliki tujuan. Partikel が setelah KB. Contoh: ポスターが <ruby><rb>貼</rb><rt>は</rt></ruby>って あります (Poster sudah ditempel).",
+      "<b>KK-intransitif て います</b>: Menyatakan keadaan hasil yang terjadi alami. Contoh: ドアが <ruby><rb>開</rb><rt>あ</rt></ruby>いて います (Pintu terbuka).",
       "Perbedaan: てあります ada 'pelaku yang sengaja melakukan', ています tidak."
     ]}
   ],
@@ -4218,9 +4218,9 @@ const BABS = [
   color: "bab-49",
   tips: [
     {icon:"💡", title:"Tiga pola penting Bab 49", points:[
-      "<b>意向形 (Bentuk Maksud):</b> Bentuk ます → bentuk maksud. Gol.I: ます→お (よみます→よもう). Gol.II: ます→よう (たべます→たべよう). Gol.III: きます→こよう、します→しよう.",
-      "<b>〜と思っています:</b> Menyatakan niat/rencana pembicara. 来年 日本へ 行こうと 思っています (Saya berniat pergi ke Jepang tahun depan).",
-      "<b>まだ〜ていません:</b> Menyatakan sesuatu belum dilakukan. まだ 食べて いません (Belum makan)."
+      "<b><ruby><rb>意向形</rb><rt>いこうけい</rt></ruby> (Bentuk Maksud):</b> Bentuk ます → bentuk maksud. Gol.I: ます→お (よみます→よもう). Gol.II: ます→よう (たべます→たべよう). Gol.III: きます→こよう、します→しよう.",
+      "<b>〜と<ruby><rb>思</rb><rt>おも</rt></ruby>っています:</b> Menyatakan niat/rencana pembicara. <ruby><rb>来年</rb><rt>らいねん</rt></ruby> <ruby><rb>日本</rb><rt>にほん</rt></ruby>へ <ruby><rb>行</rb><rt>い</rt></ruby>こうと <ruby><rb>思</rb><rt>おも</rt></ruby>っています (Saya berniat pergi ke Jepang tahun depan).",
+      "<b>まだ〜ていません:</b> Menyatakan sesuatu belum dilakukan. まだ <ruby><rb>食</rb><rt>た</rt></ruby>べて いません (Belum makan)."
     ]}
   ],
   bunpou: [
@@ -4250,7 +4250,7 @@ const BABS = [
         {jp:"A：もう <ruby><rb>昼</rb><rt>ひる</rt></ruby>ごはんを <ruby><rb>食</rb><rt>た</rt></ruby>べましたか。 B：いいえ、まだ <ruby><rb>食</rb><rt>た</rt></ruby>べて いません。",rom:"A: Mō hirugohan o tabemashita ka. B: Iie, mada tabete imasen.",id:"A: Apakah sudah makan siang? B: Belum, belum makan."},
         {jp:"<ruby><rb>作文</rb><rt>さくぶん</rt></ruby>は まだ <ruby><rb>書</rb><rt>か</rt></ruby>いて いません。",rom:"Sakubun wa mada kaite imasen.",id:"Karangan masih belum ditulis."}
       ],
-      note:{type:"blue",text:"<b>💡 もう vs まだ:</b> もう + positive = sudah. まだ + negative = belum. もう 食べましたか (Sudah makan?) → まだ 食べていません (Belum makan)."}
+      note:{type:"blue",text:"<b>💡 もう vs まだ:</b> もう + positive = sudah. まだ + negative = belum. もう <ruby><rb>食</rb><rt>た</rt></ruby>べましたか (Sudah makan?) → まだ <ruby><rb>食</rb><rt>た</rt></ruby>べていません (Belum makan)."}
     }
   ],
   kotoba: [
@@ -4277,11 +4277,11 @@ const BABS = [
   sub: "KK つもりです / 予定です",
   color: "bab-50",
   tips: [
-    {icon:"💡", title:"つもりです vs 予定です vs と思っています", points:[
+    {icon:"💡", title:"つもりです vs <ruby><rb>予定</rb><rt>よてい</rt></ruby>です vs と<ruby><rb>思</rb><rt>おも</rt></ruby>っています", points:[
       "<b>つもりです:</b> Niat/tekad pribadi yang sudah cukup pasti. KK bentuk kamus + つもりです.",
-      "<b>予定です:</b> Rencana yang sudah lebih terencana/terjadwal. Bisa KK bentuk kamus + 予定です atau KB の + 予定です.",
-      "<b>と思っています:</b> Niat yang masih dalam pikiran, belum terlalu pasti.",
-      "Urutan kepastian: つもり ≒ と思っています < 予定 (予定 paling pasti)."
+      "<b><ruby><rb>予定</rb><rt>よてい</rt></ruby>です:</b> Rencana yang sudah lebih terencana/terjadwal. Bisa KK bentuk kamus + <ruby><rb>予定</rb><rt>よてい</rt></ruby>です atau KB の + <ruby><rb>予定</rb><rt>よてい</rt></ruby>です.",
+      "<b>と<ruby><rb>思</rb><rt>おも</rt></ruby>っています:</b> Niat yang masih dalam pikiran, belum terlalu pasti.",
+      "Urutan kepastian: つもり ≒ と<ruby><rb>思</rb><rt>おも</rt></ruby>っています < <ruby><rb>予定</rb><rt>よてい</rt></ruby> (<ruby><rb>予定</rb><rt>よてい</rt></ruby> paling pasti)."
     ]}
   ],
   bunpou: [
@@ -4304,7 +4304,7 @@ const BABS = [
         {jp:"<ruby><rb>来年</rb><rt>らいねん</rt></ruby>の 7<ruby><rb>月</rb><rt>がつ</rt></ruby>に <ruby><rb>結婚</rb><rt>けっこん</rt></ruby>する <ruby><rb>予定</rb><rt>よてい</rt></ruby>です。",rom:"Rainen no shichi-gatsu ni kekkon suru yotei desu.",id:"Saya berencana menikah bulan Juli tahun depan."},
         {jp:"<ruby><rb>来週</rb><rt>らいしゅう</rt></ruby> ジョンさんは <ruby><rb>出張</rb><rt>しゅっちょう</rt></ruby>の <ruby><rb>予定</rb><rt>よてい</rt></ruby>です。",rom:"Raishū Jon-san wa shutchō no yotei desu.",id:"Minggu depan John berencana dinas ke luar kota."}
       ],
-      note:{type:"green",text:"<b>💡 Perbedaan nuansa:</b> つもりです = niat pribadi. 予定です = jadwal/rencana yang sudah ditetapkan (lebih objektif dan pasti)."}
+      note:{type:"green",text:"<b>💡 Perbedaan nuansa:</b> つもりです = niat pribadi. <ruby><rb>予定</rb><rt>よてい</rt></ruby>です = jadwal/rencana yang sudah ditetapkan (lebih objektif dan pasti)."}
     }
   ],
   kotoba: [
@@ -4333,7 +4333,7 @@ const BABS = [
       "<b>KK bentuk た + ほうがいいです</b>: Sebaiknya lakukan ~ (saran positif).",
       "<ruby><rb>毎日</rb><rt>まいにち</rt></ruby> <ruby><rb>野菜</rb><rt>やさい</rt></ruby>を たくさん <b><ruby><rb>食</rb><rt>た</rt></ruby>べた ほうが いいです</b>。→ Sebaiknya makan banyak sayuran setiap hari.",
       "<b>KK bentuk ない + ほうがいいです</b>: Sebaiknya jangan ~ (saran negatif/larangan halus).",
-      "<ruby><rb>寝</rb><rt>ね</rt></ruby>る まえに スマホを <b>見ない ほうが いいです</b>。→ Sebaiknya jangan lihat HP sebelum tidur.",
+      "<ruby><rb>寝</rb><rt>ね</rt></ruby>る まえに スマホを <b><ruby><rb>見</rb><rt>み</rt></ruby>ない ほうが いいです</b>。→ Sebaiknya jangan lihat HP sebelum tidur.",
       "Bedakan dengan てください (perintah langsung) — ほうがいいです lebih halus dan terasa seperti saran, bukan perintah."
     ]}
   ],
@@ -4342,7 +4342,7 @@ const BABS = [
       tag: "A", label: "KK た ほうがいいです / KK ない ほうがいいです — Sebaiknya ~",
       pattern: "KK-た + ほうが いいです / KK-ない + ほうが いいです",
       desc: "Pola ini digunakan untuk memberi saran atau nasihat. KK bentuk た ほうがいいです memiliki makna membandingkan dua hal dan memilih salah satu yang paling baik. Hal tersebut menyiratkan bahwa akan buruk apabila tidak mengambil tindakan yang disarankan.",
-      note: {type:"amber", text:"<b>⚠️ Jangan pakai bentuk kamus sebelum ほうがいいです!</b><br>✗ <s>食べる ほうがいいです</s> → ✓ <b>食べた ほうがいいです</b><br>✗ <s>見ない ほうがいいです</s> bisa, tapi pastikan ない bukan kamus-ない. Gunakan bentuk ない dari konjugasi negatif, bukan kamus."},
+      note: {type:"amber", text:"<b>⚠️ Jangan pakai bentuk kamus sebelum ほうがいいです!</b><br>✗ <s><ruby><rb>食べる</rb><rt>たべる</rt></ruby> ほうがいいです</s> → ✓ <b><ruby><rb>食べた</rb><rt>たべた</rt></ruby> ほうがいいです</b><br>✗ <s><ruby><rb>見</rb><rt>み</rt></ruby>ない ほうがいいです</s> bisa, tapi pastikan ない bukan kamus-ない. Gunakan bentuk ない dari konjugasi negatif, bukan kamus."},
       reibun: [
         {jp:"<ruby><rb>毎日</rb><rt>まいにち</rt></ruby> <ruby><rb>野菜</rb><rt>やさい</rt></ruby>を たくさん <ruby><rb>食</rb><rt>た</rt></ruby>べた ほうが いいです。", rom:"Mainichi yasai o takusan tabeta hō ga ii desu.", id:"Sebaiknya makan banyak sayuran setiap hari."},
         {jp:"<ruby><rb>疲</rb><rt>つか</rt></ruby>れた ときは、<ruby><rb>早</rb><rt>はや</rt></ruby>く <ruby><rb>寝</rb><rt>ね</rt></ruby>た ほうが いいです。", rom:"Tsukareta toki wa, hayaku neta hō ga ii desu.", id:"Saat lelah, sebaiknya segera tidur."},
@@ -4387,7 +4387,7 @@ const BABS = [
       tag: "A", label: "〜かもしれません — mungkin ~",
       pattern: "KK/KS い [bentuk biasa] + かもしれません\nKS な / KB [bentuk biasa だ] + かもしれません",
       desc: "〜かもしれません digunakan ketika pembicara tidak yakin apa yang sebenarnya terjadi tetapi ingin menebak. Tingkat kepastiannya lebih rendah dari でしょう.",
-      note: {type:"blue", text:"<b>💡 Konjugasi sebelum かもしれません:</b><br>KK: <ruby><rb>降る</rb><rt>ふる</rt></ruby> → 降る<b>かもしれません</b><br>KS い: <ruby><rb>寒い</rb><rt>さむい</rt></ruby> → 寒い<b>かもしれません</b><br>KS な: きれい<s>だ</s> → きれい<b>かもしれません</b> (だ dihilangkan)<br>KB: 日本人<s>だ</s> → 日本人<b>じゃない/かもしれません</b>"},
+      note: {type:"blue", text:"<b>💡 Konjugasi sebelum かもしれません:</b><br>KK: <ruby><rb>降る</rb><rt>ふる</rt></ruby> → <ruby><rb>降</rb><rt>ふ</rt></ruby>る<b>かもしれません</b><br>KS い: <ruby><rb>寒い</rb><rt>さむい</rt></ruby> → <ruby><rb>寒</rb><rt>さむ</rt></ruby>い<b>かもしれません</b><br>KS な: きれい<s>だ</s> → きれい<b>かもしれません</b> (だ dihilangkan)<br>KB: <ruby><rb>日本人</rb><rt>にほんじん</rt></ruby><s>だ</s> → <ruby><rb>日本人</rb><rt>にほんじん</rt></ruby><b>じゃない/かもしれません</b>"},
       reibun: [
         {jp:"<ruby><rb>今夜</rb><rt>こんや</rt></ruby> <ruby><rb>雪</rb><rt>ゆき</rt></ruby>が <ruby><rb>降</rb><rt>ふ</rt></ruby>る かも しれません。", rom:"Konya yuki ga furu kamo shiremasen.", id:"Malam ini mungkin saja turun salju."},
         {jp:"<ruby><rb>約束</rb><rt>やくそく</rt></ruby>の <ruby><rb>時間</rb><rt>じかん</rt></ruby>に <ruby><rb>間</rb><rt>ま</rt></ruby>に <ruby><rb>合</rb><rt>あ</rt></ruby>わない かも しれません。", rom:"Yakusoku no jikan ni ma ni awanai kamo shiremasen.", id:"Saya mungkin tidak tepat waktu sesuai janji."},
@@ -4508,7 +4508,7 @@ const BABS = [
     {
       tag: "A", label: "KK / KS / KB + ば — Jika ~, maka ~",
       pattern: "KK [bentuk ば] / KS い [〜ければ] / KS な・KB [〜なら] + ~",
-      desc: "Bentuk kondisional ば (条件形) menyatakan hubungan bahwa A adalah kondisi dan B adalah konsekuensinya. Digunakan untuk kondisi yang bersifat alami, general, atau logis.",
+      desc: "Bentuk kondisional ば (<ruby><rb>条件形</rb><rt>じょうけんけい</rt></ruby>) menyatakan hubungan bahwa A adalah kondisi dan B adalah konsekuensinya. Digunakan untuk kondisi yang bersifat alami, general, atau logis.",
       note: {type:"amber", text:"<b>⚠️ ば vs たら vs と:</b><br>• <b>ば</b>: kondisi alami/logis, bersifat umum<br>• <b>たら</b>: kondisi hipotesis, urutan waktu, lebih fleksibel<br>• <b>と</b>: kondisi otomatis/pasti terjadi (alam, mesin)"},
       reibun: [
         {jp:"<ruby><rb>毎日</rb><rt>まいにち</rt></ruby> <ruby><rb>日本語</rb><rt>にほんご</rt></ruby>で <ruby><rb>話</rb><rt>はな</rt></ruby>せば、<ruby><rb>日本語</rb><rt>にほんご</rt></ruby>が <ruby><rb>上手</rb><rt>じょうず</rt></ruby>に なります。", rom:"Mainichi Nihongo de hanaseba, Nihongo ga jōzu ni narimasu.", id:"Kalau berbicara bahasa Jepang setiap hari, bahasa Jepangmu akan menjadi mahir."},
@@ -4601,14 +4601,14 @@ const BABS = [
   tips: [
     {icon:"💡", title:"ように — dua fungsi berbeda", points:[
       "<b>KK kamus/ない + ように、KK</b>: Melakukan KK2 agar tercapai tujuan yang dinyatakan ように.",
-      "<ruby>試合に出られる</ruby><b>ように</b>、<ruby>毎日練習しています</ruby>。→ Saya latihan tiap hari <b>agar bisa</b> tampil di pertandingan.",
+      "<ruby><rb>試合に</rb><rt>しあいに</rt></ruby><ruby><rb>出</rb><rt>で</rt></ruby>られる<b>ように</b>、<ruby><rb>毎日</rb><rt>まいにち</rt></ruby><ruby><rb>練習</rb><rt>れんしゅう</rt></ruby>しています。→ Saya latihan tiap hari <b>agar bisa</b> tampil di pertandingan.",
       "<b>KK Potensial + ように なりました</b>: Menyatakan perubahan kemampuan — sesuatu yang dulu tidak bisa, kini bisa.",
-      "<ruby>漢字が少し読める</ruby><b>ように なりました</b>。→ Sekarang sudah bisa membaca sedikit kanji.",
+      "<ruby><rb>漢字</rb><rt>かんじ</rt></ruby>が<ruby><rb>少</rb><rt>すこ</rt></ruby>し<ruby><rb>読</rb><rt>よ</rt></ruby>める<b>ように なりました</b>。→ Sekarang sudah bisa membaca sedikit kanji.",
       "⚠️ Beda dengan KK + ように して います (sedang berusaha membiasakan diri) — lihat Bab 57."
     ]},
     {icon:"⚠️", title:"KK sebelum ように — kamus atau ない?", points:[
-      "Pakai <b>bentuk kamus</b> (potensial) jika tujuannya positif: <ruby>わかる</ruby>ように、ゆっくり <ruby>話します</ruby>。",
-      "Pakai <b>bentuk ない</b> jika tujuannya menghindari sesuatu: <ruby>感染しない</ruby>ように、よく <ruby>手を洗いましょう</ruby>。",
+      "Pakai <b>bentuk kamus</b> (potensial) jika tujuannya positif: わかるように、ゆっくり <ruby><rb>話</rb><rt>はな</rt></ruby>します。",
+      "Pakai <b>bentuk ない</b> jika tujuannya menghindari sesuatu: <ruby><rb>感染</rb><rt>かんせん</rt></ruby>しないように、よく <ruby><rb>手</rb><rt>て</rt></ruby>を<ruby><rb>洗</rb><rt>あら</rt></ruby>いましょう。",
       "KK non-kehendak (わかります、みえます、きこえます、なります) selalu pakai bentuk kamus sebelum ように."
     ]}
   ],
@@ -4617,7 +4617,7 @@ const BABS = [
       tag: "A", label: "KK kamus / KK ない + ように、KK — Agar ~",
       pattern: "KK-kamus / KK-ない + ように、KK",
       desc: "Pola ini menunjukkan upaya yang dilakukan di KK2 untuk mencapai situasi yang dinyatakan oleh ように. Bentuk kamus dari kata kerja non-kehendak (seperti わかります, みえます, きこえます, なります) atau kata kerja bentuk negatif digunakan sebelum ように.",
-      note: {type:"blue", text:"<b>💡 KK non-kehendak sebelum ように:</b><br>Kata kerja yang tidak bisa dikontrol langsung (わかる、みえる、きこえる、なれる) selalu pakai bentuk kamus sebelum ように, bukan bentuk て.<br>例: <ruby>聞こえる</ruby>ように、マイクを <ruby>使います</ruby>。(Pakai mikrofon agar terdengar.)"},
+      note: {type:"blue", text:"<b>💡 KK non-kehendak sebelum ように:</b><br>Kata kerja yang tidak bisa dikontrol langsung (わかる、みえる、きこえる、なれる) selalu pakai bentuk kamus sebelum ように, bukan bentuk て.<br><ruby><rb>例</rb><rt>れい</rt></ruby>: <ruby><rb>聞</rb><rt>き</rt></ruby>こえるように、マイクを <ruby><rb>使</rb><rt>つか</rt></ruby>います。(Pakai mikrofon agar terdengar.)"},
       reibun: [
         {jp:"<ruby><rb>試合</rb><rt>しあい</rt></ruby>に <ruby><rb>出</rb><rt>で</rt></ruby>られる ように、<ruby><rb>毎日</rb><rt>まいにち</rt></ruby> <ruby><rb>練習</rb><rt>れんしゅう</rt></ruby>して います。", rom:"Shiai ni derareru yō ni, mainichi renshū shite imasu.", id:"Saya berlatih setiap hari agar bisa tampil di pertandingan."},
         {jp:"<ruby><rb>知</rb><rt>し</rt></ruby>らない ことばが あったら <ruby><rb>調</rb><rt>しら</rt></ruby>べられる ように、いつも <ruby><rb>電子辞書</rb><rt>でんしじしょ</rt></ruby>を <ruby><rb>持</rb><rt>も</rt></ruby>って います。", rom:"Shiranai kotoba ga attara shiraberu yō ni, itsumo denshi jisho o motte imasu.", id:"Agar bisa mencari kata yang tidak diketahui, saya selalu membawa kamus elektronik."},
@@ -4628,7 +4628,7 @@ const BABS = [
       tag: "B", label: "KK Potensial + ように なりました — menjadi bisa ~",
       pattern: "KK [potensial / bentuk kamus] + ように なりました",
       desc: "Pola ini digunakan untuk menyatakan perubahan kemampuan atau keadaan untuk memungkinkan terjadinya suatu kondisi tertentu. Menyatakan sesuatu yang dulu tidak bisa, kini sudah bisa.",
-      note: {type:"teal", text:"<b>💡 ように なりました vs ように して います:</b><br>• ように <b>なりました</b>: Perubahan sudah terjadi (hasil). 漢字が<ruby>読める</ruby>ように なりました。<br>• ように <b>して います</b>: Sedang berusaha membiasakan (proses). バスに<ruby>乗らない</ruby>ように して います。(Bab 57)"},
+      note: {type:"teal", text:"<b>💡 ように なりました vs ように して います:</b><br>• ように <b>なりました</b>: Perubahan sudah terjadi (hasil). <ruby><rb>漢字</rb><rt>かんじ</rt></ruby>が<ruby><rb>読</rb><rt>よ</rt></ruby>めるように なりました。<br>• ように <b>して います</b>: Sedang berusaha membiasakan (proses). バスに<ruby><rb>乗</rb><rt>の</rt></ruby>らないように して います。(Bab 57)"},
       reibun: [
         {jp:"<ruby><rb>漢字</rb><rt>かんじ</rt></ruby>が <ruby><rb>少</rb><rt>すこ</rt></ruby>し <ruby><rb>読</rb><rt>よ</rt></ruby>める ように なりました。", rom:"Kanji ga sukoshi yomeru yō ni narimashita.", id:"Sekarang sudah bisa membaca sedikit kanji."},
         {jp:"<ruby><rb>日本語</rb><rt>にほんご</rt></ruby>で メールが <ruby><rb>書</rb><rt>か</rt></ruby>ける ように なりました。", rom:"Nihongo de mēru ga kakeru yō ni narimashita.", id:"Sekarang sudah bisa menulis email dalam bahasa Jepang."},
@@ -4659,14 +4659,14 @@ const BABS = [
   tips: [
     {icon:"💡", title:"ように して います vs ように なりました", points:[
       "<b>ように して います</b>: Sedang berusaha membiasakan diri (proses, masih berlangsung).",
-      "バスに <ruby>乗らない</ruby><b>ように して います</b>。→ Saya sedang berusaha tidak naik bus (kebiasaan baru).",
+      "バスに <ruby><rb>乗</rb><rt>の</rt></ruby>らない<b>ように して います</b>。→ Saya sedang berusaha tidak naik bus (kebiasaan baru).",
       "<b>ように なりました</b>: Perubahan sudah terjadi dan selesai (hasil/pencapaian). (Bab 56)",
-      "<ruby>バスに乗れる</ruby><b>ように なりました</b>。→ Sekarang sudah bisa naik bus.",
+      "バスに<ruby><rb>乗</rb><rt>の</rt></ruby>れる<b>ように なりました</b>。→ Sekarang sudah bisa naik bus.",
       "Kunci: して います = proses/usaha sedang berjalan. なりました = hasil sudah tercapai."
     ]},
     {icon:"💡", title:"ように して ください — permintaan tidak langsung", points:[
       "<b>〜ように して ください</b>: Mohon usahakan agar ~ (lebih sopan dari てください).",
-      "<ruby>面接の</ruby>とき、<ruby>丁寧な言葉で話す</ruby><b>ように して ください</b>。→ Saat wawancara, mohon usahakan berbicara dengan sopan.",
+      "<ruby><rb>面接</rb><rt>めんせつ</rt></ruby>のとき、<ruby><rb>丁寧</rb><rt>ていねい</rt></ruby>な<ruby><rb>言葉</rb><rt>ことば</rt></ruby>で<ruby><rb>話</rb><rt>はな</rt></ruby>す<b>ように して ください</b>。→ Saat wawancara, mohon usahakan berbicara dengan sopan.",
       "Cocok dipakai saat meminta perubahan kebiasaan, bukan sekadar tindakan sekali.",
       "〜<b>てください</b> = perintah langsung satu tindakan. ように して ください = mohon jadikan kebiasaan."
     ]}
@@ -4731,10 +4731,10 @@ const BABS = [
     ]},
     {icon:"⚠️", title:"Tiga pola kalimat pasif", points:[
       "<b>Pasif langsung</b> (Bab B): KB1 は KB2 に KK pasif → Orang 1 menerima tindakan dari orang 2.",
-      "(わたしは) <ruby>父に</ruby> <ruby>ほめられました</ruby>。→ Saya dipuji oleh ayah.",
+      "(わたしは) <ruby><rb>父</rb><rt>ちち</rt></ruby>に ほめられました。→ Saya dipuji oleh ayah.",
       "<b>Pasif kepemilikan</b> (Bab C): KB1 は KB2 に KB3 を KK pasif → Orang 2 melakukan sesuatu pada milik orang 1.",
-      "(わたしは) <ruby>弟に</ruby> パソコンを <ruby>壊されました</ruby>。→ Komputer saya dirusak oleh adik (mengganggu).",
-      "<b>Pasif impersonal</b> (Bab 59): Subjek tak jelas/tak penting. <ruby>この本は 100年前に書かれました</ruby>。→ Buku ini ditulis 100 tahun lalu."
+      "(わたしは) <ruby><rb>弟</rb><rt>おとうと</rt></ruby>に パソコンを <ruby><rb>壊</rb><rt>こわ</rt></ruby>されました。→ Komputer saya dirusak oleh adik (mengganggu).",
+      "<b>Pasif impersonal</b> (Bab 59): Subjek tak jelas/tak penting. この<ruby><rb>本</rb><rt>ほん</rt></ruby>は 100<ruby><rb>年</rb><rt>ねん</rt></ruby><ruby><rb>前</rb><rt>まえ</rt></ruby>に<ruby><rb>書</rb><rt>か</rt></ruby>かれました。→ Buku ini ditulis 100 tahun lalu."
     ]}
   ],
   bunpou: [
@@ -4788,8 +4788,8 @@ const BABS = [
   tips: [
     {icon:"💡", title:"Pasif impersonal — subjek tak perlu disebutkan", points:[
       "<b>KB が/は KK pasif</b>: Kalimat pasif tanpa menyebut pelaku. Dipakai saat pelaku tidak diketahui, tidak penting, atau sudah jelas.",
-      "<ruby>この本は 100年前に書かれました</ruby>。→ Buku ini ditulis 100 tahun lalu. (oleh siapa tidak penting)",
-      "<ruby>インスタントラーメンは 1958年に発明されました</ruby>。→ Mie instan ditemukan pada tahun 1958.",
+      "この<ruby><rb>本</rb><rt>ほん</rt></ruby>は 100<ruby><rb>年</rb><rt>ねん</rt></ruby><ruby><rb>前</rb><rt>まえ</rt></ruby>に<ruby><rb>書</rb><rt>か</rt></ruby>かれました。→ Buku ini ditulis 100 tahun lalu. (oleh siapa tidak penting)",
+      "インスタントラーメンは 1958<ruby><rb>年</rb><rt>ねん</rt></ruby>に<ruby><rb>発明</rb><rt>はつめい</rt></ruby>されました。→ Mie instan ditemukan pada tahun 1958.",
       "Berbeda dengan pasif Bab 58 yang fokus pada dampak ke orang 1, pasif ini lebih <b>netral dan objektif</b>.",
       "Pelaku bisa disebutkan dengan <b>によって</b>: 〜によって + KK pasif → Ditulis/dibuat/ditemukan <b>oleh</b> ~."
     ]}
@@ -4799,7 +4799,7 @@ const BABS = [
       tag: "A", label: "KB (berwujud/tak berwujud) が/は KK pasif — Pasif impersonal",
       pattern: "KB が/は [keterangan waktu/tempat] に KK pasif",
       desc: "Kalimat pasif ini dapat digunakan ketika tidak perlu menyebutkan siapa yang melakukan tindakan yang terlibat, dan subjek atau topik dapat berwujud atau tidak berwujud.",
-      note: {type:"teal", text:"<b>💡 によって vs に:</b><br>• <b>に</b>: pelaku tindakan langsung (orang/hewan). <ruby>先生</ruby>に <ruby>叱られた</ruby>。<br>• <b>によって</b>: pelaku karya/penemuan/ciptaan. <ruby>夏目漱石によって書かれた</ruby>。<br>によって lebih formal, sering untuk karya seni, penemuan, dokumen resmi."},
+      note: {type:"teal", text:"<b>💡 によって vs に:</b><br>• <b>に</b>: pelaku tindakan langsung (orang/hewan). <ruby><rb>先生</rb><rt>せんせい</rt></ruby>に <ruby><rb>叱</rb><rt>しか</rt></ruby>られた。<br>• <b>によって</b>: pelaku karya/penemuan/ciptaan. <ruby><rb>夏目漱石</rb><rt>なつめそうせき</rt></ruby>によって<ruby><rb>書</rb><rt>か</rt></ruby>かれた。<br>によって lebih formal, sering untuk karya seni, penemuan, dokumen resmi."},
       reibun: [
         {jp:"<ruby><rb>東京</rb><rt>とうきょう</rt></ruby>で <ruby><rb>展覧会</rb><rt>てんらんかい</rt></ruby>が <ruby><rb>開</rb><rt>ひら</rt></ruby>かれました。", rom:"Tōkyō de tenrankai ga hirakaremashita.", id:"Pameran diadakan di Tokyo."},
         {jp:"<ruby><rb>銀河鉄道</rb><rt>ぎんがてつどう</rt></ruby>の <ruby><rb>夜</rb><rt>よる</rt></ruby>は <ruby><rb>宮沢賢治</rb><rt>みやざわけんじ</rt></ruby>に よって <ruby><rb>書</rb><rt>か</rt></ruby>かれました。", rom:"Ginga Tetsudō no Yoru wa Miyazawa Kenji ni yotte kakaremashita.", id:"Night on the Galactic Railroad ditulis oleh Miyazawa Kenji."},
@@ -4838,15 +4838,15 @@ const BABS = [
   tips: [
     {icon:"💡", title:"の sebagai nominalizer — mengubah KK menjadi KB", points:[
       "<b>KK + の</b>: mengubah kata kerja atau frasa kerja menjadi kata benda (nominalisasi).",
-      "<ruby>音楽を聞く</ruby><b>の</b>が <ruby>好きです</ruby>。→ Saya suka mendengarkan musik. (の = subjek yang disukai)",
-      "<ruby>みんなで晩ごはんを食べる</ruby><b>の</b>は <ruby>楽しいです</ruby>。→ Makan malam bersama itu menyenangkan. (の = topik)",
+      "<ruby><rb>音楽</rb><rt>おんがく</rt></ruby>を<ruby><rb>聞</rb><rt>き</rt></ruby>く<b>の</b>が <ruby><rb>好き</rb><rt>す</rt></ruby>です。→ Saya suka mendengarkan musik. (の = subjek yang disukai)",
+      "みんなで<ruby><rb>晩ごはん</rb><rt>ばんごはん</rt></ruby>を<ruby><rb>食べる</rb><rt>たべる</rt></ruby><b>の</b>は <ruby><rb>楽</rb><rt>たの</rt></ruby>しいです。→ Makan malam bersama itu menyenangkan. (の = topik)",
       "⚠️ Beda fungsi: <b>のは</b> → KK menjadi topik kalimat. <b>のが</b> → KK menjadi objek KS (すき、きらい、じょうず、へた、はやい、おそい)."
     ]},
     {icon:"⚠️", title:"のは vs のが — pilih yang tepat", points:[
       "<b>KK の<u>は</u></b>: diikuti kata sifat yang mendeskripsikan/menilai topik (むずかしい、たのしい、おもしろい、たいへん).",
-      "<ruby>毎日新しい漢字を覚える</ruby>の<b>は</b> <ruby>大変です</ruby>。→ Menghapal kanji baru tiap hari itu berat.",
+      "<ruby><rb>毎日</rb><rt>まいにち</rt></ruby><ruby><rb>新</rb><rt>あたら</rt></ruby>しい<ruby><rb>漢字</rb><rt>かんじ</rt></ruby>を<ruby><rb>覚</rb><rt>おぼ</rt></ruby>えるの<b>は</b> <ruby><rb>大変</rb><rt>たいへん</rt></ruby>です。→ Menghapal kanji baru tiap hari itu berat.",
       "<b>KK の<u>が</u></b>: diikuti kata sifat preferensi/kemampuan (すき、きらい、じょうず、へた、はやい、おそい).",
-      "<ruby>料理を作る</ruby>の<b>が</b> <ruby>上手です</ruby>。→ Pandai memasak.",
+      "<ruby><rb>料理</rb><rt>りょうり</rt></ruby>を<ruby><rb>作</rb><rt>つく</rt></ruby>るの<b>が</b> <ruby><rb>上手</rb><rt>じょうず</rt></ruby>です。→ Pandai memasak.",
       "Kata sifat seperti むずかしい、たのしい bisa pakai keduanya tergantung nuansa."
     ]}
   ],
@@ -5038,7 +5038,7 @@ const BABS = [
       "Keduanya menyatakan alasan, namun <b>〜ので</b> lebih sopan/halus dan cocok untuk meminta izin.",
       "<b>〜ので</b> memiliki sifat menunjukkan sebab dan akibat, sehingga sangat cocok untuk memberikan alasan atau pembenaran dengan lembut.",
       "<b>〜から</b> lebih langsung/subjektif, cocok untuk percakapan sehari-hari.",
-      "Contoh ので: <ruby>漢字</ruby>が わからない<b>ので</b>、ひらがなで かいて いただけませんか → Karena tidak mengerti kanji, bisakah ditulis dengan hiragana?"
+      "Contoh ので: <ruby><rb>漢字</rb><rt>かんじ</rt></ruby>が わからない<b>ので</b>、ひらがなで かいて いただけませんか → Karena tidak mengerti kanji, bisakah ditulis dengan hiragana?"
     ]},
     {icon:"⚠️", title:"Konjugasi sebelum ので", points:[
       "<b>KK & KS い</b>: gunakan bentuk biasa langsung. のむ→のむ<b>ので</b>、たかい→たかい<b>ので</b>.",
@@ -5090,15 +5090,15 @@ const BABS = [
   tips: [
     {icon:"💡", title:"Interogatif か vs か どうか — pilih yang tepat", points:[
       "<b>Interogatif + か、〜</b>: digunakan saat pertanyaan mengandung kata tanya (いつ、どこ、なに、だれ、etc.).",
-      "Contoh: <ruby>明日</ruby> <ruby>何時に出発するか</ruby>、<ruby>教えて</ruby>ください → Tolong beritahu jam berapa berangkat besok.",
+      "Contoh: <ruby><rb>明日</rb><rt>あした</rt></ruby> <ruby><rb>何時</rb><rt>なんじ</rt></ruby>に<ruby><rb>出発</rb><rt>しゅっぱつ</rt></ruby>するか、<ruby><rb>教</rb><rt>おし</rt></ruby>えてください → Tolong beritahu jam berapa berangkat besok.",
       "<b>〜か どうか、〜</b>: digunakan saat pertanyaan TIDAK mengandung kata tanya (ya/tidak).",
-      "Contoh: <ruby>間違いが</ruby> ない<b>か どうか</b>、もう一度 よく 見て ください → Tolong periksa apakah ada kesalahan atau tidak."
+      "Contoh: <ruby><rb>間違い</rb><rt>まちがい</rt></ruby>が ない<b>か どうか</b>、もう<ruby><rb>一度</rb><rt>いちど</rt></ruby> よく <ruby><rb>見</rb><rt>み</rt></ruby>て ください → Tolong periksa apakah ada kesalahan atau tidak."
     ]},
     {icon:"🔍", title:"KK て みます — mencoba / coba lakukan", points:[
       "Digunakan untuk menyatakan minat atau keingintahuan seseorang terhadap sesuatu yang belum pernah dicoba sebelumnya.",
       "Contoh: この ズボン、はい<b>て みても</b> いいですか → Boleh saya coba pakai celana ini?",
-      "Contoh: わからない ことが あったら インターネットで 調べ<b>て みましょう</b> → Kalau ada yang tidak mengerti, coba cari di internet.",
-      "て みたいです = ingin mencoba: いつか 日本の お祭りに 参加し<b>て みたいです</b>。"
+      "Contoh: わからない ことが あったら インターネットで <ruby><rb>調</rb><rt>しら</rt></ruby>べ<b>て みましょう</b> → Kalau ada yang tidak mengerti, coba cari di internet.",
+      "て みたいです = ingin mencoba: いつか <ruby><rb>日本</rb><rt>にほん</rt></ruby>の お<ruby><rb>祭り</rb><rt>まつり</rt></ruby>に <ruby><rb>参加</rb><rt>さんか</rt></ruby>し<b>て みたいです</b>。"
     ]}
   ],
   bunpou: [
@@ -5176,10 +5176,10 @@ const BABS = [
       "⚠️ Pilih kata yang tepat sesuai arah aliran & status — kesalahan ini sangat noticeable dalam bahasa Jepang!"
     ]},
     {icon:"🔄", title:"Perbedaan いただきます vs くださいます", points:[
-      "<b>いただきます</b>: SAYA yang menerima dari orang status lebih tinggi. 先生<b>に</b> 本を <b>いただきました</b>。",
-      "<b>くださいます</b>: MEREKA (status lebih tinggi) yang memberi kepada saya. 先生<b>が</b>（わたしに）本を <b>くださいました</b>。",
+      "<b>いただきます</b>: SAYA yang menerima dari orang status lebih tinggi. <ruby><rb>先生</rb><rt>せんせい</rt></ruby><b>に</b> <ruby><rb>本</rb><rt>ほん</rt></ruby>を <b>いただきました</b>。",
+      "<b>くださいます</b>: MEREKA (status lebih tinggi) yang memberi kepada saya. <ruby><rb>先生</rb><rt>せんせい</rt></ruby><b>が</b>（わたしに）<ruby><rb>本</rb><rt>ほん</rt></ruby>を <b>くださいました</b>。",
       "Perbedaan partikel: いただきます pakai <b>に</b> untuk pengirim, くださいます pakai <b>が</b> untuk pemberi.",
-      "Keduanya bisa dikombinasikan dengan bentuk て: 先生に 教えて <b>いただきました</b> / 先生が 教えて <b>くださいました</b>。"
+      "Keduanya bisa dikombinasikan dengan bentuk て: <ruby><rb>先生</rb><rt>せんせい</rt></ruby>に <ruby><rb>教</rb><rt>おし</rt></ruby>えて <b>いただきました</b> / <ruby><rb>先生</rb><rt>せんせい</rt></ruby>が <ruby><rb>教</rb><rt>おし</rt></ruby>えて <b>くださいました</b>。"
     ]}
   ],
   bunpou: [
@@ -5307,15 +5307,15 @@ const BABS = [
   tips: [
     {icon:"💡", title:"ために — menunjukkan tujuan", points:[
       "Pola: <b>KK bentuk kamus + ために</b> = untuk melakukan ~. Menyatakan tujuan.",
-      "Contoh: <ruby>日本の社会</ruby>についての <ruby>論文</ruby>を かく<b>ために</b>、<ruby>図書館</ruby>で <ruby>本</ruby>を かりました → Untuk menulis tesis tentang masyarakat Jepang, saya meminjam buku di perpustakaan.",
-      "<b>KB の ために</b> = untuk kepentingan ~. Contoh: <ruby>健康</ruby>の<b>ために</b> <ruby>毎日</ruby> <ruby>運動</ruby>して います → Demi kesehatan, saya berolahraga setiap hari.",
+      "Contoh: <ruby><rb>日本</rb><rt>にほん</rt></ruby>の<ruby><rb>社会</rb><rt>しゃかい</rt></ruby>についての <ruby><rb>論文</rb><rt>ろんぶん</rt></ruby>を かく<b>ために</b>、<ruby><rb>図書館</rb><rt>としょかん</rt></ruby>で <ruby><rb>本</rb><rt>ほん</rt></ruby>を かりました → Untuk menulis tesis tentang masyarakat Jepang, saya meminjam buku di perpustakaan.",
+      "<b>KB の ために</b> = untuk kepentingan ~. Contoh: <ruby><rb>健康</rb><rt>けんこう</rt></ruby>の<b>ために</b> <ruby><rb>毎日</rb><rt>まいにち</rt></ruby> <ruby><rb>運動</rb><rt>うんどう</rt></ruby>して います → Demi kesehatan, saya berolahraga setiap hari.",
       "⚠️ Bedakan: <b>ために</b> (tujuan sadar) vs <b>ように</b> (tujuan/upaya agar ~ terjadi/tidak terjadi)."
     ]},
     {icon:"⚠️", title:"ために vs ように — perbedaan kunci", points:[
       "<b>ために</b>: diikuti tindakan sadar/kehendak. Subjek klausa ために = subjek kalimat utama.",
       "<b>ように</b>: diikuti keadaan/perubahan, atau tindakan agar sesuatu terjadi. Sering untuk tujuan negatif (〜ないように).",
-      "ために: やせる<b>ために</b>、<ruby>毎日運動</ruby>します → Untuk menurunkan berat badan, olahraga tiap hari.",
-      "ように: やせる<b>ように</b>、<ruby>甘いものを食べないように</ruby>して います → Agar bisa langsing, berusaha tidak makan yang manis."
+      "ために: やせる<b>ために</b>、<ruby><rb>毎日</rb><rt>まいにち</rt></ruby><ruby><rb>運動</rb><rt>うんどう</rt></ruby>します → Untuk menurunkan berat badan, olahraga tiap hari.",
+      "ように: やせる<b>ように</b>、<ruby><rb>甘</rb><rt>あま</rt></ruby>いものを<ruby><rb>食</rb><rt>た</rt></ruby>べないようにして います → Agar bisa langsing, berusaha tidak makan yang manis."
     ]}
   ],
   bunpou: [
@@ -5367,8 +5367,8 @@ const BABS = [
   tips: [
     {icon:"💡", title:"〜のに — menunjukkan fungsi/tujuan penggunaan", points:[
       "Pola: <b>KK kamus/KB + のに</b> = digunakan bersama frasa seperti つかいます, いいです, べんりです, やくにたちます untuk menunjukkan fungsi atau tujuan.",
-      "Contoh: この <ruby>道具</ruby>は たまごを きる<b>のに</b> つかいます → Alat ini digunakan untuk memotong telur.",
-      "Contoh: このかばんは おおきくて、<ruby>旅行</ruby><b>に</b> いいです → Tas ini besar, bagus untuk bepergian (KB langsung + に).",
+      "Contoh: この <ruby><rb>道具</rb><rt>どうぐ</rt></ruby>は たまごを きる<b>のに</b> つかいます → Alat ini digunakan untuk memotong telur.",
+      "Contoh: このかばんは おおきくて、<ruby><rb>旅行</rb><rt>りょこう</rt></ruby><b>に</b> いいです → Tas ini besar, bagus untuk bepergian (KB langsung + に).",
       "⚠️ のに di sini BUKAN 'meskipun/padahal' — itu fungsi berbeda (Bab kontras)."
     ]},
     {icon:"🔍", title:"〜そうです — kelihatannya / tampaknya", points:[
@@ -5449,7 +5449,7 @@ const BABS = [
     {icon:"🎯", title:"KB に します — memilih/memutuskan", points:[
       "Pola: <b>KB + に + します</b> = memilih atau memutuskan ~.",
       "Digunakan saat memilih dari beberapa pilihan atau memutuskan sesuatu.",
-      "Contoh: A: <ruby>昼ごはん</ruby>は なに に しますか → Mau pilih apa untuk makan siang? B: てんぷら<ruby>定食</ruby>に します → Saya pilih set tempura.",
+      "Contoh: A: <ruby><rb>昼ごはん</rb><rt>ひるごはん</rt></ruby>は なに に しますか → Mau pilih apa untuk makan siang? B: てんぷら<ruby><rb>定食</rb><rt>ていしょく</rt></ruby>に します → Saya pilih set tempura.",
       "Berbeda dari 〜に なります (berubah/menjadi ~ sendirinya) — します = kehendak sendiri."
     ]}
   ],
@@ -5835,22 +5835,22 @@ const BABS = [
   sub: "Bentuk perintah & larangan / X berarti Y",
   color: "bab-75",
   tips: [
-    {icon:"⚡", title:"命令形 (Bentuk Perintah) — cara membentuknya", points:[
+    {icon:"⚡", title:"<ruby><rb>命令形</rb><rt>めいれいけい</rt></ruby> (Bentuk Perintah) — cara membentuknya", points:[
       "<b>Grup I</b>: ubah ます → baris e (のみます→のめ、まちます→まて、かきます→かけ、はしります→はしれ).",
       "<b>Grup II</b>: ubah ます → ろ (やめます→やめろ、みます→みろ、ねます→ねろ).",
       "<b>Grup III</b>: きます→こい、します→しろ.",
       "Digunakan dalam situasi darurat, tanda, olahraga/semangat, atau situasi tidak formal."
     ]},
-    {icon:"🚫", title:"禁止形 (Bentuk Larangan) — cara membentuknya", points:[
+    {icon:"🚫", title:"<ruby><rb>禁止形</rb><rt>きんしけい</rt></ruby> (Bentuk Larangan) — cara membentuknya", points:[
       "<b>Semua grup</b>: KK bentuk kamus + <b>な</b>.",
       "Contoh: のむな (jangan minum)、みるな (jangan lihat)、するな (jangan lakukan).",
       "Digunakan untuk melarang keras — lebih kasar dari 〜ないでください.",
-      "Sering pada tanda/rambu: <ruby>立入禁止</ruby> (dilarang masuk) dll."
+      "Sering pada tanda/rambu: <ruby><rb>立入禁止</rb><rt>たちいりきんし</rt></ruby> (dilarang masuk) dll."
     ]},
-    {icon:"📖", title:"X は Y という意味です — mendefinisikan", points:[
-      "Pola: <b>X は Y という 意味です</b> = X berarti Y (mendefinisikan sebuah kata/simbol).",
-      "Contoh: この マークは ここに くるまを とめるな<b>という 意味です</b> → Tanda ini berarti dilarang parkir di sini.",
-      "Bentuk tanya: <b>どういう 意味ですか</b> = artinya apa? / maksudnya apa?",
+    {icon:"📖", title:"X は Y という<ruby><rb>意味</rb><rt>いみ</rt></ruby>です — mendefinisikan", points:[
+      "Pola: <b>X は Y という <ruby><rb>意味</rb><rt>いみ</rt></ruby>です</b> = X berarti Y (mendefinisikan sebuah kata/simbol).",
+      "Contoh: この マークは ここに くるまを とめるな<b>という <ruby><rb>意味</rb><rt>いみ</rt></ruby>です</b> → Tanda ini berarti dilarang parkir di sini.",
+      "Bentuk tanya: <b>どういう <ruby><rb>意味</rb><rt>いみ</rt></ruby>ですか</b> = artinya apa? / maksudnya apa?",
       "という = kutipan/definisi yang menggambarkan isi/makna dari sesuatu."
     ]}
   ],
@@ -5870,7 +5870,7 @@ const BABS = [
     {
       tag: "B", label: "X は Y という 意味です",
       pattern: "X は Y + という + 意味です / どういう 意味ですか",
-      desc: "Bentuk という 意味です digunakan ketika mendefinisikan X. Sedangkan bentuk interogatif どういう 意味ですか digunakan untuk menanyakan arti dari sesuatu.",
+      desc: "Bentuk という <ruby><rb>意味</rb><rt>いみ</rt></ruby>です digunakan ketika mendefinisikan X. Sedangkan bentuk interogatif どういう <ruby><rb>意味</rb><rt>いみ</rt></ruby>ですか digunakan untuk menanyakan arti dari sesuatu.",
       reibun: [
         {jp:"この マークは ここに <ruby><rb>車</rb><rt>くるま</rt></ruby>を <ruby><rb>止める</rb><rt>とめる</rt></ruby>な という <ruby><rb>意味</rb><rt>いみ</rt></ruby>です。", rom:"Kono māku wa koko ni kuruma o tomeru na to iu imi desu.", id:"Tanda ini berarti 'dilarang parkir di sini'."},
         {jp:"A: その マークは どういう <ruby><rb>意味</rb><rt>いみ</rt></ruby>ですか。B: <ruby><rb>洗濯機</rb><rt>せんたくき</rt></ruby>で <ruby><rb>洗える</rb><rt>あらえる</rt></ruby> という <ruby><rb>意味</rb><rt>いみ</rt></ruby>ですよ。", rom:"A: Sono māku wa dō iu imi desu ka. B: Sentakki de araeru to iu imi desu yo.", id:"A: Tanda itu artinya apa? B: Artinya bisa dicuci dengan mesin cuci."}
@@ -5913,7 +5913,7 @@ const BABS = [
   sub: "Menyuruh / mengizinkan seseorang melakukan sesuatu",
   color: "bab-76",
   tips: [
-    {icon:"💡", title:"Cara membentuk 使役動詞 (Kausatif)", points:[
+    {icon:"💡", title:"Cara membentuk <ruby><rb>使役動詞</rb><rt>しえきどうし</rt></ruby> (Kausatif)", points:[
       "<b>Grup I</b>: ubah ～います → ～あせます. Contoh: かきます→かかせます、よみます→よませます、もちます→もたせます、はなします→はなさせます.",
       "<b>Grup II</b>: tambah させます. Contoh: やめます→やめさせます、でます→ださせます、ねます→ねさせます.",
       "<b>Grup III</b>: きます→こさせます、します→させます.",
@@ -6000,14 +6000,14 @@ const BABS = [
   sub: "Menghormati orang yang melakukan tindakan",
   color: "bab-77",
   tips: [
-    {icon:"👑", title:"尊敬語 — menghormati pelaku tindakan", points:[
+    {icon:"👑", title:"<ruby><rb>尊敬語</rb><rt>そんけいご</rt></ruby> — menghormati pelaku tindakan", points:[
       "Kata kerja ini menunjukkan rasa hormat terhadap orang yang melakukan tindakan atau dalam keadaan yang disebutkan.",
       "<b>Cara umum</b>: bentuk sama seperti kata kerja pasif → terkonjugasi sebagai <b>grup II</b>.",
       "Grup I: ～られます (ききます→きかれます、よみます→よまれます). Grup II: ～られます (かけます→かけられます). Grup III: きます→こられます、します→されます.",
       "Digunakan saat berbicara tentang tindakan orang yang statusnya lebih tinggi dalam hierarki sosial."
     ]},
     {icon:"🎩", title:"お/ご〜に なります & お/ご〜ください", points:[
-      "<b>お (KK stem-ます) に なります</b>: lebih sopan dari 尊敬語 biasa. Contoh: せんせいが <b>おかえりに なります</b>.",
+      "<b>お (KK stem-ます) に なります</b>: lebih sopan dari <ruby><rb>尊敬語</rb><rt>そんけいご</rt></ruby> biasa. Contoh: せんせいが <b>おかえりに なります</b>.",
       "<b>お (KK stem-ます) ください</b>: setara dengan 〜てください tapi lebih sopan. Contoh: どうぞ <b>おはいり ください</b>.",
       "Grup III dan KK satu suku kata (みます、ねます、います) tidak bisa diubah ke bentuk お〜に なります.",
       "<b>Ungkapan khusus</b>: いきます/きます/います→いらっしゃいます, たべます/のみます→めしあがります, いいます→おっしゃいます, しっています→ごぞんじです, みます→ごらんになります."
@@ -6033,7 +6033,7 @@ const BABS = [
     {
       tag: "B", label: "お(KK bentuk ます) に なります",
       pattern: "お + KK [stem-ます] + に なります",
-      desc: "Bentuk ini umumnya dianggap lebih sopan daripada kata kerja bahasa hormat (尊敬語). Kata kerja grup III dan kata kerja bentuk ます yang terdiri dari satu suku kata, seperti みます, ねます, dan います, tidak dapat dirubah ke bentuk ini.",
+      desc: "Bentuk ini umumnya dianggap lebih sopan daripada kata kerja bahasa hormat (<ruby><rb>尊敬語</rb><rt>そんけいご</rt></ruby>). Kata kerja grup III dan kata kerja bentuk ます yang terdiri dari satu suku kata, seperti みます, ねます, dan います, tidak dapat dirubah ke bentuk ini.",
       reibun: [
         {jp:"<ruby><rb>先生</rb><rt>せんせい</rt></ruby>が お<ruby><rb>帰り</rb><rt>かえり</rt></ruby>に なります。", rom:"Sensei ga okaeri ni narimasu.", id:"Guru akan pulang."},
         {jp:"これは <ruby><rb>部長</rb><rt>ぶちょう</rt></ruby>の <ruby><rb>奥様</rb><rt>おくさま</rt></ruby>が お<ruby><rb>作り</rb><rt>つくり</rt></ruby>に なった <ruby><rb>料理</rb><rt>りょうり</rt></ruby>です。", rom:"Kore wa buchō no okusan ga otsukuri ni natta ryōri desu.", id:"Ini adalah masakan yang dibuat oleh istri kepala bagian."},
@@ -6083,13 +6083,13 @@ const BABS = [
   sub: "Merendahkan tindakan diri sendiri untuk menghormati lawan bicara",
   color: "bab-78",
   tips: [
-    {icon:"🙇", title:"謙譲語 — cara merendahkan diri", points:[
+    {icon:"🙇", title:"<ruby><rb>謙譲語</rb><rt>けんじょうご</rt></ruby> — cara merendahkan diri", points:[
       "Digunakan saat berbicara dengan seseorang yang dihormati tentang tindakan yang dilakukan oleh pembicara sendiri.",
       "<b>Cara umum</b>: KK grup I & II → お〜します. Contoh: おくります→おおくりします、もちます→おもちします.",
       "<b>Grup III khusus</b>: あんないします→ごあんないします、しょうかいします→ごしょうかいします、れんらくします→ごれんらくします.",
-      "Contoh: <ruby>今月</ruby>の スケジュールを <b>おおくりします</b> → Saya akan mengirimkan jadwal bulan ini."
+      "Contoh: <ruby><rb>今月</rb><rt>こんげつ</rt></ruby>の スケジュールを <b>おおくりします</b> → Saya akan mengirimkan jadwal bulan ini."
     ]},
-    {icon:"📋", title:"Ungkapan Khusus 謙譲語", points:[
+    {icon:"📋", title:"Ungkapan Khusus <ruby><rb>謙譲語</rb><rt>けんじょうご</rt></ruby>", points:[
       "いきます・きます → <b>まいります</b>",
       "います → <b>おります</b>",
       "たべます・のみます・もらいます → <b>いただきます</b>",
@@ -6566,9 +6566,9 @@ const BAB_TIPS = {
     ]},
     {icon:"🗣️", title:"Urutan Perkenalan Diri Formal", points:[
       "① <b>はじめまして</b> — Salam pertama kali bertemu",
-      "② <b>[nama]と申します</b> — Perkenalkan nama saya...",
+      "② <b>[nama]と<ruby><rb>申します</rb><rt>もうします</rt></ruby></b> — Perkenalkan nama saya...",
       "③ <b>[asal/pekerjaan]です</b> — Saya berasal dari... / Saya bekerja sebagai...",
-      "④ <b>どうぞ、よろしくお願いします</b> — Salam kenal",
+      "④ <b>どうぞ、よろしくお<ruby><rb>願</rb><rt>ねが</rt></ruby>いします</b> — Salam kenal",
       "💡 Hafalkan urutan ini sebagai satu blok!"
     ]},
     {icon:"🔢", title:"Angka 1–99", points:[
@@ -6582,12 +6582,12 @@ const BAB_TIPS = {
     {icon:"💡", title:"これ/それ/あれ vs この/その/あの", points:[
       "<b>これ/それ/あれ</b> → berdiri SENDIRI sebagai kata benda penunjuk",
       "<b>この/その/あの</b> → selalu diikuti kata benda (tidak bisa berdiri sendiri)",
-      "Contoh: これは本です (Ini buku) vs <b>この本</b> (buku ini)",
+      "Contoh: これは<ruby><rb>本</rb><rt>ほん</rt></ruby>です (Ini buku) vs <b>この<ruby><rb>本</rb><rt>ほん</rt></ruby></b> (buku ini)",
       "Jarak: この/これ = dekat pembicara | その/それ = dekat pendengar | あの/あれ = jauh keduanya"
     ]},
     {icon:"🔑", title:"Fungsi Partikel の", points:[
-      "① <b>Kepemilikan</b>: わたし<b>の</b>本 (buku saya)",
-      "② <b>Kategori / isi</b>: にほんご<b>の</b>本 (buku bahasa Jepang)",
+      "① <b>Kepemilikan</b>: わたし<b>の</b><ruby><rb>本</rb><rt>ほん</rt></ruby> (buku saya)",
+      "② <b>Kategori / isi</b>: にほんご<b>の</b><ruby><rb>本</rb><rt>ほん</rt></ruby> (buku bahasa Jepang)",
       "③ <b>Pengganti KB</b> yang sudah jelas: それはわたし<b>の</b>です (itu milik saya)",
       "💡 Fungsi ③ (pronominalisasi) sangat umum dalam percakapan sehari-hari!"
     ]}
@@ -6603,7 +6603,7 @@ const BAB_TIPS = {
       "Lokasi umum: <b>KB は どこですか</b> → KB ada di mana?",
       "Lantai gedung: <b>KB は なんがいですか</b> → KB di lantai berapa?",
       "Contoh jawaban: ２<ruby><rb>階</rb><rt>かい</rt></ruby>と４<ruby><rb>階</rb><rt>かい</rt></ruby>です (di lantai 2 dan 4)",
-      "Ingat: 階 dibaca <b>かい</b> (bukan がい kecuali dalam なんがい)"
+      "Ingat: <ruby><rb>階</rb><rt>かい</rt></ruby> dibaca <b>かい</b> (bukan がい kecuali dalam なんがい)"
     ]}
   ],
   4: [
@@ -6620,15 +6620,15 @@ const BAB_TIPS = {
     ]}
   ],
   5: [
-    {icon:"⏰", title:"Membaca JAM (〜時)", points:[
-      "Umumnya: angka + じ | Contoh: 1時=いちじ, 2時=にじ, 6時=ろくじ",
-      "⚠️ Istimewa: 4時 = <b>よじ</b> (bukan しじ!), 9時 = <b>くじ</b> (bukan きゅうじ!)",
-      "Setengah jam: ～時<b>半</b> | Contoh: 3時半=さんじはん (jam 3:30)"
+    {icon:"⏰", title:"Membaca JAM (〜<ruby><rb>時</rb><rt>じ</rt></ruby>)", points:[
+      "Umumnya: angka + じ | Contoh: 1<ruby><rb>時</rb><rt>じ</rt></ruby>=いちじ, 2<ruby><rb>時</rb><rt>じ</rt></ruby>=にじ, 6<ruby><rb>時</rb><rt>じ</rt></ruby>=ろくじ",
+      "⚠️ Istimewa: 4<ruby><rb>時</rb><rt>じ</rt></ruby> = <b>よじ</b> (bukan しじ!), 9<ruby><rb>時</rb><rt>じ</rt></ruby> = <b>くじ</b> (bukan きゅうじ!)",
+      "Setengah jam: ～<ruby><rb>時</rb><rt>じ</rt></ruby><b><ruby><rb>半</rb><rt>はん</rt></ruby></b> | Contoh: 3<ruby><rb>時半</rb><rt>じはん</rt></ruby>=さんじはん (jam 3:30)"
     ]},
-    {icon:"⚠️", title:"Membaca MENIT (〜分) — Ada yang Berubah!", points:[
-      "1分=<b>いっぷん</b> | 2分=にふん | 3分=<b>さんぷん</b> | 4分=よんぷん",
-      "5分=ごふん | 6分=<b>ろっぷん</b> | 7分=ななふん | 8分=<b>はっぷん</b>",
-      "9分=きゅうふん | 10分=<b>じゅっぷん</b>",
+    {icon:"⚠️", title:"Membaca MENIT (〜<ruby><rb>分</rb><rt>ふん</rt></ruby>) — Ada yang Berubah!", points:[
+      "1<ruby><rb>分</rb><rt>ふん</rt></ruby>=<b>いっぷん</b> | 2<ruby><rb>分</rb><rt>ふん</rt></ruby>=にふん | 3<ruby><rb>分</rb><rt>ふん</rt></ruby>=<b>さんぷん</b> | 4<ruby><rb>分</rb><rt>ふん</rt></ruby>=よんぷん",
+      "5<ruby><rb>分</rb><rt>ふん</rt></ruby>=ごふん | 6<ruby><rb>分</rb><rt>ふん</rt></ruby>=<b>ろっぷん</b> | 7<ruby><rb>分</rb><rt>ふん</rt></ruby>=ななふん | 8<ruby><rb>分</rb><rt>ふん</rt></ruby>=<b>はっぷん</b>",
+      "9<ruby><rb>分</rb><rt>ふん</rt></ruby>=きゅうふん | 10<ruby><rb>分</rb><rt>ふん</rt></ruby>=<b>じゅっぷん</b>",
       "💡 Yang berubah (ふん→<b>ぷん</b>): angka <b>1, 3, 6, 8, 10</b>"
     ]},
     {icon:"📅", title:"Hari dalam Seminggu — Cara Hafal", points:[
@@ -6646,7 +6646,7 @@ const BAB_TIPS = {
       "④ <b>おきませんでした</b> — negatif lampau (tidak bangun [kemarin/dulu])"
     ]},
     {icon:"⏱️", title:"Partikel に setelah Waktu", points:[
-      "✅ DIPAKAI setelah waktu SPESIFIK: ７時<b>に</b>おきます (bangun jam 7)",
+      "✅ DIPAKAI setelah waktu SPESIFIK: ７<ruby><rb>時</rb><rt>じ</rt></ruby><b>に</b>おきます (bangun jam 7)",
       "✅ Juga dipakai: <ruby><rb>月曜日</rb><rt>げつようび</rt></ruby><b>に</b> (pada hari Senin)",
       "❌ TIDAK dipakai dengan: きのう, きょう, あした, まいにち, まいあさ",
       "💡 Aturan: kata waktu yang sudah 'relatif/umum' tidak butuh に"
@@ -6660,15 +6660,15 @@ const BAB_TIPS = {
       "💡 Ingat: <b>で</b>=cara/alat, <b>へ</b>=arah"
     ]},
     {icon:"📅", title:"Tanggal 1–10 yang Istimewa", points:[
-      "1日=<b>ついたち</b> | 2日=<b>ふつか</b> | 3日=<b>みっか</b> | 4日=<b>よっか</b>",
-      "5日=<b>いつか</b> | 6日=<b>むいか</b> | 7日=<b>なのか</b> | 8日=<b>ようか</b>",
-      "9日=<b>ここのか</b> | 10日=<b>とおか</b>",
-      "⚠️ Khusus lain: 14日=じゅうよっか | 20日=<b>はつか</b> | 24日=にじゅうよっか"
+      "1<ruby><rb>日</rb><rt>にち</rt></ruby>=<b>ついたち</b> | 2<ruby><rb>日</rb><rt>にち</rt></ruby>=<b>ふつか</b> | 3<ruby><rb>日</rb><rt>にち</rt></ruby>=<b>みっか</b> | 4<ruby><rb>日</rb><rt>にち</rt></ruby>=<b>よっか</b>",
+      "5<ruby><rb>日</rb><rt>にち</rt></ruby>=<b>いつか</b> | 6<ruby><rb>日</rb><rt>にち</rt></ruby>=<b>むいか</b> | 7<ruby><rb>日</rb><rt>にち</rt></ruby>=<b>なのか</b> | 8<ruby><rb>日</rb><rt>にち</rt></ruby>=<b>ようか</b>",
+      "9<ruby><rb>日</rb><rt>にち</rt></ruby>=<b>ここのか</b> | 10<ruby><rb>日</rb><rt>にち</rt></ruby>=<b>とおか</b>",
+      "⚠️ Khusus lain: 14<ruby><rb>日</rb><rt>にち</rt></ruby>=じゅうよっか | 20<ruby><rb>日</rb><rt>にち</rt></ruby>=<b>はつか</b> | 24<ruby><rb>日</rb><rt>にち</rt></ruby>=にじゅうよっか"
     ]},
     {icon:"📆", title:"Nama Bulan — Sangat Mudah!", points:[
-      "Cukup pakai angka + <b>がつ</b>: 1月=いちがつ, 2月=にがつ ... 12月=じゅうにがつ",
+      "Cukup pakai angka + <b>がつ</b>: 1<ruby><rb>月</rb><rt>がつ</rt></ruby>=いちがつ, 2<ruby><rb>月</rb><rt>がつ</rt></ruby>=にがつ ... 12<ruby><rb>月</rb><rt>がつ</rt></ruby>=じゅうにがつ",
       "Tidak ada nama khusus seperti Januari, Februari, dll.",
-      "💡 Bedakan: 月(がつ) = nama bulan vs 月(げつ) = bahan hari Senin"
+      "💡 Bedakan: <ruby><rb>月</rb><rt>がつ</rt></ruby>(がつ) = nama bulan vs <ruby><rb>月</rb><rt>がつ</rt></ruby>(げつ) = bahan hari Senin"
     ]}
   ],
   8: [
@@ -6787,11 +6787,11 @@ const BAB_TIPS = {
     ]}
   ],
   15: [
-    {icon:"🔢", title:"Kata Bantu Bilangan (助数詞)", points:[
+    {icon:"🔢", title:"Kata Bantu Bilangan (<ruby><rb>助数詞</rb><rt>じょすうし</rt></ruby>)", points:[
       "<b>〜つ</b> (ひとつ〜とお): benda umum yang bisa digenggam/dihitung",
-      "<b>〜人(にん)</b>: orang (3+) | Khusus: 1人=ひとり, 2人=ふたり",
-      "<b>〜台(だい)</b>: mesin, kendaraan (mobil, komputer, TV, dll.)",
-      "<b>〜枚(まい)</b>: benda tipis/lembaran (kertas, prangko, tiket)"
+      "<b>〜<ruby><rb>人</rb><rt>ひと</rt></ruby>(にん)</b>: orang (3+) | Khusus: 1<ruby><rb>人</rb><rt>ひと</rt></ruby>=ひとり, 2<ruby><rb>人</rb><rt>ひと</rt></ruby>=ふたり",
+      "<b>〜<ruby><rb>台</rb><rt>だい</rt></ruby>(だい)</b>: mesin, kendaraan (mobil, komputer, TV, dll.)",
+      "<b>〜<ruby><rb>枚</rb><rt>まい</rt></ruby>(まい)</b>: benda tipis/lembaran (kertas, prangko, tiket)"
     ]},
     {icon:"👨‍👩‍👧‍👦", title:"Istilah Keluarga — Dua Versi!", points:[
       "<b>Versi merendah</b> (untuk keluarga sendiri): ちち, はは, あに, あね, おとうと, いもうと",
@@ -6802,22 +6802,22 @@ const BAB_TIPS = {
   ],
   16: [
     {icon:"⏱️", title:"Durasi vs Waktu Spesifik", points:[
-      "Durasi: <b>〜時間</b>(jam), <b>〜週間</b>(minggu), <b>〜か月</b>(bulan), <b>〜年</b>(tahun)",
-      "Durasi TIDAK perlu partikel に: ２時間べんきょうします (belajar 2 jam)",
-      "Waktu spesifik BUTUH に: ７時<b>に</b>おきます (bangun jam 7)",
-      "Perbedaan: ２時間(selama 2 jam) vs ２時に(pada jam 2)"
+      "Durasi: <b>〜<ruby><rb>時間</rb><rt>じかん</rt></ruby></b>(jam), <b>〜<ruby><rb>週間</rb><rt>しゅうかん</rt></ruby></b>(minggu), <b>〜か<ruby><rb>月</rb><rt>がつ</rt></ruby></b>(bulan), <b>〜<ruby><rb>年</rb><rt>ねん</rt></ruby></b>(tahun)",
+      "Durasi TIDAK perlu partikel に: ２<ruby><rb>時間</rb><rt>じかん</rt></ruby>べんきょうします (belajar 2 jam)",
+      "Waktu spesifik BUTUH に: ７<ruby><rb>時</rb><rt>じ</rt></ruby><b>に</b>おきます (bangun jam 7)",
+      "Perbedaan: ２<ruby><rb>時間</rb><rt>じかん</rt></ruby>(selama 2 jam) vs ２<ruby><rb>時</rb><rt>じ</rt></ruby>に(pada jam 2)"
     ]},
     {icon:"🔁", title:"Frekuensi — [jangka waktu]に〜<ruby>回<rt>かい</rt></ruby>", points:[
-      "Pola: [jangka waktu]<b>に</b>[berapa回] + KK",
-      "１週間に３<b>回</b>テニスをします (3 kali seminggu bermain tenis)",
+      "Pola: [jangka waktu]<b>に</b>[berapa<ruby><rb>回</rb><rt>かい</rt></ruby>] + KK",
+      "１<ruby><rb>週間</rb><rt>しゅうかん</rt></ruby>に３<b><ruby><rb>回</rb><rt>かい</rt></ruby></b>テニスをします (3 kali seminggu bermain tenis)",
       "Partikel <b>に</b> setelah jangka waktu WAJIB ada!",
-      "Untuk bertanya: <b>どのぐらい</b> (~berapa lama) | <b>何回</b> (~berapa kali)"
+      "Untuk bertanya: <b>どのぐらい</b> (~berapa lama) | <b><ruby><rb>何回</rb><rt>なんかい</rt></ruby></b> (~berapa kali)"
     ]},
     {icon:"⏰", title:"かかります — Waktu yang Dibutuhkan", points:[
       "Pola: [dari]から[ke]まで [kendaraan]で [durasi]かかります",
-      "うちから学校までバスで30分<b>かかります</b>",
+      "うちから<ruby><rb>学校</rb><rt>がっこう</rt></ruby>までバスで30<ruby><rb>分</rb><rt>ふん</rt></ruby><b>かかります</b>",
       "Untuk bertanya: <b>どのぐらい</b>かかりますか (berapa lama?)",
-      "Bisa juga untuk uang: ～円<b>かかります</b> (membutuhkan ~ yen)"
+      "Bisa juga untuk uang: ～<ruby><rb>円</rb><rt>えん</rt></ruby><b>かかります</b> (membutuhkan ~ yen)"
     ]}
   ],
   17: [
@@ -6828,9 +6828,9 @@ const BAB_TIPS = {
       "Dua-duanya sama: <b>どちらも</b> KS です"
     ]},
     {icon:"🏆", title:"Superlative — yang Paling (いちばん)", points:[
-      "Pola: [kelompok]<b>の中で</b> [apa/siapa/kapan]が <b>いちばん</b> KS ですか",
-      "Contoh: スポーツの中で サッカーが<b>いちばん</b>すきです",
-      "Kata tanya yang dipakai: <b>何</b>(benda), <b>どこ</b>(tempat), <b>だれ</b>(orang), <b>いつ</b>(waktu)",
+      "Pola: [kelompok]<b>の<ruby><rb>中</rb><rt>なか</rt></ruby>で</b> [apa/siapa/kapan]が <b>いちばん</b> KS ですか",
+      "Contoh: スポーツの<ruby><rb>中</rb><rt>なか</rt></ruby>で サッカーが<b>いちばん</b>すきです",
+      "Kata tanya yang dipakai: <b><ruby><rb>何</rb><rt>なん</rt></ruby></b>(benda), <b>どこ</b>(tempat), <b>だれ</b>(orang), <b>いつ</b>(waktu)",
       "⚠️ どちら = pilihan dari 2 | どれ = pilihan dari 3 atau lebih"
     ]}
   ],
@@ -6864,8 +6864,8 @@ const BAB_TIPS = {
   ],
   20: [
     {icon:"🎯", title:"Tujuan Pergi — [KK]に いきます", points:[
-      "Pola: [tempat]へ <b>[KK ます形] に いきます/きます/かえります</b>",
-      "KK harus dalam bentuk <b>ます形</b> (tanpa ます): たべ<b>に</b>, あそび<b>に</b>",
+      "Pola: [tempat]へ <b>[KK ます<ruby><rb>形</rb><rt>けい</rt></ruby>] に いきます/きます/かえります</b>",
+      "KK harus dalam bentuk <b>ます<ruby><rb>形</rb><rt>けい</rt></ruby></b> (tanpa ます): たべ<b>に</b>, あそび<b>に</b>",
       "Contoh: こうえんへ あそび<b>に</b>いきます (pergi ke taman untuk bermain)",
       "Kata benda juga bisa: びじゅつのべんきょう<b>に</b>きました"
     ]},
@@ -7003,7 +7003,7 @@ const BAB_TIPS = {
       "⚠️ Objek できます selalu pakai <b>が</b>, BUKAN を!",
       "Negatif: できません | Pertanyaan: できますか"
     ]},
-    {icon:"🎯", title:"〜趣味は〜ことです — Mengungkapkan Hobi", points:[
+    {icon:"🎯", title:"〜<ruby><rb>趣味</rb><rt>しゅみ</rt></ruby>は〜ことです — Mengungkapkan Hobi", points:[
       "Cara 1 (singkat): しゅみは<b>つり</b>です (hobi saya memancing)",
       "Cara 2 (detail): しゅみはほんをよむ<b>こと</b>です",
       "こと = nominalizer (mengubah KK menjadi kata benda)",
@@ -7020,7 +7020,7 @@ const BAB_TIPS = {
     {icon:"🌏", title:"〜たことがあります — Pengalaman", points:[
       "Pola: <b>KK た + ことが あります</b> = pernah melakukan ~",
       "Belum pernah: <b>〜たことが ありません</b>",
-      "Belum pernah sama sekali: <b>一度も〜ありません</b>",
+      "Belum pernah sama sekali: <b><ruby><rb>一度</rb><rt>いちど</rt></ruby>も〜ありません</b>",
       "Pertanyaan: 〜たことが<b>ありますか</b>?"
     ]},
     {icon:"🔀", title:"〜たり〜たりします — Contoh Kegiatan", points:[
@@ -7059,9 +7059,9 @@ const BAB_TIPS = {
     ]},
     {icon:"💡", title:"Kapan Gunakan Ragam Biasa?", points:[
       "✅ GUNAKAN: dengan teman sebaya/dekat, adik, anak, buku harian",
-      "✅ GUNAKAN: dalam kalimat kutipan 〜と思います/〜と言います",
+      "✅ GUNAKAN: dalam kalimat kutipan 〜と<ruby><rb>思</rb><rt>おも</rt></ruby>います/〜と<ruby><rb>言</rb><rt>い</rt></ruby>います",
       "❌ JANGAN: kepada atasan, guru, orang lebih tua, orang baru dikenal",
-      "Dalam kutipan (〜と思います), selalu biasa meski konteks formal!"
+      "Dalam kutipan (〜と<ruby><rb>思</rb><rt>おも</rt></ruby>います), selalu biasa meski konteks formal!"
     ]},
     {icon:"💬", title:"Ekspresi Informal yang Sering Dipakai", points:[
       "<b>うん</b> = ya (informal dari はい)",
@@ -7071,30 +7071,30 @@ const BAB_TIPS = {
     ]}
   ],
   31: [
-    {icon:"💭", title:"〜と思います — Menyatakan Pendapat", points:[
-      "Pola: <b>[bentuk biasa] + と思います</b>",
+    {icon:"💭", title:"〜と<ruby><rb>思</rb><rt>おも</rt></ruby>います — Menyatakan Pendapat", points:[
+      "Pola: <b>[bentuk biasa] + と<ruby><rb>思</rb><rt>おも</rt></ruby>います</b>",
       "Bentuk sebelum と SELALU ragam biasa (kamus/ない/た/だ)",
       "Contoh: あしたあめ<b>だ</b>とおもいます | むずかし<b>い</b>とおもいます",
-      "Untuk bertanya: 〜について<b>どう思いますか</b>?"
+      "Untuk bertanya: 〜について<b>どう<ruby><rb>思</rb><rt>おも</rt></ruby>いますか</b>?"
     ]},
-    {icon:"🗨️", title:"〜と言います — Melaporkan Ucapan", points:[
-      "Pola: <b>[kutipan bentuk biasa] + と言いました</b>",
+    {icon:"🗨️", title:"〜と<ruby><rb>言</rb><rt>い</rt></ruby>います — Melaporkan Ucapan", points:[
+      "Pola: <b>[kutipan bentuk biasa] + と<ruby><rb>言</rb><rt>い</rt></ruby>いました</b>",
       "Isi kutipan TIDAK berubah mengikuti waktu kalimat utama",
-      "Contoh: せんせいはあしたテストがある<b>と言いました</b>",
+      "Contoh: せんせいはあしたテストがある<b>と<ruby><rb>言</rb><rt>い</rt></ruby>いました</b>",
       "⚠️ Berbeda dari bahasa Indonesia yang mengubah bentuk dalam kutipan tak langsung"
     ]},
-    {icon:"💡", title:"と思います vs と言います — Bedakan!", points:[
-      "<b>と思います</b> = PIKIRAN/PENDAPAT pembicara sendiri",
-      "<b>と言います</b> = melaporkan UCAPAN orang lain",
+    {icon:"💡", title:"と<ruby><rb>思</rb><rt>おも</rt></ruby>います vs と<ruby><rb>言</rb><rt>い</rt></ruby>います — Bedakan!", points:[
+      "<b>と<ruby><rb>思</rb><rt>おも</rt></ruby>います</b> = PIKIRAN/PENDAPAT pembicara sendiri",
+      "<b>と<ruby><rb>言</rb><rt>い</rt></ruby>います</b> = melaporkan UCAPAN orang lain",
       "Kata keterangan berguna: たぶん(mungkin) | きっと(pasti) | もちろん(tentu saja)",
       "Kedua pola ini wajib menggunakan ragam biasa sebelum と"
     ]}
   ],
   32: [
     {icon:"👔", title:"Kata Kerja Memakai Pakaian", points:[
-      "<b>きます</b> (着る) = baju, kemeja, jaket, jas (bagian atas badan)",
-      "<b>はきます</b> (履く) = celana, rok, sepatu, kaus kaki (bagian bawah/kaki)",
-      "<b>かぶります</b> (被る) = topi, helm (kepala)",
+      "<b>きます</b> (<ruby><rb>着</rb><rt>き</rt></ruby>る) = baju, kemeja, jaket, jas (bagian atas badan)",
+      "<b>はきます</b> (<ruby><rb>履</rb><rt>は</rt></ruby>く) = celana, rok, sepatu, kaus kaki (bagian bawah/kaki)",
+      "<b>かぶります</b> (<ruby><rb>被</rb><rt>かぶ</rt></ruby>る) = topi, helm (kepala)",
       "<b>かけます</b> = kacamata | <b>します</b> = dasi, perhiasan | <b>もちます</b> = tas"
     ]},
     {icon:"🔗", title:"Kata Kerja Memodifikasi Kata Benda", points:[
@@ -7167,14 +7167,14 @@ const BAB_TIPS = {
   36: [
     {icon:"🗺️", title:"と untuk Petunjuk Arah", points:[
       "<b>まっすぐ いくと</b> = kalau jalan lurus...",
-      "<b>角を まがると</b> = kalau belok di tikungan...",
-      "<b>交差点を わたると</b> = kalau menyeberang persimpangan...",
+      "<b><ruby><rb>角</rb><rt>かど</rt></ruby>を まがると</b> = kalau belok di tikungan...",
+      "<b><ruby><rb>交差点</rb><rt>こうさてん</rt></ruby>を わたると</b> = kalau menyeberang persimpangan...",
       "Hasil selalu PASTI & otomatis: ada tempat/bangunan, dll."
     ]},
     {icon:"⚙️", title:"と untuk Cara Kerja Alat", points:[
-      "ボタンを <b>押すと</b> = kalau menekan tombol...",
-      "レバーを <b>引くと</b> = kalau menarik tuas...",
-      "つまみを <b>回すと</b> = kalau memutar knop...",
+      "ボタンを <b><ruby><rb>押</rb><rt>お</rt></ruby>すと</b> = kalau menekan tombol...",
+      "レバーを <b><ruby><rb>引</rb><rt>ひ</rt></ruby>くと</b> = kalau menarik tuas...",
+      "つまみを <b><ruby><rb>回</rb><rt>かい</rt></ruby>すと</b> = kalau memutar knop...",
       "⚠️ Ingat: と TIDAK bisa diikuti keinginan (~たい) atau ajakan (~ましょう)!"
     ]},
     {icon:"💡", title:"と vs たら — Kapan Pakai Yang Mana?", points:[
@@ -7195,7 +7195,7 @@ const BAB_TIPS = {
     {icon:"💡", title:"もし dengan たら", points:[
       "もし = 'seandainya / kalau seandainya' (kondisi yang belum tentu terjadi)",
       "もし 〜たら → menekankan kondisi hipotetis/pengandaian",
-      "Contoh: <b>もし</b> 1億円 あったら、旅行したいです。",
+      "Contoh: <b>もし</b> 1<ruby><rb>億円</rb><rt>おくえん</rt></ruby> あったら、<ruby><rb>旅行</rb><rt>りょこう</rt></ruby>したいです。",
       "もし tidak selalu harus digunakan, tapi menambahkan penekanan."
     ]}
   ],
@@ -7203,14 +7203,14 @@ const BAB_TIPS = {
     {icon:"⏰", title:"たら Temporal vs Kondisional", points:[
       "<b>Kondisional</b> (bab 37): もし 〜たら = Seandainya... (belum tentu terjadi)",
       "<b>Temporal</b> (bab 38): 〜たら、すぐ = Setelah/Saat... langsung... (pasti terjadi)",
-      "Contoh temporal: 家へ 帰ったら、すぐ シャワーを 浴びます。",
+      "Contoh temporal: <ruby><rb>家</rb><rt>うち</rt></ruby>へ <ruby><rb>帰</rb><rt>かえ</rt></ruby>ったら、すぐ シャワーを <ruby><rb>浴</rb><rt>あ</rt></ruby>びます。",
       "Kunci: temporal biasanya ada kata urutan seperti すぐ (langsung)."
     ]},
     {icon:"📝", title:"Latihan Konjugasi たら", points:[
-      "卒業します → <b>卒業したら</b> (setelah lulus)",
-      "仕事が 終わります → <b>仕事が 終わったら</b> (setelah kerja selesai)",
-      "うちへ 帰ります → <b>うちへ 帰ったら</b> (setelah pulang)",
-      "年を 取ります → <b>年を 取ったら</b> (saat sudah tua)"
+      "<ruby><rb>卒業</rb><rt>そつぎょう</rt></ruby>します → <b><ruby><rb>卒業した</rb><rt>そつぎょうした</rt></ruby>ら</b> (setelah lulus)",
+      "<ruby><rb>仕事</rb><rt>しごと</rt></ruby>が <ruby><rb>終</rb><rt>お</rt></ruby>わります → <b><ruby><rb>仕事</rb><rt>しごと</rt></ruby>が <ruby><rb>終</rb><rt>お</rt></ruby>わったら</b> (setelah kerja selesai)",
+      "うちへ <ruby><rb>帰り</rb><rt>かえり</rt></ruby>ます → <b>うちへ <ruby><rb>帰</rb><rt>かえ</rt></ruby>ったら</b> (setelah pulang)",
+      "<ruby><rb>年</rb><rt>ねん</rt></ruby>を <ruby><rb>取ります</rb><rt>とります</rt></ruby> → <b><ruby><rb>年</rb><rt>ねん</rt></ruby>を <ruby><rb>取</rb><rt>と</rt></ruby>ったら</b> (saat sudah tua)"
     ]}
   ],
   39: [
@@ -7224,7 +7224,7 @@ const BAB_TIPS = {
     {icon:"⚡", title:"いくら〜ても", points:[
       "いくら = bagaimanapun / seberapa pun",
       "いくら 〜ても + negatif = walaupun seberapa pun... tetap tidak bisa",
-      "Contoh: いくら <b>考えても</b>、わかりません。",
+      "Contoh: いくら <b><ruby><rb>考</rb><rt>かんが</rt></ruby>えても</b>、わかりません。",
       "(Bagaimanapun saya pikirkan, tetap tidak mengerti.)"
     ]},
     {icon:"🔄", title:"ても vs たら vs と — Review Lengkap", points:[
@@ -7236,9 +7236,9 @@ const BAB_TIPS = {
   ],
   40: [
     {icon:"💬", title:"んです — Kapan Digunakan?", points:[
-      "Menjelaskan ALASAN atau KONDISI: なぜ遅れたの? → <b>電車が 止まったんです。</b>",
+      "Menjelaskan ALASAN atau KONDISI: なぜ<ruby><rb>遅</rb><rt>おそ</rt></ruby>れたの? → <b><ruby><rb>電車</rb><rt>でんしゃ</rt></ruby>が <ruby><rb>止</rb><rt>と</rt></ruby>まったんです。</b>",
       "Meminta penjelasan: どうしたんですか？ (Ada apa?)",
-      "Berbagi informasi latar: 実は、明日 日本へ 行くんです。",
+      "Berbagi informasi latar: <ruby><rb>実</rb><rt>じつ</rt></ruby>は、<ruby><rb>明日</rb><rt>あした</rt></ruby> <ruby><rb>日本</rb><rt>にほん</rt></ruby>へ <ruby><rb>行く</rb><rt>いく</rt></ruby>んです。",
       "〜んです membuat percakapan lebih natural & hangat dalam bahasa Jepang."
     ]},
     {icon:"📐", title:"Konjugasi ~んです", points:[
@@ -7280,37 +7280,37 @@ const BAB_TIPS = {
   43: [
     {icon:"🎵", title:"ながら — Dua Tindakan Bersamaan", points:[
       "KK1 (bentuk ます tanpa ます) + ながら + KK2 (tindakan utama).",
-      "音楽を 聞き<b>ながら</b> 料理します → memasak sambil dengar musik.",
+      "<ruby><rb>音楽</rb><rt>おんがく</rt></ruby>を <ruby><rb>聞</rb><rt>き</rt></ruby>き<b>ながら</b> <ruby><rb>料理</rb><rt>りょうり</rt></ruby>します → memasak sambil dengar musik.",
       "KK2 adalah tindakan UTAMA, KK1 tindakan sampingan.",
       "ながら ≠ て bentuk (て = urutan, ながら = bersamaan)."
     ]},
-    {icon:"👁️", title:"見えます vs 見ます / 聞こえます vs 聞きます", points:[
-      "見ます = melihat secara aktif (sengaja).",
-      "見えます = terlihat secara alami (tanpa usaha).",
-      "聞きます = mendengar aktif / bertanya.",
-      "聞こえます = terdengar secara alami."
+    {icon:"👁️", title:"<ruby><rb>見</rb><rt>み</rt></ruby>えます vs <ruby><rb>見</rb><rt>み</rt></ruby>ます / <ruby><rb>聞</rb><rt>き</rt></ruby>こえます vs <ruby><rb>聞</rb><rt>き</rt></ruby>きます", points:[
+      "<ruby><rb>見</rb><rt>み</rt></ruby>ます = melihat secara aktif (sengaja).",
+      "<ruby><rb>見</rb><rt>み</rt></ruby>えます = terlihat secara alami (tanpa usaha).",
+      "<ruby><rb>聞</rb><rt>き</rt></ruby>きます = mendengar aktif / bertanya.",
+      "<ruby><rb>聞</rb><rt>き</rt></ruby>こえます = terdengar secara alami."
     ]}
   ],
   44: [
     {icon:"🍜", title:"て bentuk vs ないで — Cara Melakukan", points:[
       "KK1 <b>て</b> KK2 = melakukan KK2 dengan cara KK1.",
       "KK1 <b>ないで</b> KK2 = melakukan KK2 tanpa melakukan KK1.",
-      "ソースを つけて 食べます (makan dengan saus).",
-      "ソースを つけないで 食べます (makan tanpa saus)."
+      "ソースを つけて <ruby><rb>食</rb><rt>た</rt></ruby>べます (makan dengan saus).",
+      "ソースを つけないで <ruby><rb>食</rb><rt>た</rt></ruby>べます (makan tanpa saus)."
     ]},
     {icon:"🎨", title:"Warna-Warna dalam Bahasa Jepang", points:[
-      "くろ(黒)=hitam, しろ(白)=putih, あか(赤)=merah, あお(青)=biru",
-      "みどり(緑)=hijau, きいろ(黄色)=kuning, むらさき(紫)=ungu",
-      "ちゃいろ(茶色)=coklat, こん(紺)=navy/biru gelap",
+      "くろ(<ruby><rb>黒</rb><rt>くろ</rt></ruby>)=hitam, しろ(<ruby><rb>白</rb><rt>しろ</rt></ruby>)=putih, あか(<ruby><rb>赤</rb><rt>あか</rt></ruby>)=merah, あお(<ruby><rb>青</rb><rt>あお</rt></ruby>)=biru",
+      "みどり(<ruby><rb>緑</rb><rt>みどり</rt></ruby>)=hijau, きいろ(<ruby><rb>黄色</rb><rt>きいろ</rt></ruby>)=kuning, むらさき(<ruby><rb>紫</rb><rt>むらさき</rt></ruby>)=ungu",
+      "ちゃいろ(<ruby><rb>茶色</rb><rt>ちゃいろ</rt></ruby>)=coklat, こん(<ruby><rb>紺</rb><rt>こん</rt></ruby>)=navy/biru gelap",
       "Warna digunakan juga sebagai kata sifat: あかい、あおい dll."
     ]}
   ],
   45: [
     {icon:"🔄", title:"Intransitif vs Transitif — Kunci Pemahaman", points:[
       "<b><ruby>自動詞<rt>じどうし</rt></ruby></b> (Intransitif): KB <b>が</b> KK — perubahan terjadi sendiri.",
-      "<b>他動詞</b> (Transitif): KB <b>を</b> KK — ada pelaku yang melakukan.",
-      "電気が <b>つきます</b> (lampu menyala sendiri) ← intransitif.",
-      "電気を <b>つけます</b> (seseorang menyalakan lampu) ← transitif."
+      "<b><ruby><rb>他動詞</rb><rt>たどうし</rt></ruby></b> (Transitif): KB <b>を</b> KK — ada pelaku yang melakukan.",
+      "<ruby><rb>電気</rb><rt>でんき</rt></ruby>が <b>つきます</b> (lampu menyala sendiri) ← intransitif.",
+      "<ruby><rb>電気</rb><rt>でんき</rt></ruby>を <b>つけます</b> (seseorang menyalakan lampu) ← transitif."
     ]},
     {icon:"📊", title:"Pasangan Kata Kerja Intransitif & Transitif", points:[
       "つきます ↔ つけます | きえます ↔ けします",
@@ -7321,10 +7321,10 @@ const BAB_TIPS = {
   ],
   46: [
     {icon:"🔄", title:"てしまいました — 2 Makna Penting", points:[
-      "<b>① Penyelesaian tuntas:</b> 図書館の本を読んで<b>しまいました</b> (Sudah selesai baca buku perpustakaan)",
-      "<b>② Penyesalan/tidak sengaja:</b> パスポートを落として<b>しまいました</b> (Tidak sengaja menjatuhkan paspor)",
-      "💡 Konteks menentukan makna: kalau ada kata negatif (落とす, 忘れる, 壊す) → penyesalan",
-      "Informal: てしまう→<b>ちゃう</b> / でしまう→<b>じゃう</b> (食べちゃった = 食べてしまった)"
+      "<b>① Penyelesaian tuntas:</b> <ruby><rb>図書館</rb><rt>としょかん</rt></ruby>の<ruby><rb>本</rb><rt>ほん</rt></ruby>を<ruby><rb>読</rb><rt>よ</rt></ruby>んで<b>しまいました</b> (Sudah selesai baca buku perpustakaan)",
+      "<b>② Penyesalan/tidak sengaja:</b> パスポートを<ruby><rb>落</rb><rt>お</rt></ruby>として<b>しまいました</b> (Tidak sengaja menjatuhkan paspor)",
+      "💡 Konteks menentukan makna: kalau ada kata negatif (<ruby><rb>落</rb><rt>お</rt></ruby>とす, <ruby><rb>忘</rb><rt>わす</rt></ruby>れる, <ruby><rb>壊</rb><rt>こわ</rt></ruby>す) → penyesalan",
+      "Informal: てしまう→<b>ちゃう</b> / でしまう→<b>じゃう</b> (<ruby><rb>食</rb><rt>た</rt></ruby>べちゃった = <ruby><rb>食</rb><rt>た</rt></ruby>べてしまった)"
     ]},
     {icon:"⚠️", title:"Kata Kerja yang Sering Pakai てしまいました (penyesalan)", points:[
       "わすれて しまいました (lupa) | おとして しまいました (menjatuhkan)",
@@ -7335,100 +7335,100 @@ const BAB_TIPS = {
   ],
   47: [
     {icon:"📋", title:"ておきます — 3 Nuansa Persiapan", points:[
-      "<b>① Persiapan untuk sesuatu:</b> 会議の前に資料を読んで<b>おきます</b> (Baca dokumen sebelum rapat)",
+      "<b>① Persiapan untuk sesuatu:</b> <ruby><rb>会議</rb><rt>かいぎ</rt></ruby>の<ruby><rb>前</rb><rt>まえ</rt></ruby>に<ruby><rb>資料</rb><rt>しりょう</rt></ruby>を<ruby><rb>読</rb><rt>よ</rt></ruby>んで<b>おきます</b> (Baca dokumen sebelum rapat)",
       "<b>② Menjaga keadaan tetap:</b> エアコンをつけて<b>おきましょう</b> (Biarkan AC tetap menyala)",
-      "<b>③ Mengembalikan ke posisi semula:</b> 使ったら元の所に戻して<b>おきましょう</b>",
-      "Informal: ておく→<b>とく</b> (買っとく = 買っておく)"
+      "<b>③ Mengembalikan ke posisi semula:</b> <ruby><rb>使</rb><rt>つか</rt></ruby>ったら<ruby><rb>元の所</rb><rt>もとのところ</rt></ruby>に<ruby><rb>戻</rb><rt>もど</rt></ruby>して<b>おきましょう</b>",
+      "Informal: ておく→<b>とく</b> (<ruby><rb>買</rb><rt>か</rt></ruby>っとく = <ruby><rb>買</rb><rt>か</rt></ruby>っておく)"
     ]},
     {icon:"🔑", title:"ておきます vs てあります (Bab 48)", points:[
       "<b>ておきます</b> = TINDAKAN persiapan (fokus pada melakukan)",
       "<b>てあります</b> = KEADAAN hasil persiapan (fokus pada hasil yang terlihat)",
-      "Contoh: 窓を開けて<b>おきました</b> (Saya buka jendela [persiapan])",
-      "→ 窓が開けて<b>あります</b> (Jendela sudah dibuka [keadaan sekarang])"
+      "Contoh: <ruby><rb>窓</rb><rt>まど</rt></ruby>を<ruby><rb>開</rb><rt>あ</rt></ruby>けて<b>おきました</b> (Saya buka jendela [persiapan])",
+      "→ <ruby><rb>窓</rb><rt>まど</rt></ruby>が<ruby><rb>開</rb><rt>あ</rt></ruby>けて<b>あります</b> (Jendela sudah dibuka [keadaan sekarang])"
     ]}
   ],
   48: [
     {icon:"🏠", title:"てあります vs ています — Perbedaan Kunci", points:[
-      "<b>KK transitif + てあります</b>: ada PELAKU yang sengaja melakukan. ポスターが貼って<b>あります</b>",
-      "<b>KK intransitif + ています</b>: terjadi sendiri/alami. ドアが開いて<b>います</b>",
+      "<b>KK transitif + てあります</b>: ada PELAKU yang sengaja melakukan. ポスターが<ruby><rb>貼</rb><rt>は</rt></ruby>って<b>あります</b>",
+      "<b>KK intransitif + ています</b>: terjadi sendiri/alami. ドアが<ruby><rb>開</rb><rt>あ</rt></ruby>いて<b>います</b>",
       "Partikel: てあります selalu pakai <b>が</b> (bukan を) untuk objek",
       "💡 てあります = 'sudah di-[KK]-kan oleh seseorang dengan tujuan tertentu'"
     ]},
     {icon:"📍", title:"Kata Posisi Rumah yang Sering Muncul", points:[
-      "<b>壁(かべ)</b>=tembok | <b>玄関(げんかん)</b>=pintu masuk | <b>廊下(ろうか)</b>=koridor",
-      "<b>隅(すみ)</b>=sudut | <b>真ん中(まんなか)</b>=tengah | <b>回り(まわり)</b>=sekeliling",
-      "Pola kalimat: [場所]に [物]が [KK transitif]て あります",
-      "Contoh: 壁<b>に</b> 時計<b>が</b> 掛けて あります (Jam sudah digantung di dinding)"
+      "<b><ruby><rb>壁</rb><rt>かべ</rt></ruby>(かべ)</b>=tembok | <b><ruby><rb>玄関</rb><rt>げんかん</rt></ruby>(げんかん)</b>=pintu masuk | <b><ruby><rb>廊下</rb><rt>ろうか</rt></ruby>(ろうか)</b>=koridor",
+      "<b><ruby><rb>隅</rb><rt>すみ</rt></ruby>(すみ)</b>=sudut | <b><ruby><rb>真ん中</rb><rt>まんなか</rt></ruby>(まんなか)</b>=tengah | <b><ruby><rb>回</rb><rt>かい</rt></ruby>り(まわり)</b>=sekeliling",
+      "Pola kalimat: [<ruby><rb>場所</rb><rt>ばしょ</rt></ruby>]に [<ruby><rb>物</rb><rt>もの</rt></ruby>]が [KK transitif]て あります",
+      "Contoh: <ruby><rb>壁</rb><rt>かべ</rt></ruby><b>に</b> <ruby><rb>時計</rb><rt>とけい</rt></ruby><b>が</b> <ruby><rb>掛</rb><rt>か</rt></ruby>けて あります (Jam sudah digantung di dinding)"
     ]}
   ],
   49: [
-    {icon:"💪", title:"意向形 (Bentuk Maksud) — Konjugasi", points:[
+    {icon:"💪", title:"<ruby><rb>意向形</rb><rt>いこうけい</rt></ruby> (Bentuk Maksud) — Konjugasi", points:[
       "<b>Grup I</b>: ます→お+う. よみます→よも<b>う</b> | かきます→かこ<b>う</b> | はなします→はなそ<b>う</b>",
       "<b>Grup II</b>: ます→よう. たべます→たべ<b>よう</b> | みます→み<b>よう</b>",
       "<b>Grup III</b>: きます→<b>こよう</b> | します→<b>しよう</b>",
       "= Bentuk kasual dari ～ましょう (ayo ~)"
     ]},
-    {icon:"🎯", title:"と思っています vs と思います", points:[
-      "<b>～ようと思って<u>います</u></b> = niat/rencana yang sudah ada sejak lama (berkelanjutan)",
-      "<b>～ようと思います</b> = keputusan yang baru saja dibuat (saat ini)",
-      "Contoh: 来年日本へ行こうと思って<b>います</b> (Sudah lama berniat pergi ke Jepang)",
-      "Contoh: じゃ、タクシーで行こうと思<b>います</b> (Keputusan baru: naik taksi saja)"
+    {icon:"🎯", title:"と<ruby><rb>思</rb><rt>おも</rt></ruby>っています vs と<ruby><rb>思</rb><rt>おも</rt></ruby>います", points:[
+      "<b>～ようと<ruby><rb>思</rb><rt>おも</rt></ruby>って<u>います</u></b> = niat/rencana yang sudah ada sejak lama (berkelanjutan)",
+      "<b>～ようと<ruby><rb>思</rb><rt>おも</rt></ruby>います</b> = keputusan yang baru saja dibuat (saat ini)",
+      "Contoh: <ruby><rb>来年</rb><rt>らいねん</rt></ruby><ruby><rb>日本</rb><rt>にほん</rt></ruby>へ<ruby><rb>行</rb><rt>い</rt></ruby>こうと<ruby><rb>思</rb><rt>おも</rt></ruby>って<b>います</b> (Sudah lama berniat pergi ke Jepang)",
+      "Contoh: じゃ、タクシーで<ruby><rb>行</rb><rt>い</rt></ruby>こうと<ruby><rb>思</rb><rt>おも</rt></ruby><b>います</b> (Keputusan baru: naik taksi saja)"
     ]},
     {icon:"⏳", title:"まだ～ていません — Belum ~", points:[
       "Pola: <b>まだ + KK て いません</b> = belum melakukan ~",
-      "Jawaban untuk もう～ましたか?: いいえ、まだ食べて<b>いません</b>",
-      "❌ SALAH: まだ食べません (ini = belum mau makan [di masa depan])",
-      "✅ BENAR: まだ食べて<b>いません</b> (belum makan [sampai sekarang])"
+      "Jawaban untuk もう～ましたか?: いいえ、まだ<ruby><rb>食</rb><rt>た</rt></ruby>べて<b>いません</b>",
+      "❌ SALAH: まだ<ruby><rb>食</rb><rt>た</rt></ruby>べません (ini = belum mau makan [di masa depan])",
+      "✅ BENAR: まだ<ruby><rb>食</rb><rt>た</rt></ruby>べて<b>いません</b> (belum makan [sampai sekarang])"
     ]}
   ],
   50: [
     {icon:"📊", title:"Tingkat Kepastian Rencana", points:[
-      "<b>～ようと思っています</b> (Bab 49): niat dalam pikiran, belum pasti (~50%)",
+      "<b>～ようと<ruby><rb>思</rb><rt>おも</rt></ruby>っています</b> (Bab 49): niat dalam pikiran, belum pasti (~50%)",
       "<b>～つもりです</b>: niat/tekad pribadi yang sudah cukup pasti (~70%)",
-      "<b>～予定です</b>: rencana terjadwal/terencana, paling pasti (~90%)",
-      "Urutan: と思っています < つもり ≦ 予定"
+      "<b>～<ruby><rb>予定</rb><rt>よてい</rt></ruby>です</b>: rencana terjadwal/terencana, paling pasti (~90%)",
+      "Urutan: と<ruby><rb>思</rb><rt>おも</rt></ruby>っています < つもり ≦ <ruby><rb>予定</rb><rt>よてい</rt></ruby>"
     ]},
     {icon:"⚠️", title:"つもりです — Hanya untuk PEMBICARA!", points:[
       "つもりです hanya untuk menyatakan niat DIRI SENDIRI",
-      "Untuk orang lain: 田中さんは来る<b>と言っていました</b> (bukan つもりです)",
+      "Untuk orang lain: <ruby><rb>田中</rb><rt>たなか</rt></ruby>さんは<ruby><rb>来</rb><rt>き</rt></ruby>る<b>と<ruby><rb>言</rb><rt>い</rt></ruby>っていました</b> (bukan つもりです)",
       "Negatif: KK ない + つもりです = tidak berniat melakukan ~",
-      "Contoh: 今年はJLPTを受け<b>ないつもりです</b> (Tidak berniat ikut JLPT tahun ini)"
+      "Contoh: <ruby><rb>今年</rb><rt>ことし</rt></ruby>はJLPTを<ruby><rb>受</rb><rt>う</rt></ruby>け<b>ないつもりです</b> (Tidak berniat ikut JLPT tahun ini)"
     ]}
   ],
   51: [
     {icon:"💊", title:"ほうがいいです — Saran Positif & Negatif", points:[
       "<b>KK た + ほうがいいです</b> = sebaiknya lakukan ~ (saran positif)",
       "<b>KK ない + ほうがいいです</b> = sebaiknya jangan ~ (saran negatif)",
-      "❌ SALAH: 食べる ほうがいいです → ✅ BENAR: 食べ<b>た</b> ほうがいいです",
+      "❌ SALAH: <ruby><rb>食べる</rb><rt>たべる</rt></ruby> ほうがいいです → ✅ BENAR: <ruby><rb>食</rb><rt>た</rt></ruby>べ<b>た</b> ほうがいいです",
       "💡 Ingat: saran positif SELALU pakai bentuk た (bukan kamus!)"
     ]},
     {icon:"🏥", title:"Kosakata Kesehatan Penting", points:[
-      "<b>風邪をひきます</b>(masuk angin) | <b>熱が続きます</b>(demam berlanjut)",
-      "<b>咳(せき)</b>=batuk | <b>注射(ちゅうしゃ)</b>=suntikan | <b>けが</b>=luka",
-      "<b>やけど</b>=luka bakar | <b>運動します</b>=berolahraga",
-      "なかなか～ない = tidak mudah ~ (なかなか治りません = tidak mudah sembuh)"
+      "<b><ruby><rb>風邪を</rb><rt>かぜを</rt></ruby>ひきます</b>(masuk angin) | <b><ruby><rb>熱が</rb><rt>ねつが</rt></ruby><ruby><rb>続</rb><rt>つづ</rt></ruby>きます</b>(demam berlanjut)",
+      "<b><ruby><rb>咳</rb><rt>せき</rt></ruby>(せき)</b>=batuk | <b><ruby><rb>注射</rb><rt>ちゅうしゃ</rt></ruby>(ちゅうしゃ)</b>=suntikan | <b>けが</b>=luka",
+      "<b>やけど</b>=luka bakar | <b><ruby><rb>運動</rb><rt>うんどう</rt></ruby>します</b>=berolahraga",
+      "なかなか～ない = tidak mudah ~ (なかなか<ruby><rb>治</rb><rt>なお</rt></ruby>りません = tidak mudah sembuh)"
     ]}
   ],
   52: [
     {icon:"🔮", title:"Tingkat Kepastian: かもしれません vs でしょう", points:[
       "<b>かもしれません</b> (~30-50%): Mungkin saja ~ (tidak yakin sama sekali)",
       "<b>でしょう</b> (~70-80%): Akan ~ / Mungkin ~ (cukup yakin, sering untuk cuaca)",
-      "Contoh かも: 今夜雪が降る<b>かもしれません</b> (Mungkin saja turun salju)",
-      "Contoh でしょう: 午後から強い風が吹く<b>でしょう</b> (Sore ini akan ada angin kencang)"
+      "Contoh かも: <ruby><rb>今夜</rb><rt>こんや</rt></ruby><ruby><rb>雪が降る</rb><rt>ゆきがふる</rt></ruby><b>かもしれません</b> (Mungkin saja turun salju)",
+      "Contoh でしょう: <ruby><rb>午後から</rb><rt>ごごから</rt></ruby><ruby><rb>強い風が吹く</rb><rt>つよいかぜがふく</rt></ruby><b>でしょう</b> (Sore ini akan ada angin kencang)"
     ]},
     {icon:"📝", title:"Konjugasi sebelum かもしれません & でしょう", points:[
-      "<b>KK</b>: bentuk biasa langsung. 降る かもしれません / 降る でしょう",
-      "<b>KS い</b>: bentuk biasa. 寒い かもしれません / 寒い でしょう",
+      "<b>KK</b>: bentuk biasa langsung. <ruby><rb>降る</rb><rt>ふる</rt></ruby> かもしれません / <ruby><rb>降る</rb><rt>ふる</rt></ruby> でしょう",
+      "<b>KS い</b>: bentuk biasa. <ruby><rb>寒い</rb><rt>さむい</rt></ruby> かもしれません / <ruby><rb>寒い</rb><rt>さむい</rt></ruby> でしょう",
       "<b>KS な</b>: だ DIHILANGKAN. きれい<s>だ</s> かもしれません",
-      "<b>KB</b>: だ DIHILANGKAN. 日本人<s>だ</s> かもしれません"
+      "<b>KB</b>: だ DIHILANGKAN. <ruby><rb>日本人</rb><rt>にほんじん</rt></ruby><s>だ</s> かもしれません"
     ]}
   ],
   53: [
     {icon:"📋", title:"～し、～し — Menyebutkan Beberapa Alasan", points:[
       "Pola: <b>[alasan1]し、[alasan2]し、[kesimpulan]</b>",
       "Menyebutkan beberapa alasan untuk mendukung satu kesimpulan",
-      "Contoh: やすい<b>し</b>、おいしい<b>し</b>、あの店でよく食べます",
-      "💡 し menggunakan bentuk biasa (seperti と思います)"
+      "Contoh: やすい<b>し</b>、おいしい<b>し</b>、あの<ruby><rb>店</rb><rt>みせ</rt></ruby>でよく<ruby><rb>食</rb><rt>た</rt></ruby>べます",
+      "💡 し menggunakan bentuk biasa (seperti と<ruby><rb>思</rb><rt>おも</rt></ruby>います)"
     ]},
     {icon:"🔑", title:"し vs から vs ので — Bedakan!", points:[
       "<b>し</b>: beberapa alasan sekaligus (A し、B し、kesimpulan)",
@@ -7460,7 +7460,7 @@ const BAB_TIPS = {
     ]},
     {icon:"💬", title:"なら — Merespons Lawan Bicara", points:[
       "<b>KB なら</b> juga digunakan untuk merespons topik yang baru disebutkan lawan bicara",
-      "A: 東京で花見がしたいんですが。B: 花見<b>なら</b>、上野公園がいいですよ",
+      "A: <ruby><rb>東京</rb><rt>とうきょう</rt></ruby>で<ruby><rb>花見</rb><rt>はなみ</rt></ruby>がしたいんですが。B: <ruby><rb>花見</rb><rt>はなみ</rt></ruby><b>なら</b>、<ruby><rb>上野公園</rb><rt>うえのこうえん</rt></ruby>がいいですよ",
       "Nuansa: 'Kalau itu yang kamu maksud/bicarakan, maka...'",
       "💡 なら = merespons info dari orang lain, bukan sekedar kondisi biasa"
     ]}
@@ -7469,12 +7469,12 @@ const BAB_TIPS = {
     {icon:"🎯", title:"ように — Agar ~/Supaya ~", points:[
       "<b>KK kamus + ように、KK</b>: melakukan KK2 agar tercapai ように",
       "<b>KK ない + ように、KK</b>: melakukan KK2 agar TIDAK terjadi ように",
-      "Contoh: 試合に出られる<b>ように</b>、毎日練習しています",
+      "Contoh: <ruby><rb>試合に</rb><rt>しあいに</rt></ruby><ruby><rb>出</rb><rt>で</rt></ruby>られる<b>ように</b>、<ruby><rb>毎日</rb><rt>まいにち</rt></ruby><ruby><rb>練習</rb><rt>れんしゅう</rt></ruby>しています",
       "⚠️ KK sebelum ように = KK non-kehendak (わかる、みえる、きこえる) atau bentuk potensial"
     ]},
     {icon:"📈", title:"ように なりました — Perubahan Kemampuan", points:[
       "Pola: <b>KK potensial + ように なりました</b> = sekarang sudah bisa ~",
-      "Contoh: 漢字が少し読める<b>ように なりました</b> (Sekarang sudah bisa baca kanji)",
+      "Contoh: <ruby><rb>漢字</rb><rt>かんじ</rt></ruby>が<ruby><rb>少</rb><rt>すこ</rt></ruby>し<ruby><rb>読</rb><rt>よ</rt></ruby>める<b>ように なりました</b> (Sekarang sudah bisa baca kanji)",
       "Negatif: KK なく + なりました = sekarang tidak bisa lagi ~",
       "💡 なりました = hasil perubahan sudah tercapai (bandingkan して います di Bab 57)"
     ]}
@@ -7482,19 +7482,19 @@ const BAB_TIPS = {
   57: [
     {icon:"🏃", title:"ように して います — Sedang Membiasakan Diri", points:[
       "Pola: <b>KK kamus/ない + ように して います</b> = berusaha membiasakan ~",
-      "Contoh: できるだけ11時までに寝る<b>ように して います</b>",
+      "Contoh: できるだけ11<ruby><rb>時</rb><rt>じ</rt></ruby>までに<ruby><rb>寝</rb><rt>ね</rt></ruby>る<b>ように して います</b>",
       "Bandingkan: ように <b>なりました</b> (hasil tercapai) vs ように <b>して います</b> (usaha berlangsung)",
-      "Sering dengan: できるだけ (sebisa mungkin), 毎日 (setiap hari), 必ず (pasti)"
+      "Sering dengan: できるだけ (sebisa mungkin), <ruby><rb>毎日</rb><rt>まいにち</rt></ruby> (setiap hari), <ruby><rb>必ず</rb><rt>かならず</rt></ruby> (pasti)"
     ]},
     {icon:"🙏", title:"ように して ください — Permintaan Sopan", points:[
       "<b>ように して ください</b> = mohon usahakan agar ~ (lebih sopan dari てください)",
       "Cocok untuk meminta perubahan KEBIASAAN, bukan tindakan sekali",
-      "Contoh: 面接のとき丁寧な言葉で話す<b>ように して ください</b>",
+      "Contoh: <ruby><rb>面接</rb><rt>めんせつ</rt></ruby>のとき<ruby><rb>丁寧</rb><rt>ていねい</rt></ruby>な<ruby><rb>言葉</rb><rt>ことば</rt></ruby>で<ruby><rb>話</rb><rt>はな</rt></ruby>す<b>ように して ください</b>",
       "Tingkat sopan: てください < ように して ください < ていただけませんか"
     ]}
   ],
   58: [
-    {icon:"📐", title:"受身形 (Pasif) — Konjugasi", points:[
+    {icon:"📐", title:"<ruby><rb>受身形</rb><rt>うけみけい</rt></ruby> (Pasif) — Konjugasi", points:[
       "<b>Grup I</b>: ます→あ+れます. かきます→かか<b>れます</b> | よみます→よま<b>れます</b>",
       "<b>Grup II</b>: ます→られます. たべます→たべ<b>られます</b>",
       "<b>Grup III</b>: きます→こ<b>られます</b> | します→<b>されます</b>",
@@ -7502,21 +7502,21 @@ const BAB_TIPS = {
     ]},
     {icon:"😤", title:"Pasif Jepang = Gangguan/Dampak Negatif", points:[
       "Berbeda dari pasif Indonesia — pasif Jepang sering bermakna 'terganggu/terdampak'",
-      "弟にパソコンを壊<b>されました</b> (Komputer saya dirusak adik [saya terganggu!])",
-      "雨に降<b>られました</b> (Kehujanan [saya terdampak negatif!])",
+      "<ruby><rb>弟</rb><rt>おとうと</rt></ruby>にパソコンを<ruby><rb>壊</rb><rt>こわ</rt></ruby><b>されました</b> (Komputer saya dirusak adik [saya terganggu!])",
+      "<ruby><rb>雨</rb><rt>あめ</rt></ruby>に<ruby><rb>降</rb><rt>ふ</rt></ruby><b>られました</b> (Kehujanan [saya terdampak negatif!])",
       "💡 Pelaku ditandai dengan partikel <b>に</b>: ～に KK pasif"
     ]}
   ],
   59: [
     {icon:"📰", title:"Pasif Impersonal — Tanpa Pelaku", points:[
       "Digunakan saat pelaku tidak penting/tidak diketahui — lebih netral & objektif",
-      "この本は100年前に書か<b>れました</b> (Buku ini ditulis 100 tahun lalu)",
-      "漢字は中国や日本で使わ<b>れています</b> (Kanji digunakan di China dan Jepang)",
+      "この<ruby><rb>本</rb><rt>ほん</rt></ruby>は100<ruby><rb>年</rb><rt>ねん</rt></ruby><ruby><rb>前</rb><rt>まえ</rt></ruby>に<ruby><rb>書</rb><rt>か</rt></ruby>か<b>れました</b> (Buku ini ditulis 100 tahun lalu)",
+      "<ruby><rb>漢字</rb><rt>かんじ</rt></ruby>は<ruby><rb>中国</rb><rt>ちゅうごく</rt></ruby>や<ruby><rb>日本</rb><rt>にほん</rt></ruby>で<ruby><rb>使</rb><rt>つか</rt></ruby>わ<b>れています</b> (Kanji digunakan di China dan Jepang)",
       "Sering untuk: sejarah, berita, deskripsi umum, karya seni"
     ]},
     {icon:"✍️", title:"によって vs に — Pelaku dalam Pasif", points:[
-      "<b>に</b>: pelaku tindakan langsung (orang/hewan). 先生<b>に</b>叱られた",
-      "<b>によって</b>: pencipta/penemu/pembuat (formal). 宮沢賢治<b>によって</b>書かれた",
+      "<b>に</b>: pelaku tindakan langsung (orang/hewan). <ruby><rb>先生</rb><rt>せんせい</rt></ruby><b>に</b><ruby><rb>叱</rb><rt>しか</rt></ruby>られた",
+      "<b>によって</b>: pencipta/penemu/pembuat (formal). <ruby><rb>宮沢賢治</rb><rt>みやざわけんじ</rt></ruby><b>によって</b><ruby><rb>書</rb><rt>か</rt></ruby>かれた",
       "によって untuk: karya seni, penemuan, ciptaan, dokumen resmi",
       "💡 によって lebih formal dari に — pilih sesuai konteks"
     ]}
@@ -7524,71 +7524,71 @@ const BAB_TIPS = {
   60: [
     {icon:"📝", title:"の sebagai Nominalizer — KK → KB", points:[
       "<b>KK + の</b> = mengubah kata kerja menjadi kata benda",
-      "音楽を聞く<b>の</b>が好きです (Suka mendengarkan musik)",
-      "毎日漢字を覚える<b>の</b>は大変です (Menghapal kanji tiap hari itu berat)",
+      "<ruby><rb>音楽</rb><rt>おんがく</rt></ruby>を<ruby><rb>聞</rb><rt>き</rt></ruby>く<b>の</b>が<ruby><rb>好き</rb><rt>す</rt></ruby>です (Suka mendengarkan musik)",
+      "<ruby><rb>毎日</rb><rt>まいにち</rt></ruby><ruby><rb>漢字</rb><rt>かんじ</rt></ruby>を<ruby><rb>覚</rb><rt>おぼ</rt></ruby>える<b>の</b>は<ruby><rb>大変</rb><rt>たいへん</rt></ruby>です (Menghapal kanji tiap hari itu berat)",
       "💡 の berfungsi sama dengan こと, tapi lebih natural dalam percakapan"
     ]},
     {icon:"⚠️", title:"のは vs のが — Aturan Penting!", points:[
       "<b>のは</b> + KS deskriptif: たのしい、むずかしい、おもしろい、たいへん",
       "<b>のが</b> + KS preferensi/kemampuan: すき、きらい、じょうず、へた、はやい、おそい",
-      "Contoh: 料理を作る<b>のが</b>上手です (Pandai memasak) — pakai が",
-      "Contoh: 料理を作る<b>のは</b>楽しいです (Memasak itu menyenangkan) — pakai は"
+      "Contoh: <ruby><rb>料理</rb><rt>りょうり</rt></ruby>を<ruby><rb>作</rb><rt>つく</rt></ruby>る<b>のが</b><ruby><rb>上手</rb><rt>じょうず</rt></ruby>です (Pandai memasak) — pakai が",
+      "Contoh: <ruby><rb>料理</rb><rt>りょうり</rt></ruby>を<ruby><rb>作</rb><rt>つく</rt></ruby>る<b>のは</b><ruby><rb>楽</rb><rt>たの</rt></ruby>しいです (Memasak itu menyenangkan) — pakai は"
     ]}
   ],
   61: [
     {icon:"💡", title:"のを — Nominalizer sebagai Objek", points:[
       "Pola: <b>KK bentuk biasa + のを</b> + わすれました/しっています/みました",
-      "電気を消す<b>のを</b>忘れました (Lupa mematikan lampu)",
-      "赤ちゃんが生まれた<b>のを</b>知っていますか (Tahu bahwa bayi sudah lahir?)",
-      "⚠️ のを忘れました (lupa MELAKUKAN) ≠ KBを忘れました (lupa MEMBAWA benda)"
+      "<ruby><rb>電気</rb><rt>でんき</rt></ruby>を<ruby><rb>消</rb><rt>け</rt></ruby>す<b>のを</b><ruby><rb>忘</rb><rt>わす</rt></ruby>れました (Lupa mematikan lampu)",
+      "<ruby><rb>赤ちゃん</rb><rt>あかちゃん</rt></ruby>が<ruby><rb>生</rb><rt>う</rt></ruby>まれた<b>のを</b><ruby><rb>知</rb><rt>し</rt></ruby>っていますか (Tahu bahwa bayi sudah lahir?)",
+      "⚠️ のを<ruby><rb>忘</rb><rt>わす</rt></ruby>れました (lupa MELAKUKAN) ≠ KBを<ruby><rb>忘</rb><rt>わす</rt></ruby>れました (lupa MEMBAWA benda)"
     ]},
     {icon:"🔑", title:"Pola の yang Sudah Dipelajari — Ringkasan", points:[
-      "<b>のは</b> (Bab 60): KK menjadi topik → ...のは楽しいです",
-      "<b>のが</b> (Bab 60): KK menjadi objek KS → ...のが好きです",
-      "<b>のを</b> (Bab 61): KK menjadi objek KK → ...のを忘れました",
+      "<b>のは</b> (Bab 60): KK menjadi topik → ...のは<ruby><rb>楽</rb><rt>たの</rt></ruby>しいです",
+      "<b>のが</b> (Bab 60): KK menjadi objek KS → ...のが<ruby><rb>好き</rb><rt>す</rt></ruby>です",
+      "<b>のを</b> (Bab 61): KK menjadi objek KK → ...のを<ruby><rb>忘</rb><rt>わす</rt></ruby>れました",
       "Semua ini menggunakan の untuk mengubah KALIMAT menjadi KATA BENDA"
     ]}
   ],
   62: [
     {icon:"😢", title:"～て、～ untuk Sebab & Akibat", points:[
       "Pola: <b>KK て / KS い くて / KS な で / KB で</b> → akibat emosi/keadaan",
-      "結婚すると聞い<b>て</b>、びっくりしました (Kaget mendengar menikah)",
-      "合格できなく<b>て</b>、がっかりしました (Kecewa karena tidak lulus)",
+      "<ruby><rb>結婚</rb><rt>けっこん</rt></ruby>すると<ruby><rb>聞</rb><rt>き</rt></ruby>い<b>て</b>、びっくりしました (Kaget mendengar menikah)",
+      "<ruby><rb>合格</rb><rt>ごうかく</rt></ruby>できなく<b>て</b>、がっかりしました (Kecewa karena tidak lulus)",
       "⚠️ Bagian akhir HARUS non-kehendak (emosi, keadaan) — bukan perintah/ajakan"
     ]},
     {icon:"🌊", title:"KB で — Penyebab Bencana/Fenomena", points:[
       "Partikel <b>で</b> setelah KB = penyebab fenomena alam/kecelakaan",
-      "地震<b>で</b>ビルが倒れました (Karena gempa, gedung runtuh)",
-      "台風<b>で</b>電車が止まりました (Karena topan, kereta berhenti)",
-      "Kata benda penyebab umum: 地震、台風、火事、事故、病気、大雨"
+      "<ruby><rb>地震</rb><rt>じしん</rt></ruby><b>で</b>ビルが<ruby><rb>倒</rb><rt>たお</rt></ruby>れました (Karena gempa, gedung runtuh)",
+      "<ruby><rb>台風</rb><rt>たいふう</rt></ruby><b>で</b><ruby><rb>電車</rb><rt>でんしゃ</rt></ruby>が<ruby><rb>止</rb><rt>と</rt></ruby>まりました (Karena topan, kereta berhenti)",
+      "Kata benda penyebab umum: <ruby><rb>地震</rb><rt>じしん</rt></ruby>、<ruby><rb>台風</rb><rt>たいふう</rt></ruby>、<ruby><rb>火事</rb><rt>かじ</rt></ruby>、<ruby><rb>事故</rb><rt>じこ</rt></ruby>、<ruby><rb>病気</rb><rt>びょうき</rt></ruby>、<ruby><rb>大</rb><rt>おお</rt></ruby><ruby><rb>雨</rb><rt>あめ</rt></ruby>"
     ]}
   ],
   63: [
     {icon:"🎀", title:"ので vs から — Tingkat Kesopanan", points:[
       "<b>ので</b>: lebih sopan & halus, cocok untuk meminta izin/penjelasan formal",
       "<b>から</b>: lebih langsung & subjektif, cocok untuk percakapan biasa",
-      "Minta izin: 漢字がわからない<b>ので</b>、ひらがなで書いていただけませんか",
+      "Minta izin: <ruby><rb>漢字</rb><rt>かんじ</rt></ruby>がわからない<b>ので</b>、ひらがなで<ruby><rb>書</rb><rt>か</rt></ruby>いていただけませんか",
       "💡 Gunakan ので saat berbicara dengan atasan atau orang yang tidak akrab"
     ]},
     {icon:"📝", title:"Konjugasi Sebelum ので", points:[
-      "<b>KK</b>: bentuk biasa. 飲む<b>ので</b> / 飲んだ<b>ので</b>",
-      "<b>KS い</b>: bentuk biasa. 忙しい<b>ので</b>",
-      "<b>KS な</b>: tambah <b>な</b>. 静か<b>なので</b>",
-      "<b>KB</b>: tambah <b>な</b>. 休み<b>なので</b>"
+      "<b>KK</b>: bentuk biasa. <ruby><rb>飲</rb><rt>の</rt></ruby>む<b>ので</b> / <ruby><rb>飲</rb><rt>の</rt></ruby>んだ<b>ので</b>",
+      "<b>KS い</b>: bentuk biasa. <ruby><rb>忙</rb><rt>いそが</rt></ruby>しい<b>ので</b>",
+      "<b>KS な</b>: tambah <b>な</b>. <ruby><rb>静</rb><rt>しず</rt></ruby>か<b>なので</b>",
+      "<b>KB</b>: tambah <b>な</b>. <ruby><rb>休み</rb><rt>やすみ</rt></ruby><b>なので</b>"
     ]}
   ],
   64: [
     {icon:"❓", title:"Interogatif か vs かどうか", points:[
-      "<b>ADA kata tanya</b> (何、いつ、どこ、だれ): 何時に出発する<b>か</b>、教えてください",
-      "<b>TIDAK ADA kata tanya</b> (ya/tidak): 間違いがない<b>かどうか</b>、確かめてください",
+      "<b>ADA kata tanya</b> (<ruby><rb>何</rb><rt>なん</rt></ruby>、いつ、どこ、だれ): <ruby><rb>何時</rb><rt>なんじ</rt></ruby>に<ruby><rb>出発</rb><rt>しゅっぱつ</rt></ruby>する<b>か</b>、<ruby><rb>教</rb><rt>おし</rt></ruby>えてください",
+      "<b>TIDAK ADA kata tanya</b> (ya/tidak): <ruby><rb>間違い</rb><rt>まちがい</rt></ruby>がない<b>かどうか</b>、<ruby><rb>確</rb><rt>たし</rt></ruby>かめてください",
       "Keduanya pakai bentuk biasa sebelum か / かどうか",
       "💡 Jika pertanyaannya bisa dijawab ya/tidak → pakai かどうか"
     ]},
     {icon:"🔍", title:"てみます — Mencoba Melakukan", points:[
       "Pola: <b>KK て + みます</b> = mencoba ~ (sesuatu yang belum pernah dicoba)",
-      "この靴、はいて<b>みても</b>いいですか (Boleh coba pakai sepatu ini?)",
-      "インターネットで調べて<b>みましょう</b> (Coba cari di internet)",
-      "てみたいです = ingin mencoba: 日本のお祭りに参加して<b>みたいです</b>"
+      "この<ruby><rb>靴</rb><rt>くつ</rt></ruby>、はいて<b>みても</b>いいですか (Boleh coba pakai sepatu ini?)",
+      "インターネットで<ruby><rb>調べて</rb><rt>しらべて</rt></ruby><b>みましょう</b> (Coba cari di internet)",
+      "てみたいです = ingin mencoba: <ruby><rb>日本</rb><rt>にほん</rt></ruby>のお<ruby><rb>祭り</rb><rt>まつり</rt></ruby>に<ruby><rb>参加</rb><rt>さんか</rt></ruby>して<b>みたいです</b>"
     ]}
   ],
   65: [
@@ -7599,9 +7599,9 @@ const BAB_TIPS = {
       "⚠️ Jangan gunakan あげます untuk memberi ke atasan! Gunakan さしあげます"
     ]},
     {icon:"🔄", title:"Partikel yang Berbeda — いただきます vs くださいます", points:[
-      "<b>いただきます</b>: pemberi ditandai <b>に</b>. 先生<b>に</b>本をいただきました",
-      "<b>くださいます</b>: pemberi ditandai <b>が</b>. 先生<b>が</b>本をくださいました",
-      "Bentuk て: 先生に教えて<b>いただきました</b> = 先生が教えて<b>くださいました</b>",
+      "<b>いただきます</b>: pemberi ditandai <b>に</b>. <ruby><rb>先生</rb><rt>せんせい</rt></ruby><b>に</b><ruby><rb>本</rb><rt>ほん</rt></ruby>をいただきました",
+      "<b>くださいます</b>: pemberi ditandai <b>が</b>. <ruby><rb>先生</rb><rt>せんせい</rt></ruby><b>が</b><ruby><rb>本</rb><rt>ほん</rt></ruby>をくださいました",
+      "Bentuk て: <ruby><rb>先生</rb><rt>せんせい</rt></ruby>に<ruby><rb>教</rb><rt>おし</rt></ruby>えて<b>いただきました</b> = <ruby><rb>先生</rb><rt>せんせい</rt></ruby>が<ruby><rb>教</rb><rt>おし</rt></ruby>えて<b>くださいました</b>",
       "💡 Makna sama, tapi sudut pandang berbeda (siapa subjek kalimat)"
     ]}
   ],
@@ -7609,35 +7609,35 @@ const BAB_TIPS = {
     {icon:"🤝", title:"て いただきます vs て くださいます (Tindakan)", points:[
       "<b>KK て いただきます</b>: saya menerima tindakan dari orang status lebih tinggi",
       "<b>KK て くださいます</b>: orang status lebih tinggi melakukan untuk saya",
-      "先生に推薦状を書いて<b>いただきました</b> (Saya minta guru menulis surat rekomendasi)",
-      "先生が推薦状を書いて<b>くださいました</b> (Guru menulis surat rekomendasi untuk saya)"
+      "<ruby><rb>先生</rb><rt>せんせい</rt></ruby>に<ruby><rb>推薦状</rb><rt>すいせんじょう</rt></ruby>を<ruby><rb>書</rb><rt>か</rt></ruby>いて<b>いただきました</b> (Saya minta guru menulis surat rekomendasi)",
+      "<ruby><rb>先生</rb><rt>せんせい</rt></ruby>が<ruby><rb>推薦状</rb><rt>すいせんじょう</rt></ruby>を<ruby><rb>書</rb><rt>か</rt></ruby>いて<b>くださいました</b> (Guru menulis surat rekomendasi untuk saya)"
     ]},
     {icon:"🙏", title:"て いただけませんか — Permintaan Paling Sopan", points:[
       "Pola: <b>KK て いただけませんか</b> = Bisakah Anda ~ (sangat sopan)",
       "Tingkat sopan: てください < てくださいませんか < て<b>いただけませんか</b>",
-      "Contoh: もう少しゆっくり話して<b>いただけませんか</b>",
+      "Contoh: もう<ruby><rb>少</rb><rt>すこ</rt></ruby>しゆっくり<ruby><rb>話</rb><rt>はな</rt></ruby>して<b>いただけませんか</b>",
       "Gunakan saat berbicara dengan atasan, guru, atau orang tidak dikenal"
     ]}
   ],
   67: [
     {icon:"🎯", title:"ために vs ように — Perbedaan Kunci", points:[
-      "<b>ために</b>: tujuan SADAR, subjek sama, KK kehendak. やせる<b>ために</b>運動します",
+      "<b>ために</b>: tujuan SADAR, subjek sama, KK kehendak. やせる<b>ために</b><ruby><rb>運動</rb><rt>うんどう</rt></ruby>します",
       "<b>ように</b>: tujuan TIDAK LANGSUNG, KK non-kehendak/potensial/negatif",
       "ために + tindakan langsung menuju tujuan",
       "ように + usaha agar keadaan tertentu tercapai/terjaga"
     ]},
     {icon:"📖", title:"KB の ために — Demi/Untuk ~", points:[
       "Pola: <b>KB の + ために</b> = untuk kepentingan KB",
-      "健康<b>のために</b>毎日運動しています (Demi kesehatan, olahraga tiap hari)",
-      "子供たち<b>のために</b>お金を貯金しています (Demi anak-anak, menabung)",
-      "なぜ日本語を勉強していますか → 仕事<b>のために</b>... (untuk pekerjaan)"
+      "<ruby><rb>健康</rb><rt>けんこう</rt></ruby><b>のために</b><ruby><rb>毎日</rb><rt>まいにち</rt></ruby><ruby><rb>運動</rb><rt>うんどう</rt></ruby>しています (Demi kesehatan, olahraga tiap hari)",
+      "<ruby><rb>子供たち</rb><rt>こどもたち</rt></ruby><b>のために</b>お<ruby><rb>金</rb><rt>かね</rt></ruby>を<ruby><rb>貯金</rb><rt>ちょきん</rt></ruby>しています (Demi anak-anak, menabung)",
+      "なぜ<ruby><rb>日本語</rb><rt>にほんご</rt></ruby>を<ruby><rb>勉強</rb><rt>べんきょう</rt></ruby>していますか → <ruby><rb>仕事</rb><rt>しごと</rt></ruby><b>のために</b>... (untuk pekerjaan)"
     ]}
   ],
   68: [
     {icon:"🔧", title:"のに (untuk) — Fungsi/Tujuan Penggunaan", points:[
       "Pola: <b>KK kamus + のに</b> + つかいます/いいです/べんりです/やくにたちます",
-      "この道具はたまごを切る<b>のに</b>使います (Alat ini untuk memotong telur)",
-      "LINEは友だちに連絡する<b>のに</b>便利です (LINE berguna untuk menghubungi teman)",
+      "この<ruby><rb>道具</rb><rt>どうぐ</rt></ruby>はたまごを<ruby><rb>切</rb><rt>き</rt></ruby>る<b>のに</b><ruby><rb>使</rb><rt>つか</rt></ruby>います (Alat ini untuk memotong telur)",
+      "LINEは<ruby><rb>友</rb><rt>とも</rt></ruby>だちに<ruby><rb>連絡</rb><rt>れんらく</rt></ruby>する<b>のに</b><ruby><rb>便利</rb><rt>べんり</rt></ruby>です (LINE berguna untuk menghubungi teman)",
       "⚠️ のに di sini = 'untuk tujuan' — BUKAN 'padahal' (itu Bab 71!)"
     ]},
     {icon:"👀", title:"KS そうです — Kesan Visual (Kelihatannya)", points:[
@@ -7649,77 +7649,77 @@ const BAB_TIPS = {
   ],
   69: [
     {icon:"⚡", title:"すぎます — Terlalu Berlebihan", points:[
-      "<b>KK stem</b> + すぎます: 食べ<b>すぎます</b> (makan terlalu banyak)",
-      "<b>KS い (buang い)</b> + すぎます: 高<b>すぎます</b> (terlalu mahal)",
-      "<b>KS な (buang な)</b> + すぎます: 静か<b>すぎます</b> (terlalu sepi)",
+      "<b>KK stem</b> + すぎます: <ruby><rb>食</rb><rt>た</rt></ruby>べ<b>すぎます</b> (makan terlalu banyak)",
+      "<b>KS い (buang い)</b> + すぎます: <ruby><rb>高</rb><rt>たか</rt></ruby><b>すぎます</b> (terlalu mahal)",
+      "<b>KS な (buang な)</b> + すぎます: <ruby><rb>静</rb><rt>しず</rt></ruby>か<b>すぎます</b> (terlalu sepi)",
       "すぎます berkonjugasi seperti KK: すぎて、すぎない、すぎた"
     ]},
     {icon:"📏", title:"やすい vs にくい — Mudah vs Sulit", points:[
-      "<b>KK stem + やすい</b> = mudah dilakukan. 歩き<b>やすい</b> (mudah dipakai jalan)",
-      "<b>KK stem + にくい</b> = sulit dilakukan. 食べ<b>にくい</b> (sulit dimakan)",
+      "<b>KK stem + やすい</b> = mudah dilakukan. <ruby><rb>歩</rb><rt>ある</rt></ruby>き<b>やすい</b> (mudah dipakai jalan)",
+      "<b>KK stem + にくい</b> = sulit dilakukan. <ruby><rb>食</rb><rt>た</rt></ruby>べ<b>にくい</b> (sulit dimakan)",
       "Berkonjugasi sebagai KS い: やすくて、やすくない、やすかった",
-      "💡 Juga untuk kecenderungan: 滑り<b>やすい</b> (mudah tergelincir/rawan licin)"
+      "💡 Juga untuk kecenderungan: <ruby><rb>滑</rb><rt>すべ</rt></ruby>り<b>やすい</b> (mudah tergelincir/rawan licin)"
     ]}
   ],
   70: [
     {icon:"⏰", title:"KK そうです — Sepertinya Akan Terjadi", points:[
       "Pola: <b>KK stem-ます + そうです</b> = sepertinya akan ~ (prediksi dekat)",
-      "荷物が落ち<b>そうです</b> (Barang sepertinya akan jatuh)",
+      "<ruby><rb>荷物が</rb><rt>にもつが</rt></ruby><ruby><rb>落</rb><rt>お</rt></ruby>ち<b>そうです</b> (Barang sepertinya akan jatuh)",
       "ガソリンがなくなり<b>そうです</b> (Bensin sepertinya akan habis)",
-      "Sering dengan: 今にも (kapan saja). 今にも雨が降り<b>そうです</b>"
+      "Sering dengan: <ruby><rb>今にも</rb><rt>いまにも</rt></ruby> (kapan saja). <ruby><rb>今にも</rb><rt>いまにも</rt></ruby><ruby><rb>雨が</rb><rt>あめが</rt></ruby><ruby><rb>降</rb><rt>ふ</rt></ruby>り<b>そうです</b>"
     ]},
     {icon:"🔄", title:"3 Jenis そうです — Bedakan!", points:[
       "<b>KS そうです</b> (Bab 68): kesan visual. おいし<b>そう</b> (kelihatannya enak)",
-      "<b>KK そうです</b> (Bab 70): prediksi. 落ち<b>そう</b> (sepertinya akan jatuh)",
-      "<b>bentuk biasa + そうです</b> (Bab 73): kabar. 雨だ<b>そうです</b> (katanya hujan)",
+      "<b>KK そうです</b> (Bab 70): prediksi. <ruby><rb>落</rb><rt>お</rt></ruby>ち<b>そう</b> (sepertinya akan jatuh)",
+      "<b>bentuk biasa + そうです</b> (Bab 73): kabar. <ruby><rb>雨</rb><rt>あめ</rt></ruby>だ<b>そうです</b> (katanya hujan)",
       "⚠️ Tiga pola ini SANGAT BERBEDA meski sama-sama pakai そうです!"
     ]},
     {icon:"🎨", title:"KB を KS く/に します — Mengubah Sengaja", points:[
-      "<b>KS い</b>: KB を KS く します. 髪を短<b>く</b>します (Potong rambut pendek)",
-      "<b>KS な</b>: KB を KS に します. 部屋をきれい<b>に</b>します (Bersihkan kamar)",
+      "<b>KS い</b>: KB を KS く します. <ruby><rb>髪</rb><rt>かみ</rt></ruby>を<ruby><rb>短</rb><rt>みじか</rt></ruby><b>く</b>します (Potong rambut pendek)",
+      "<b>KS な</b>: KB を KS に します. <ruby><rb>部屋</rb><rt>へや</rt></ruby>をきれい<b>に</b>します (Bersihkan kamar)",
       "Bandingkan: KS く/に <b>なります</b> (berubah sendiri) vs <b>します</b> (diubah sengaja)",
-      "Contoh: 暖かく<b>なりました</b> (Jadi hangat [alam]) vs 部屋を暖かく<b>します</b> (Hangatkan kamar [saya])"
+      "Contoh: <ruby><rb>暖</rb><rt>あたた</rt></ruby>かく<b>なりました</b> (Jadi hangat [alam]) vs <ruby><rb>部屋</rb><rt>へや</rt></ruby>を<ruby><rb>暖</rb><rt>あたた</rt></ruby>かく<b>します</b> (Hangatkan kamar [saya])"
     ]}
   ],
   71: [
     {icon:"😤", title:"のに (padahal) — Kontras & Kekecewaan", points:[
       "Pola: <b>[bentuk biasa] + のに、～</b> = padahal ~, tapi ~ (berlawanan harapan)",
-      "30分も待った<b>のに</b>、タクシーが来ませんでした (Padahal sudah tunggu 30 menit...)",
-      "この店は高い<b>のに</b>、おいしくないです (Padahal mahal, tapi tidak enak)",
+      "30<ruby><rb>分</rb><rt>ふん</rt></ruby>も<ruby><rb>待</rb><rt>ま</rt></ruby>った<b>のに</b>、タクシーが<ruby><rb>来</rb><rt>き</rt></ruby>ませんでした (Padahal sudah tunggu 30 menit...)",
+      "この<ruby><rb>店</rb><rt>みせ</rt></ruby>は<ruby><rb>高</rb><rt>たか</rt></ruby>い<b>のに</b>、おいしくないです (Padahal mahal, tapi tidak enak)",
       "💡 のに selalu mengandung nuansa KECEWA atau TERKEJUT"
     ]},
     {icon:"⚠️", title:"のに (padahal) vs のに (untuk) — Jangan Tertukar!", points:[
-      "<b>のに (padahal)</b> Bab 71: kontras/kekecewaan. 高い<b>のに</b>おいしくない",
-      "<b>のに (untuk)</b> Bab 68: tujuan/fungsi. 切る<b>のに</b>使います",
+      "<b>のに (padahal)</b> Bab 71: kontras/kekecewaan. <ruby><rb>高</rb><rt>たか</rt></ruby>い<b>のに</b>おいしくない",
+      "<b>のに (untuk)</b> Bab 68: tujuan/fungsi. <ruby><rb>切</rb><rt>き</rt></ruby>る<b>のに</b><ruby><rb>使</rb><rt>つか</rt></ruby>います",
       "Cara bedakan: のに (padahal) → klausa penuh sebelumnya. のに (untuk) → diikuti つかう/いい/べんり",
-      "KS な/KB sebelum のに (padahal): tambah <b>な</b>. 必要<b>なのに</b>忘れた"
+      "KS な/KB sebelum のに (padahal): tambah <b>な</b>. <ruby><rb>必要</rb><rt>ひつよう</rt></ruby><b>なのに</b><ruby><rb>忘</rb><rt>わす</rt></ruby>れた"
     ]}
   ],
   72: [
     {icon:"⏱️", title:"ところです — 3 Momen Waktu", points:[
-      "<b>KK kamus + ところです</b>: BARU AKAN mulai. これから食べる<b>ところです</b>",
-      "<b>KK ている + ところです</b>: SEDANG berlangsung. 今調べている<b>ところです</b>",
-      "<b>KK た + ところです</b>: BARU SAJA selesai. たった今浴びた<b>ところです</b>",
+      "<b>KK kamus + ところです</b>: BARU AKAN mulai. これから<ruby><rb>食べる</rb><rt>たべる</rt></ruby><b>ところです</b>",
+      "<b>KK ている + ところです</b>: SEDANG berlangsung. <ruby><rb>今</rb><rt>いま</rt></ruby><ruby><rb>調べて</rb><rt>しらべて</rt></ruby>いる<b>ところです</b>",
+      "<b>KK た + ところです</b>: BARU SAJA selesai. たった<ruby><rb>今</rb><rt>いま</rt></ruby><ruby><rb>浴びた</rb><rt>あびた</rt></ruby><b>ところです</b>",
       "ところです menekankan MOMEN TEPAT saat tindakan berlangsung"
     ]},
     {icon:"🕐", title:"Kata Keterangan yang Cocok", points:[
-      "KK kamus ところ: <b>これから</b>、（ちょうど）今から",
-      "KK ている ところ: <b>今</b>",
-      "KK た ところ: <b>たった今</b>、ちょうど、さっき",
+      "KK kamus ところ: <b>これから</b>、（ちょうど）<ruby><rb>今</rb><rt>いま</rt></ruby>から",
+      "KK ている ところ: <b><ruby><rb>今</rb><rt>いま</rt></ruby></b>",
+      "KK た ところ: <b>たった<ruby><rb>今</rb><rt>いま</rt></ruby></b>、ちょうど、さっき",
       "Bandingkan: たところです (baru saja, objektif) vs たばかりです (Bab 74, subjektif)"
     ]}
   ],
   73: [
     {icon:"📢", title:"bentuk biasa + そうです — Kabar/Informasi", points:[
       "Pola: <b>[bentuk biasa] + そうです</b> = katanya ~ / saya dengar ~",
-      "明日テストがある<b>そうです</b> (Katanya besok ada ujian)",
-      "Sumber: <b>～によると</b>、～そうです. 天気予報によると、明日は寒くなるそうです",
+      "<ruby><rb>明日</rb><rt>あした</rt></ruby>テストがある<b>そうです</b> (Katanya besok ada ujian)",
+      "Sumber: <b>～によると</b>、～そうです. <ruby><rb>天気予報</rb><rt>てんきよほう</rt></ruby>によると、<ruby><rb>明日</rb><rt>あした</rt></ruby>は<ruby><rb>寒</rb><rt>さむ</rt></ruby>くなるそうです",
       "⚠️ INI BERBEDA dari KS そうです (kesan) dan KK そうです (prediksi)!"
     ]},
     {icon:"🔍", title:"ようです — Kesimpulan dari Pengamatan", points:[
       "Pola: <b>[bentuk biasa] + ようです</b> = tampaknya ~ / sepertinya ~",
-      "KS な/KB: + <b>な/の</b> sebelum ようです. 留守<b>の</b>ようです | 静か<b>な</b>ようです",
-      "Sering dengan <b>どうも</b>: どうも風邪をひいた<b>ようです</b> (Sepertinya kena flu)",
+      "KS な/KB: + <b>な/の</b> sebelum ようです. <ruby><rb>留守</rb><rt>るす</rt></ruby><b>の</b>ようです | <ruby><rb>静</rb><rt>しず</rt></ruby>か<b>な</b>ようです",
+      "Sering dengan <b>どうも</b>: どうも<ruby><rb>風邪を</rb><rt>かぜを</rt></ruby>ひいた<b>ようです</b> (Sepertinya kena flu)",
       "ようです = kesimpulan dari BUKTI yang diamati (suara, penglihatan, situasi)"
     ]}
   ],
@@ -7727,61 +7727,61 @@ const BAB_TIPS = {
     {icon:"⏱️", title:"たばかりです vs たところです — Bedakan!", points:[
       "<b>たばかりです</b>: perasaan SUBJEKTIF 'baru saja' — bisa 1 menit atau 1 bulan lalu!",
       "<b>たところです</b> (Bab 72): secara OBJEKTIF baru saja terjadi (hitungan detik/menit)",
-      "Contoh: 先月卒業した<b>ばかりです</b> (Baru saja lulus bulan lalu [terasa baru])",
-      "買ったばかり<b>なのに</b>、もう壊れた (Padahal baru saja beli, sudah rusak)"
+      "Contoh: <ruby><rb>先月</rb><rt>せんげつ</rt></ruby><ruby><rb>卒業した</rb><rt>そつぎょうした</rt></ruby><b>ばかりです</b> (Baru saja lulus bulan lalu [terasa baru])",
+      "<ruby><rb>買った</rb><rt>かった</rt></ruby>ばかり<b>なのに</b>、もう<ruby><rb>壊</rb><rt>こわ</rt></ruby>れた (Padahal baru saja beli, sudah rusak)"
     ]},
     {icon:"✅", title:"はずです — Seharusnya / Pasti ~", points:[
       "Pola: <b>[bentuk biasa] + はずです</b> = seharusnya ~ (berdasarkan alasan logis)",
-      "日曜日ですから、銀行は休みの<b>はずです</b> (Hari Minggu, bank seharusnya tutup)",
-      "KS な/KB: + <b>な/の</b> sebelum はず. 元気な<b>はず</b> | 休みの<b>はず</b>",
-      "Negatif: ～ないはずです = seharusnya tidak ~. 問題はないはずです"
+      "<ruby><rb>日曜日</rb><rt>にちようび</rt></ruby>ですから、<ruby><rb>銀行</rb><rt>ぎんこう</rt></ruby>は<ruby><rb>休み</rb><rt>やすみ</rt></ruby>の<b>はずです</b> (Hari Minggu, bank seharusnya tutup)",
+      "KS な/KB: + <b>な/の</b> sebelum はず. <ruby><rb>元気</rb><rt>げんき</rt></ruby>な<b>はず</b> | <ruby><rb>休み</rb><rt>やすみ</rt></ruby>の<b>はず</b>",
+      "Negatif: ～ないはずです = seharusnya tidak ~. <ruby><rb>問題</rb><rt>もんだい</rt></ruby>はないはずです"
     ]}
   ],
   75: [
-    {icon:"⚡", title:"命令形 (Perintah) — Konjugasi Cepat", points:[
+    {icon:"⚡", title:"<ruby><rb>命令形</rb><rt>めいれいけい</rt></ruby> (Perintah) — Konjugasi Cepat", points:[
       "<b>Grup I</b>: ます→baris え. のめ、かけ、はしれ、まて",
       "<b>Grup II</b>: ます→ろ. たべろ、みろ、ねろ、やめろ",
       "<b>Grup III</b>: きます→<b>こい</b> | します→<b>しろ</b>",
-      "Kapan dipakai: darurat (逃げろ!), olahraga (走れ!), tanda/rambu"
+      "Kapan dipakai: darurat (<ruby><rb>逃</rb><rt>に</rt></ruby>げろ!), olahraga (<ruby><rb>走</rb><rt>はし</rt></ruby>れ!), tanda/rambu"
     ]},
-    {icon:"🚫", title:"禁止形 (Larangan) — Sangat Sederhana", points:[
+    {icon:"🚫", title:"<ruby><rb>禁止形</rb><rt>きんしけい</rt></ruby> (Larangan) — Sangat Sederhana", points:[
       "SEMUA grup: <b>KK kamus + な</b>. のむな、みるな、するな、くるな",
       "Sangat kasar — hanya untuk situasi darurat atau tanda/rambu",
-      "Di tanda: 立入禁止 (dilarang masuk) | 使用禁止 (dilarang pakai)",
+      "Di tanda: <ruby><rb>立入禁止</rb><rt>たちいりきんし</rt></ruby> (dilarang masuk) | <ruby><rb>使用禁止</rb><rt>しようきんし</rt></ruby> (dilarang pakai)",
       "💡 Untuk larangan sopan, gunakan ～ないでください"
     ]},
-    {icon:"📖", title:"という意味です — Mendefinisikan Makna", points:[
-      "<b>X は Y という意味です</b> = X berarti Y",
-      "このマークは駐車禁止<b>という意味です</b> (Tanda ini berarti dilarang parkir)",
-      "Pertanyaan: <b>どういう意味ですか</b> = Artinya apa?",
-      "💡 という juga bisa untuk nama: あの人は田中<b>という</b>人です (Orang bernama Tanaka)"
+    {icon:"📖", title:"という<ruby><rb>意味</rb><rt>いみ</rt></ruby>です — Mendefinisikan Makna", points:[
+      "<b>X は Y という<ruby><rb>意味</rb><rt>いみ</rt></ruby>です</b> = X berarti Y",
+      "このマークは<ruby><rb>駐</rb><rt>ちゅう</rt></ruby><ruby><rb>車</rb><rt>しゃ</rt></ruby><ruby><rb>禁</rb><rt>きん</rt></ruby><ruby><rb>止</rb><rt>し</rt></ruby><b>という<ruby><rb>意味</rb><rt>いみ</rt></ruby>です</b> (Tanda ini berarti dilarang parkir)",
+      "Pertanyaan: <b>どういう<ruby><rb>意味</rb><rt>いみ</rt></ruby>ですか</b> = Artinya apa?",
+      "💡 という juga bisa untuk nama: あの<ruby><rb>人</rb><rt>ひと</rt></ruby>は<ruby><rb>田中</rb><rt>たなか</rt></ruby><b>という</b><ruby><rb>人</rb><rt>ひと</rt></ruby>です (Orang bernama Tanaka)"
     ]}
   ],
   76: [
-    {icon:"📐", title:"使役形 (Kausatif) — Konjugasi", points:[
+    {icon:"📐", title:"<ruby><rb>使役形</rb><rt>しえきけい</rt></ruby> (Kausatif) — Konjugasi", points:[
       "<b>Grup I</b>: ます→あ+せます. かきます→かか<b>せます</b> | よみます→よま<b>せます</b>",
       "<b>Grup II</b>: ます→させます. たべます→たべ<b>させます</b>",
       "<b>Grup III</b>: きます→こ<b>させます</b> | します→<b>させます</b>",
       "Kausatif terkonjugasi sebagai KK Grup II"
     ]},
     {icon:"👨‍👧", title:"Makna Kausatif: Menyuruh vs Mengizinkan", points:[
-      "<b>Menyuruh</b>: 先生は学生に本を読ま<b>せました</b> (Guru menyuruh murid baca buku)",
-      "<b>Mengizinkan</b>: 子どもに好きなことをさ<b>せています</b> (Membiarkan anak lakukan yang disukai)",
+      "<b>Menyuruh</b>: <ruby><rb>先生</rb><rt>せんせい</rt></ruby>は<ruby><rb>学生</rb><rt>がくせい</rt></ruby>に<ruby><rb>本</rb><rt>ほん</rt></ruby>を<ruby><rb>読</rb><rt>よ</rt></ruby>ま<b>せました</b> (Guru menyuruh murid baca buku)",
+      "<b>Mengizinkan</b>: <ruby><rb>子ども</rb><rt>こども</rt></ruby>に<ruby><rb>好き</rb><rt>す</rt></ruby>なことをさ<b>せています</b> (Membiarkan anak lakukan yang disukai)",
       "Partikel: KK intransitif → orang <b>を</b>. KK transitif → orang <b>に</b>",
       "Orang tua/atasan → menyuruh/mengizinkan → bawahan/anak"
     ]},
     {icon:"🙏", title:"させて いただけませんか — Izin Paling Sopan", points:[
       "Pola: <b>KK kausatif て + いただけませんか</b> = bolehkah saya ~ (super sopan)",
-      "休ませて<b>いただけませんか</b> (Bolehkah saya izin tidak masuk?)",
-      "車を止めさせて<b>いただけませんか</b> (Bolehkah saya parkir di sini?)",
+      "<ruby><rb>休</rb><rt>やす</rt></ruby>ませて<b>いただけませんか</b> (Bolehkah saya izin tidak masuk?)",
+      "<ruby><rb>車</rb><rt>くるま</rt></ruby>を<ruby><rb>止め</rb><rt>と</rt></ruby>させて<b>いただけませんか</b> (Bolehkah saya parkir di sini?)",
       "Ini adalah CARA PALING SOPAN meminta izin dalam bahasa Jepang sehari-hari"
     ]}
   ],
   77: [
-    {icon:"👑", title:"尊敬語 — Menghormati Pelaku Tindakan", points:[
+    {icon:"👑", title:"<ruby><rb>尊敬語</rb><rt>そんけいご</rt></ruby> — Menghormati Pelaku Tindakan", points:[
       "Konjugasi SAMA dengan pasif: Gr I: ～あれます | Gr II: ～られます | Gr III: こられます/されます",
-      "Contoh: 社長は9時半に来<b>られます</b> (Direktur akan datang jam 9:30)",
-      "Lebih sopan: <b>お + KK stem + になります</b>. 先生がお帰りになります",
+      "Contoh: <ruby><rb>社長</rb><rt>しゃちょう</rt></ruby>は9<ruby><rb>時半</rb><rt>じはん</rt></ruby>に<ruby><rb>来</rb><rt>き</rt></ruby><b>られます</b> (Direktur akan datang jam 9:30)",
+      "Lebih sopan: <b>お + KK stem + になります</b>. <ruby><rb>先生</rb><rt>せんせい</rt></ruby>がお<ruby><rb>帰り</rb><rt>かえり</rt></ruby>になります",
       "⚠️ Gr III dan KK 1 suku kata (みる、ねる) TIDAK bisa pakai お～になります"
     ]},
     {icon:"🎩", title:"Ungkapan Khusus Bahasa Hormat", points:[
@@ -7798,11 +7798,11 @@ const BAB_TIPS = {
     ]}
   ],
   78: [
-    {icon:"🙇", title:"謙譲語 — Merendahkan Diri Sendiri", points:[
+    {icon:"🙇", title:"<ruby><rb>謙譲語</rb><rt>けんじょうご</rt></ruby> — Merendahkan Diri Sendiri", points:[
       "Pola: <b>お + KK stem + します</b> = saya melakukan ~ (merendah ke lawan bicara)",
-      "お荷物をお持ち<b>します</b> (Saya akan membawakan barang Anda)",
-      "お名前をお聞き<b>してもよろしいですか</b> (Bolehkah saya bertanya nama Anda?)",
-      "Gr III: ご + KB + します. ご案内<b>します</b>、ご連絡<b>します</b>"
+      "お<ruby><rb>荷物</rb><rt>にもつ</rt></ruby>をお<ruby><rb>持ち</rb><rt>も</rt></ruby><b>します</b> (Saya akan membawakan barang Anda)",
+      "お<ruby><rb>名前</rb><rt>なまえ</rt></ruby>をお<ruby><rb>聞</rb><rt>き</rt></ruby>き<b>してもよろしいですか</b> (Bolehkah saya bertanya nama Anda?)",
+      "Gr III: ご + KB + します. ご<ruby><rb>案内</rb><rt>あんない</rt></ruby><b>します</b>、ご<ruby><rb>連絡</rb><rt>れんらく</rt></ruby><b>します</b>"
     ]},
     {icon:"📋", title:"Ungkapan Khusus Bahasa Merendah", points:[
       "いきます/きます → <b>まいります</b>",
@@ -7810,10 +7810,10 @@ const BAB_TIPS = {
       "たべます/のみます → <b>いただきます</b>",
       "みます → <b>はいけんします</b> | しっています → <b>ぞんじています</b>"
     ]},
-    {icon:"⚖️", title:"尊敬語 vs 謙譲語 — Ringkasan Final", points:[
-      "<b>尊敬語</b> (Bab 77): meninggikan ORANG LAIN. Subjek = orang yang dihormati",
-      "<b>謙譲語</b> (Bab 78): merendahkan DIRI SENDIRI. Subjek = saya/pihak saya",
-      "先生がいらっしゃいます (尊敬) vs 私がまいります (謙譲)",
+    {icon:"⚖️", title:"<ruby><rb>尊敬語</rb><rt>そんけいご</rt></ruby> vs <ruby><rb>謙譲語</rb><rt>けんじょうご</rt></ruby> — Ringkasan Final", points:[
+      "<b><ruby><rb>尊敬語</rb><rt>そんけいご</rt></ruby></b> (Bab 77): meninggikan ORANG LAIN. Subjek = orang yang dihormati",
+      "<b><ruby><rb>謙譲語</rb><rt>けんじょうご</rt></ruby></b> (Bab 78): merendahkan DIRI SENDIRI. Subjek = saya/pihak saya",
+      "<ruby><rb>先生</rb><rt>せんせい</rt></ruby>がいらっしゃいます (<ruby><rb>尊敬</rb><rt>そんけい</rt></ruby>) vs <ruby><rb>私</rb><rt>わたし</rt></ruby>がまいります (<ruby><rb>謙譲</rb><rt>けんじょう</rt></ruby>)",
       "💡 Keduanya menunjukkan HORMAT — tapi dari arah yang berbeda!"
     ]}
   ]
@@ -9352,7 +9352,7 @@ function renderRangkuman() {
     const isNagara = g.grup === 'ながら';
     const isUkemi  = g.grup.includes('受身');
     const isSpecial = isTara || isTemo || isKano || isNagara || isUkemi;
-    const n4Badge = (isN4Group && rsumLevel === 'all') ? `<span class="rsum-level-badge badge-n4">N4</span>` : '';
+    const n4Badge = '';
     // Label kolom ke-2 disesuaikan per grup
     const col2Label = isKano ? '<ruby>可能形<rt>かのうけい</rt></ruby> (Positif)' : isNagara ? 'ながら形' :
                       isUkemi ? `<span class="rsum-vv-chip vv-ukemi" style="font-size:0.62rem">受身</span> Positif` :
@@ -9387,16 +9387,7 @@ function renderRangkuman() {
         <td style="font-size:0.68rem;color:var(--text2)">${r.catatan}</td>
       </tr>`).join('');
     const aturanHtml = g.aturan.map(a => `<li style="margin-bottom:4px">${a}</li>`).join('');
-    // Extract bab numbers from label (e.g. "— Bab 37-38" or "— Bab 42")
-    const babMatch = g.label.replace(/<[^>]*>/g,'').match(/Bab\s+([\d]+)(?:[–\-](\d+))?/);
     let babChipsHtml = '';
-    if (babMatch) {
-      const babStart = parseInt(babMatch[1]);
-      const babEnd = babMatch[2] ? parseInt(babMatch[2]) : babStart;
-      for (let bn = babStart; bn <= babEnd; bn++) {
-        babChipsHtml += `<span class="rsum-bab-chip" title="Bab ${bn}">Bab ${bn}</span> `;
-      }
-    }
     konjHtml += `
       <div style="margin-bottom:18px">
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;flex-wrap:wrap">
@@ -9766,7 +9757,7 @@ const KAMUS_SUBCAT = {
       hint: [
         { ex: '<b>書き</b>ます' },{ ex: '<b>書き</b>ません' },{ ex: '<b>書き</b>ました' },{ ex: '<b>書いて</b>' },
       ],
-      desc: 'Kata kerja yang berakhiran suara う sebelum ます. Pola て形: く→いて, ぐ→いで, む/ぬ/ぶ→んで, つ/う/る→って, す→して.'
+      desc: 'Kata kerja yang berakhiran suara う sebelum ます. Pola て<ruby><rb>形</rb><rt>けい</rt></ruby>: く→いて, ぐ→いで, む/ぬ/ぶ→んで, つ/う/る→って, す→して.'
     },
     {
       key: 'II', label: 'Golongan II — る動詞', icon: '②',
@@ -9774,7 +9765,7 @@ const KAMUS_SUBCAT = {
       hint: [
         { ex: '<b>食べ</b>ます' },{ ex: '<b>食べ</b>ません' },{ ex: '<b>食べ</b>ました' },{ ex: '<b>食べて</b>' },
       ],
-      desc: 'Kata kerja berakhiran え/い sebelum ます. て形 dibentuk langsung dengan + て.'
+      desc: 'Kata kerja berakhiran え/い sebelum ます. て<ruby><rb>形</rb><rt>けい</rt></ruby> dibentuk langsung dengan + て.'
     },
     {
       key: 'III', label: 'Golongan III — <ruby>不規則<rt>ふきそく</rt></ruby><ruby>動詞<rt>どうし</rt></ruby>', icon: '③',
