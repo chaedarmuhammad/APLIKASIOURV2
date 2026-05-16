@@ -1606,12 +1606,18 @@ body {
     <button class="tab-btn" onclick="switchRsumTab(2)">🏃 Bentuk VV</button>
     <button class="tab-btn" onclick="switchRsumTab(3)">🔄 Konjugasi</button>
     <button class="tab-btn" onclick="switchRsumTab(4)">✨ Kata Sifat</button>
+    <button class="tab-btn" onclick="switchRsumTab(5)">🔀 自他動詞</button>
+    <button class="tab-btn" onclick="switchRsumTab(6)">🗣️ Ragam</button>
+    <button class="tab-btn" onclick="switchRsumTab(7)">📚 Lainnya</button>
   </div>
   <div id="rsum-tab-0" class="tab-content active"></div>
   <div id="rsum-tab-1" class="tab-content"></div>
   <div id="rsum-tab-2" class="tab-content"></div>
   <div id="rsum-tab-3" class="tab-content"></div>
   <div id="rsum-tab-4" class="tab-content"></div>
+  <div id="rsum-tab-5" class="tab-content"></div>
+  <div id="rsum-tab-6" class="tab-content"></div>
+  <div id="rsum-tab-7" class="tab-content"></div>
 </div>
 
 
@@ -9412,7 +9418,7 @@ let rsumActiveTab = 0;
 function switchRsumTab(idx) {
   rsumActiveTab = idx;
   document.querySelectorAll('#rsumTabs .tab-btn').forEach((b,i) => b.classList.toggle('active', i===idx));
-  for (let i=0;i<5;i++) {
+  for (let i=0;i<8;i++) {
     const el = document.getElementById('rsum-tab-'+i);
     if (el) el.classList.toggle('active', i===idx);
   }
@@ -10172,6 +10178,15 @@ function renderRangkuman() {
     <div style="margin-top:12px"></div>
     ${adjHtmlExtra}
   </div>`;
+
+  // ─── Tab 5: 自他動詞 (Transitif/Intransitif) ───
+  renderRsumTab5(lvLabel, lvColor);
+
+  // ─── Tab 6: Ragam Sopan vs Biasa ───
+  renderRsumTab6(lvLabel, lvColor);
+
+  // ─── Tab 7: Lainnya (Counter, Memberi/Menerima, Waktu, Konjungsi) ───
+  renderRsumTab7(lvLabel, lvColor);
 }
 
 function shuffle(arr) {
@@ -10180,8 +10195,305 @@ function shuffle(arr) {
   return a;
 }
 
+// ========== RANGKUMAN TAB 5: 自他動詞 ==========
+function renderRsumTab5(lvLabel, lvColor) {
+  const jitaPairs = [
+    {intr:'あきます', intrK:'<ruby>開<rt>あ</rt></ruby>きます', trans:'あけます', transK:'<ruby>開<rt>あ</rt></ruby>けます', obj:'ドア/まど', desc:'terbuka ↔ membuka', grpI:'I', grpT:'II'},
+    {intr:'しまります', intrK:'<ruby>閉<rt>し</rt></ruby>まります', trans:'しめます', transK:'<ruby>閉<rt>し</rt></ruby>めます', obj:'ドア/まど', desc:'tertutup ↔ menutup', grpI:'I', grpT:'II'},
+    {intr:'つきます', intrK:'つきます', trans:'つけます', transK:'つけます', obj:'<ruby>電気<rt>でんき</rt></ruby>', desc:'menyala ↔ menyalakan', grpI:'I', grpT:'II'},
+    {intr:'きえます', intrK:'<ruby>消<rt>き</rt></ruby>えます', trans:'けします', transK:'<ruby>消<rt>け</rt></ruby>します', obj:'<ruby>電気<rt>でんき</rt></ruby>', desc:'padam ↔ memadamkan', grpI:'II', grpT:'I'},
+    {intr:'とまります', intrK:'<ruby>止<rt>と</rt></ruby>まります', trans:'とめます', transK:'<ruby>止<rt>と</rt></ruby>めます', obj:'くるま/エレベーター', desc:'berhenti ↔ menghentikan', grpI:'I', grpT:'II'},
+    {intr:'こわれます', intrK:'<ruby>壊<rt>こわ</rt></ruby>れます', trans:'こわします', transK:'<ruby>壊<rt>こわ</rt></ruby>します', obj:'いす/パソコン', desc:'rusak ↔ merusak', grpI:'II', grpT:'I'},
+    {intr:'われます', intrK:'<ruby>割<rt>わ</rt></ruby>れます', trans:'わります', transK:'<ruby>割<rt>わ</rt></ruby>ります', obj:'コップ', desc:'pecah ↔ memecahkan', grpI:'II', grpT:'I'},
+    {intr:'おれます', intrK:'<ruby>折<rt>お</rt></ruby>れます', trans:'おります', transK:'<ruby>折<rt>お</rt></ruby>ります', obj:'<ruby>枝<rt>えだ</rt></ruby>', desc:'patah ↔ mematahkan', grpI:'II', grpT:'I'},
+    {intr:'やぶれます', intrK:'<ruby>破<rt>やぶ</rt></ruby>れます', trans:'やぶります', transK:'<ruby>破<rt>やぶ</rt></ruby>ります', obj:'<ruby>紙<rt>かみ</rt></ruby>', desc:'sobek ↔ menyobek', grpI:'II', grpT:'I'},
+    {intr:'よごれます', intrK:'<ruby>汚<rt>よご</rt></ruby>れます', trans:'よごします', transK:'<ruby>汚<rt>よご</rt></ruby>します', obj:'<ruby>服<rt>ふく</rt></ruby>', desc:'kotor ↔ mengotori', grpI:'II', grpT:'I'},
+    {intr:'こみます', intrK:'<ruby>込<rt>こ</rt></ruby>みます', trans:'—', transK:'—', obj:'<ruby>道<rt>みち</rt></ruby>', desc:'macet (tidak ada pasangan transitif)', grpI:'I', grpT:'—'},
+    {intr:'すきます', intrK:'<ruby>空<rt>す</rt></ruby>きます', trans:'—', transK:'—', obj:'<ruby>道<rt>みち</rt></ruby>', desc:'lengang (tidak ada pasangan transitif)', grpI:'I', grpT:'—'},
+    {intr:'かかります', intrK:'<ruby>掛<rt>か</rt></ruby>かります', trans:'かけます', transK:'<ruby>掛<rt>か</rt></ruby>けます', obj:'かぎ', desc:'terkunci ↔ mengunci', grpI:'I', grpT:'II'},
+    {intr:'はいります', intrK:'<ruby>入<rt>はい</rt></ruby>ります', trans:'いれます', transK:'<ruby>入<rt>い</rt></ruby>れます', obj:'もの', desc:'masuk ↔ memasukkan', grpI:'I', grpT:'II'},
+    {intr:'でます', intrK:'<ruby>出<rt>で</rt></ruby>ます', trans:'だします', transK:'<ruby>出<rt>だ</rt></ruby>します', obj:'もの', desc:'keluar ↔ mengeluarkan', grpI:'II', grpT:'I'},
+    {intr:'おちます', intrK:'<ruby>落<rt>お</rt></ruby>ちます', trans:'おとします', transK:'<ruby>落<rt>お</rt></ruby>とします', obj:'もの', desc:'jatuh ↔ menjatuhkan', grpI:'II', grpT:'I'},
+    {intr:'なくなります', intrK:'なくなります', trans:'なくします', transK:'なくします', obj:'もの', desc:'hilang ↔ menghilangkan', grpI:'I', grpT:'I'},
+  ];
+  const pairRows = jitaPairs.map(p => `<tr>
+    <td class="rsum-form"><span style="color:#60a5fa">${p.intrK}</span></td>
+    <td style="font-size:0.68rem;color:var(--text2)">${p.grpI}</td>
+    <td class="rsum-form"><span style="color:#f87171">${p.transK}</span></td>
+    <td style="font-size:0.68rem;color:var(--text2)">${p.grpT}</td>
+    <td style="font-size:0.74rem;color:var(--text2)">${p.obj}</td>
+    <td style="font-size:0.72rem;color:var(--text2)">${p.desc}</td>
+  </tr>`).join('');
 
-// ========== CROSS BAB ==========
+  document.getElementById('rsum-tab-5').innerHTML = `<div style="padding:16px 14px 20px">
+    <div class="rsum-section-title">🔀 <ruby>自動詞<rt>じどうし</rt></ruby> と <ruby>他動詞<rt>たどうし</rt></ruby> — Kata Kerja Intransitif & Transitif</div>
+
+    <div class="konj-tab-note">
+      <span style="font-size:1.1rem;flex-shrink:0">💡</span>
+      <span><b><ruby>自動詞<rt>じどうし</rt></ruby> (Intransitif)</b> = perubahan SPONTAN, tidak ada pelaku → partikel <b style="color:#60a5fa">が</b><br>
+      <b><ruby>他動詞<rt>たどうし</rt></ruby> (Transitif)</b> = ada PELAKU yang melakukan → partikel <b style="color:#f87171">を</b></span>
+    </div>
+
+    <!-- Pola Dasar -->
+    <div class="konj-accordion open" style="scroll-margin-top:110px;margin-bottom:16px;border-color:rgba(124,106,247,0.3)">
+      <div class="konj-accordion-head" onclick="this.parentElement.classList.toggle('open')" style="background:rgba(124,106,247,0.04)">
+        <span class="konj-accordion-chevron">▶</span>
+        <span style="font-size:0.82rem;font-weight:700;color:var(--accent)">📐 Pola Dasar: が + 自動詞 vs を + 他動詞</span>
+      </div>
+      <div class="konj-accordion-body">
+        <div class="tbl-scroll-wrap"><table class="rsum-vv-table" style="min-width:440px">
+          <thead><tr><th style="color:#60a5fa"><ruby>自動詞<rt>じどうし</rt></ruby> (Intransitif)</th><th style="color:#f87171"><ruby>他動詞<rt>たどうし</rt></ruby> (Transitif)</th></tr></thead>
+          <tbody>
+            <tr><td><b>KB <span style="color:#60a5fa">が</span> KK-intransitif</b><br><span style="color:var(--teal);font-family:'Noto Sans JP',sans-serif"><ruby>電気<rt>でんき</rt></ruby><b>が</b> つきます</span><br><span style="color:var(--text2);font-size:0.72rem">Lampu menyala (sendiri/otomatis)</span></td>
+                <td><b>(Pelaku は) KB <span style="color:#f87171">を</span> KK-transitif</b><br><span style="color:var(--teal);font-family:'Noto Sans JP',sans-serif"><ruby>電気<rt>でんき</rt></ruby><b>を</b> つけます</span><br><span style="color:var(--text2);font-size:0.72rem">Menyalakan lampu (ada pelaku)</span></td></tr>
+            <tr><td><span style="color:var(--teal);font-family:'Noto Sans JP',sans-serif">ドア<b>が</b> <ruby>開<rt>あ</rt></ruby>きます</span><br><span style="color:var(--text2);font-size:0.72rem">Pintu terbuka (sendiri)</span></td>
+                <td><span style="color:var(--teal);font-family:'Noto Sans JP',sans-serif">ドア<b>を</b> <ruby>開<rt>あ</rt></ruby>けます</span><br><span style="color:var(--text2);font-size:0.72rem">Membuka pintu (sengaja)</span></td></tr>
+            <tr><td><span style="color:var(--teal);font-family:'Noto Sans JP',sans-serif">まど<b>が</b> <ruby>閉<rt>し</rt></ruby>まります</span><br><span style="color:var(--text2);font-size:0.72rem">Jendela tertutup (oleh angin dll.)</span></td>
+                <td><span style="color:var(--teal);font-family:'Noto Sans JP',sans-serif">まど<b>を</b> <ruby>閉<rt>し</rt></ruby>めます</span><br><span style="color:var(--text2);font-size:0.72rem">Menutup jendela (sengaja)</span></td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </div>
+
+    <!-- Perbedaan ています -->
+    <div class="konj-accordion" style="scroll-margin-top:110px;margin-bottom:16px;border-color:rgba(52,211,153,0.3)">
+      <div class="konj-accordion-head" onclick="this.parentElement.classList.toggle('open')" style="background:rgba(52,211,153,0.04)">
+        <span class="konj-accordion-chevron">▶</span>
+        <span style="font-size:0.82rem;font-weight:700;color:var(--green)">⚠️ Perbedaan ています — Intransitif vs Transitif</span>
+      </div>
+      <div class="konj-accordion-body">
+        <div class="tbl-scroll-wrap"><table class="rsum-vv-table" style="min-width:440px">
+          <thead><tr><th style="color:#60a5fa">自動詞 + ています = KEADAAN HASIL</th><th style="color:#f87171">他動詞 + ています = SEDANG MELAKUKAN</th></tr></thead>
+          <tbody>
+            <tr><td><span style="color:var(--teal);font-family:'Noto Sans JP',sans-serif">ドアが <b><ruby>開<rt>あ</rt></ruby>いています</b></span><br><span style="color:var(--text2);font-size:0.72rem">Pintu dalam kondisi terbuka (HASIL)</span></td>
+                <td><span style="color:var(--teal);font-family:'Noto Sans JP',sans-serif">ドアを <b><ruby>開<rt>あ</rt></ruby>けています</b></span><br><span style="color:var(--text2);font-size:0.72rem">Sedang membuka pintu (PROSES)</span></td></tr>
+            <tr><td><span style="color:var(--teal);font-family:'Noto Sans JP',sans-serif"><ruby>電気<rt>でんき</rt></ruby>が <b>ついています</b></span><br><span style="color:var(--text2);font-size:0.72rem">Lampu dalam kondisi menyala</span></td>
+                <td><span style="color:var(--teal);font-family:'Noto Sans JP',sans-serif"><ruby>電気<rt>でんき</rt></ruby>を <b>つけています</b></span><br><span style="color:var(--text2);font-size:0.72rem">Sedang menyalakan lampu</span></td></tr>
+            <tr><td><span style="color:var(--teal);font-family:'Noto Sans JP',sans-serif">まどが <b><ruby>閉<rt>し</rt></ruby>まっています</b></span><br><span style="color:var(--text2);font-size:0.72rem">Jendela dalam kondisi tertutup</span></td>
+                <td><span style="color:var(--teal);font-family:'Noto Sans JP',sans-serif">まどを <b><ruby>閉<rt>し</rt></ruby>めています</b></span><br><span style="color:var(--text2);font-size:0.72rem">Sedang menutup jendela</span></td></tr>
+          </tbody>
+        </table></div>
+        <div style="margin-top:8px;font-size:0.72rem;color:var(--text2)">💡 <b>Kunci:</b> 自動詞ています = keadaan/kondisi saat ini. 他動詞ています = proses yang sedang berlangsung.</div>
+      </div>
+    </div>
+
+    <!-- Tabel Pasangan Lengkap -->
+    <div class="konj-accordion" style="scroll-margin-top:110px;margin-bottom:16px;border-color:rgba(251,191,36,0.3)">
+      <div class="konj-accordion-head" onclick="this.parentElement.classList.toggle('open')" style="background:rgba(251,191,36,0.04)">
+        <span class="konj-accordion-chevron">▶</span>
+        <span style="font-size:0.82rem;font-weight:700;color:var(--amber)">📊 Tabel Pasangan 自動詞 ↔ 他動詞 Lengkap</span>
+      </div>
+      <div class="konj-accordion-body">
+        <div class="tbl-scroll-wrap"><table class="rsum-vv-table" style="min-width:600px">
+          <thead><tr><th style="color:#60a5fa">自動詞 (Intransitif)</th><th>Gr</th><th style="color:#f87171">他動詞 (Transitif)</th><th>Gr</th><th>Objek</th><th>Arti</th></tr></thead>
+          <tbody>${pairRows}</tbody>
+        </table></div>
+      </div>
+    </div>
+
+    <!-- Tips Mengingat -->
+    <div class="konj-accordion" style="scroll-margin-top:110px;margin-bottom:16px;border-color:rgba(192,132,252,0.3)">
+      <div class="konj-accordion-head" onclick="this.parentElement.classList.toggle('open')" style="background:rgba(192,132,252,0.04)">
+        <span class="konj-accordion-chevron">▶</span>
+        <span style="font-size:0.82rem;font-weight:700;color:#c084fc">🧠 Tips Cara Mengingat Pasangan</span>
+      </div>
+      <div class="konj-accordion-body">
+        <div style="font-size:0.78rem;line-height:1.8;color:var(--text)">
+          <b>Pola umum yang sering muncul:</b><br>
+          <table class="rsum-vv-table" style="min-width:400px;margin-top:8px">
+            <thead><tr><th>Pola Akhiran</th><th style="color:#60a5fa">自動詞</th><th style="color:#f87171">他動詞</th><th>Contoh</th></tr></thead>
+            <tbody>
+              <tr><td style="font-weight:600">〜aru ↔ 〜eru</td><td>〜<b>aru</b> (Gr.I)</td><td>〜<b>eru</b> (Gr.II)</td><td>あ<b>かる</b> ↔ あ<b>ける</b></td></tr>
+              <tr><td style="font-weight:600">〜u ↔ 〜eru</td><td>〜<b>u</b> (Gr.I)</td><td>〜<b>eru</b> (Gr.II)</td><td>つ<b>く</b> ↔ つ<b>ける</b></td></tr>
+              <tr><td style="font-weight:600">〜eru ↔ 〜su</td><td>〜<b>eru</b> (Gr.II)</td><td>〜<b>su</b> (Gr.I)</td><td>こわ<b>れる</b> ↔ こわ<b>す</b></td></tr>
+              <tr><td style="font-weight:600">〜eru ↔ 〜ru</td><td>〜<b>reru</b> (Gr.II)</td><td>〜<b>ru</b> (Gr.I)</td><td>わ<b>れる</b> ↔ わ<b>る</b></td></tr>
+            </tbody>
+          </table>
+          <div style="margin-top:12px;padding:10px 14px;background:rgba(251,191,36,0.08);border-left:3px solid var(--amber);border-radius:0 8px 8px 0">
+            <b style="color:var(--amber)">⚠️ Cara cepat membedakan:</b><br>
+            • Jika ada pelaku (orang melakukan) → <b style="color:#f87171">他動詞 + を</b><br>
+            • Jika perubahan terjadi sendiri (otomatis/alami) → <b style="color:#60a5fa">自動詞 + が</b><br>
+            • Dalam percakapan: "Siapa yang melakukannya?" → Jika jawabannya "tidak ada/tidak penting" → 自動詞
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Situasi Penggunaan -->
+    <div class="konj-accordion" style="scroll-margin-top:110px;margin-bottom:16px;border-color:rgba(45,212,191,0.3)">
+      <div class="konj-accordion-head" onclick="this.parentElement.classList.toggle('open')" style="background:rgba(45,212,191,0.04)">
+        <span class="konj-accordion-chevron">▶</span>
+        <span style="font-size:0.82rem;font-weight:700;color:var(--teal)">🎯 Kapan Pakai yang Mana? (Situasi Nyata)</span>
+      </div>
+      <div class="konj-accordion-body">
+        <div style="font-size:0.78rem;line-height:1.8;color:var(--text)">
+          <div style="display:grid;gap:8px">
+            <div style="padding:10px 14px;background:var(--surface2);border-radius:8px;border:1px solid var(--border)">
+              <b>Situasi:</b> Kamu masuk ruangan, lampunya sudah menyala.<br>
+              ✅ <span style="color:var(--teal);font-family:'Noto Sans JP',sans-serif"><ruby>電気<rt>でんき</rt></ruby>が <b>ついています</b>。</span> (Lampu dalam keadaan menyala)<br>
+              ❌ <span style="color:var(--red);font-family:'Noto Sans JP',sans-serif;text-decoration:line-through"><ruby>電気<rt>でんき</rt></ruby>を つけています。</span> (= Seseorang sedang menyalakan lampu)
+            </div>
+            <div style="padding:10px 14px;background:var(--surface2);border-radius:8px;border:1px solid var(--border)">
+              <b>Situasi:</b> Kamu menyuruh seseorang menutup jendela.<br>
+              ✅ <span style="color:var(--teal);font-family:'Noto Sans JP',sans-serif">まど<b>を</b> <ruby>閉<rt>し</rt></ruby>めて ください。</span> (Tolong tutup jendela — ada pelaku)<br>
+              ❌ <span style="color:var(--red);font-family:'Noto Sans JP',sans-serif;text-decoration:line-through">まどが しまって ください。</span>
+            </div>
+            <div style="padding:10px 14px;background:var(--surface2);border-radius:8px;border:1px solid var(--border)">
+              <b>Situasi:</b> Kamu melihat gelas pecah di lantai (tidak tahu siapa yang memecahkan).<br>
+              ✅ <span style="color:var(--teal);font-family:'Noto Sans JP',sans-serif">コップが <b><ruby>割<rt>わ</rt></ruby>れています</b>。</span> (Gelas dalam keadaan pecah)<br>
+              <span style="color:var(--text2)">→ Gunakan 自動詞 karena fokus pada KEADAAN, bukan pelaku.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>`;
+}
+
+// ========== RANGKUMAN TAB 6: Ragam Sopan vs Biasa ==========
+function renderRsumTab6(lvLabel, lvColor) {
+  document.getElementById('rsum-tab-6').innerHTML = `<div style="padding:16px 14px 20px">
+    <div class="rsum-section-title">🗣️ Ragam Sopan (<ruby>敬体<rt>けいたい</rt></ruby>) vs Ragam Biasa (<ruby>常体<rt>じょうたい</rt></ruby>)</div>
+
+    <div class="konj-tab-note">
+      <span style="font-size:1.1rem;flex-shrink:0">💡</span>
+      <span><b>Ragam Sopan (〜です/〜ます)</b> = untuk situasi formal, dengan orang yang belum akrab, atasan, orang asing.<br>
+      <b>Ragam Biasa (futsūkei)</b> = untuk teman dekat, keluarga, dan WAJIB dalam klausa tertentu (と思います, 〜時, 〜前に, dll.)</span>
+    </div>
+
+    <!-- Konversi KK -->
+    <div class="konj-accordion open" style="scroll-margin-top:110px;margin-bottom:16px;border-color:rgba(96,165,250,0.3)">
+      <div class="konj-accordion-head" onclick="this.parentElement.classList.toggle('open')" style="background:rgba(96,165,250,0.04)">
+        <span class="konj-accordion-chevron">▶</span>
+        <span style="font-size:0.82rem;font-weight:700;color:#60a5fa">🏃 Kata Kerja (KK) — Sopan ↔ Biasa</span>
+      </div>
+      <div class="konj-accordion-body">
+        <div class="tbl-scroll-wrap"><table class="rsum-vv-table" style="min-width:520px">
+          <thead><tr><th></th><th style="color:#60a5fa">🎩 Ragam Sopan</th><th style="color:#f97316">💬 Ragam Biasa</th><th>Contoh (のむ)</th></tr></thead>
+          <tbody>
+            <tr><td style="font-weight:600">✅ Kini +</td><td class="rsum-form">〜ます</td><td class="rsum-form"><b><ruby>辞書形<rt>じしょけい</rt></ruby></b> (bentuk kamus)</td><td class="rsum-form">のみます → <b>のむ</b></td></tr>
+            <tr><td style="font-weight:600">❌ Kini −</td><td class="rsum-form">〜ません</td><td class="rsum-form"><b>〜ない</b></td><td class="rsum-form">のみません → <b>のまない</b></td></tr>
+            <tr><td style="font-weight:600">⏮️ Lampau +</td><td class="rsum-form">〜ました</td><td class="rsum-form"><b>〜た</b></td><td class="rsum-form">のみました → <b>のんだ</b></td></tr>
+            <tr><td style="font-weight:600">⏮️❌ Lampau −</td><td class="rsum-form">〜ませんでした</td><td class="rsum-form"><b>〜なかった</b></td><td class="rsum-form">のみませんでした → <b>のまなかった</b></td></tr>
+          </tbody>
+        </table></div>
+        <div style="margin-top:8px;font-size:0.72rem;color:var(--text2)">⚠️ Bentuk biasa KK = yang dipelajari di tab Konjugasi (辞書形, ない形, た形)</div>
+      </div>
+    </div>
+
+    <!-- Konversi KS い -->
+    <div class="konj-accordion" style="scroll-margin-top:110px;margin-bottom:16px;border-color:rgba(248,113,113,0.3)">
+      <div class="konj-accordion-head" onclick="this.parentElement.classList.toggle('open')" style="background:rgba(248,113,113,0.04)">
+        <span class="konj-accordion-chevron">▶</span>
+        <span style="font-size:0.82rem;font-weight:700;color:#f87171">✨ Kata Sifat い — Sopan ↔ Biasa</span>
+      </div>
+      <div class="konj-accordion-body">
+        <div class="tbl-scroll-wrap"><table class="rsum-vv-table" style="min-width:480px">
+          <thead><tr><th></th><th style="color:#60a5fa">🎩 Ragam Sopan</th><th style="color:#f97316">💬 Ragam Biasa</th><th>Contoh (たかい)</th></tr></thead>
+          <tbody>
+            <tr><td style="font-weight:600">✅ Kini +</td><td class="rsum-form">〜いです</td><td class="rsum-form"><b>〜い</b></td><td class="rsum-form">たかいです → <b>たかい</b></td></tr>
+            <tr><td style="font-weight:600">❌ Kini −</td><td class="rsum-form">〜くないです</td><td class="rsum-form"><b>〜くない</b></td><td class="rsum-form">たかくないです → <b>たかくない</b></td></tr>
+            <tr><td style="font-weight:600">⏮️ Lampau +</td><td class="rsum-form">〜かったです</td><td class="rsum-form"><b>〜かった</b></td><td class="rsum-form">たかかったです → <b>たかかった</b></td></tr>
+            <tr><td style="font-weight:600">⏮️❌ Lampau −</td><td class="rsum-form">〜くなかったです</td><td class="rsum-form"><b>〜くなかった</b></td><td class="rsum-form">たかくなかったです → <b>たかくなかった</b></td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </div>
+
+    <!-- Konversi KS な -->
+    <div class="konj-accordion" style="scroll-margin-top:110px;margin-bottom:16px;border-color:rgba(192,132,252,0.3)">
+      <div class="konj-accordion-head" onclick="this.parentElement.classList.toggle('open')" style="background:rgba(192,132,252,0.04)">
+        <span class="konj-accordion-chevron">▶</span>
+        <span style="font-size:0.82rem;font-weight:700;color:#c084fc">✨ Kata Sifat な — Sopan ↔ Biasa</span>
+      </div>
+      <div class="konj-accordion-body">
+        <div class="tbl-scroll-wrap"><table class="rsum-vv-table" style="min-width:480px">
+          <thead><tr><th></th><th style="color:#60a5fa">🎩 Ragam Sopan</th><th style="color:#f97316">💬 Ragam Biasa</th><th>Contoh (しずか)</th></tr></thead>
+          <tbody>
+            <tr><td style="font-weight:600">✅ Kini +</td><td class="rsum-form">〜です</td><td class="rsum-form"><b>〜だ</b></td><td class="rsum-form">しずかです → <b>しずかだ</b></td></tr>
+            <tr><td style="font-weight:600">❌ Kini −</td><td class="rsum-form">〜じゃないです</td><td class="rsum-form"><b>〜じゃない</b></td><td class="rsum-form">しずかじゃないです → <b>しずかじゃない</b></td></tr>
+            <tr><td style="font-weight:600">⏮️ Lampau +</td><td class="rsum-form">〜でした</td><td class="rsum-form"><b>〜だった</b></td><td class="rsum-form">しずかでした → <b>しずかだった</b></td></tr>
+            <tr><td style="font-weight:600">⏮️❌ Lampau −</td><td class="rsum-form">〜じゃなかったです</td><td class="rsum-form"><b>〜じゃなかった</b></td><td class="rsum-form">しずかじゃなかったです → <b>しずかじゃなかった</b></td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </div>
+
+    <!-- Konversi KB -->
+    <div class="konj-accordion" style="scroll-margin-top:110px;margin-bottom:16px;border-color:rgba(52,211,153,0.3)">
+      <div class="konj-accordion-head" onclick="this.parentElement.classList.toggle('open')" style="background:rgba(52,211,153,0.04)">
+        <span class="konj-accordion-chevron">▶</span>
+        <span style="font-size:0.82rem;font-weight:700;color:var(--green)">📦 Kata Benda (KB) — Sopan ↔ Biasa</span>
+      </div>
+      <div class="konj-accordion-body">
+        <div class="tbl-scroll-wrap"><table class="rsum-vv-table" style="min-width:480px">
+          <thead><tr><th></th><th style="color:#60a5fa">🎩 Ragam Sopan</th><th style="color:#f97316">💬 Ragam Biasa</th><th>Contoh (がくせい)</th></tr></thead>
+          <tbody>
+            <tr><td style="font-weight:600">✅ Kini +</td><td class="rsum-form">〜です</td><td class="rsum-form"><b>〜だ</b></td><td class="rsum-form">がくせいです → <b>がくせいだ</b></td></tr>
+            <tr><td style="font-weight:600">❌ Kini −</td><td class="rsum-form">〜じゃありません</td><td class="rsum-form"><b>〜じゃない</b></td><td class="rsum-form">がくせいじゃありません → <b>がくせいじゃない</b></td></tr>
+            <tr><td style="font-weight:600">⏮️ Lampau +</td><td class="rsum-form">〜でした</td><td class="rsum-form"><b>〜だった</b></td><td class="rsum-form">がくせいでした → <b>がくせいだった</b></td></tr>
+            <tr><td style="font-weight:600">⏮️❌ Lampau −</td><td class="rsum-form">〜じゃありませんでした</td><td class="rsum-form"><b>〜じゃなかった</b></td><td class="rsum-form">がくせいじゃありませんでした → <b>がくせいじゃなかった</b></td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </div>
+
+    <!-- Kapan WAJIB Pakai Ragam Biasa -->
+    <div class="konj-accordion" style="scroll-margin-top:110px;margin-bottom:16px;border-color:rgba(251,191,36,0.3)">
+      <div class="konj-accordion-head" onclick="this.parentElement.classList.toggle('open')" style="background:rgba(251,191,36,0.04)">
+        <span class="konj-accordion-chevron">▶</span>
+        <span style="font-size:0.82rem;font-weight:700;color:var(--amber)">⚠️ Kapan WAJIB Pakai Ragam Biasa (dalam kalimat sopan)</span>
+      </div>
+      <div class="konj-accordion-body">
+        <div style="font-size:0.78rem;line-height:1.8;color:var(--text)">
+          Walaupun kalimat utama sopan (〜ます), bagian KLAUSA di tengah kalimat harus ragam biasa:
+          <div class="tbl-scroll-wrap" style="margin-top:8px"><table class="rsum-vv-table" style="min-width:500px">
+            <thead><tr><th>Pola</th><th>Contoh</th><th>Keterangan</th></tr></thead>
+            <tbody>
+              <tr><td style="font-weight:600">〜と <ruby>思<rt>おも</rt></ruby>います</td><td class="rsum-form"><b>あした あめが ふる</b>と おもいます</td><td style="font-size:0.72rem;color:var(--text2)">Saya pikir besok hujan</td></tr>
+              <tr><td style="font-weight:600">〜と <ruby>言<rt>い</rt></ruby>いました</td><td class="rsum-form"><b>いかない</b>と いいました</td><td style="font-size:0.72rem;color:var(--text2)">Dia bilang tidak pergi</td></tr>
+              <tr><td style="font-weight:600">〜<ruby>時<rt>とき</rt></ruby></td><td class="rsum-form"><b>わかい</b> とき、よく うんどうしました</td><td style="font-size:0.72rem;color:var(--text2)">Waktu muda, sering olahraga</td></tr>
+              <tr><td style="font-weight:600">〜前に</td><td class="rsum-form"><b>ねる</b> まえに、はを みがきます</td><td style="font-size:0.72rem;color:var(--text2)">Sebelum tidur, sikat gigi</td></tr>
+              <tr><td style="font-weight:600">〜後で</td><td class="rsum-form"><b>たべた</b> あとで、さんぽします</td><td style="font-size:0.72rem;color:var(--text2)">Setelah makan, jalan-jalan</td></tr>
+              <tr><td style="font-weight:600">〜でしょう？</td><td class="rsum-form">あした <b>いい てんきだ</b> でしょう？</td><td style="font-size:0.72rem;color:var(--text2)">Besok cuaca bagus kan?</td></tr>
+              <tr><td style="font-weight:600">〜たら</td><td class="rsum-form"><b>やすかったら</b>、かいます</td><td style="font-size:0.72rem;color:var(--text2)">Kalau murah, beli</td></tr>
+              <tr><td style="font-weight:600">〜ても</td><td class="rsum-form"><b>あめが ふっても</b>、いきます</td><td style="font-size:0.72rem;color:var(--text2)">Walaupun hujan, pergi</td></tr>
+              <tr><td style="font-weight:600">〜ので</td><td class="rsum-form"><b>いそがしい</b>ので、いけません</td><td style="font-size:0.72rem;color:var(--text2)">Karena sibuk, tidak bisa</td></tr>
+              <tr><td style="font-weight:600">〜のは/のが</td><td class="rsum-form"><b>およぐ</b>のが すきです</td><td style="font-size:0.72rem;color:var(--text2)">Suka berenang</td></tr>
+            </tbody>
+          </table></div>
+          <div style="margin-top:10px;padding:10px 14px;background:rgba(251,191,36,0.08);border-left:3px solid var(--amber);border-radius:0 8px 8px 0">
+            <b style="color:var(--amber)">⚠️ Pengecualian KB/KSな dalam klausa:</b><br>
+            • Sebelum と思います: がくせい<b>だ</b>と おもいます (KB + <b>だ</b>)<br>
+            • Sebelum 時: しずか<b>な</b> とき (KSな + <b>な</b>)<br>
+            • Sebelum ので: がくせい<b>な</b>ので (KB/KSな + <b>な</b>ので)
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Perbedaan Nuansa -->
+    <div class="konj-accordion" style="scroll-margin-top:110px;margin-bottom:16px;border-color:rgba(45,212,191,0.3)">
+      <div class="konj-accordion-head" onclick="this.parentElement.classList.toggle('open')" style="background:rgba(45,212,191,0.04)">
+        <span class="konj-accordion-chevron">▶</span>
+        <span style="font-size:0.82rem;font-weight:700;color:var(--teal)">🎯 Perbedaan Nuansa & Kapan Digunakan</span>
+      </div>
+      <div class="konj-accordion-body">
+        <div class="tbl-scroll-wrap"><table class="rsum-vv-table" style="min-width:400px">
+          <thead><tr><th style="color:#60a5fa">🎩 Ragam Sopan</th><th style="color:#f97316">💬 Ragam Biasa</th></tr></thead>
+          <tbody>
+            <tr><td>Orang yang baru dikenal</td><td>Teman dekat / keluarga</td></tr>
+            <tr><td>Atasan / guru / senior</td><td>Teman sebaya / junior</td></tr>
+            <tr><td>Situasi formal / kerja</td><td>Santai / SNS / diary</td></tr>
+            <tr><td>Berbicara di depan umum</td><td>Monolog / berbicara sendiri</td></tr>
+            <tr><td>Percakapan dengan orang asing</td><td>Menulis artikel informal</td></tr>
+          </tbody>
+        </table></div>
+        <div style="margin-top:8px;font-size:0.72rem;color:var(--text2)">💡 Di JLPT/ujian: soal mendengarkan sering pakai ragam biasa. Soal membaca sering pakai ragam sopan. Pahami keduanya!</div>
+      </div>
+    </div>
+  </div>`;
+}
 
 function toggleCoreOnly() {
   crossCoreOnly = !crossCoreOnly;
@@ -11709,5 +12021,6 @@ if ('serviceWorker' in navigator) {
 // ========== INIT ==========
 renderHome();
 refreshForgetBanner();</script>
+<script src="rangkuman-tab7.js"></script>
 </body>
 </html>
