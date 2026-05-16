@@ -1,0 +1,20 @@
+{
+  "name": "N5→N4 日本語 Flashcard",
+  "short_name": "N5→N4",
+  "description": "Aplikasi flashcard bahasa Jepang N5 hingga N4 dengan spaced repetition",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#0f0f14",
+  "theme_color": "#0f0f14",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["education"],
+  "lang": "id"
+}
