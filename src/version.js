@@ -3,9 +3,17 @@
 
 'use strict';
 
-var APP_VERSION = '2.1.0';
-var APP_BUILD_DATE = '2026-05-16';
-var APP_CHANGELOG = [
+const APP_VERSION = '2.2.0';
+const APP_BUILD_DATE = '2026-05-16';
+const APP_CHANGELOG = [
+  { version: '2.2.0', date: '2026-05-16', changes: [
+    'Refactor: split app.js menjadi modul-modul terpisah',
+    'Performa: cache BABS.flatMap() di SRS module',
+    'Performa: Google Fonts non-blocking via preload',
+    'Keamanan: CSP meta tag ditambahkan',
+    'Kode: seragamkan ES6 di semua src/ files',
+    'Keamanan: deep validation untuk import data'
+  ]},
   { version: '2.1.0', date: '2026-05-16', changes: [
     'Modularisasi kode: split data & JS menjadi beberapa file',
     'Build script untuk minifikasi aset',
@@ -33,10 +41,10 @@ var APP_CHANGELOG = [
  * Shows a non-intrusive toast if updated.
  */
 function checkVersionUpdate() {
-  var lastVersion = lsGet('n5_app_version', '');
+  const lastVersion = lsGet('n5_app_version', '');
   if (lastVersion && lastVersion !== APP_VERSION) {
     // Show update notification
-    setTimeout(function() {
+    setTimeout(() => {
       showToast('Diperbarui ke v' + APP_VERSION + '!', 'success');
     }, 2000);
   }

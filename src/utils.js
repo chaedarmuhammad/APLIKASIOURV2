@@ -20,9 +20,9 @@
  */
 function escapeHtml(s) {
   if (s == null) return '';
-  return String(s).replace(/[&<>"']/g, function(c) {
-    return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
-  });
+  return String(s).replace(/[&<>"']/g, (c) =>
+    ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])
+  );
 }
 
 /**
@@ -49,21 +49,21 @@ function sanitizeTrustedHtml(html) {
  * @param {string} [type] - 'error', 'success', or 'info' (default)
  */
 function showToast(msg, type) {
-  var existing = document.getElementById('appToast');
+  const existing = document.getElementById('appToast');
   if (existing) existing.remove();
-  var toast = document.createElement('div');
+  const toast = document.createElement('div');
   toast.id = 'appToast';
   toast.setAttribute('role', 'alert');
   toast.setAttribute('aria-live', 'assertive');
-  var bg = type === 'error' ? 'rgba(248,113,113,0.95)' : 
-           type === 'success' ? 'rgba(52,211,153,0.95)' : 'rgba(124,106,247,0.95)';
-  toast.style.cssText = 'position:fixed;bottom:20px;left:50%;transform:translateX(-50%);' +
-    'background:' + bg + ';color:white;padding:10px 20px;border-radius:10px;font-size:0.82rem;' +
-    'font-weight:600;z-index:9999;box-shadow:0 4px 20px rgba(0,0,0,0.4);' +
-    'animation:fadeIn 0.2s ease;max-width:90%;text-align:center';
+  const bg = type === 'error' ? 'rgba(248,113,113,0.95)' :
+             type === 'success' ? 'rgba(52,211,153,0.95)' : 'rgba(124,106,247,0.95)';
+  toast.style.cssText = `position:fixed;bottom:20px;left:50%;transform:translateX(-50%);
+    background:${bg};color:white;padding:10px 20px;border-radius:10px;font-size:0.82rem;
+    font-weight:600;z-index:9999;box-shadow:0 4px 20px rgba(0,0,0,0.4);
+    animation:fadeIn 0.2s ease;max-width:90%;text-align:center`;
   toast.textContent = msg;
   document.body.appendChild(toast);
-  setTimeout(function() { if (toast.parentNode) toast.remove(); }, 3500);
+  setTimeout(() => { if (toast.parentNode) toast.remove(); }, 3500);
 }
 
 /**
@@ -75,7 +75,7 @@ function showToast(msg, type) {
 function safeExec(fn, fallbackMsg) {
   try {
     return fn();
-  } catch(e) {
+  } catch (e) {
     console.error('SafeExec error:', e);
     if (fallbackMsg) {
       showToast(fallbackMsg, 'error');

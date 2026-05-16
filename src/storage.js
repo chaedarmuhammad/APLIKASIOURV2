@@ -6,48 +6,48 @@
 'use strict';
 
 // ── IndexedDB Constants ──
-var IDB_NAME = 'n5n4_backup';
-var IDB_VERSION = 1;
-var IDB_STORE = 'progress';
-var _idb = null;
-var _idbReady = false;
-var _idbSaveTimer = null;
-var IDB_DEBOUNCE_MS = 2000; // auto-save debounce: 2 seconds
+const IDB_NAME = 'n5n4_backup';
+const IDB_VERSION = 1;
+const IDB_STORE = 'progress';
+let _idb = null;
+let _idbReady = false;
+let _idbSaveTimer = null;
+const IDB_DEBOUNCE_MS = 2000; // auto-save debounce: 2 seconds
 
 // ── IndexedDB Functions ──
 
 function idbOpen() {
-  return new Promise(function(resolve) {
+  return new Promise((resolve) => {
     if (!('indexedDB' in window)) { resolve(null); return; }
-    var req = indexedDB.open(IDB_NAME, IDB_VERSION);
-    req.onupgradeneeded = function(e) {
-      var db = e.target.result;
+    const req = indexedDB.open(IDB_NAME, IDB_VERSION);
+    req.onupgradeneeded = (e) => {
+      const db = e.target.result;
       if (!db.objectStoreNames.contains(IDB_STORE)) {
         db.createObjectStore(IDB_STORE);
       }
     };
-    req.onsuccess = function(e) { resolve(e.target.result); };
-    req.onerror = function() { resolve(null); };
+    req.onsuccess = (e) => { resolve(e.target.result); };
+    req.onerror = () => { resolve(null); };
   });
 }
 
 function idbPut(db, key, val) {
   if (!db) return;
   try {
-    var tx = db.transaction(IDB_STORE, 'readwrite');
+    const tx = db.transaction(IDB_STORE, 'readwrite');
     tx.objectStore(IDB_STORE).put(val, key);
-  } catch(e) { /* silent */ }
+  } catch (e) { /* silent */ }
 }
 
 function idbGet(db, key) {
-  return new Promise(function(resolve) {
+  return new Promise((resolve) => {
     if (!db) { resolve(undefined); return; }
     try {
-      var tx = db.transaction(IDB_STORE, 'readonly');
-      var req = tx.objectStore(IDB_STORE).get(key);
-      req.onsuccess = function() { resolve(req.result); };
-      req.onerror = function() { resolve(undefined); };
-    } catch(e) { resolve(undefined); }
+      const tx = db.transaction(IDB_STORE, 'readonly');
+      const req = tx.objectStore(IDB_STORE).get(key);
+      req.onsuccess = () => { resolve(req.result); };
+      req.onerror = () => { resolve(undefined); };
+    } catch (e) { resolve(undefined); }
   });
 }
 
@@ -58,9 +58,9 @@ function idbGet(db, key) {
 function idbScheduleSave() {
   if (!_idb) return;
   if (_idbSaveTimer) clearTimeout(_idbSaveTimer);
-  _idbSaveTimer = setTimeout(function() {
+  _idbSaveTimer = setTimeout(() => {
     _idbSaveTimer = null;
-    var snapshot = {
+    const snapshot = {
       n5prog: progress,
       n5stars: stars,
       n5srs: srs,
@@ -81,12 +81,12 @@ async function idbTryRestore() {
     _idbReady = true;
 
     // Check if localStorage already has data
-    var hasLS = localStorage.getItem('n5prog') !== null ||
-                localStorage.getItem('n5srs') !== null;
+    const hasLS = localStorage.getItem('n5prog') !== null ||
+                  localStorage.getItem('n5srs') !== null;
     if (hasLS) return; // data exists — no restore needed
 
     // localStorage empty → try restore from IndexedDB
-    var backup = await idbGet(_idb, 'all_progress');
+    const backup = await idbGet(_idb, 'all_progress');
     if (!backup || typeof backup !== 'object') return;
 
     if (backup.n5prog && Object.keys(backup.n5prog).length > 0) {
@@ -105,7 +105,7 @@ async function idbTryRestore() {
     console.log('[IDB] Progress restored from IndexedDB backup (' +
       new Date(backup.savedAt).toLocaleString() + ')');
     showToast('Progres dipulihkan otomatis dari backup', 'success');
-  } catch(e) {
+  } catch (e) {
     console.warn('[IDB] Restore failed:', e);
   }
 }
@@ -113,23 +113,25 @@ async function idbTryRestore() {
 // ── localStorage Helpers ──
 
 function lsGet(key, def) {
-  try { var v = localStorage.getItem(key); return v !== null ? JSON.parse(v) : def; }
-  catch(e) { return def; }
+  try {
+    const v = localStorage.getItem(key);
+    return v !== null ? JSON.parse(v) : def;
+  } catch (e) { return def; }
 }
 
-var _lsQuotaWarned = false;
+let _lsQuotaWarned = false;
 function lsSet(key, val) {
   try {
     localStorage.setItem(key, JSON.stringify(val));
     // Auto-save to IndexedDB (debounced)
     idbScheduleSave();
     return true;
-  } catch(e) {
-    if (!_lsQuotaWarned && (e.name === 'QuotaExceededError' || /quota/i.test(e.message||''))) {
+  } catch (e) {
+    if (!_lsQuotaWarned && (e.name === 'QuotaExceededError' || /quota/i.test(e.message || ''))) {
       _lsQuotaWarned = true;
       try {
         alert('Penyimpanan browser hampir penuh. Silakan ekspor progres dari Beranda lalu hapus data lama.');
-      } catch(_e) { /* silent */ }
+      } catch (_e) { /* silent */ }
     }
     // Fallback: save directly to IndexedDB
     idbScheduleSave();

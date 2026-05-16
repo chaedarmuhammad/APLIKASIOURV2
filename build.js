@@ -22,6 +22,11 @@ const JS_FILES = [
   'src/storage.js',
   'src/srs.js',
   'src/version.js',
+  'src/export-import.js',
+  'src/navigation.js',
+  'src/ui-study.js',
+  'src/ui-kamus.js',
+  'src/ui-rangkuman.js',
   'app.js',
   'sw.js'
 ];
