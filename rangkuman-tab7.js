@@ -1,4 +1,4 @@
-// ========== RANGKUMAN TAB 7: Lainnya ==========
+// ========== RANGKUMAN TAB 7: Angka & Bilangan ==========
 function renderRsumTab7(lvLabel, lvColor) {
   const counterSection = buildCounterSection();
   const numberSection = buildNumberSection();
@@ -11,62 +11,41 @@ function renderRsumTab7(lvLabel, lvColor) {
   const umurSection = buildUmurSection();
   const durasiJamSection = buildDurasiJamSection();
   const durasiMingguSection = buildDurasiMingguSection();
+
+  document.getElementById('rsum-tab-7').innerHTML = `<div style="padding:16px 14px 20px">
+    <div class="rsum-section-title">🔢 <ruby>数<rt>かず</rt></ruby>・<ruby>助数詞<rt>じょすうし</rt></ruby> — Angka & Bilangan</div>
+    <div style="font-size:0.78rem;color:var(--text2);margin-bottom:16px;padding:8px 12px;background:var(--surface2);border-radius:8px;line-height:1.6">
+      Kumpulan lengkap cara membaca angka, waktu, tanggal, harga, umur, dan kata bantu bilangan (<ruby>助数詞<rt>じょすうし</rt></ruby>) dalam <ruby>日本語<rt>にほんご</rt></ruby>.
+    </div>
+    ${numberSection}
+    ${jamSection}
+    ${menitSection}
+    ${durasiJamSection}
+    ${tanggalSection}
+    ${durasiMingguSection}
+    ${bulanSection}
+    ${tahunSection}
+    ${umurSection}
+    ${hargaSection}
+    ${counterSection}
+  </div>`;
+}
+
+// ========== RANGKUMAN TAB 8: Lainnya ==========
+function renderRsumTab8(lvLabel, lvColor) {
   const agemoSection = buildAgemoSection();
   const waktuSection = buildWaktuSection();
   const konjungsiSection = buildKonjungsiSection();
 
-  document.getElementById('rsum-tab-7').innerHTML = `<div style="padding:16px 14px 20px">
+  document.getElementById('rsum-tab-8').innerHTML = `<div style="padding:16px 14px 20px">
     <div class="rsum-section-title">📚 Lainnya — Rangkuman Tambahan</div>
     <div style="font-size:0.78rem;color:var(--text2);margin-bottom:16px;padding:8px 12px;background:var(--surface2);border-radius:8px;line-height:1.6">
-      Kumpulan materi penting yang sering membingungkan: <b><ruby>数<rt>かず</rt></ruby>・<ruby>時間<rt>じかん</rt></ruby>・<ruby>助数詞<rt>じょすうし</rt></ruby></b>, <b>Verba Memberi/Menerima</b>, <b>Ekspresi Waktu</b>, dan <b><ruby>接続詞<rt>せつぞくし</rt></ruby></b>.
+      Kumpulan materi penting lainnya: <b>Verba Memberi/Menerima</b>, <b>Ekspresi Waktu</b>, dan <b><ruby>接続詞<rt>せつぞくし</rt></ruby></b>.
     </div>
-
-    <!-- Sub-tab Navigation -->
-    <div class="rsum7-subtab-nav" style="display:flex;gap:6px;margin-bottom:18px;flex-wrap:wrap">
-      <button class="rsum7-subtab-btn active" onclick="switchRsum7Subtab('angka')" data-subtab="angka" style="padding:7px 14px;border-radius:20px;border:1.5px solid var(--amber);background:var(--amber);color:#fff;font-size:0.75rem;font-weight:700;cursor:pointer;transition:all 0.2s">🔢 Angka & Bilangan</button>
-      <button class="rsum7-subtab-btn" onclick="switchRsum7Subtab('lainnya')" data-subtab="lainnya" style="padding:7px 14px;border-radius:20px;border:1.5px solid var(--accent);background:transparent;color:var(--accent);font-size:0.75rem;font-weight:700;cursor:pointer;transition:all 0.2s">📝 Lainnya</button>
-    </div>
-
-    <!-- Sub-tab: Angka & Bilangan -->
-    <div id="rsum7-subtab-angka" class="rsum7-subtab-content" style="display:block">
-      ${numberSection}
-      ${jamSection}
-      ${menitSection}
-      ${durasiJamSection}
-      ${tanggalSection}
-      ${durasiMingguSection}
-      ${bulanSection}
-      ${tahunSection}
-      ${umurSection}
-      ${hargaSection}
-      ${counterSection}
-    </div>
-
-    <!-- Sub-tab: Lainnya -->
-    <div id="rsum7-subtab-lainnya" class="rsum7-subtab-content" style="display:none">
-      ${agemoSection}
-      ${waktuSection}
-      ${konjungsiSection}
-    </div>
+    ${agemoSection}
+    ${waktuSection}
+    ${konjungsiSection}
   </div>`;
-}
-
-// Sub-tab switcher
-function switchRsum7Subtab(tab) {
-  document.querySelectorAll('.rsum7-subtab-content').forEach(el => el.style.display = 'none');
-  document.querySelectorAll('.rsum7-subtab-btn').forEach(btn => {
-    btn.classList.remove('active');
-    btn.style.background = 'transparent';
-    btn.style.color = btn.dataset.subtab === 'angka' ? 'var(--amber)' : 'var(--accent)';
-  });
-  const target = document.getElementById('rsum7-subtab-' + tab);
-  if (target) target.style.display = 'block';
-  const activeBtn = document.querySelector(`.rsum7-subtab-btn[data-subtab="${tab}"]`);
-  if (activeBtn) {
-    activeBtn.classList.add('active');
-    activeBtn.style.background = activeBtn.dataset.subtab === 'angka' ? 'var(--amber)' : 'var(--accent)';
-    activeBtn.style.color = '#fff';
-  }
 }
 
 
