@@ -740,6 +740,36 @@ body {
   transform: scale(1.05);
   box-shadow: 0 2px 8px rgba(192,132,252,0.2);
 }
+
+/* ── BANNER KEMBALI KE RANGKUMAN ── */
+.back-to-rangkuman-banner {
+  display: none;
+  align-items: center; gap: 10px;
+  background: linear-gradient(135deg, rgba(124,106,247,0.12), rgba(192,132,252,0.08));
+  border: 1px solid rgba(124,106,247,0.35);
+  border-radius: var(--radius);
+  padding: 10px 16px;
+  margin: 10px 16px 0;
+  cursor: pointer;
+  transition: border-color 0.2s, transform 0.15s;
+  font-size: 0.85rem;
+  color: var(--accent);
+  font-weight: 600;
+}
+.back-to-rangkuman-banner.visible { display: flex; }
+.back-to-rangkuman-banner:hover { border-color: var(--accent); transform: translateY(-1px); }
+.back-to-rangkuman-banner .banner-arrow { margin-right: 4px; }
+.back-to-rangkuman-banner .banner-tab-info { font-weight: 400; color: var(--text2); font-size: 0.78rem; margin-left: auto; }
+
+/* ── HIGHLIGHT FLASH ANIMATION ── */
+@keyframes rsumFlashHighlight {
+  0%   { background: rgba(124,106,247,0.25); box-shadow: 0 0 12px rgba(124,106,247,0.3); }
+  100% { background: transparent; box-shadow: none; }
+}
+.rsum-highlight-flash {
+  animation: rsumFlashHighlight 1.8s ease-out forwards;
+  border-radius: 8px;
+}
 .rsum-pola-pattern {
   font-family: 'Noto Sans JP', sans-serif;
   color: var(--text); font-weight: 500;
@@ -1305,6 +1335,11 @@ body {
       <div class="study-title" id="studyTitle"></div>
       <div class="study-sub" id="studySub"></div>
     </div>
+  </div>
+  <!-- Banner kembali ke Rangkuman -->
+  <div class="back-to-rangkuman-banner" id="backToRangkumanBanner" onclick="goBackToRangkuman()">
+    <span class="banner-arrow">◀</span> Kembali ke Rangkuman
+    <span class="banner-tab-info" id="bannerTabInfo"></span>
   </div>
   <div class="tabs" id="studyTabs">
     <button class="tab-btn active" onclick="switchTab(0)">📖 Bunpou</button>
@@ -6297,6 +6332,8 @@ function showScr(id) {
   // Kembali ke beranda → restore posisi; layar lain → scroll ke atas
   if (id === 'homeScr') {
     requestAnimationFrame(() => window.scrollTo(0, _homeScrollY));
+  } else if (id === 'rangkumanScr' && _rsumNavState) {
+    // Jangan scroll ke 0 jika kembali dari bab — akan di-handle oleh goBackToRangkuman
   } else {
     window.scrollTo(0, 0);
   }
@@ -6307,6 +6344,10 @@ function showScr(id) {
 
 function goHome() {
   const savedY = _homeScrollY;
+  // Sembunyikan banner rangkuman & reset state
+  const banner = document.getElementById('backToRangkumanBanner');
+  if (banner) banner.classList.remove('visible');
+  _rsumNavState = null;
   showScr('homeScr');
   renderHome();
   refreshForgetBanner();
@@ -6423,6 +6464,73 @@ function resumeStudy() {
   if (lastBab) openBab(lastBab);
 }
 
+// ========== RANGKUMAN → BAB NAVIGATION ==========
+let _rsumNavState = null; // {scrollY, tabIdx, clickedElement}
+
+function openBabFromRangkuman(babNum, tabIdx, chipEl) {
+  // Simpan posisi scroll dan tab aktif
+  _rsumNavState = {
+    scrollY: window.scrollY,
+    tabIdx: rsumActiveTab,
+    clickedBab: babNum,
+    chipId: chipEl ? (chipEl.closest('[id]') || {}).id : null
+  };
+  // Tampilkan banner
+  const banner = document.getElementById('backToRangkumanBanner');
+  if (banner) {
+    banner.classList.add('visible');
+    const tabNames = ['Pola', 'Partikel', 'Bentuk VV', 'Konjugasi', 'Kata Sifat'];
+    document.getElementById('bannerTabInfo').textContent = `› ${tabNames[rsumActiveTab] || ''}`;
+  }
+  openBab(babNum);
+}
+
+function goBackToRangkuman() {
+  // Sembunyikan banner
+  const banner = document.getElementById('backToRangkumanBanner');
+  if (banner) banner.classList.remove('visible');
+
+  // Navigasi kembali ke rangkuman
+  showScr('rangkumanScr');
+
+  // Restore tab
+  if (_rsumNavState) {
+    switchRsumTab(_rsumNavState.tabIdx);
+
+    // Restore scroll position
+    const savedY = _rsumNavState.scrollY;
+    requestAnimationFrame(() => {
+      window.scrollTo(0, savedY);
+
+      // Highlight flash pada item yang terakhir diklik
+      setTimeout(() => {
+        const targetId = _rsumNavState.chipId;
+        if (targetId) {
+          const targetEl = document.getElementById(targetId);
+          if (targetEl) {
+            targetEl.classList.add('rsum-highlight-flash');
+            setTimeout(() => targetEl.classList.remove('rsum-highlight-flash'), 2000);
+          }
+        }
+        // Untuk tab Bentuk VV, highlight row terdekat
+        if (_rsumNavState.tabIdx === 2 && _rsumNavState.clickedBab) {
+          const chips = document.querySelectorAll('#rsum-tab-2 .rsum-bab-chip.clickable');
+          chips.forEach(chip => {
+            if (chip.textContent.includes('Bab ' + _rsumNavState.clickedBab)) {
+              const row = chip.closest('tr');
+              if (row) {
+                row.classList.add('rsum-highlight-flash');
+                setTimeout(() => row.classList.remove('rsum-highlight-flash'), 2000);
+              }
+            }
+          });
+        }
+      }, 100);
+    });
+  }
+  _rsumNavState = null;
+}
+
 // ========== OPEN BAB ==========
 function openBab(num) {
   const prevBab = currentBab ? currentBab.num : null;
@@ -6433,6 +6541,11 @@ function openBab(num) {
   if (prevBab !== num) {
     fcCards = []; fcSessionBab = null;
     fcIndex = 0; fcHafal = []; fcBelum = []; fcSeen = []; fcStreak = 0;
+  }
+  // Sembunyikan banner jika bukan dari Rangkuman
+  if (!_rsumNavState) {
+    const banner = document.getElementById('backToRangkumanBanner');
+    if (banner) banner.classList.remove('visible');
   }
   setStudyTabsVisible(true);
   renderBunpou();
@@ -9053,6 +9166,7 @@ function buildPolaList() {
         <span class="rsum-bab-num">Bab ${b}</span>
         <span class="rsum-bab-label">${title}</span>
         <span class="rsum-bab-count">${polas.length} pola</span>
+        <span class="rsum-bab-chip clickable" onclick="event.stopPropagation();openBabFromRangkuman(${b}, 0, this)" title="Buka pembahasan Bab ${b}">📖 Buka Bab ${b}</span>
         <span class="rsum-bab-chevron">▶</span>
       </div>
       <div class="rsum-bab-body">${polaRows}</div>
@@ -9196,7 +9310,7 @@ function renderRangkuman() {
         <td><span class="rsum-vv-chip ${g.chip}">${g.bentuk.split(' ')[0]}</span><div class="rsum-vv-form">${r.form}</div></td>
         <td><div class="rsum-vv-pola">${r.pola}</div></td>
         <td style="font-size:0.77rem;color:var(--text)">${r.arti}</td>
-        <td><span class="rsum-bab-chip clickable" onclick="openBab(${r.bab})" title="Buka pembahasan Bab ${r.bab}">📖 Bab ${r.bab}</span>${rsumLevel==='all'?levelBadge:''}</td>
+        <td><span class="rsum-bab-chip clickable" onclick="openBabFromRangkuman(${r.bab}, 2, this)" title="Buka pembahasan Bab ${r.bab}">📖 Bab ${r.bab}</span>${rsumLevel==='all'?levelBadge:''}</td>
       </tr>`;
     }).join('');
     return `<div class="rsum-vv-group">
@@ -9280,7 +9394,7 @@ function renderRangkuman() {
       const babStart = parseInt(babMatch[1]);
       const babEnd = babMatch[2] ? parseInt(babMatch[2]) : babStart;
       for (let bn = babStart; bn <= babEnd; bn++) {
-        babChipsHtml += `<span class="rsum-bab-chip clickable" onclick="openBab(${bn})" title="Buka pembahasan Bab ${bn}">📖 Bab ${bn}</span> `;
+        babChipsHtml += `<span class="rsum-bab-chip" title="Bab ${bn}">Bab ${bn}</span> `;
       }
     }
     konjHtml += `
