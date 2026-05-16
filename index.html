@@ -1601,20 +1601,20 @@ body {
   </div>
   <!-- Tabs -->
   <div class="tabs" id="rsumTabs">
-    <button class="tab-btn active" onclick="switchRsumTab(0)">📐 Pola</button>
+    <button class="tab-btn active" onclick="switchRsumTab(3)">🔄 Konjugasi</button>
+    <button class="tab-btn" onclick="switchRsumTab(0)">📐 Pola</button>
     <button class="tab-btn" onclick="switchRsumTab(1)">🔗 Partikel</button>
     <button class="tab-btn" onclick="switchRsumTab(2)">🏃 Bentuk VV</button>
-    <button class="tab-btn" onclick="switchRsumTab(3)">🔄 Konjugasi</button>
     <button class="tab-btn" onclick="switchRsumTab(4)">✨ Kata Sifat</button>
     <button class="tab-btn" onclick="switchRsumTab(5)">🔀 Transitif & Intransitif</button>
     <button class="tab-btn" onclick="switchRsumTab(6)">🗣️ Ragam</button>
     <button class="tab-btn" onclick="switchRsumTab(7)">🔢 Angka</button>
     <button class="tab-btn" onclick="switchRsumTab(8)">📚 Lainnya</button>
   </div>
-  <div id="rsum-tab-0" class="tab-content active"></div>
+  <div id="rsum-tab-3" class="tab-content active"></div>
+  <div id="rsum-tab-0" class="tab-content"></div>
   <div id="rsum-tab-1" class="tab-content"></div>
   <div id="rsum-tab-2" class="tab-content"></div>
-  <div id="rsum-tab-3" class="tab-content"></div>
   <div id="rsum-tab-4" class="tab-content"></div>
   <div id="rsum-tab-5" class="tab-content"></div>
   <div id="rsum-tab-6" class="tab-content"></div>
@@ -9415,11 +9415,14 @@ function buildPolaList() {
   }).join('');
 }
 
-let rsumActiveTab = 0;
+let rsumActiveTab = 3;
 
 function switchRsumTab(idx) {
   rsumActiveTab = idx;
-  document.querySelectorAll('#rsumTabs .tab-btn').forEach((b,i) => b.classList.toggle('active', i===idx));
+  document.querySelectorAll('#rsumTabs .tab-btn').forEach(b => {
+    const tabIdx = parseInt(b.getAttribute('onclick').match(/\d+/)[0]);
+    b.classList.toggle('active', tabIdx === idx);
+  });
   for (let i=0;i<=8;i++) {
     const el = document.getElementById('rsum-tab-'+i);
     if (el) el.classList.toggle('active', i===idx);
