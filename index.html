@@ -729,6 +729,17 @@ body {
   background: rgba(192,132,252,0.12); border-radius: 6px;
   padding: 2px 7px; white-space: nowrap; flex-shrink: 0; margin-top: 2px;
 }
+.rsum-bab-chip.clickable {
+  cursor: pointer;
+  transition: all 0.2s;
+  border: 1px solid transparent;
+}
+.rsum-bab-chip.clickable:hover {
+  background: rgba(192,132,252,0.25);
+  border-color: var(--accent2);
+  transform: scale(1.05);
+  box-shadow: 0 2px 8px rgba(192,132,252,0.2);
+}
 .rsum-pola-pattern {
   font-family: 'Noto Sans JP', sans-serif;
   color: var(--text); font-weight: 500;
@@ -9185,7 +9196,7 @@ function renderRangkuman() {
         <td><span class="rsum-vv-chip ${g.chip}">${g.bentuk.split(' ')[0]}</span><div class="rsum-vv-form">${r.form}</div></td>
         <td><div class="rsum-vv-pola">${r.pola}</div></td>
         <td style="font-size:0.77rem;color:var(--text)">${r.arti}</td>
-        <td><span class="rsum-bab-chip">Bab ${r.bab}</span>${rsumLevel==='all'?levelBadge:''}</td>
+        <td><span class="rsum-bab-chip clickable" onclick="openBab(${r.bab})" title="Buka pembahasan Bab ${r.bab}">📖 Bab ${r.bab}</span>${rsumLevel==='all'?levelBadge:''}</td>
       </tr>`;
     }).join('');
     return `<div class="rsum-vv-group">
@@ -9262,12 +9273,23 @@ function renderRangkuman() {
         <td style="font-size:0.68rem;color:var(--text2)">${r.catatan}</td>
       </tr>`).join('');
     const aturanHtml = g.aturan.map(a => `<li style="margin-bottom:4px">${a}</li>`).join('');
+    // Extract bab numbers from label (e.g. "— Bab 37-38" or "— Bab 42")
+    const babMatch = g.label.replace(/<[^>]*>/g,'').match(/Bab\s+([\d]+)(?:[–\-](\d+))?/);
+    let babChipsHtml = '';
+    if (babMatch) {
+      const babStart = parseInt(babMatch[1]);
+      const babEnd = babMatch[2] ? parseInt(babMatch[2]) : babStart;
+      for (let bn = babStart; bn <= babEnd; bn++) {
+        babChipsHtml += `<span class="rsum-bab-chip clickable" onclick="openBab(${bn})" title="Buka pembahasan Bab ${bn}">📖 Bab ${bn}</span> `;
+      }
+    }
     konjHtml += `
       <div style="margin-bottom:18px">
-        <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;flex-wrap:wrap">
           <span class="rsum-conj-group ${g.warna}">Grup ${g.grup}</span>
           <span style="font-size:0.82rem;font-weight:600;color:var(--text)">${g.label}</span>
           ${n4Badge}
+          ${babChipsHtml}
         </div>
         <div style="font-size:0.75rem;color:var(--text2);margin-bottom:8px;background:var(--surface2);border-radius:8px;padding:8px 12px">
           <ul style="padding-left:16px;margin:0;line-height:2">${aturanHtml}</ul>
