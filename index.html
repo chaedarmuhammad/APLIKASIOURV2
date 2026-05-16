@@ -1608,7 +1608,8 @@ body {
     <button class="tab-btn" onclick="switchRsumTab(4)">✨ Kata Sifat</button>
     <button class="tab-btn" onclick="switchRsumTab(5)">🔀 自他動詞</button>
     <button class="tab-btn" onclick="switchRsumTab(6)">🗣️ Ragam</button>
-    <button class="tab-btn" onclick="switchRsumTab(7)">📚 Lainnya</button>
+    <button class="tab-btn" onclick="switchRsumTab(7)">🔢 Angka</button>
+    <button class="tab-btn" onclick="switchRsumTab(8)">📚 Lainnya</button>
   </div>
   <div id="rsum-tab-0" class="tab-content active"></div>
   <div id="rsum-tab-1" class="tab-content"></div>
@@ -1618,6 +1619,7 @@ body {
   <div id="rsum-tab-5" class="tab-content"></div>
   <div id="rsum-tab-6" class="tab-content"></div>
   <div id="rsum-tab-7" class="tab-content"></div>
+  <div id="rsum-tab-8" class="tab-content"></div>
 </div>
 
 
@@ -10185,8 +10187,11 @@ function renderRangkuman() {
   // ─── Tab 6: Ragam Sopan vs Biasa ───
   renderRsumTab6(lvLabel, lvColor);
 
-  // ─── Tab 7: Lainnya (Counter, Memberi/Menerima, Waktu, Konjungsi) ───
+  // ─── Tab 7: Angka & Bilangan ───
   renderRsumTab7(lvLabel, lvColor);
+
+  // ─── Tab 8: Lainnya (Memberi/Menerima, Waktu, Konjungsi) ───
+  renderRsumTab8(lvLabel, lvColor);
 }
 
 function shuffle(arr) {
