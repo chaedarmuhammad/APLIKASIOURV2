@@ -4,9 +4,13 @@ function renderRsumTab7(lvLabel, lvColor) {
   const numberSection = buildNumberSection();
   const jamSection = buildJamSection();
   const menitSection = buildMenitSection();
-  const hariSection = buildHariSection();
   const tanggalSection = buildTanggalSection();
   const bulanSection = buildBulanSection();
+  const tahunSection = buildTahunSection();
+  const hargaSection = buildHargaSection();
+  const umurSection = buildUmurSection();
+  const durasiJamSection = buildDurasiJamSection();
+  const durasiMingguSection = buildDurasiMingguSection();
   const agemoSection = buildAgemoSection();
   const waktuSection = buildWaktuSection();
   const konjungsiSection = buildKonjungsiSection();
@@ -16,17 +20,53 @@ function renderRsumTab7(lvLabel, lvColor) {
     <div style="font-size:0.78rem;color:var(--text2);margin-bottom:16px;padding:8px 12px;background:var(--surface2);border-radius:8px;line-height:1.6">
       Kumpulan materi penting yang sering membingungkan: <b><ruby>数<rt>かず</rt></ruby>・<ruby>時間<rt>じかん</rt></ruby>・<ruby>助数詞<rt>じょすうし</rt></ruby></b>, <b>Verba Memberi/Menerima</b>, <b>Ekspresi Waktu</b>, dan <b><ruby>接続詞<rt>せつぞくし</rt></ruby></b>.
     </div>
-    ${numberSection}
-    ${jamSection}
-    ${menitSection}
-    ${hariSection}
-    ${tanggalSection}
-    ${bulanSection}
-    ${counterSection}
-    ${agemoSection}
-    ${waktuSection}
-    ${konjungsiSection}
+
+    <!-- Sub-tab Navigation -->
+    <div class="rsum7-subtab-nav" style="display:flex;gap:6px;margin-bottom:18px;flex-wrap:wrap">
+      <button class="rsum7-subtab-btn active" onclick="switchRsum7Subtab('angka')" data-subtab="angka" style="padding:7px 14px;border-radius:20px;border:1.5px solid var(--amber);background:var(--amber);color:#fff;font-size:0.75rem;font-weight:700;cursor:pointer;transition:all 0.2s">🔢 Angka & Bilangan</button>
+      <button class="rsum7-subtab-btn" onclick="switchRsum7Subtab('lainnya')" data-subtab="lainnya" style="padding:7px 14px;border-radius:20px;border:1.5px solid var(--accent);background:transparent;color:var(--accent);font-size:0.75rem;font-weight:700;cursor:pointer;transition:all 0.2s">📝 Lainnya</button>
+    </div>
+
+    <!-- Sub-tab: Angka & Bilangan -->
+    <div id="rsum7-subtab-angka" class="rsum7-subtab-content" style="display:block">
+      ${numberSection}
+      ${jamSection}
+      ${menitSection}
+      ${durasiJamSection}
+      ${tanggalSection}
+      ${durasiMingguSection}
+      ${bulanSection}
+      ${tahunSection}
+      ${umurSection}
+      ${hargaSection}
+      ${counterSection}
+    </div>
+
+    <!-- Sub-tab: Lainnya -->
+    <div id="rsum7-subtab-lainnya" class="rsum7-subtab-content" style="display:none">
+      ${agemoSection}
+      ${waktuSection}
+      ${konjungsiSection}
+    </div>
   </div>`;
+}
+
+// Sub-tab switcher
+function switchRsum7Subtab(tab) {
+  document.querySelectorAll('.rsum7-subtab-content').forEach(el => el.style.display = 'none');
+  document.querySelectorAll('.rsum7-subtab-btn').forEach(btn => {
+    btn.classList.remove('active');
+    btn.style.background = 'transparent';
+    btn.style.color = btn.dataset.subtab === 'angka' ? 'var(--amber)' : 'var(--accent)';
+  });
+  const target = document.getElementById('rsum7-subtab-' + tab);
+  if (target) target.style.display = 'block';
+  const activeBtn = document.querySelector(`.rsum7-subtab-btn[data-subtab="${tab}"]`);
+  if (activeBtn) {
+    activeBtn.classList.add('active');
+    activeBtn.style.background = activeBtn.dataset.subtab === 'angka' ? 'var(--amber)' : 'var(--accent)';
+    activeBtn.style.color = '#fff';
+  }
 }
 
 
@@ -172,36 +212,36 @@ function buildMenitSection() {
 
 
 
-// ── Hari (曜日) ──
-function buildHariSection() {
+// ── Durasi Jam (〜時間) ── [BARU]
+function buildDurasiJamSection() {
   return `
-    <div class="konj-accordion" style="scroll-margin-top:110px;margin-bottom:16px;border-color:rgba(192,132,252,0.3)">
-      <div class="konj-accordion-head" onclick="this.parentElement.classList.toggle('open')" style="background:rgba(192,132,252,0.04)">
+    <div class="konj-accordion" style="scroll-margin-top:110px;margin-bottom:16px;border-color:rgba(139,92,246,0.3)">
+      <div class="konj-accordion-head" onclick="this.parentElement.classList.toggle('open')" style="background:rgba(139,92,246,0.04)">
         <span class="konj-accordion-chevron">▶</span>
-        <span style="font-size:0.82rem;font-weight:700;color:#c084fc">📅 <ruby>曜日<rt>ようび</rt></ruby> — Hari</span>
+        <span style="font-size:0.82rem;font-weight:700;color:#8b5cf6">⏳ 〜<ruby>時間<rt>じかん</rt></ruby> — Durasi Jam</span>
       </div>
       <div class="konj-accordion-body">
         <div style="font-size:0.76rem;color:var(--text2);margin-bottom:10px;line-height:1.6">
-          <ruby>一週間<rt>いっしゅうかん</rt></ruby>の<ruby>曜日<rt>ようび</rt></ruby> (Hari dalam seminggu). Setiap hari dinamai berdasarkan unsur alam.
+          <ruby>注意<rt>ちゅうい</rt></ruby>: 〜<ruby>時<rt>じ</rt></ruby> = jam berapa (waktu), 〜<ruby>時間<rt>じかん</rt></ruby> = berapa jam (durasi). Perhatikan perubahan pada 4 dan 9.
         </div>
-        <div class="tbl-scroll-wrap"><table class="rsum-vv-table" style="min-width:500px">
-          <thead><tr><th><ruby>曜日<rt>ようび</rt></ruby></th><th><ruby>読<rt>よ</rt></ruby>み<ruby>方<rt>かた</rt></ruby></th><th>Arti</th><th><ruby>由来<rt>ゆらい</rt></ruby> (Asal)</th></tr></thead>
+        <div class="tbl-scroll-wrap"><table class="rsum-vv-table" style="min-width:450px">
+          <thead><tr><th>Durasi</th><th><ruby>日本語<rt>にほんご</rt></ruby></th><th>Durasi</th><th><ruby>日本語<rt>にほんご</rt></ruby></th></tr></thead>
           <tbody>
-            <tr><td style="font-weight:700;color:#f87171"><ruby>日曜日<rt>にちようび</rt></ruby></td><td class="rsum-form">にちようび</td><td style="font-size:0.74rem">Minggu</td><td style="font-size:0.72rem;color:var(--text2)"><ruby>日<rt>ひ</rt></ruby> = Matahari</td></tr>
-            <tr><td style="font-weight:700;color:#fbbf24"><ruby>月曜日<rt>げつようび</rt></ruby></td><td class="rsum-form">げつようび</td><td style="font-size:0.74rem">Senin</td><td style="font-size:0.72rem;color:var(--text2)"><ruby>月<rt>つき</rt></ruby> = Bulan</td></tr>
-            <tr><td style="font-weight:700;color:#f87171"><ruby>火曜日<rt>かようび</rt></ruby></td><td class="rsum-form">かようび</td><td style="font-size:0.74rem">Selasa</td><td style="font-size:0.72rem;color:var(--text2)"><ruby>火<rt>ひ</rt></ruby> = Api</td></tr>
-            <tr><td style="font-weight:700;color:#34d399"><ruby>水曜日<rt>すいようび</rt></ruby></td><td class="rsum-form">すいようび</td><td style="font-size:0.74rem">Rabu</td><td style="font-size:0.72rem;color:var(--text2)"><ruby>水<rt>みず</rt></ruby> = Air</td></tr>
-            <tr><td style="font-weight:700;color:#60a5fa"><ruby>木曜日<rt>もくようび</rt></ruby></td><td class="rsum-form">もくようび</td><td style="font-size:0.74rem">Kamis</td><td style="font-size:0.72rem;color:var(--text2)"><ruby>木<rt>き</rt></ruby> = Pohon</td></tr>
-            <tr><td style="font-weight:700;color:#c084fc"><ruby>金曜日<rt>きんようび</rt></ruby></td><td class="rsum-form">きんようび</td><td style="font-size:0.74rem">Jumat</td><td style="font-size:0.72rem;color:var(--text2)"><ruby>金<rt>かね</rt></ruby> = Emas</td></tr>
-            <tr><td style="font-weight:700;color:#60a5fa"><ruby>土曜日<rt>どようび</rt></ruby></td><td class="rsum-form">どようび</td><td style="font-size:0.74rem">Sabtu</td><td style="font-size:0.72rem;color:var(--text2)"><ruby>土<rt>つち</rt></ruby> = Tanah</td></tr>
+            <tr><td style="font-weight:700;color:var(--accent2)">1<ruby>時間<rt>じかん</rt></ruby></td><td class="rsum-form">いちじかん</td><td style="font-weight:700;color:var(--accent2)">6<ruby>時間<rt>じかん</rt></ruby></td><td class="rsum-form">ろくじかん</td></tr>
+            <tr><td style="font-weight:700;color:var(--accent2)">2<ruby>時間<rt>じかん</rt></ruby></td><td class="rsum-form">にじかん</td><td style="font-weight:700;color:var(--accent2)">7<ruby>時間<rt>じかん</rt></ruby></td><td class="rsum-form"><b>しちじかん</b></td></tr>
+            <tr><td style="font-weight:700;color:var(--accent2)">3<ruby>時間<rt>じかん</rt></ruby></td><td class="rsum-form">さんじかん</td><td style="font-weight:700;color:var(--accent2)">8<ruby>時間<rt>じかん</rt></ruby></td><td class="rsum-form">はちじかん</td></tr>
+            <tr><td style="font-weight:700;color:var(--accent2)">4<ruby>時間<rt>じかん</rt></ruby></td><td class="rsum-form"><b>よじかん</b></td><td style="font-weight:700;color:var(--accent2)">9<ruby>時間<rt>じかん</rt></ruby></td><td class="rsum-form"><b>くじかん</b></td></tr>
+            <tr><td style="font-weight:700;color:var(--accent2)">5<ruby>時間<rt>じかん</rt></ruby></td><td class="rsum-form">ごじかん</td><td style="font-weight:700;color:var(--accent2)">10<ruby>時間<rt>じかん</rt></ruby></td><td class="rsum-form">じゅうじかん</td></tr>
           </tbody>
         </table></div>
 
-        <div style="margin-top:10px;padding:10px 14px;background:rgba(192,132,252,0.08);border-left:3px solid #c084fc;border-radius:0 8px 8px 0;font-size:0.74rem;line-height:1.7">
-          <b style="color:#c084fc">💡 Tips:</b><br>
-          • <ruby>何曜日<rt>なんようび</rt></ruby> = hari apa?<br>
-          • Partikel <b>に</b> dipakai: <ruby>月曜日<rt>げつようび</rt></ruby><b>に</b> <ruby>会<rt>あ</rt></ruby>いましょう (Ayo bertemu hari Senin)<br>
-          • <ruby>毎日<rt>まいにち</rt></ruby> = setiap hari, <ruby>毎週<rt>まいしゅう</rt></ruby> = setiap minggu
+        <div style="margin-top:10px;padding:10px 14px;background:rgba(139,92,246,0.08);border-left:3px solid #8b5cf6;border-radius:0 8px 8px 0;font-size:0.74rem;line-height:1.7">
+          <b style="color:#8b5cf6">⚠️ Yang harus dihafal:</b><br>
+          • 4<ruby>時間<rt>じかん</rt></ruby> = <b>よじかん</b> (bukan よんじかん ✗)<br>
+          • 9<ruby>時間<rt>じかん</rt></ruby> = <b>くじかん</b> (bukan きゅうじかん ✗)<br>
+          • 〜<ruby>時間半<rt>じかんはん</rt></ruby> = setengah jam lebih → 2<ruby>時間半<rt>じかんはん</rt></ruby> = 2,5 jam<br>
+          • <ruby>何時間<rt>なんじかん</rt></ruby> = berapa jam?<br>
+          • <ruby>例<rt>れい</rt></ruby>: <ruby>毎日<rt>まいにち</rt></ruby> 8<ruby>時間<rt>じかん</rt></ruby> <ruby>寝<rt>ね</rt></ruby>ます (Tidur 8 jam setiap hari)
         </div>
       </div>
     </div>`;
@@ -242,6 +282,43 @@ function buildTanggalSection() {
           • 1<ruby>日<rt>にち</rt></ruby>〜10<ruby>日<rt>にち</rt></ruby> = cara baca <ruby>和語<rt>わご</rt></ruby> (semua <ruby>不規則<rt>ふきそく</rt></ruby>!)<br>
           • 14<ruby>日<rt>にち</rt></ruby> = <b>じゅうよっか</b>, 20<ruby>日<rt>にち</rt></ruby> = <b>はつか</b>, 24<ruby>日<rt>にち</rt></ruby> = <b>にじゅうよっか</b><br>
           • <ruby>何日<rt>なんにち</rt></ruby> = tanggal berapa? / berapa hari?
+        </div>
+      </div>
+    </div>`;
+}
+
+
+
+// ── Durasi Minggu (〜週間) ── [BARU]
+function buildDurasiMingguSection() {
+  return `
+    <div class="konj-accordion" style="scroll-margin-top:110px;margin-bottom:16px;border-color:rgba(236,72,153,0.3)">
+      <div class="konj-accordion-head" onclick="this.parentElement.classList.toggle('open')" style="background:rgba(236,72,153,0.04)">
+        <span class="konj-accordion-chevron">▶</span>
+        <span style="font-size:0.82rem;font-weight:700;color:#ec4899">📅 〜<ruby>週間<rt>しゅうかん</rt></ruby> — Durasi Minggu</span>
+      </div>
+      <div class="konj-accordion-body">
+        <div style="font-size:0.76rem;color:var(--text2);margin-bottom:10px;line-height:1.6">
+          Cara menghitung durasi dalam satuan minggu. Perhatikan perubahan bunyi pada 1<ruby>週間<rt>しゅうかん</rt></ruby>.
+        </div>
+        <div class="tbl-scroll-wrap"><table class="rsum-vv-table" style="min-width:450px">
+          <thead><tr><th>Durasi</th><th><ruby>日本語<rt>にほんご</rt></ruby></th><th>Durasi</th><th><ruby>日本語<rt>にほんご</rt></ruby></th></tr></thead>
+          <tbody>
+            <tr><td style="font-weight:700;color:var(--accent2)">1<ruby>週間<rt>しゅうかん</rt></ruby></td><td class="rsum-form"><b>いっしゅうかん</b></td><td style="font-weight:700;color:var(--accent2)">6<ruby>週間<rt>しゅうかん</rt></ruby></td><td class="rsum-form">ろくしゅうかん</td></tr>
+            <tr><td style="font-weight:700;color:var(--accent2)">2<ruby>週間<rt>しゅうかん</rt></ruby></td><td class="rsum-form">にしゅうかん</td><td style="font-weight:700;color:var(--accent2)">7<ruby>週間<rt>しゅうかん</rt></ruby></td><td class="rsum-form">ななしゅうかん</td></tr>
+            <tr><td style="font-weight:700;color:var(--accent2)">3<ruby>週間<rt>しゅうかん</rt></ruby></td><td class="rsum-form">さんしゅうかん</td><td style="font-weight:700;color:var(--accent2)">8<ruby>週間<rt>しゅうかん</rt></ruby></td><td class="rsum-form"><b>はっしゅうかん</b></td></tr>
+            <tr><td style="font-weight:700;color:var(--accent2)">4<ruby>週間<rt>しゅうかん</rt></ruby></td><td class="rsum-form">よんしゅうかん</td><td style="font-weight:700;color:var(--accent2)">9<ruby>週間<rt>しゅうかん</rt></ruby></td><td class="rsum-form">きゅうしゅうかん</td></tr>
+            <tr><td style="font-weight:700;color:var(--accent2)">5<ruby>週間<rt>しゅうかん</rt></ruby></td><td class="rsum-form">ごしゅうかん</td><td style="font-weight:700;color:var(--accent2)">10<ruby>週間<rt>しゅうかん</rt></ruby></td><td class="rsum-form"><b>じゅっしゅうかん</b></td></tr>
+          </tbody>
+        </table></div>
+
+        <div style="margin-top:10px;padding:10px 14px;background:rgba(236,72,153,0.08);border-left:3px solid #ec4899;border-radius:0 8px 8px 0;font-size:0.74rem;line-height:1.7">
+          <b style="color:#ec4899">⚠️ Yang harus dihafal:</b><br>
+          • 1<ruby>週間<rt>しゅうかん</rt></ruby> = <b>いっしゅうかん</b> (っ促音!)<br>
+          • 8<ruby>週間<rt>しゅうかん</rt></ruby> = <b>はっしゅうかん</b><br>
+          • 10<ruby>週間<rt>しゅうかん</rt></ruby> = <b>じゅっしゅうかん</b><br>
+          • <ruby>何週間<rt>なんしゅうかん</rt></ruby> = berapa minggu?<br>
+          • <ruby>例<rt>れい</rt></ruby>: 2<ruby>週間<rt>しゅうかん</rt></ruby> <ruby>日本<rt>にほん</rt></ruby>に いました (Berada di Jepang selama 2 minggu)
         </div>
       </div>
     </div>`;
@@ -296,6 +373,156 @@ function buildBulanSection() {
           • <ruby>何月<rt>なんがつ</rt></ruby> = bulan apa?<br>
           • <b>〜か<ruby>月<rt>げつ</rt></ruby></b>: 1=<b>いっかげつ</b>, 6=<b>ろっかげつ</b>, 8=<b>はっかげつ</b>, 10=<b>じゅっかげつ</b><br>
           • <ruby>何<rt>なん</rt></ruby>か<ruby>月<rt>げつ</rt></ruby> = berapa bulan?
+        </div>
+      </div>
+    </div>`;
+}
+
+
+
+// ── Tahun (〜年) ── [BARU]
+function buildTahunSection() {
+  return `
+    <div class="konj-accordion" style="scroll-margin-top:110px;margin-bottom:16px;border-color:rgba(234,179,8,0.3)">
+      <div class="konj-accordion-head" onclick="this.parentElement.classList.toggle('open')" style="background:rgba(234,179,8,0.04)">
+        <span class="konj-accordion-chevron">▶</span>
+        <span style="font-size:0.82rem;font-weight:700;color:#eab308">📅 〜<ruby>年<rt>ねん</rt></ruby> — Tahun</span>
+      </div>
+      <div class="konj-accordion-body">
+        <div style="font-size:0.76rem;color:var(--text2);margin-bottom:10px;line-height:1.6">
+          Cara membaca tahun dan durasi tahun dalam <ruby>日本語<rt>にほんご</rt></ruby>. Perhatikan perubahan pada 4<ruby>年<rt>ねん</rt></ruby> dan beberapa angka lainnya.
+        </div>
+
+        <div style="font-size:0.78rem;font-weight:700;color:var(--accent2);margin-bottom:8px">📆 Cara baca tahun</div>
+        <div class="tbl-scroll-wrap"><table class="rsum-vv-table" style="min-width:450px">
+          <thead><tr><th><ruby>年<rt>ねん</rt></ruby></th><th><ruby>読<rt>よ</rt></ruby>み<ruby>方<rt>かた</rt></ruby></th><th><ruby>年<rt>ねん</rt></ruby></th><th><ruby>読<rt>よ</rt></ruby>み<ruby>方<rt>かた</rt></ruby></th></tr></thead>
+          <tbody>
+            <tr><td style="font-weight:700;color:var(--accent2)">2000<ruby>年<rt>ねん</rt></ruby></td><td class="rsum-form">にせんねん</td><td style="font-weight:700;color:var(--accent2)">2020<ruby>年<rt>ねん</rt></ruby></td><td class="rsum-form">にせんにじゅうねん</td></tr>
+            <tr><td style="font-weight:700;color:var(--accent2)">2010<ruby>年<rt>ねん</rt></ruby></td><td class="rsum-form">にせんじゅうねん</td><td style="font-weight:700;color:var(--accent2)">2024<ruby>年<rt>ねん</rt></ruby></td><td class="rsum-form">にせんにじゅう<b>よ</b>ねん</td></tr>
+            <tr><td style="font-weight:700;color:var(--accent2)">1999<ruby>年<rt>ねん</rt></ruby></td><td class="rsum-form">せんきゅうひゃくきゅうじゅうきゅうねん</td><td style="font-weight:700;color:var(--accent2)">2025<ruby>年<rt>ねん</rt></ruby></td><td class="rsum-form">にせんにじゅうごねん</td></tr>
+          </tbody>
+        </table></div>
+
+        <div style="margin-top:12px;font-size:0.78rem;font-weight:700;color:var(--accent2);margin-bottom:8px">📋 〜<ruby>年間<rt>ねんかん</rt></ruby> (Durasi tahun)</div>
+        <div class="tbl-scroll-wrap"><table class="rsum-vv-table" style="min-width:450px">
+          <thead><tr><th>Durasi</th><th><ruby>日本語<rt>にほんご</rt></ruby></th><th>Durasi</th><th><ruby>日本語<rt>にほんご</rt></ruby></th></tr></thead>
+          <tbody>
+            <tr><td style="font-weight:700;color:var(--accent2)">1<ruby>年<rt>ねん</rt></ruby></td><td class="rsum-form">いちねん</td><td style="font-weight:700;color:var(--accent2)">6<ruby>年<rt>ねん</rt></ruby></td><td class="rsum-form">ろくねん</td></tr>
+            <tr><td style="font-weight:700;color:var(--accent2)">2<ruby>年<rt>ねん</rt></ruby></td><td class="rsum-form">にねん</td><td style="font-weight:700;color:var(--accent2)">7<ruby>年<rt>ねん</rt></ruby></td><td class="rsum-form"><b>しちねん</b> / ななねん</td></tr>
+            <tr><td style="font-weight:700;color:var(--accent2)">3<ruby>年<rt>ねん</rt></ruby></td><td class="rsum-form">さんねん</td><td style="font-weight:700;color:var(--accent2)">8<ruby>年<rt>ねん</rt></ruby></td><td class="rsum-form">はちねん</td></tr>
+            <tr><td style="font-weight:700;color:var(--accent2)">4<ruby>年<rt>ねん</rt></ruby></td><td class="rsum-form"><b>よねん</b></td><td style="font-weight:700;color:var(--accent2)">9<ruby>年<rt>ねん</rt></ruby></td><td class="rsum-form"><b>くねん</b> / きゅうねん</td></tr>
+            <tr><td style="font-weight:700;color:var(--accent2)">5<ruby>年<rt>ねん</rt></ruby></td><td class="rsum-form">ごねん</td><td style="font-weight:700;color:var(--accent2)">10<ruby>年<rt>ねん</rt></ruby></td><td class="rsum-form">じゅうねん</td></tr>
+          </tbody>
+        </table></div>
+
+        <div style="margin-top:10px;padding:10px 14px;background:rgba(234,179,8,0.08);border-left:3px solid #eab308;border-radius:0 8px 8px 0;font-size:0.74rem;line-height:1.7">
+          <b style="color:#eab308">⚠️ Yang harus dihafal:</b><br>
+          • 4<ruby>年<rt>ねん</rt></ruby> = <b>よねん</b> (bukan よんねん ✗ / しねん ✗)<br>
+          • 7<ruby>年<rt>ねん</rt></ruby> = <b>しちねん</b> (atau ななねん)<br>
+          • 9<ruby>年<rt>ねん</rt></ruby> = <b>くねん</b> (atau きゅうねん)<br>
+          • <ruby>何年<rt>なんねん</rt></ruby> = tahun berapa? / berapa tahun?<br>
+          • <ruby>去年<rt>きょねん</rt></ruby> = tahun lalu, <ruby>今年<rt>ことし</rt></ruby> = tahun ini, <ruby>来年<rt>らいねん</rt></ruby> = tahun depan
+        </div>
+      </div>
+    </div>`;
+}
+
+
+
+// ── Umur (〜歳) ── [BARU]
+function buildUmurSection() {
+  return `
+    <div class="konj-accordion" style="scroll-margin-top:110px;margin-bottom:16px;border-color:rgba(244,63,94,0.3)">
+      <div class="konj-accordion-head" onclick="this.parentElement.classList.toggle('open')" style="background:rgba(244,63,94,0.04)">
+        <span class="konj-accordion-chevron">▶</span>
+        <span style="font-size:0.82rem;font-weight:700;color:#f43f5e">🎂 〜<ruby>歳<rt>さい</rt></ruby> — Umur</span>
+      </div>
+      <div class="konj-accordion-body">
+        <div style="font-size:0.76rem;color:var(--text2);margin-bottom:10px;line-height:1.6">
+          Cara menghitung umur. Perhatikan perubahan bunyi pada 1, 8, 10, dan bacaan khusus 20<ruby>歳<rt>さい</rt></ruby>.
+        </div>
+        <div class="tbl-scroll-wrap"><table class="rsum-vv-table" style="min-width:450px">
+          <thead><tr><th><ruby>歳<rt>さい</rt></ruby></th><th><ruby>読<rt>よ</rt></ruby>み<ruby>方<rt>かた</rt></ruby></th><th><ruby>歳<rt>さい</rt></ruby></th><th><ruby>読<rt>よ</rt></ruby>み<ruby>方<rt>かた</rt></ruby></th></tr></thead>
+          <tbody>
+            <tr><td style="font-weight:700;color:var(--accent2)">1<ruby>歳<rt>さい</rt></ruby></td><td class="rsum-form"><b>いっさい</b></td><td style="font-weight:700;color:var(--accent2)">7<ruby>歳<rt>さい</rt></ruby></td><td class="rsum-form">ななさい</td></tr>
+            <tr><td style="font-weight:700;color:var(--accent2)">2<ruby>歳<rt>さい</rt></ruby></td><td class="rsum-form">にさい</td><td style="font-weight:700;color:var(--accent2)">8<ruby>歳<rt>さい</rt></ruby></td><td class="rsum-form"><b>はっさい</b></td></tr>
+            <tr><td style="font-weight:700;color:var(--accent2)">3<ruby>歳<rt>さい</rt></ruby></td><td class="rsum-form">さんさい</td><td style="font-weight:700;color:var(--accent2)">9<ruby>歳<rt>さい</rt></ruby></td><td class="rsum-form">きゅうさい</td></tr>
+            <tr><td style="font-weight:700;color:var(--accent2)">4<ruby>歳<rt>さい</rt></ruby></td><td class="rsum-form">よんさい</td><td style="font-weight:700;color:var(--accent2)">10<ruby>歳<rt>さい</rt></ruby></td><td class="rsum-form"><b>じゅっさい</b></td></tr>
+            <tr><td style="font-weight:700;color:var(--accent2)">5<ruby>歳<rt>さい</rt></ruby></td><td class="rsum-form">ごさい</td><td style="font-weight:700;color:var(--accent2)">20<ruby>歳<rt>さい</rt></ruby></td><td class="rsum-form"><b>はたち</b></td></tr>
+            <tr><td style="font-weight:700;color:var(--accent2)">6<ruby>歳<rt>さい</rt></ruby></td><td class="rsum-form">ろくさい</td><td style="font-weight:700;color:var(--accent2)">?<ruby>歳<rt>さい</rt></ruby></td><td class="rsum-form"><b>なんさい / おいくつ</b></td></tr>
+          </tbody>
+        </table></div>
+
+        <div style="margin-top:12px;font-size:0.78rem;font-weight:700;color:var(--accent2);margin-bottom:8px">📋 Umur lainnya</div>
+        <div class="tbl-scroll-wrap"><table class="rsum-vv-table" style="min-width:450px">
+          <thead><tr><th><ruby>歳<rt>さい</rt></ruby></th><th><ruby>読<rt>よ</rt></ruby>み<ruby>方<rt>かた</rt></ruby></th><th><ruby>歳<rt>さい</rt></ruby></th><th><ruby>読<rt>よ</rt></ruby>み<ruby>方<rt>かた</rt></ruby></th></tr></thead>
+          <tbody>
+            <tr><td style="font-weight:700;color:var(--accent2)">11<ruby>歳<rt>さい</rt></ruby></td><td class="rsum-form">じゅういっさい</td><td style="font-weight:700;color:var(--accent2)">30<ruby>歳<rt>さい</rt></ruby></td><td class="rsum-form">さんじゅっさい</td></tr>
+            <tr><td style="font-weight:700;color:var(--accent2)">18<ruby>歳<rt>さい</rt></ruby></td><td class="rsum-form">じゅうはっさい</td><td style="font-weight:700;color:var(--accent2)">40<ruby>歳<rt>さい</rt></ruby></td><td class="rsum-form">よんじゅっさい</td></tr>
+            <tr><td style="font-weight:700;color:var(--accent2)">21<ruby>歳<rt>さい</rt></ruby></td><td class="rsum-form">にじゅういっさい</td><td style="font-weight:700;color:var(--accent2)">50<ruby>歳<rt>さい</rt></ruby></td><td class="rsum-form">ごじゅっさい</td></tr>
+            <tr><td style="font-weight:700;color:var(--accent2)">25<ruby>歳<rt>さい</rt></ruby></td><td class="rsum-form">にじゅうごさい</td><td style="font-weight:700;color:var(--accent2)">100<ruby>歳<rt>さい</rt></ruby></td><td class="rsum-form">ひゃくさい</td></tr>
+          </tbody>
+        </table></div>
+
+        <div style="margin-top:10px;padding:10px 14px;background:rgba(244,63,94,0.08);border-left:3px solid #f43f5e;border-radius:0 8px 8px 0;font-size:0.74rem;line-height:1.7">
+          <b style="color:#f43f5e">⚠️ Yang harus dihafal:</b><br>
+          • 1<ruby>歳<rt>さい</rt></ruby> = <b>いっさい</b> (っ促音!)<br>
+          • 8<ruby>歳<rt>さい</rt></ruby> = <b>はっさい</b> (っ促音!)<br>
+          • 10<ruby>歳<rt>さい</rt></ruby> = <b>じゅっさい</b><br>
+          • 20<ruby>歳<rt>さい</rt></ruby> = <b>はたち</b> (bacaan khusus! bukan にじゅっさい)<br>
+          • <b>おいくつ</b> = berapa umur? (sopan), <b>なんさい</b> = berapa tahun? (biasa)<br>
+          • <ruby>例<rt>れい</rt></ruby>: わたしは 25<ruby>歳<rt>さい</rt></ruby>です (Saya berumur 25 tahun)
+        </div>
+      </div>
+    </div>`;
+}
+
+
+
+// ── Harga / Uang (〜円) ── [BARU]
+function buildHargaSection() {
+  return `
+    <div class="konj-accordion" style="scroll-margin-top:110px;margin-bottom:16px;border-color:rgba(34,197,94,0.3)">
+      <div class="konj-accordion-head" onclick="this.parentElement.classList.toggle('open')" style="background:rgba(34,197,94,0.04)">
+        <span class="konj-accordion-chevron">▶</span>
+        <span style="font-size:0.82rem;font-weight:700;color:#22c55e">💴 〜<ruby>円<rt>えん</rt></ruby> — Harga / Uang</span>
+      </div>
+      <div class="konj-accordion-body">
+        <div style="font-size:0.76rem;color:var(--text2);margin-bottom:10px;line-height:1.6">
+          Cara membaca harga dalam <ruby>日本<rt>にほん</rt></ruby>の<ruby>円<rt>えん</rt></ruby> (Yen Jepang). Perubahan bunyi mengikuti aturan <ruby>百<rt>ひゃく</rt></ruby> dan <ruby>千<rt>せん</rt></ruby>.
+        </div>
+        <div class="tbl-scroll-wrap"><table class="rsum-vv-table" style="min-width:500px">
+          <thead><tr><th><ruby>値段<rt>ねだん</rt></ruby></th><th><ruby>読<rt>よ</rt></ruby>み<ruby>方<rt>かた</rt></ruby></th><th><ruby>値段<rt>ねだん</rt></ruby></th><th><ruby>読<rt>よ</rt></ruby>み<ruby>方<rt>かた</rt></ruby></th></tr></thead>
+          <tbody>
+            <tr><td style="font-weight:700;color:var(--accent2)">100<ruby>円<rt>えん</rt></ruby></td><td class="rsum-form">ひゃくえん</td><td style="font-weight:700;color:var(--accent2)">1,000<ruby>円<rt>えん</rt></ruby></td><td class="rsum-form">せんえん</td></tr>
+            <tr><td style="font-weight:700;color:var(--accent2)">200<ruby>円<rt>えん</rt></ruby></td><td class="rsum-form">にひゃくえん</td><td style="font-weight:700;color:var(--accent2)">2,000<ruby>円<rt>えん</rt></ruby></td><td class="rsum-form">にせんえん</td></tr>
+            <tr><td style="font-weight:700;color:var(--accent2)">300<ruby>円<rt>えん</rt></ruby></td><td class="rsum-form"><b>さんびゃくえん</b></td><td style="font-weight:700;color:var(--accent2)">3,000<ruby>円<rt>えん</rt></ruby></td><td class="rsum-form"><b>さんぜんえん</b></td></tr>
+            <tr><td style="font-weight:700;color:var(--accent2)">400<ruby>円<rt>えん</rt></ruby></td><td class="rsum-form">よんひゃくえん</td><td style="font-weight:700;color:var(--accent2)">4,000<ruby>円<rt>えん</rt></ruby></td><td class="rsum-form">よんせんえん</td></tr>
+            <tr><td style="font-weight:700;color:var(--accent2)">500<ruby>円<rt>えん</rt></ruby></td><td class="rsum-form">ごひゃくえん</td><td style="font-weight:700;color:var(--accent2)">5,000<ruby>円<rt>えん</rt></ruby></td><td class="rsum-form">ごせんえん</td></tr>
+            <tr><td style="font-weight:700;color:var(--accent2)">600<ruby>円<rt>えん</rt></ruby></td><td class="rsum-form"><b>ろっぴゃくえん</b></td><td style="font-weight:700;color:var(--accent2)">8,000<ruby>円<rt>えん</rt></ruby></td><td class="rsum-form"><b>はっせんえん</b></td></tr>
+            <tr><td style="font-weight:700;color:var(--accent2)">800<ruby>円<rt>えん</rt></ruby></td><td class="rsum-form"><b>はっぴゃくえん</b></td><td style="font-weight:700;color:var(--accent2)">10,000<ruby>円<rt>えん</rt></ruby></td><td class="rsum-form">いちまんえん</td></tr>
+          </tbody>
+        </table></div>
+
+        <div style="margin-top:12px;font-size:0.78rem;font-weight:700;color:var(--accent2);margin-bottom:8px">📋 Contoh harga sehari-hari</div>
+        <div class="tbl-scroll-wrap"><table class="rsum-vv-table" style="min-width:450px">
+          <thead><tr><th><ruby>物<rt>もの</rt></ruby></th><th><ruby>値段<rt>ねだん</rt></ruby></th><th><ruby>読<rt>よ</rt></ruby>み<ruby>方<rt>かた</rt></ruby></th></tr></thead>
+          <tbody>
+            <tr><td style="font-size:0.74rem">コーヒー</td><td style="font-weight:700;color:var(--accent2)">350<ruby>円<rt>えん</rt></ruby></td><td class="rsum-form"><b>さんびゃく</b>ごじゅうえん</td></tr>
+            <tr><td style="font-size:0.74rem">おべんとう</td><td style="font-weight:700;color:var(--accent2)">680<ruby>円<rt>えん</rt></ruby></td><td class="rsum-form"><b>ろっぴゃく</b>はちじゅうえん</td></tr>
+            <tr><td style="font-size:0.74rem"><ruby>電車<rt>でんしゃ</rt></ruby>の<ruby>切符<rt>きっぷ</rt></ruby></td><td style="font-weight:700;color:var(--accent2)">1,800<ruby>円<rt>えん</rt></ruby></td><td class="rsum-form">せん<b>はっぴゃく</b>えん</td></tr>
+            <tr><td style="font-size:0.74rem">スマホ</td><td style="font-weight:700;color:var(--accent2)">83,000<ruby>円<rt>えん</rt></ruby></td><td class="rsum-form">はちまん<b>さんぜん</b>えん</td></tr>
+          </tbody>
+        </table></div>
+
+        <div style="margin-top:10px;padding:10px 14px;background:rgba(34,197,94,0.08);border-left:3px solid #22c55e;border-radius:0 8px 8px 0;font-size:0.74rem;line-height:1.7">
+          <b style="color:#22c55e">💡 Tips:</b><br>
+          • <b>いくら</b> = berapa (harga)?<br>
+          • この<ruby>本<rt>ほん</rt></ruby>は <b>いくら</b>ですか。→ 1,500<ruby>円<rt>えん</rt></ruby>です。<br>
+          • Perubahan bunyi sama dengan bilangan besar:<br>
+          &nbsp;&nbsp;300=<b>さんびゃく</b>, 600=<b>ろっぴゃく</b>, 800=<b>はっぴゃく</b><br>
+          &nbsp;&nbsp;3000=<b>さんぜん</b>, 8000=<b>はっせん</b><br>
+          • <ruby>全部<rt>ぜんぶ</rt></ruby>で いくらですか = total berapa?
         </div>
       </div>
     </div>`;
