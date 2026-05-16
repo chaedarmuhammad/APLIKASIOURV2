@@ -10794,6 +10794,7 @@ const _KB_LOOKUP = (function() {
     'watashi','anata','minasan','ano hito','namae',
     'boku',
     'isha','kaishain','gakusei','ginkōin','kenkyūsha','shain','sensei','yakuzaishi','kanja',
+    'haisha',
     'tomodachi','kazoku','kare','kanojo',
     'chichi','haha','otōsan','okāsan',
     'ani','ane','otōto','imōto',
@@ -10803,13 +10804,13 @@ const _KB_LOOKUP = (function() {
     'kodomo','okosan','otto','tsuma','goshujin','okusan',
     'hosuto famirī','gokazoku',
     'toshi ue','toshi shita',
-    'kaishain','kanpanī',
   ]);
 
   // ── ANGGOTA TUBUH ──
   add('__tubuh__', [
     'karada','atama','kao','me','mimi','kuchi',
     'kubi','yubi','tsume','onaka','senaka','ashi',
+    'nodo',
   ]);
 
   // ── WAKTU & KALENDER ──
@@ -10827,7 +10828,7 @@ const _KB_LOOKUP = (function() {
 
   // ── TEMPAT, GEDUNG & KOTA ──
   add('__tempat__', [
-    'uchi','mise','kaisha','gakkō','daigaku','byōin',
+    'uchi','mise','kaisha','kanpanī','gakkō','daigaku','byōin',
     'resutoran','hoteru','sūpā','kōen','konbini',
     'kyōshitsu','shokudō','uketsuke','robī','heya','toire',
     'kaidan','erebētā','esukarētā','uriba','depāto','ginkō',
@@ -10844,7 +10845,6 @@ const _KB_LOOKUP = (function() {
     'jakarta','fukuoka',
     'ken','(o)kuni','(go)shusshin',
     'yama','umi','eberesuto','fuji san',
-    'kōen',
   ]);
 
   // ── TRANSPORTASI & PERJALANAN ──
@@ -10852,21 +10852,22 @@ const _KB_LOOKUP = (function() {
     'densha','hikōki','fune','basu','takushī','jitensha',
     'chikatetsu','shinkansen','baiku','jidōsha','eki','kūkō',
     'noriba','jei āru','pasupōto','biza','chizu','jūsho','michi','shingō',
-    'kōtsū','rasshu','sūtsukēsu','chiketto','kippu','nimotsu','mēru adoresu',
+    'kōtsū','rasshu','sūtsukēsu','chiketto','kippu','nimotsu',
+    'shītoberto',
   ]);
 
   // ── PAKAIAN & AKSESORI ──
   add('__pakaian__', [
     'kutsu','nekutai','shatsu','tī shatsu','kōto','sūtsu',
     'sētā','bōshi','megane','saifu','kaban','kasa','kimono','saizu','fuku',
-    'kutsushita',
+    'kutsushita','tebukuro','hankachi','yubiwa','zubon','yōfuku','taoru',
   ]);
 
   // ── MAKANAN & MINUMAN ──
   add('__makanan__', [
     'gohan','asagohan','hirugohan','bangohan','pan',
     'niku','sakana','yasai','kudamono','tamago','shio','satō',
-    'mizu','ocha','kōcha','jūsu','bīru','kēki','wain','tabako',
+    'mizu','ocha','kōcha','jūsu','bīru','kēki','wain',
     'bentō','(o)bentō','hanbāgā','kukkī','chokoreeto','kōhī','gyūnyū','miruku',
     'gyūdon','aisukurīmu','tenpura','nihonshu','yakisoba','okonomiyaki',
     '(o)sake','tabemono','nomimono','ryōri','nihon ryōri','okinawa no ryōri',
@@ -10881,8 +10882,7 @@ const _KB_LOOKUP = (function() {
     'haru','natsu','aki','fuyu',
     'jishin',
     'dōbutsu','zō','uma','inu','neko',
-    'ki','midori',
-    'jinkō',
+    'ki','midori','eda',
   ]);
 
   // ── BAHASA, PENDIDIKAN & KOMUNIKASI ──
@@ -10891,13 +10891,14 @@ const _KB_LOOKUP = (function() {
     'kanji','hiragana','katakana','kotoba','bunpō',
     'yomikata','hatsuon','imi',
     'hon','jisho','shinbun','zasshi','nōto','meishi','kādo',
-    'shiken','tesuto','shukudai','tegami','mēru',
+    'shiken','tesuto','shukudai','tegami','mēru','mēru adoresu',
     'shashin','eiga','ongaku','dī bī dī','shī dī','repōto','sakubun',
     'shiryō','pen','senmon','bangō annai','denwa bangō','denwa',
     'nyūsu','supīchi','iken','anaunsu','nikki',
     'shōgakkō','chūgakkō','kōkō','ai-tī','uta','e','ji',
     'horā eiga',"ren'ai eiga",'rekishi',
     'rekishi','kurashikku','kurasu','jugyō',
+    'igaku',
   ]);
 
   // ── AKTIVITAS, HOBI & ACARA ──
@@ -10907,13 +10908,13 @@ const _KB_LOOKUP = (function() {
     '(o)hanami','keiken','kaigi','yakusoku','purezento','omiyage',
     'shumi','arubaito','risō','konsāto','karaoke','dansu','yakyū',
     'kabuki','ikebana','piano','gitā','gakki','supōtsu','kaimono',
-    'junbi','yōji','benkyō',
+    'junbi','yōji','benkyō','(o)mimai',
   ]);
 
   // ── KESEHATAN & MEDIS ──
   add('__kesehatan__', [
     'kaze','netsu','kusuri','byōki',
-    '(kenkō) hokenshō','ofuro','shawā','chōshi',
+    '(kenkō) hokenshō','ofuro','shawā','chōshi','guai',
   ]);
 
   // ── BENDA & PERALATAN SEHARI-HARI (sisa yang tidak masuk kategori lain) ──
@@ -10927,7 +10928,7 @@ const _KB_LOOKUP = (function() {
     'fūtō','kitte','hagaki','jūminhyō','sābisu','chippu',
     'okane','genkin','komakai okane','kurejittokādo','nedan','yachin',
     'seikatsu','(o)shigoto','mondai','kotae','hajime','owari',
-    'keizai',
+    'keizai','tabako','jinkō',
   ]);
 
   return T;
@@ -10951,12 +10952,12 @@ function kbSubCat(word) {
   if (/ken$/.test(rom))       return '__tempat__';
 
   // 4. Fallback berbasis id (Indonesia)
-  if (/\btubuh\b|kepala|rambut|wajah|muka|\bmata\b|telinga|hidung|\bmulut\b|\bgigi\b|\btangan\b|(?<!kaus )\bkaki\b|perut|\bbadan\b/.test(id)) return '__tubuh__';
-  if (/dokter|apoteker|guru|siswa|mahasiswa|pegawai|karyawan|peneliti|pasien|orang\b|wanita|pria|\banak\b|kakak|adik|\bayah\b|\bibu\b|teman|keluarga|saudara|kakek|nenek|istri|suami|\bsaya\b|\banda\b/.test(id)) return '__orang__';
+  if (/\btubuh\b|kepala|rambut|wajah|muka|\bmata\b|telinga|hidung|\bmulut\b|\bgigi\b|(?<!sarung )\btangan\b|(?<!kaus )\bkaki\b|perut|\bbadan\b|tenggorokan/.test(id)) return '__tubuh__';
+  if (/(?<!ilmu ke)dokter|apoteker|guru|siswa|mahasiswa|pegawai|karyawan|peneliti|pasien|(?<!kerumunan |jumlah besar; |menjenguk )orang\b|wanita|pria|\banak\b|kakak|adik|\bayah\b|\bibu\b|teman|keluarga|saudara|kakek|nenek|istri|suami|\bsaya\b|\banda\b/.test(id)) return '__orang__';
   if (/\bpagi\b|\bsiang\b|\bmalam\b|hari ini|kemarin|besok|sekarang|senin|selasa|rabu|kamis|jumat|sabtu|\bminggu\b|akhir pekan|ulang tahun|setiap/.test(id)) return '__waktu__';
   if (/kereta|pesawat|kapal|\bbus\b|taksi|sepeda|bandara|paspor|koper|transportasi/.test(id)) return '__transport__';
   if (/sekolah|universitas|kantor|rumah sakit|perpustakaan|museum|gedung kesenian|negara|negeri|kota|kuil|luar negeri/.test(id)) return '__tempat__';
-  if (/sepatu|dasi|kemeja|\bkaus\b|jaket|sweter|topi\b|kacamata|dompet|\btas\b|payung|pakaian|kimono|kaus kaki/.test(id)) return '__pakaian__';
+  if (/sepatu|dasi|kemeja|\bkaus\b|jaket|sweter|topi\b|kacamata|dompet|\btas\b|payung|pakaian|kimono|kaus kaki|sarung tangan|saputangan|celana|cincin|handuk/.test(id)) return '__pakaian__';
   if (/\bnasi\b|\broti\b|daging\b|\bikan\b|telur\b|susu\b|kopi\b|\bteh\b|\bbir\b|\bjus\b|\bair\b|\bkue\b|makanan|minuman|masakan|sarapan|makan siang|makan malam/.test(id)) return '__makanan__';
   if (/hujan|salju|cerah|berawan|cuaca|gempa|hewan|binatang|anjing|kucing|pohon|bunga|musim semi|musim panas|musim gugur|musim dingin/.test(id)) return '__alam__';
   if (/\bsakit\b|demam|\bflu\b|\bobat\b|asuransi|shower|bak mandi|kondisi/.test(id)) return '__kesehatan__';
@@ -11475,6 +11476,286 @@ const _THEMATIC_GROUPS = (function() {
   grp('iroiro (na)','onaji');                       // berbagai macam/sama
   grp('muda na','fuben na');                        // sia-sia/tidak praktis
 
+  // ── Kata Kerja: Pergerakan & Perpindahan ──
+  grp('arukimasu','hashirimasu','oyogimasu');       // berjalan/berlari/berenang
+  grp('tachimasu','suwarimasu');                    // berdiri/duduk
+  grp('isogimasu','machimasu');                     // terburu-buru/menunggu
+  grp('motte ikimasu','motte kimasu');             // membawa pergi/membawa datang
+  grp('tsurete ikimasu','tsurete kimasu');          // mengajak pergi/mengajak datang
+  grp('dekakemasu','modorimasu','kaette kimasu');   // berangkat/kembali/pulang kembali
+  grp('shuppatsu shimasu','tōchaku shimasu');       // berangkat/tiba
+  grp('mukaimasu','(eki ni) tsukimasu');            // menuju/tiba
+  grp('tōrimasu','(hashi o) watarimasu');          // lewat/menyeberang
+  grp('(michi o) arukimasu','(michi o) hashirimasu'); // berjalan di jalan/berlari di jalan
+  grp('(yama ni) noborimasu','(hoteru ni) tomarimasu'); // mendaki/menginap
+  grp('norimasu','orimasu','norikaemasu');          // naik/turun/ganti kendaraan
+  grp('(densha ni) norimasu','(densha o) orimasu','(densha ni) norikaemasu'); // naik kereta/turun/pindah
+
+  // ── Kata Kerja: Memegang & Membawa ──
+  grp('mochimasu','hakobimasu');                   // membawa/mengangkut
+  grp('torimasu','watashimasu');                   // mengambil/menyerahkan
+  grp('hiroimasu','otoshimasu');                   // memungut/menjatuhkan
+
+  // ── Kata Kerja: Melihat & Mendengar ──
+  grp('miemasu','kikoemasu');                      // terlihat/terdengar
+  grp('misemasu','(sensei ni) kikimasu');           // menunjukkan/bertanya
+
+  // ── Kata Kerja: Berbicara & Komunikasi ──
+  grp('hanashimasu','iimasu','kotaemasu');          // berbicara/berkata/menjawab
+  grp('denwa shimasu','(denwa o) kakemasu','renraku shimasu'); // menelepon/menghubungi
+  grp('setsumei shimasu','shōkai shimasu','annai shimasu'); // menjelaskan/memperkenalkan/memandu
+  grp('tanomimasu','sasoimasu','shōtai shimasu');   // meminta/mengundang/mengundang (formal)
+  grp('yobimasu','okoshimasu');                    // memanggil/membangunkan
+  grp('shikarimasu','chūi shimasu','homemasu');     // memarahi/memperingatkan/memuji
+
+  // ── Kata Kerja: Membeli & Bayar ──
+  grp('kaimasu','haraimasu','kaeshimasu');          // membeli/membayar/mengembalikan
+  grp('chokin shimasu','okane');                    // menabung
+
+  // ── Kata Kerja: Belajar & Pendidikan ──
+  grp('benkyō shimasu','naraimasu','oshiemasu');    // belajar/belajar dari/mengajar
+  grp('oboemasu','wasuremasu','omoidashimasu');     // menghafal/lupa/mengingat kembali
+  grp('shirabemasu','sagashimasu','mitsukemasu');   // menyelidiki/mencari/menemukan
+  grp('shitsumon shimasu','(shitsumon ni) kotaemasu'); // bertanya/menjawab
+  grp('yoshū shimasu','fukushū shimasu','fukushū o shimasu'); // persiapan/ulangan/meninjau
+  grp('renshū shimasu','undō shimasu');            // berlatih/berolahraga
+  grp('(daigaku ni) nyūgaku shimasu','(daigaku o) sotsugyō shimasu'); // masuk univ/lulus
+  grp('(daigaku ni) hairimasu','(daigaku o) demasu'); // masuk/lulus
+  grp('(shiken o) ukemasu','(shiken ni) gōkaku shimasu','(shiken ni) ochimasu'); // ikut ujian/lulus/gagal
+  grp('ryūgaku shimasu','shūshoku shimasu');       // belajar di LN/bekerja
+
+  // ── Kata Kerja: Kerja & Rutinitas ──
+  grp('hatarakimasu','yasumimasu','(kaisha o) yasumimasu'); // bekerja/istirahat/libur
+  grp('shutchō shimasu','zangyō shimasu');         // perjalanan bisnis/lembur
+  grp('kyūkei shimasu','sanpo shimasu');           // istirahat/jalan santai
+  grp('sanka shimasu','(kaigi ni) shusseki shimasu'); // berpartisipasi/menghadiri
+  grp('mōshikomimasu','yoyaku shimasu','kyanseru shimasu'); // mendaftar/reservasi/batal
+  grp('okonaimasu','junbi shimasu','yōi shimasu'); // menyelenggarakan/mempersiapkan
+
+  // ── Kata Kerja: Membuat & Memperbaiki ──
+  grp('tsukurimasu','naoshimasu','kowashimasu');    // membuat/memperbaiki/merusak
+  grp('tatemasu','sekkei shimasu');                 // membangun/merancang
+  grp('hatsumei shimasu','hakken shimasu');         // menciptakan/menemukan
+
+  // ── Kata Kerja: Membersihkan & Rumah Tangga ──
+  grp('sentaku shimasu','sōji shimasu','katazukemasu'); // cuci/bersihkan/rapikan
+  grp('araimasu','migakimasu','fukimasu');          // mencuci/menyikat/mengelap
+  grp('sutemasu','shimaimasu');                     // membuang/menyimpan
+  grp('harimasu','kakemasu','kazarimasu','narabemasu'); // tempel/gantung/hias/tata
+  grp('uemasu','sodatemasu');                      // menanam/merawat
+
+  // ── Kata Kerja: Memakai Pakaian ──
+  grp('(shatsu o) kimasu','(kutsu o) hakimasu','(bōshi o) kaburimasu','(megane o) kakemasu'); // baju/sepatu/topi/kacamata
+  grp('nugimasu','(kasa o) sashimasu','shītoberto o shimasu'); // melepas/payung/seat belt
+
+  // ── Kata Kerja: Memasak & Makanan ──
+  grp('yakimasu','mazemasu','wakashimasu','hiyashimasu'); // panggang/campur/didihkan/dinginkan
+  grp('kawakashimasu','kawakimasu');                // mengeringkan/kering
+  grp('tsutsumimasu','kirimasu');                  // membungkus/memotong
+
+  // ── Kata Kerja: Kesehatan & Rumah Sakit ──
+  grp('nyūin shimasu','taiin shimasu');             // masuk RS/keluar RS
+  grp('(byōki ga) naorimasu','(kaze o) hikimasu'); // sembuh/terkena flu
+  grp('(kusuri o) nomimasu','(shawā o) abimasu','(ofuro ni) hairimasu'); // minum obat/mandi
+  grp('kansen shimasu','(byōki o) utsushimasu');   // terjangkit/menularkan
+  grp('futorimasu','yasemasu');                    // gemuk/kurus
+  grp('(netsu ga) tsuzukimasu','(ketsuatsu ga) agarimasu'); // demam berlanjut/tekanan naik
+
+  // ── Kata Kerja: Emosi & Perasaan ──
+  grp('waraimasu','nakimasu','nemurimasu');         // tertawa/menangis/tidur
+  grp('yorokobimasu','komarimasu');                // senang/kesulitan
+  grp('bikkuri shimasu','anshin shimasu','gakkari shimasu'); // terkejut/lega/kecewa
+  grp('shinpai shimasu','gaman shimasu','kinchō shimasu'); // khawatir/sabar/gugup
+  grp('tanoshimimasu','akiramemasu');              // menikmati/menyerah
+  grp('enryo shimasu','ōen shimasu');              // sungkan/mendukung
+
+  // ── Kata Kerja: Pintu/Saklar/Mesin (Transitif & Intransitif) ──
+  grp('(doa ga) akimasu','(doa ga) shimarimasu');  // pintu terbuka/tertutup
+  grp('(denki ga) tsukimasu','(denki ga) kiemasu'); // lampu nyala/padam
+  grp('(dengen o) iremasu','(dengen o) kirimasu'); // menyalakan/mematikan daya
+  grp('(kagi o) kakemasu','(kagi ga) kakarimasu'); // mengunci/terkunci
+  grp('(erebētā ga) tomarimasu','(tokei ga) ugokimasu'); // lift berhenti/jam bergerak
+
+  // ── Kata Kerja: Kerusakan (Intransitif) ──
+  grp('(isu ga) kowaremasu','(koppu ga) waremasu','(ki ga) oremasu'); // rusak/pecah/patah
+  grp('(kami ga) yaburemasu','(fuku ga) yogoremasu'); // sobek/kotor
+  grp('(himo ga) kiremasu','(botan ga) toremasu','(nimotsu ga) ochimasu'); // putus/lepas/jatuh
+  grp('(gasorin ga) nakunarimasu','taoremasu');     // habis/roboh
+
+  // ── Kata Kerja: Kerusakan (Penyebab/Transitif) ──
+  grp('kowashimasu','yogoshimasu','warimasu','otoshimasu'); // merusak/mengotori/memecah/menjatuhkan
+  grp('machigaemasu','nakushimasu');               // salah/kehilangan
+  grp('modoshimasu','matomemasu');                 // mengembalikan/mengumpulkan
+
+  // ── Kata Kerja: Cuaca & Alam ──
+  grp('(ame ga) furimasu','(ame ga) yamimasu');    // hujan turun/berhenti
+  grp('haremasu','kumorimasu','(kaze ga) fukimasu'); // cerah/mendung/angin bertiup
+  grp('(hana ga) sakimasu','(iro ga) kawarimasu'); // bunga mekar/warna berubah
+  grp('funka shimasu','teiden shimasu');            // meletus/pemadaman listrik
+
+  // ── Kata Kerja: Naik/Turun (Angka, Harga, Jumlah) ──
+  grp('(nedan ga) agarimasu','(nedan ga) sagarimasu'); // harga naik/turun
+  grp('(yushutsu ga) fuemasu','(yushutsu ga) herimasu'); // ekspor naik/turun
+  grp('agarimasu','sagarimasu');                   // naik/turun
+
+  // ── Kata Kerja: Perdagangan & Bisnis ──
+  grp('yushutsu shimasu','yunyū shimasu','hon\'yaku shimasu'); // ekspor/impor/terjemah
+  grp('seikō shimasu','shippai shimasu');           // berhasil/gagal
+  grp('umaku ikimasu','ganbarimasu');              // berjalan baik/berjuang
+
+  // ── Kata Kerja: Sosial & Hubungan ──
+  grp('kekkon shimasu','rikon shimasu','saikon shimasu'); // nikah/cerai/nikah lagi
+  grp('kon\'yaku shimasu','shiriai masu');          // bertunangan/berkenalan
+  grp('(tomodachi ni) aimasu','wakaremasu');        // bertemu/berpisah
+  grp('kenka shimasu','ayamarimasu');              // bertengkar/meminta maaf
+  grp('tetsudaimasu','sewa o shimasu');             // membantu/mengurus
+
+  // ── Kata Kerja: Kehormatan (Sonkeigo) ──
+  grp('irasshaimasu','meshiagarimasu','osshaimasu','goran ni narimasu','nasaimasu'); // hormat
+  // ── Kata Kerja: Kerendahan (Kenjougo) ──
+  grp('mairimasu','orimasu','mōshimasu','haiken shimasu','itashimasu','ukagaimasu','ome ni kakarimasu'); // rendah
+
+  // ── Kata Kerja: Memberi & Menerima ──
+  grp('agemasu','moraimasu','kuremasu');            // memberi/menerima/diberi
+  grp('itadakimasu','kudasaimasu','yarimasu');      // menerima(hormat)/memberi(hormat)/memberi(ke bawahan)
+  grp('gochisō shimasu','shinsetsu ni shimasu');    // mentraktir/baik hati
+  grp('todokemasu','(nimotsu ga) todokimasu');     // mengantarkan/barang tiba
+  grp('okurimasu','(hito o) okurimasu');           // mengirim/mengantarkan orang
+
+  // ── Kata Kerja: Melakukan & Mengerjakan ──
+  grp('shimasu','yarimasu','okonaimasu');           // melakukan
+  grp('tsukaimasu','kopī shimasu');                // menggunakan/memfotokopi
+  grp('erabimasu','kimemasu','kangaemasu');         // memilih/memutuskan/berpikir
+  grp('omoimasu','shinjimasu','rikai shimasu');     // berpikir/meyakini/memahami
+
+  // ── Kata Kerja: Waktu & Jadwal ──
+  grp('ma ni aimasu','okuremasu','chikoku shimasu'); // tepat waktu/terlambat
+  grp('sugoshimasu','(shichiji o) sugimasu');       // menghabiskan waktu/lewat jam
+  grp('tsuzukemasu','nokorimasu');                 // melanjutkan/tersisa
+
+  // ── Kata Kerja: Lalu lintas & Jalan ──
+  grp('(migi e) magarimasu','(michi ga) komimasu','(michi ga) sukimasu'); // belok/macet/sepi
+  grp('(jiko ni) aimasu','(wasuremono ni) ki ga tsukimasu'); // kecelakaan/menyadari
+
+  // ── Kata Kerja: Hidup & Mati ──
+  grp('umaremasu','nakunarimasu','shinimasu','nagaiki shimasu'); // lahir/meninggal/panjang umur
+  grp('sumimasu','sunde imasu','hikkoshi shimasu'); // tinggal/pindahan
+  grp('narimasu','(toshi o) torimasu');            // menjadi/menua
+
+  // ── Kata Kerja: Bermain & Hiburan ──
+  grp('asobimasu','odorimasu','utaimasu');          // bermain/menari/menyanyi
+  grp('hikimasu','shashin o torimasu');             // main alat musik/foto
+  grp('jogingu shimasu','pūru de oyogimasu','oyogimasu'); // joging/berenang
+  grp('kaimono shimasu','shokuji shimasu');         // belanja/makan
+
+  // ── Kata Kerja: Merokok & Kebiasaan ──
+  grp('suimasu','ase o kakimasu');                 // merokok/berkeringat
+  grp('(shūkan ni) naremasu','kayoimasu');          // terbiasa/bolak-balik
+
+  // ── Kata Kerja: Mengukur & Menghitung ──
+  grp('kazoemasu','hakarimasu','tashikamemasu');    // menghitung/mengukur/memastikan
+  grp('chekku shimasu','memo shimasu');             // mengecek/menulis memo
+
+  // ── Kata Kerja: Rekaman & Digital ──
+  grp('rokuon shimasu','mēru ni tenpu shimasu');    // rekam suara/lampirkan email
+  grp('risaikuru shimasu','seiri shimasu');         // daur ulang/memilah
+
+  // ── Kata Kerja: Lain-lain Pasangan ──
+  grp('koboshimasu','nugimasu');                    // menumpahkan/melepas
+  grp('suberimasu','fumimasu');                    // tergelincir/menginjak
+  grp('uchimasu','kamimasu');                      // memukul/menggigit
+  grp('mamorimasu','nigemasu','sawagimasu');        // menjaga/melarikan diri/keributan
+  grp('tsutaemasu','shirasemasu','todokemasu');     // menyampaikan/memberitahu/mengantar
+  grp('(denwa ga) kakarimasu','(maru o) tsukemasu'); // dapat telepon/menandai
+  grp('(shiai ni) demasu','(takarakuji ni) atarimasu'); // ikut pertandingan/menang lotre
+
+  // ── Kata Kerja: Mabuk & Basah ──  
+  grp('yoimasu','nuremasu');                       // mabuk/basah
+  grp('(jiko ga) okimasu','(biru ga) taoremasu');  // kecelakaan terjadi/bangunan runtuh
+  grp('(niku ga) yakemasu','(gomi ga) moemasu');   // dipanggang/terbakar
+  grp('(hito ga) atsumarimasu','(seki o) hazushimasu'); // berkumpul/meninggalkan meja
+
+  // ── Kata Kerja: Kemampuan & Kondisi ──
+  grp('dekimasu','wakarimasu','shirimasu');         // bisa/mengerti/tahu
+  grp('shitte imasu','tsukaremashita');            // tahu(sekarang)/lelah
+  grp('tarimasu','irimasu');                       // cukup/memerlukan
+  grp('chigaimasu','aimasu');                      // berbeda/cocok
+  grp('yaku ni tachimasu','tasukarimasu');          // bermanfaat/terbantu
+
+  // ── Kata Kerja: Dorong & Tarik ──
+  grp('oshimasu','hikimasu','mawashimasu');         // dorong/tarik/putar
+
+  // ── Kata Kerja: Cuaca Sebagai Aksi ──
+  grp('oiwai shimasu','sutoresu o kaishō shimasu'); // merayakan/hilangkan stres
+  grp('jitsugen shimasu','sono mama ni shimasu');   // mewujudkan/membiarkan
+
+  // ── Kata Kerja: Memulai & Mengakhiri ──
+  grp('hajimemasu','owarimasu','tsuzukemasu');      // mulai/akhiri/lanjut
+  grp('(shiki ga) hajimarimasu','me ga samemasu'); // upacara dimulai/bangun tidur
+
+  // ── Kata Kerja: Sōtai & Waktu Kerja ──
+  grp('sōtai shimasu','chikoku shimasu','zangyō shimasu'); // pulang awal/terlambat/lembur
+
+  // ── Kata Kerja: Kontekstual (dengan keterangan objek) ──
+  grp('(tomodachi ni) aimasu','(hito o) okurimasu'); // bertemu teman/mengantar orang
+  grp('(denwa o) kakemasu','(jūsho o) oshiemasu'); // menelepon/memberitahu alamat
+  grp('(kissaten ni) hairimasu','(kissaten o) demasu'); // masuk kafe/keluar kafe
+  grp('(kuruma o) tomemasu','mukaemasu');           // memarkir/menjemput
+  grp('(repōto o) dashimasu','(kyōshitsu o) hirakimasu'); // serahkan laporan/buka kelas
+  grp('(shatsu o) kimasu','(kutsu o) hakimasu','(bōshi o) kaburimasu','(megane o) kakemasu','(sōsu o) tsukemasu','(kasa o) sashimasu'); // semua memakai
+  grp('biza o torimasu','(biza ga) irimasu');      // ambil visa/butuh visa
+  grp('(sensei ni) kikimasu','(shitsumon ni) kotaemasu'); // bertanya ke guru/menjawab
+  grp('(kōhī o) iremasu','(doa ni) sawarimasu');   // buat kopi/sentuh pintu
+  grp('(michi o) arukimasu','(michi o) hashirimasu','(michi ga) komimasu','(michi ga) sukimasu'); // jalan kaki/berlari/macet/sepi
+  grp('(hashi o) watarimasu','(migi e) magarimasu'); // menyeberang/belok
+  grp('(eki ni) tsukimasu','(toshi o) torimasu');  // tiba stasiun/menua
+  grp('(yasumi o) torimasu','(takarakuji ni) atarimasu'); // ambil cuti/menang lotre
+  grp('(ame ga) furimasu','(ame ga) yamimasu','(kaze ga) fukimasu'); // hujan/berhenti/angin
+  grp('(byōki ga) naorimasu','(koshō ga) naorimasu','(kaze o) hikimasu'); // sembuh/perbaiki/flu
+  grp('(netsu ga) tsuzukimasu','(ketsuatsu ga) agarimasu','(byōki o) utsushimasu'); // demam/tekanan/menular
+  grp('(kusuri o) nomimasu','(shawā o) abimasu','(ofuro ni) hairimasu'); // minum obat/mandi
+  grp('(doa ga) akimasu','(doa ga) shimarimasu');  // pintu buka/tutup
+  grp('(denki ga) tsukimasu','(denki ga) kiemasu'); // lampu nyala/mati
+  grp('(dengen o) iremasu','(dengen o) kirimasu'); // saklar on/off
+  grp('(kagi o) kakemasu','(kagi ga) kakarimasu'); // kunci/terkunci
+  grp('(erebētā ga) tomarimasu','(tokei ga) ugokimasu'); // lift berhenti/jam jalan
+  grp('(isu ga) kowaremasu','(koppu ga) waremasu','(ki ga) oremasu'); // rusak/pecah/patah
+  grp('(kami ga) yaburemasu','(fuku ga) yogoremasu'); // sobek/kotor
+  grp('(himo ga) kiremasu','(botan ga) toremasu','(nimotsu ga) ochimasu'); // putus/lepas/jatuh
+  grp('(gasorin ga) nakunarimasu','taoremasu');     // habis/roboh
+  grp('(wasuremono ni) ki ga tsukimasu','ki o tsukemasu'); // menyadari/hati-hati
+  grp('(shiken o) ukemasu','(shiken ni) gōkaku shimasu','(shiken ni) ochimasu'); // ujian/lulus/gagal
+  grp('(daigaku ni) nyūgaku shimasu','(daigaku o) sotsugyō shimasu'); // masuk/lulus univ
+  grp('(daigaku ni) hairimasu','(daigaku o) demasu'); // masuk/keluar univ
+  grp('(kaigi ni) shusseki shimasu','(shiai ni) demasu'); // hadiri rapat/ikut pertandingan
+  grp('(hana ga) sakimasu','(iro ga) kawarimasu'); // mekar/berubah warna
+  grp('(nedan ga) agarimasu','(nedan ga) sagarimasu'); // harga naik/turun
+  grp('(yushutsu ga) fuemasu','(yushutsu ga) herimasu'); // ekspor naik/turun
+  grp('(denwa ga) kakarimasu','(maru o) tsukemasu'); // dapat telepon/menandai
+  grp('(shichiji o) sugimasu','(shūkan ni) naremasu'); // lewat jam/terbiasa
+  grp('(uso o) tsukimasu','(otsuri ga) demasu');   // bohong/kembalian keluar
+  grp('(biru ga) taoremasu','(niku ga) yakemasu','(gomi ga) moemasu'); // runtuh/panggang/bakar
+  grp('(jiko ga) okimasu','(jiko ni) aimasu');     // kecelakaan terjadi/mengalami
+  grp('(hito ga) atsumarimasu','(seki o) hazushimasu'); // berkumpul/tinggalkan meja
+  grp('(koe/oto/aji) ga shimasu','(nimotsu ga) todokimasu'); // terdengar/barang tiba
+  grp('(jishin o) mochimasu','(sekinin o) mochimasu'); // percaya diri/tanggung jawab
+  grp('(kaisha o) yasumimasu','kakarimasu');        // libur kerja/memakan waktu
+  grp('(shiki ga) hajimarimasu','me ga samemasu'); // upacara mulai/bangun tidur
+
+  // ── Kata Kerja: Tambahan yang belum masuk ──
+  grp('kenkyū shimasu','shirabemasu');             // meneliti/menyelidiki
+  grp('unten shimasu','(yama ni) noborimasu','(hoteru ni) tomarimasu'); // menyetir/mendaki/menginap
+  grp('kayoimasu','(densha ni) norimasu','(densha o) orimasu','(densha ni) norikaemasu'); // pulang pergi/naik/turun/ganti
+  grp('mukaemasu','(shawā o) abimasu');            // menjemput/mandi
+  grp('(enpitsu o) kezurimasu','torikaemasu');      // meraut/menukar
+  grp('sagemasu','chōsetsu shimasu');              // menurunkan/menyesuaikan
+  grp('uremasu','wakaremasu');                     // terjual/berpisah
+  grp('nagemasu','(seki o) hazushimasu');           // melempar/tinggalkan meja
+  grp("kon'yaku shimasu",'shiriai masu');           // bertunangan/berkenalan
+  grp("hon'yaku shimasu",'kenkyū shimasu');         // menerjemahkan/meneliti
+  grp('jiritsu o tasukemasu','sodatemasu');         // dukung kemandirian/merawat
+  grp('(kasa o) sashimasu','shītoberto o shimasu'); // payung/seat belt
+
   return G;
 })();
 
@@ -11674,6 +11955,256 @@ const _GROUP_ORDER = (function() {
   seq('shizuka (na)','nigiyaka (na)');
   seq('kantan (na)','muzukashii','yasashii');
   seq('benri (na)','fuben na');
+
+  // ── Kata Kerja Tambahan: Pergerakan & Perpindahan ──
+  seq('arukimasu','hashirimasu','oyogimasu');
+  seq('tachimasu','suwarimasu');
+  seq('isogimasu','machimasu');
+  seq('motte ikimasu','motte kimasu');
+  seq('tsurete ikimasu','tsurete kimasu');
+  seq('dekakemasu','modorimasu','kaette kimasu');
+  seq('shuppatsu shimasu','tōchaku shimasu');
+  seq('mukaimasu','(eki ni) tsukimasu');
+  seq('tōrimasu','(hashi o) watarimasu');
+  seq('(michi o) arukimasu','(michi o) hashirimasu');
+  seq('(yama ni) noborimasu','(hoteru ni) tomarimasu');
+  seq('norimasu','orimasu','norikaemasu');
+  seq('(densha ni) norimasu','(densha o) orimasu','(densha ni) norikaemasu');
+
+  // ── Memegang & Membawa ──
+  seq('mochimasu','hakobimasu');
+  seq('torimasu','watashimasu');
+  seq('hiroimasu','otoshimasu');
+
+  // ── Melihat & Mendengar ──
+  seq('miemasu','kikoemasu');
+  seq('misemasu','(sensei ni) kikimasu');
+
+  // ── Berbicara & Komunikasi ──
+  seq('hanashimasu','iimasu','kotaemasu');
+  seq('denwa shimasu','(denwa o) kakemasu','renraku shimasu');
+  seq('setsumei shimasu','shōkai shimasu','annai shimasu');
+  seq('tanomimasu','sasoimasu','shōtai shimasu');
+  seq('yobimasu','okoshimasu');
+  seq('shikarimasu','chūi shimasu','homemasu');
+
+  // ── Membeli & Bayar ──
+  seq('kaimasu','haraimasu','kaeshimasu');
+
+  // ── Belajar & Pendidikan ──
+  seq('benkyō shimasu','naraimasu','oshiemasu');
+  seq('oboemasu','wasuremasu','omoidashimasu');
+  seq('shirabemasu','sagashimasu','mitsukemasu');
+  seq('shitsumon shimasu','(shitsumon ni) kotaemasu');
+  seq('yoshū shimasu','fukushū shimasu','fukushū o shimasu');
+  seq('renshū shimasu','undō shimasu');
+  seq('(daigaku ni) nyūgaku shimasu','(daigaku o) sotsugyō shimasu');
+  seq('(daigaku ni) hairimasu','(daigaku o) demasu');
+  seq('(shiken o) ukemasu','(shiken ni) gōkaku shimasu','(shiken ni) ochimasu');
+  seq('ryūgaku shimasu','shūshoku shimasu');
+
+  // ── Kerja & Rutinitas ──
+  seq('hatarakimasu','yasumimasu','(kaisha o) yasumimasu');
+  seq('shutchō shimasu','zangyō shimasu');
+  seq('kyūkei shimasu','sanpo shimasu');
+  seq('sanka shimasu','(kaigi ni) shusseki shimasu');
+  seq('mōshikomimasu','yoyaku shimasu','kyanseru shimasu');
+  seq('okonaimasu','junbi shimasu','yōi shimasu');
+
+  // ── Membuat & Memperbaiki ──
+  seq('tsukurimasu','naoshimasu','kowashimasu');
+  seq('tatemasu','sekkei shimasu');
+  seq('hatsumei shimasu','hakken shimasu');
+
+  // ── Membersihkan & Rumah Tangga ──
+  seq('sentaku shimasu','sōji shimasu','katazukemasu');
+  seq('araimasu','migakimasu','fukimasu');
+  seq('sutemasu','shimaimasu');
+  seq('harimasu','kakemasu','kazarimasu','narabemasu');
+  seq('uemasu','sodatemasu');
+
+  // ── Memakai Pakaian ──
+  seq('(shatsu o) kimasu','(kutsu o) hakimasu','(bōshi o) kaburimasu','(megane o) kakemasu');
+  seq('nugimasu','(kasa o) sashimasu','shītoberto o shimasu');
+
+  // ── Memasak & Makanan ──
+  seq('yakimasu','mazemasu','wakashimasu','hiyashimasu');
+  seq('kawakashimasu','kawakimasu');
+  seq('tsutsumimasu','kirimasu');
+
+  // ── Kesehatan & Rumah Sakit ──
+  seq('nyūin shimasu','taiin shimasu');
+  seq('(byōki ga) naorimasu','(kaze o) hikimasu');
+  seq('(kusuri o) nomimasu','(shawā o) abimasu','(ofuro ni) hairimasu');
+  seq('kansen shimasu','(byōki o) utsushimasu');
+  seq('futorimasu','yasemasu');
+  seq('(netsu ga) tsuzukimasu','(ketsuatsu ga) agarimasu');
+
+  // ── Emosi & Perasaan ──
+  seq('waraimasu','nakimasu','nemurimasu');
+  seq('yorokobimasu','komarimasu');
+  seq('bikkuri shimasu','anshin shimasu','gakkari shimasu');
+  seq('shinpai shimasu','gaman shimasu','kinchō shimasu');
+  seq('tanoshimimasu','akiramemasu');
+  seq('enryo shimasu','ōen shimasu');
+
+  // ── Pintu/Saklar/Mesin ──
+  seq('(doa ga) akimasu','(doa ga) shimarimasu');
+  seq('(denki ga) tsukimasu','(denki ga) kiemasu');
+  seq('(dengen o) iremasu','(dengen o) kirimasu');
+  seq('(kagi o) kakemasu','(kagi ga) kakarimasu');
+  seq('(erebētā ga) tomarimasu','(tokei ga) ugokimasu');
+
+  // ── Kerusakan (Intransitif) ──
+  seq('(isu ga) kowaremasu','(koppu ga) waremasu','(ki ga) oremasu');
+  seq('(kami ga) yaburemasu','(fuku ga) yogoremasu');
+  seq('(himo ga) kiremasu','(botan ga) toremasu','(nimotsu ga) ochimasu');
+  seq('(gasorin ga) nakunarimasu','taoremasu');
+
+  // ── Kerusakan (Transitif) ──
+  seq('kowashimasu','yogoshimasu','warimasu','otoshimasu');
+  seq('machigaemasu','nakushimasu');
+  seq('modoshimasu','matomemasu');
+
+  // ── Cuaca & Alam ──
+  seq('(ame ga) furimasu','(ame ga) yamimasu');
+  seq('haremasu','kumorimasu','(kaze ga) fukimasu');
+  seq('(hana ga) sakimasu','(iro ga) kawarimasu');
+  seq('funka shimasu','teiden shimasu');
+
+  // ── Naik/Turun (Angka) ──
+  seq('(nedan ga) agarimasu','(nedan ga) sagarimasu');
+  seq('(yushutsu ga) fuemasu','(yushutsu ga) herimasu');
+
+  // ── Perdagangan & Bisnis ──
+  seq('yushutsu shimasu','yunyū shimasu','hon\'yaku shimasu');
+  seq('seikō shimasu','shippai shimasu');
+  seq('umaku ikimasu','ganbarimasu');
+
+  // ── Sosial & Hubungan ──
+  seq('kekkon shimasu','rikon shimasu','saikon shimasu');
+  seq('kon\'yaku shimasu','shiriai masu');
+  seq('(tomodachi ni) aimasu','wakaremasu');
+  seq('kenka shimasu','ayamarimasu');
+  seq('tetsudaimasu','sewa o shimasu');
+
+  // ── Kehormatan (Sonkeigo) ──
+  seq('irasshaimasu','meshiagarimasu','osshaimasu','goran ni narimasu','nasaimasu');
+  // ── Kerendahan (Kenjougo) ──
+  seq('mairimasu','orimasu','mōshimasu','haiken shimasu','itashimasu','ukagaimasu','ome ni kakarimasu');
+
+  // ── Memberi & Menerima ──
+  seq('itadakimasu','kudasaimasu','yarimasu');
+  seq('gochisō shimasu','shinsetsu ni shimasu');
+  seq('todokemasu','(nimotsu ga) todokimasu');
+  seq('okurimasu','(hito o) okurimasu');
+
+  // ── Melakukan & Mengerjakan ──
+  seq('shimasu','yarimasu','okonaimasu');
+  seq('tsukaimasu','kopī shimasu');
+  seq('erabimasu','kimemasu','kangaemasu');
+  seq('omoimasu','shinjimasu','rikai shimasu');
+
+  // ── Waktu & Jadwal ──
+  seq('ma ni aimasu','okuremasu','chikoku shimasu');
+  seq('sugoshimasu','(shichiji o) sugimasu');
+  seq('tsuzukemasu','nokorimasu');
+
+  // ── Lalu lintas ──
+  seq('(migi e) magarimasu','(michi ga) komimasu','(michi ga) sukimasu');
+  seq('(jiko ni) aimasu','(wasuremono ni) ki ga tsukimasu');
+
+  // ── Hidup & Mati ──
+  seq('umaremasu','nakunarimasu','shinimasu','nagaiki shimasu');
+  seq('sumimasu','sunde imasu','hikkoshi shimasu');
+  seq('narimasu','(toshi o) torimasu');
+
+  // ── Bermain & Hiburan ──
+  seq('asobimasu','odorimasu','utaimasu');
+  seq('hikimasu','shashin o torimasu');
+  seq('jogingu shimasu','pūru de oyogimasu','oyogimasu');
+  seq('kaimono shimasu','shokuji shimasu');
+
+  // ── Mengukur & Menghitung ──
+  seq('kazoemasu','hakarimasu','tashikamemasu');
+  seq('chekku shimasu','memo shimasu');
+
+  // ── Rekaman & Digital ──
+  seq('rokuon shimasu','mēru ni tenpu shimasu');
+  seq('risaikuru shimasu','seiri shimasu');
+
+  // ── Kemampuan & Kondisi ──
+  seq('dekimasu','wakarimasu','shirimasu');
+  seq('shitte imasu','tsukaremashita');
+  seq('tarimasu','irimasu');
+  seq('chigaimasu','aimasu');
+  seq('yaku ni tachimasu','tasukarimasu');
+
+  // ── Dorong & Tarik ──
+  seq('oshimasu','hikimasu','mawashimasu');
+
+  // ── Sōtai & Waktu Kerja ──
+  seq('sōtai shimasu','chikoku shimasu','zangyō shimasu');
+
+  // ── Kontekstual (dengan keterangan objek) ──
+  seq('(tomodachi ni) aimasu','(hito o) okurimasu');
+  seq('(denwa o) kakemasu','(jūsho o) oshiemasu');
+  seq('(kissaten ni) hairimasu','(kissaten o) demasu');
+  seq('(kuruma o) tomemasu','mukaemasu');
+  seq('(repōto o) dashimasu','(kyōshitsu o) hirakimasu');
+  seq('(shatsu o) kimasu','(kutsu o) hakimasu','(bōshi o) kaburimasu','(megane o) kakemasu','(sōsu o) tsukemasu','(kasa o) sashimasu');
+  seq('biza o torimasu','(biza ga) irimasu');
+  seq('(sensei ni) kikimasu','(shitsumon ni) kotaemasu');
+  seq('(kōhī o) iremasu','(doa ni) sawarimasu');
+  seq('(michi o) arukimasu','(michi o) hashirimasu','(michi ga) komimasu','(michi ga) sukimasu');
+  seq('(hashi o) watarimasu','(migi e) magarimasu');
+  seq('(eki ni) tsukimasu','(toshi o) torimasu');
+  seq('(yasumi o) torimasu','(takarakuji ni) atarimasu');
+  seq('(ame ga) furimasu','(ame ga) yamimasu','(kaze ga) fukimasu');
+  seq('(byōki ga) naorimasu','(koshō ga) naorimasu','(kaze o) hikimasu');
+  seq('(netsu ga) tsuzukimasu','(ketsuatsu ga) agarimasu','(byōki o) utsushimasu');
+  seq('(kusuri o) nomimasu','(shawā o) abimasu','(ofuro ni) hairimasu');
+  seq('(doa ga) akimasu','(doa ga) shimarimasu');
+  seq('(denki ga) tsukimasu','(denki ga) kiemasu');
+  seq('(dengen o) iremasu','(dengen o) kirimasu');
+  seq('(kagi o) kakemasu','(kagi ga) kakarimasu');
+  seq('(erebētā ga) tomarimasu','(tokei ga) ugokimasu');
+  seq('(isu ga) kowaremasu','(koppu ga) waremasu','(ki ga) oremasu');
+  seq('(kami ga) yaburemasu','(fuku ga) yogoremasu');
+  seq('(himo ga) kiremasu','(botan ga) toremasu','(nimotsu ga) ochimasu');
+  seq('(gasorin ga) nakunarimasu','taoremasu');
+  seq('(wasuremono ni) ki ga tsukimasu','ki o tsukemasu');
+  seq('(shiken o) ukemasu','(shiken ni) gōkaku shimasu','(shiken ni) ochimasu');
+  seq('(daigaku ni) nyūgaku shimasu','(daigaku o) sotsugyō shimasu');
+  seq('(daigaku ni) hairimasu','(daigaku o) demasu');
+  seq('(kaigi ni) shusseki shimasu','(shiai ni) demasu');
+  seq('(hana ga) sakimasu','(iro ga) kawarimasu');
+  seq('(nedan ga) agarimasu','(nedan ga) sagarimasu');
+  seq('(yushutsu ga) fuemasu','(yushutsu ga) herimasu');
+  seq('(denwa ga) kakarimasu','(maru o) tsukemasu');
+  seq('(shichiji o) sugimasu','(shūkan ni) naremasu');
+  seq('(uso o) tsukimasu','(otsuri ga) demasu');
+  seq('(biru ga) taoremasu','(niku ga) yakemasu','(gomi ga) moemasu');
+  seq('(jiko ga) okimasu','(jiko ni) aimasu');
+  seq('(hito ga) atsumarimasu','(seki o) hazushimasu');
+  seq('(koe/oto/aji) ga shimasu','(nimotsu ga) todokimasu');
+  seq('(jishin o) mochimasu','(sekinin o) mochimasu');
+  seq('(kaisha o) yasumimasu','kakarimasu');
+  seq('(shiki ga) hajimarimasu','me ga samemasu');
+
+  // ── Tambahan ──
+  seq('kenkyū shimasu','shirabemasu');
+  seq('unten shimasu','(yama ni) noborimasu','(hoteru ni) tomarimasu');
+  seq('kayoimasu','(densha ni) norimasu','(densha o) orimasu','(densha ni) norikaemasu');
+  seq('mukaemasu','(shawā o) abimasu');
+  seq('(enpitsu o) kezurimasu','torikaemasu');
+  seq('sagemasu','chōsetsu shimasu');
+  seq('uremasu','wakaremasu');
+  seq('nagemasu','(seki o) hazushimasu');
+  seq("kon'yaku shimasu",'shiriai masu');
+  seq("hon'yaku shimasu",'kenkyū shimasu');
+  seq('jiritsu o tasukemasu','sodatemasu');
+  seq('(kasa o) sashimasu','shītoberto o shimasu');
 
   return O;
 })();
