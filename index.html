@@ -1079,6 +1079,47 @@ body {
   border-radius: 20px; flex-shrink: 0; margin-left: auto;
 }
 
+/* ── PARTIKEL & BENTUK VV: Accordion / Collapsible ── */
+.part-accordion, .vv-accordion {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  margin-bottom: 10px;
+  overflow: hidden;
+  background: var(--surface);
+  transition: box-shadow 0.2s;
+}
+.part-accordion:hover, .vv-accordion:hover { box-shadow: 0 2px 12px rgba(124,106,247,0.08); }
+.part-accordion-head, .vv-accordion-head {
+  display: flex; align-items: center; gap: 10px;
+  padding: 12px 16px; cursor: pointer;
+  transition: background 0.15s;
+  user-select: none;
+}
+.part-accordion-head:hover, .vv-accordion-head:hover { background: rgba(124,106,247,0.06); }
+.part-accordion-chevron, .vv-accordion-chevron {
+  font-size: 0.7rem; color: var(--text2);
+  transition: transform 0.3s ease; flex-shrink: 0;
+}
+.part-accordion.open .part-accordion-chevron,
+.vv-accordion.open .vv-accordion-chevron { transform: rotate(90deg); }
+.part-accordion-body, .vv-accordion-body {
+  display: none;
+  padding: 0 16px 16px;
+  animation: konjSlideDown 0.25s ease;
+}
+.part-accordion.open .part-accordion-body,
+.vv-accordion.open .vv-accordion-body { display: block; }
+.part-accordion-count, .vv-accordion-count {
+  font-size: 0.7rem; color: var(--text2);
+  background: var(--surface2); padding: 2px 8px;
+  border-radius: 20px; flex-shrink: 0; margin-left: auto;
+}
+.part-accordion-bab, .vv-accordion-bab {
+  font-size: 0.65rem; color: var(--accent2);
+  background: rgba(192,132,252,0.12); padding: 2px 7px;
+  border-radius: 6px; flex-shrink: 0;
+}
+
 /* Collapsible Ragam Explanation */
 .konj-collapsible-toggle {
   display: flex; align-items: center; gap: 8px;
@@ -9265,6 +9306,22 @@ function rsumExpandCollapseAll(expand) {
   });
 }
 
+function rsumPartExpandAll(expand) {
+  const accs = document.querySelectorAll('#rsum-part-list-body .part-accordion');
+  accs.forEach(a => {
+    if (expand) a.classList.add('open');
+    else a.classList.remove('open');
+  });
+}
+
+function rsumVVExpandAll(expand) {
+  const accs = document.querySelectorAll('#rsum-vv-list-body .vv-accordion');
+  accs.forEach(a => {
+    if (expand) a.classList.add('open');
+    else a.classList.remove('open');
+  });
+}
+
 function buildPolaList() {
   // Group RANGKUMAN_POLA by bab
   const groups = {};
@@ -9381,9 +9438,13 @@ function renderRangkuman() {
   //   Kartu N4-baru: しか〜ない (B42) — kartu partikel ini belum ada di N5
   //   Semua partikel lain = N5, tapi TETAP ditampilkan di mode N4
   //   karena partikel N5 masih aktif dipakai di N4
+  // Urutan bab pertama kali partikel dipelajari (sesuai buku Minna no Nihongo):
+  const PARTIKEL_FIRST_BAB = {'は':1,'が':1,'の':1,'も':1,'ね/よ/な':1,'を':6,'に':5,'で':6,'へ':6,'から':6,'まで':6,'と':7,'より':16,'だけ':19,'けど/が':28,'しか〜ない':42,'によって':59};
   const N4_FUNC_TAGS = new Set(['POTENSIAL','INTRANSITIF','TRANSITIF','KONDISI']);
   const N4_ONLY_CARDS = new Set(['しか〜ない']);
-  const partHtml = RANGKUMAN_PARTIKEL_V2.map(p => {
+  // Sort partikel by first bab learned
+  const sortedPartikel = [...RANGKUMAN_PARTIKEL_V2].sort((a,b) => (PARTIKEL_FIRST_BAB[a.part]||99) - (PARTIKEL_FIRST_BAB[b.part]||99));
+  const partHtml = sortedPartikel.map((p, idx) => {
     const isN4Card = N4_ONLY_CARDS.has(p.part);
     // Mode N5: sembunyikan kartu yang baru muncul di N4
     if (rsumLevel === 'n5' && isN4Card) return '';
@@ -9406,15 +9467,20 @@ function renderRangkuman() {
     }).join('');
     const n4CardBadge = (isN4Card && rsumLevel !== 'n5')
       ? `<span class="rsum-level-badge badge-n4" style="margin-left:6px">N4 Baru</span>` : '';
-    const cardStyle = (isN4Card && rsumLevel !== 'n5') ? ' style="border-color:rgba(192,132,252,0.35)"' : '';
-    return `<div class="rsum-part-card"${cardStyle}>
-      <div class="rsum-part-card-head">
-        <span class="rsum-part-key" style="color:${p.color}">${p.part}</span>
-        <span style="font-size:0.72rem;color:var(--text2)">(${p.romaji})</span>
+    const firstBab = PARTIKEL_FIRST_BAB[p.part] || '?';
+    const isOpen = idx === 0 ? ' open' : '';
+    return `<div class="part-accordion${isOpen}" id="part-acc-${idx}">
+      <div class="part-accordion-head" onclick="this.parentElement.classList.toggle('open')">
+        <span class="part-accordion-chevron">▶</span>
+        <span class="rsum-part-key" style="color:${p.color};font-size:1.1rem">${p.part}</span>
+        <span style="font-size:0.78rem;color:var(--text2)">(${p.romaji})</span>
         ${n4CardBadge}
-        <span style="margin-left:auto;font-size:0.7rem;color:var(--text2)">${filteredFuncs.length} fungsi</span>
+        <span class="part-accordion-bab">Bab ${firstBab}</span>
+        <span class="part-accordion-count">${filteredFuncs.length} fungsi</span>
       </div>
-      <div class="rsum-part-funcs">${funcsHtml}</div>
+      <div class="part-accordion-body">
+        <div class="rsum-part-funcs">${funcsHtml}</div>
+      </div>
     </div>`;
   }).filter(Boolean).join('');
   const niVsDeBox = `<div class="note-box note-amber" style="margin-bottom:16px;font-size:0.78rem">
@@ -9441,16 +9507,25 @@ function renderRangkuman() {
     <div class="rsum-section-title">🔗 Partikel — <span style="color:${lvColor}">${lvLabel}</span></div>
     ${n4PartInfo}
     ${rsumLevel !== 'n4' ? niVsDeBox : ''}
-    ${partHtml}
+    <div class="rsum-bab-filter-bar" style="margin-bottom:12px">
+      <button class="rsum-bab-filter-btn" onclick="rsumPartExpandAll(true)">⬇ Buka Semua</button>
+      <button class="rsum-bab-filter-btn" onclick="rsumPartExpandAll(false)">⬆ Tutup Semua</button>
+    </div>
+    <div id="rsum-part-list-body">${partHtml}</div>
   </div>`;
 
   // ─── Tab 2: Bentuk VV ───
   const [vvMin, vvMax] = rsumLevelRange();
-  const vvHtml = RANGKUMAN_BENTUKVV.map(g => {
-    // Filter pola entries by bab range for current level
+  // Sort RANGKUMAN_BENTUKVV by first bab (earliest chapter the form is learned)
+  const sortedVV = [...RANGKUMAN_BENTUKVV].map(g => {
     const filteredPola = g.pola.filter(r => r.bab >= vvMin && r.bab <= vvMax);
-    if (filteredPola.length === 0) return ''; // hide group if no entries in level
-    const rowsHtml = filteredPola.map(r => {
+    const minBab = filteredPola.length > 0 ? Math.min(...filteredPola.map(r => r.bab)) : 9999;
+    return {...g, filteredPola, minBab};
+  }).filter(g => g.filteredPola.length > 0).sort((a,b) => a.minBab - b.minBab);
+
+  let vvIdx = 0;
+  const vvHtml = sortedVV.map(g => {
+    const rowsHtml = g.filteredPola.map(r => {
       const levelBadge = r.bab >= 36 ? `<span class="rsum-level-badge badge-n4">N4</span>` : `<span class="rsum-level-badge badge-n5">N5</span>`;
       return `
       <tr>
@@ -9460,27 +9535,41 @@ function renderRangkuman() {
         <td><span class="rsum-bab-chip clickable" onclick="openBabFromRangkuman(${r.bab}, 2, this)" title="Buka pembahasan Bab ${r.bab}">📖 Bab ${r.bab}</span>${rsumLevel==='all'?levelBadge:''}</td>
       </tr>`;
     }).join('');
-    return `<div class="rsum-vv-group">
-      <div class="rsum-vv-group-head">
+    const isOpen = vvIdx === 0 ? ' open' : '';
+    const maxBab = Math.max(...g.filteredPola.map(r => r.bab));
+    const babRange = g.minBab === maxBab ? `Bab ${g.minBab}` : `Bab ${g.minBab}–${maxBab}`;
+    const result = `<div class="vv-accordion${isOpen}" id="vv-acc-${vvIdx}">
+      <div class="vv-accordion-head" onclick="this.parentElement.classList.toggle('open')">
+        <span class="vv-accordion-chevron">▶</span>
         <span class="rsum-vv-chip ${g.chip}" style="font-size:0.72rem;padding:3px 10px">${g.bentuk}</span>
-        <span class="rsum-vv-group-label">${g.label}</span>
+        <span style="font-size:0.82rem;font-weight:600;color:var(--text)">${g.label}</span>
+        <span class="vv-accordion-bab">${babRange}</span>
+        <span class="vv-accordion-count">${g.filteredPola.length} pola</span>
       </div>
-      <div style="font-size:0.78rem;color:var(--text2);margin-bottom:8px;background:var(--surface2);border-radius:7px;padding:8px 12px;line-height:1.6">${g.desc}</div>
-      ${g.note ? `<div style="font-size:0.74rem;color:var(--amber);line-height:1.6;padding:7px 12px;background:rgba(251,191,36,0.07);border-left:3px solid var(--amber);border-radius:0 7px 7px 0;margin-bottom:8px">⚠️ ${g.note}</div>` : ''}
-      <div class="tbl-scroll-wrap">
-        <table class="rsum-vv-table">
-          <thead><tr><th>Bentuk</th><th>Pola Lengkap</th><th>Arti</th><th>Bab</th></tr></thead>
-          <tbody>${rowsHtml}</tbody>
-        </table>
+      <div class="vv-accordion-body">
+        <div style="font-size:0.78rem;color:var(--text2);margin-bottom:8px;background:var(--surface2);border-radius:7px;padding:8px 12px;line-height:1.6">${g.desc}</div>
+        ${g.note ? `<div style="font-size:0.74rem;color:var(--amber);line-height:1.6;padding:7px 12px;background:rgba(251,191,36,0.07);border-left:3px solid var(--amber);border-radius:0 7px 7px 0;margin-bottom:8px">⚠️ ${g.note}</div>` : ''}
+        <div class="tbl-scroll-wrap">
+          <table class="rsum-vv-table">
+            <thead><tr><th>Bentuk</th><th>Pola Lengkap</th><th>Arti</th><th>Bab</th></tr></thead>
+            <tbody>${rowsHtml}</tbody>
+          </table>
+        </div>
       </div>
     </div>`;
-  }).filter(Boolean).join('');
+    vvIdx++;
+    return result;
+  }).join('');
   document.getElementById('rsum-tab-2').innerHTML = `<div style="padding:16px 14px 20px">
     <div class="rsum-section-title">🏃 Pola Bunpou per Bentuk KK — <span style="color:${lvColor}">${lvLabel}</span></div>
     <div class="rsum-vv-intro">
-      Tabel ini mengelompokkan pola bunpou berdasarkan <b>bentuk konjugasi kata kerja</b>. Pola tanpa entri di level ini disembunyikan otomatis.
+      Tabel ini mengelompokkan pola bunpou berdasarkan <b>bentuk konjugasi kata kerja</b>. Diurutkan sesuai bab pertama kali dipelajari. Pola tanpa entri di level ini disembunyikan otomatis.
     </div>
-    ${vvHtml || '<div style="padding:32px;text-align:center;color:var(--text2)">Tidak ada entri di level ini.</div>'}
+    <div class="rsum-bab-filter-bar" style="margin-bottom:12px">
+      <button class="rsum-bab-filter-btn" onclick="rsumVVExpandAll(true)">⬇ Buka Semua</button>
+      <button class="rsum-bab-filter-btn" onclick="rsumVVExpandAll(false)">⬆ Tutup Semua</button>
+    </div>
+    <div id="rsum-vv-list-body">${vvHtml || '<div style="padding:32px;text-align:center;color:var(--text2)">Tidak ada entri di level ini.</div>'}</div>
   </div>`;
 
   // ─── Tab 3: Konjugasi KK ───
