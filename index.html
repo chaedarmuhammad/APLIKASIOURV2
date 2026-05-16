@@ -8488,8 +8488,8 @@ const RANGKUMAN_KONJUGASI = [
      {masu:"はなします", te:"はなさせます", nai:"はなさせない", kamus:"はなさせる", catatan:"Gr.I: し→さ+せる"},
      {masu:"たべます", te:"たべさせます", nai:"たべさせない", kamus:"たべさせる", catatan:"Gr.II: +させる"},
      {masu:"みます", te:"みさせます", nai:"みさせない", kamus:"みさせる", catatan:"Gr.II: +させる"},
-     {masu:"きます", te:"こさせます", nai:"こさせない", kamus:"こさせる", catatan:"Gr.III: 不規則"},
-     {masu:"します", te:"させます", nai:"させない", kamus:"させる", catatan:"Gr.III: 不規則"},
+     {masu:"きます", te:"こさせます", nai:"こさせない", kamus:"こさせる", catatan:"Gr.III: <ruby>不規則<rt>ふきそく</rt></ruby>"},
+     {masu:"します", te:"させます", nai:"させない", kamus:"させる", catatan:"Gr.III: <ruby>不規則<rt>ふきそく</rt></ruby>"},
    ],
    aturan: [
      "Gr.I: ます stem → ubah bunyi akhir i→a, tambah せます (よみ→よま+せます)",
@@ -8498,22 +8498,59 @@ const RANGKUMAN_KONJUGASI = [
      "Kausatif terkonjugasi sebagai KK Grup II",
    ]
   },
-  {grup:"命令・禁止", warna:"rsum-conj-meirei", label:"命令形・禁止形 (Perintah & Larangan)",
+  {grup:"命令・禁止", warna:"rsum-conj-meirei", label:"<ruby>命令形<rt>めいれいけい</rt></ruby>・<ruby>禁止形<rt>きんしけい</rt></ruby> (Perintah & Larangan)",
    contoh: [
      {masu:"のみます", te:"のめ", nai:"のむな", kamus:"のむ", catatan:"Gr.I: i→e"},
      {masu:"かきます", te:"かけ", nai:"かくな", kamus:"かく", catatan:"Gr.I: i→e"},
      {masu:"まちます", te:"まて", nai:"まつな", kamus:"まつ", catatan:"Gr.I: i→e"},
      {masu:"たべます", te:"たべろ", nai:"たべるな", kamus:"たべる", catatan:"Gr.II: +ろ"},
      {masu:"みます", te:"みろ", nai:"みるな", kamus:"みる", catatan:"Gr.II: +ろ"},
-     {masu:"きます", te:"こい", nai:"くるな", kamus:"くる", catatan:"Gr.III: 不規則"},
-     {masu:"します", te:"しろ", nai:"するな", kamus:"する", catatan:"Gr.III: 不規則"},
+     {masu:"きます", te:"こい", nai:"くるな", kamus:"くる", catatan:"Gr.III: <ruby>不規則<rt>ふきそく</rt></ruby>"},
+     {masu:"します", te:"しろ", nai:"するな", kamus:"する", catatan:"Gr.III: <ruby>不規則<rt>ふきそく</rt></ruby>"},
    ],
    aturan: [
-     "命令形 Gr.I: ます stem → ubah bunyi akhir i-row → e-row (のみ→のめ, かき→かけ)",
-     "命令形 Gr.II: ます stem + ろ (たべ→たべろ, み→みろ)",
-     "命令形 Gr.III: きます→こい / します→しろ",
-     "禁止形 SEMUA: KK bentuk kamus + な (のむな, たべるな, するな, くるな)",
+     "<ruby>命令形<rt>めいれいけい</rt></ruby> Gr.I: ます stem → ubah bunyi akhir i-row → e-row (のみ→のめ, かき→かけ)",
+     "<ruby>命令形<rt>めいれいけい</rt></ruby> Gr.II: ます stem + ろ (たべ→たべろ, み→みろ)",
+     "<ruby>命令形<rt>めいれいけい</rt></ruby> Gr.III: きます→こい / します→しろ",
+     "<ruby>禁止形<rt>きんしけい</rt></ruby> SEMUA: KK bentuk kamus + な (のむな, たべるな, するな, くるな)",
      "⚠️ Sangat kasar! Hanya untuk darurat, olahraga, atau tanda.",
+   ]
+  },
+  {grup:"尊敬", warna:"rsum-conj-ukemi", label:"<ruby>尊敬語<rt>そんけいご</rt></ruby> (Bahasa Hormat — meninggikan orang lain)",
+   contoh: [
+     {masu:"<ruby>聞<rt>き</rt></ruby>きます", te:"<ruby>聞<rt>き</rt></ruby>かれます", nai:"<ruby>聞<rt>き</rt></ruby>かれません", kamus:"<ruby>聞<rt>き</rt></ruby>かれる", catatan:"Gr.I: pasif=尊敬"},
+     {masu:"<ruby>読<rt>よ</rt></ruby>みます", te:"<ruby>読<rt>よ</rt></ruby>まれます", nai:"<ruby>読<rt>よ</rt></ruby>まれません", kamus:"<ruby>読<rt>よ</rt></ruby>まれる", catatan:"Gr.I: pasif=尊敬"},
+     {masu:"<ruby>書<rt>か</rt></ruby>きます", te:"<ruby>書<rt>か</rt></ruby>かれます", nai:"<ruby>書<rt>か</rt></ruby>かれません", kamus:"<ruby>書<rt>か</rt></ruby>かれる", catatan:"Gr.I: pasif=尊敬"},
+     {masu:"<ruby>食<rt>た</rt></ruby>べます", te:"<ruby>食<rt>た</rt></ruby>べられます", nai:"<ruby>食<rt>た</rt></ruby>べられません", kamus:"<ruby>食<rt>た</rt></ruby>べられる", catatan:"Gr.II: +られます"},
+     {masu:"きます", te:"こられます", nai:"こられません", kamus:"こられる", catatan:"Gr.III: <ruby>不規則<rt>ふきそく</rt></ruby>"},
+     {masu:"します", te:"されます", nai:"されません", kamus:"される", catatan:"Gr.III: <ruby>不規則<rt>ふきそく</rt></ruby>"},
+   ],
+   aturan:[
+     "Bentuk sama dengan <ruby>受身形<rt>うけみけい</rt></ruby> (pasif) — konteks menentukan makna",
+     "Gr.I: ～あれます (<ruby>聞<rt>き</rt></ruby>きます→<ruby>聞<rt>き</rt></ruby>かれます)",
+     "Gr.II: ～られます (<ruby>食<rt>た</rt></ruby>べます→<ruby>食<rt>た</rt></ruby>べられます)",
+     "Gr.III: きます→こられます / します→されます",
+     "Lebih sopan: お＋KK stem＋になります (お<ruby>帰<rt>かえ</rt></ruby>りになります)",
+     "<ruby>特別<rt>とくべつ</rt></ruby>: いらっしゃいます / めしあがります / おっしゃいます / ごぞんじです / ごらんになります",
+   ]
+  },
+  {grup:"謙譲", warna:"rsum-conj-ukemi", label:"<ruby>謙譲語<rt>けんじょうご</rt></ruby> (Bahasa Merendah — merendahkan diri sendiri)",
+   contoh: [
+     {masu:"<ruby>送<rt>おく</rt></ruby>ります", te:"お<ruby>送<rt>おく</rt></ruby>りします", nai:"お<ruby>送<rt>おく</rt></ruby>りしません", kamus:"お<ruby>送<rt>おく</rt></ruby>りする", catatan:"Gr.I: お～します"},
+     {masu:"<ruby>持<rt>も</rt></ruby>ちます", te:"お<ruby>持<rt>も</rt></ruby>ちします", nai:"お<ruby>持<rt>も</rt></ruby>ちしません", kamus:"お<ruby>持<rt>も</rt></ruby>ちする", catatan:"Gr.I: お～します"},
+     {masu:"<ruby>見<rt>み</rt></ruby>せます", te:"お<ruby>見<rt>み</rt></ruby>せします", nai:"お<ruby>見<rt>み</rt></ruby>せしません", kamus:"お<ruby>見<rt>み</rt></ruby>せする", catatan:"Gr.II: お～します"},
+     {masu:"<ruby>案内<rt>あんない</rt></ruby>します", te:"ご<ruby>案内<rt>あんない</rt></ruby>します", nai:"ご<ruby>案内<rt>あんない</rt></ruby>しません", kamus:"ご<ruby>案内<rt>あんない</rt></ruby>する", catatan:"Gr.III: ご～します"},
+     {masu:"<ruby>連絡<rt>れんらく</rt></ruby>します", te:"ご<ruby>連絡<rt>れんらく</rt></ruby>します", nai:"ご<ruby>連絡<rt>れんらく</rt></ruby>しません", kamus:"ご<ruby>連絡<rt>れんらく</rt></ruby>する", catatan:"Gr.III: ご～します"},
+     {masu:"いきます/きます", te:"まいります", nai:"まいりません", kamus:"まいる", catatan:"<ruby>特別<rt>とくべつ</rt></ruby>"},
+     {masu:"います", te:"おります", nai:"おりません", kamus:"おる", catatan:"<ruby>特別<rt>とくべつ</rt></ruby>"},
+     {masu:"いいます", te:"もうします", nai:"もうしません", kamus:"もうす", catatan:"<ruby>特別<rt>とくべつ</rt></ruby>"},
+   ],
+   aturan:[
+     "Gr.I & II: お＋KK ます stem＋します (お<ruby>送<rt>おく</rt></ruby>りします、お<ruby>持<rt>も</rt></ruby>ちします)",
+     "Gr.III: ご＋KB＋します (ご<ruby>案内<rt>あんない</rt></ruby>します、ご<ruby>連絡<rt>れんらく</rt></ruby>します)",
+     "<ruby>特別<rt>とくべつ</rt></ruby>: まいります / おります / もうします / いただきます / はいけんします / いたします / うかがいます / おめにかかります",
+     "⚠️ <ruby>尊敬語<rt>そんけいご</rt></ruby>: <ruby>主語<rt>しゅご</rt></ruby>=<ruby>相手<rt>あいて</rt></ruby>（meninggikan orang lain）",
+     "⚠️ <ruby>謙譲語<rt>けんじょうご</rt></ruby>: <ruby>主語<rt>しゅご</rt></ruby>=<ruby>自分<rt>じぶん</rt></ruby>（merendahkan diri sendiri）",
    ]
   },
 ];
@@ -8525,7 +8562,7 @@ const RANGKUMAN_KONJUGASI = [
 //       た形  → tambah di grup "〜た<ruby>形<rt>けい</rt></ruby>"  (たことがある, たり〜たり, dll.)
 //       ない形 → tambah di grup "〜ない<ruby>形<rt>けい</rt></ruby>" (なければならない, dll.)
 //       <ruby>辞書形<rt>じしょけい</rt></ruby> → tambah di grup "<ruby>辞書形<rt>じしょけい</rt></ruby>"  (つもりです, 予定です, まえに, dll.)
-//       意向形 → tambah di grup "意向形"  (〜と思っています, dll.)
+//       <ruby>意向形<rt>いこうけい</rt></ruby> → tambah di grup "<ruby>意向形<rt>いこうけい</rt></ruby>"  (〜と思っています, dll.)
 //       <ruby>普通体<rt>ふつうたい</rt></ruby> → tambah di grup "<ruby>普通体<rt>ふつうたい</rt></ruby>"  (と思います, んです, dll.)
 //       たら形 → tambah di grup "〜たら<ruby>形<rt>けい</rt></ruby>"
 //       ても形 → tambah di grup "〜ても<ruby>形<rt>けい</rt></ruby>"
@@ -8703,7 +8740,7 @@ const RANGKUMAN_BENTUKVV = [
       {form:"interogatif + [biasa] <b>か</b>、〜", pola:"interogatif + [bentuk biasa] か、〜", arti:"(Bertanya) kapan/di mana/siapa/apa ~ (pertanyaan terbenam)", bab:64, contoh:"なんじに しゅっぱつするか、おしえてください → tolong beritahu jam berapa berangkat"},
       {form:"[biasa] + <b>かどうか</b>、〜", pola:"[Bentuk biasa] かどうか、〜", arti:"Apakah ~ atau tidak (pertanyaan ya/tidak terbenam)", bab:64, contoh:"まちがいが ないか どうか、たしかめてください → tolong pastikan ada kesalahan atau tidak"},
       {form:"[biasa] + <b>のに</b>、〜", pola:"[Bentuk biasa] のに、〜", arti:"Padahal ~ (kontras/kekecewaan)", bab:71, contoh:"30ぷんも まったのに、きませんでした → padahal sudah tunggu 30 menit, tidak datang"},
-      {form:"[biasa] + <b>そうです</b> (伝聞)", pola:"[Bentuk biasa] そうです (伝聞)", arti:"Katanya ~ / Saya dengar ~ (informasi dari orang lain)", bab:73, contoh:"あした テストが あるそうです → katanya besok ada ujian"},
+      {form:"[biasa] + <b>そうです</b> (<ruby>伝聞<rt>でんぶん</rt></ruby>)", pola:"[Bentuk biasa] そうです (<ruby>伝聞<rt>でんぶん</rt></ruby>)", arti:"Katanya ~ / Saya dengar ~ (informasi dari orang lain)", bab:73, contoh:"あした テストが あるそうです → katanya besok ada ujian"},
       {form:"[biasa] + <b>ようです</b>", pola:"[Bentuk biasa] ようです", arti:"Tampaknya ~ / Sepertinya ~ (kesimpulan dari pengamatan)", bab:73, contoh:"だれか いるようです → sepertinya ada seseorang"},
     ]
   },
@@ -8741,7 +8778,7 @@ const RANGKUMAN_BENTUKVV = [
   {
     bentuk: "〜ば<ruby>形<rt>けい</rt></ruby>",
     chip: "vv-ba", label: "Bentuk ば — Jika ~, maka ~ (Kondisional)",
-    desc: "Bentuk kondisional (条件形). Menyatakan 'jika A maka B'. Cocok untuk kondisi alami/logis. ⚠️ Tidak bisa diikuti keinginan/perintah langsung (〜たい, 〜てください). Gunakan たら untuk konteks tersebut.",
+    desc: "Bentuk kondisional (<ruby>条件形<rt>じょうけんけい</rt></ruby>). Menyatakan 'jika A maka B'. Cocok untuk kondisi alami/logis. ⚠️ Tidak bisa diikuti keinginan/perintah langsung (〜たい, 〜てください). Gunakan たら untuk konteks tersebut.",
     pola: [
       {form:"KKグI: <b>〜う → 〜えば</b>", pola:"Ganti vokal う → え, tambah ば", arti:"Jika ~ (Grup I / Godan)", bab:54, contoh:"のむ→のめば / まつ→まてば / かく→かけば / はなす→はなせば"},
       {form:"KKグII: <b>〜る → 〜れば</b>", pola:"Ganti る → れ, tambah ば", arti:"Jika ~ (Grup II / Ichidan)", bab:54, contoh:"たべる→たべれば / みる→みれば / ねる→ねれば"},
@@ -8754,23 +8791,23 @@ const RANGKUMAN_BENTUKVV = [
   },
   {
     bentuk: "<ruby>受身形<rt>うけみけい</rt></ruby>",
-    chip: "vv-ukemi", label: "Bentuk 受身 — Pasif (menerima tindakan)",
+    chip: "vv-ukemi", label: "Bentuk <ruby>受身<rt>うけみ</rt></ruby> — Pasif (menerima tindakan)",
     desc: "Bentuk pasif menyatakan bahwa subjek menerima tindakan dari pihak lain. Terkonjugasi seperti KK Grup II. Dipakai untuk: (1) menerima tindakan langsung, (2) menerima tindakan pada milik sendiri, (3) pasif impersonal/fakta umum.",
     pola: [
       {form:"KKグI: <b>〜う → 〜われます</b>", pola:"Ganti vokal う → あ, tambah れます", arti:"Pasif Grup I — Godan", bab:58, contoh:"のむ→のまれます / かく→かかれます / よぶ→よばれます / とる→とられます"},
       {form:"KKグII: <b>〜る → 〜られます</b>", pola:"Ganti る → られます", arti:"Pasif Grup II — Ichidan", bab:58, contoh:"たべる→たべられます / みる→みられます / ほめる→ほめられます"},
       {form:"KKグIII: <b>くる→こられます / する→されます</b>", pola:"Tidak beraturan", arti:"Pasif Grup III — Tidak beraturan", bab:58, contoh:"くる→こられます / する→されます / しょうたいする→しょうたいされます"},
-      {form:"KB1 は KB2 <b>に</b> KK<b>受身</b>", pola:"KB1 は KB2 に + KK 受身形", arti:"Pasif langsung — KB1 menerima tindakan dari KB2", bab:58, contoh:"(わたしは) せんせい<b>に</b> しかられました → saya dimarahi guru"},
-      {form:"KB1 は KB2 <b>に</b> KB3 <b>を</b> KK<b>受身</b>", pola:"KB1 は KB2 に KB3 を + KK 受身形", arti:"Pasif kepemilikan — KB2 melakukan sesuatu pada milik KB1", bab:58, contoh:"(わたしは) おとうと<b>に</b> パソコン<b>を</b> こわされました → komputer saya dirusak adik"},
-      {form:"KB <b>が/は</b> KK<b>受身</b> (tanpa pelaku)", pola:"KB が/は + KK 受身形", arti:"Pasif impersonal — pelaku tidak disebutkan/tidak penting", bab:59, contoh:"インスタントラーメンは 1958ねんに <ruby>発明<rt>はつめい</rt></ruby>されました → mie instan ditemukan 1958"},
-      {form:"KB は [人名] <b>によって</b> KK<b>受身</b>", pola:"KB は + pelaku + によって + KK 受身形", arti:"Pasif formal — oleh ~ (karya/penemuan/ciptaan)", bab:59, contoh:"<ruby>銀河鉄道の夜<rt>ぎんがてつどうのよる</rt></ruby>は <ruby>宮沢賢治<rt>みやざわけんじ</rt></ruby><b>によって</b> かかれました"},
+      {form:"KB1 は KB2 <b>に</b> KK<b><ruby>受身<rt>うけみ</rt></ruby></b>", pola:"KB1 は KB2 に + KK <ruby>受身形<rt>うけみけい</rt></ruby>", arti:"Pasif langsung — KB1 menerima tindakan dari KB2", bab:58, contoh:"(わたしは) せんせい<b>に</b> しかられました → saya dimarahi guru"},
+      {form:"KB1 は KB2 <b>に</b> KB3 <b>を</b> KK<b><ruby>受身<rt>うけみ</rt></ruby></b>", pola:"KB1 は KB2 に KB3 を + KK <ruby>受身形<rt>うけみけい</rt></ruby>", arti:"Pasif kepemilikan — KB2 melakukan sesuatu pada milik KB1", bab:58, contoh:"(わたしは) おとうと<b>に</b> パソコン<b>を</b> こわされました → komputer saya dirusak adik"},
+      {form:"KB <b>が/は</b> KK<b><ruby>受身<rt>うけみ</rt></ruby></b> (tanpa pelaku)", pola:"KB が/は + KK <ruby>受身形<rt>うけみけい</rt></ruby>", arti:"Pasif impersonal — pelaku tidak disebutkan/tidak penting", bab:59, contoh:"インスタントラーメンは 1958ねんに <ruby>発明<rt>はつめい</rt></ruby>されました → mie instan ditemukan 1958"},
+      {form:"KB は [<ruby>人名<rt>じんめい</rt></ruby>] <b>によって</b> KK<b><ruby>受身<rt>うけみ</rt></ruby></b>", pola:"KB は + pelaku + によって + KK <ruby>受身形<rt>うけみけい</rt></ruby>", arti:"Pasif formal — oleh ~ (karya/penemuan/ciptaan)", bab:59, contoh:"<ruby>銀河鉄道の夜<rt>ぎんがてつどうのよる</rt></ruby>は <ruby>宮沢賢治<rt>みやざわけんじ</rt></ruby><b>によって</b> かかれました"},
     ],
     note: "⚠️ に (pelaku tindakan langsung, orang/hewan) vs によって (pelaku karya/ciptaan/penemuan, lebih formal). ⚠️ Jangan bingung dengan Gr II potensial: たべられます (bisa makan / dimakan) — konteks menentukan maknanya."
   },
   {
     bentuk: "<ruby>命令形<rt>めいれいけい</rt></ruby>・<ruby>禁止形<rt>きんしけい</rt></ruby>",
     chip: "vv-meirei", label: "Bentuk Perintah & Larangan — Darurat / Tanda",
-    desc: "命令形 = perintah langsung (darurat, olahraga, tanda). 禁止形 = larangan keras (KK kamus + な). Digunakan dalam situasi non-sopan.",
+    desc: "<ruby>命令形<rt>めいれいけい</rt></ruby> = perintah langsung (darurat, olahraga, tanda). <ruby>禁止形<rt>きんしけい</rt></ruby> = larangan keras (KK kamus + な). Digunakan dalam situasi non-sopan.",
     pola: [
       {form:"Gr.I: bunyi i-row → <b>e-row</b>", pola:"Godan: ganti bunyi akhir i → e", arti:"Perintah Grup I", bab:75, contoh:"のむ→のめ | まつ→まて | かく→かけ | はしる→はしれ"},
       {form:"Gr.II: buang る + <b>ろ</b>", pola:"Ichidan: KK stem + ろ", arti:"Perintah Grup II", bab:75, contoh:"たべる→たべろ | みる→みろ | ねる→ねろ | やめる→やめろ"},
@@ -8793,17 +8830,17 @@ const RANGKUMAN_BENTUKVV = [
   },
   {
     bentuk: "<ruby>敬語<rt>けいご</rt></ruby>",
-    chip: "vv-keigo", label: "Bahasa Hormat & Merendah — 尊敬語・謙譲語",
-    desc: "尊敬語 = meninggikan pelaku (orang lain). 謙譲語 = merendahkan diri sendiri. Keduanya menunjukkan hormat.",
+    chip: "vv-keigo", label: "Bahasa Hormat & Merendah — <ruby>尊敬語<rt>そんけいご</rt></ruby>・<ruby>謙譲語<rt>けんじょうご</rt></ruby>",
+    desc: "<ruby>尊敬語<rt>そんけいご</rt></ruby> = meninggikan pelaku (orang lain). <ruby>謙譲語<rt>けんじょうご</rt></ruby> = merendahkan diri sendiri. Keduanya menunjukkan hormat.",
     pola: [
-      {form:"<b>尊敬語</b>: KK [〜(ら)れます]", pola:"KK pasif = 尊敬語 (bentuk sama dengan pasif)", arti:"(Beliau) melakukan ~ (hormat kepada pelaku)", bab:77, contoh:"しゃちょうは 9じはんに こられます → direktur datang jam 9:30"},
-      {form:"<b>お</b>(KK stem)<b>に なります</b>", pola:"お + KK stem + に なります", arti:"(Beliau) melakukan ~ (lebih sopan dari 尊敬語 biasa)", bab:77, contoh:"せんせいが おかえりに なります → guru pulang"},
+      {form:"<b><ruby>尊敬語<rt>そんけいご</rt></ruby></b>: KK [〜(ら)れます]", pola:"KK pasif = <ruby>尊敬語<rt>そんけいご</rt></ruby> (bentuk sama dengan pasif)", arti:"(Beliau) melakukan ~ (hormat kepada pelaku)", bab:77, contoh:"しゃちょうは 9じはんに こられます → direktur datang jam 9:30"},
+      {form:"<b>お</b>(KK stem)<b>に なります</b>", pola:"お + KK stem + に なります", arti:"(Beliau) melakukan ~ (lebih sopan dari <ruby>尊敬語<rt>そんけいご</rt></ruby> biasa)", bab:77, contoh:"せんせいが おかえりに なります → guru pulang"},
       {form:"<b>お</b>(KK stem)<b>ください</b>", pola:"お + KK stem + ください / ご + KB + ください", arti:"Silakan ~ (permintaan sopan setara てください)", bab:77, contoh:"どうぞ おはいりください → silakan masuk"},
-      {form:"<b>謙譲語</b>: お(KK stem)<b>します</b>", pola:"お + KK stem + します / ご + KB + します", arti:"Saya melakukan ~ (merendahkan diri)", bab:78, contoh:"おにもつを おもちします → saya bawakan barang Anda"},
-      {form:"Ungkapan khusus 尊敬語", pola:"いらっしゃいます / めしあがります / おっしゃいます / ごぞんじです", arti:"Bentuk khusus hormat", bab:77, contoh:"しゃちょうは かいぎしつに いらっしゃいます → direktur ada di ruang rapat"},
-      {form:"Ungkapan khusus 謙譲語", pola:"まいります / おります / もうします / いただきます / はいけんします", arti:"Bentuk khusus merendah", bab:78, contoh:"わたしが まいります → saya yang akan pergi"},
+      {form:"<b><ruby>謙譲語<rt>けんじょうご</rt></ruby></b>: お(KK stem)<b>します</b>", pola:"お + KK stem + します / ご + KB + します", arti:"Saya melakukan ~ (merendahkan diri)", bab:78, contoh:"おにもつを おもちします → saya bawakan barang Anda"},
+      {form:"Ungkapan khusus <ruby>尊敬語<rt>そんけいご</rt></ruby>", pola:"いらっしゃいます / めしあがります / おっしゃいます / ごぞんじです", arti:"Bentuk khusus hormat", bab:77, contoh:"しゃちょうは かいぎしつに いらっしゃいます → direktur ada di ruang rapat"},
+      {form:"Ungkapan khusus <ruby>謙譲語<rt>けんじょうご</rt></ruby>", pola:"まいります / おります / もうします / いただきます / はいけんします", arti:"Bentuk khusus merendah", bab:78, contoh:"わたしが まいります → saya yang akan pergi"},
     ],
-    note: "⚠️ 尊敬語: subjek = orang yang dihormati. 謙譲語: subjek = diri sendiri. Jangan tertukar!"
+    note: "⚠️ <ruby>尊敬語<rt>そんけいご</rt></ruby>: subjek = orang yang dihormati. <ruby>謙譲語<rt>けんじょうご</rt></ruby>: subjek = diri sendiri. Jangan tertukar!"
   },
 ];
 
@@ -9176,7 +9213,7 @@ function renderRangkuman() {
 
   // ─── Tab 3: Konjugasi KK ───
   // Grup dasar I/II/III/⚠️ = N5. Grup たら/可能/ても/ながら = N4 (bab 36+)
-  const konjN4Groups = ['たら', '可能', 'ても', 'ながら', '受身', '使役', '命令・禁止'];
+  const konjN4Groups = ['たら', '可能', 'ても', 'ながら', '受身', '使役', '命令・禁止', '尊敬', '謙譲'];
   let konjHtml = '';
   RANGKUMAN_KONJUGASI.forEach(g => {
     const isN4Group = konjN4Groups.includes(g.grup);
