@@ -5,7 +5,7 @@
 // NOTE: Uses relative paths so the app works whether deployed at root (/)
 // or in a subdirectory (e.g., /APLIKASIOURV2/ on GitHub Pages).
 
-const CACHE_NAME = 'n5n4-flashcard-v2.1.0';
+const CACHE_NAME = 'n5n4-flashcard-v2.2.0';
 const SW_SCOPE = self.registration ? self.registration.scope : self.location.href.replace(/sw\.js.*$/, '');
 
 // Static assets to pre-cache (relative to SW scope)
@@ -21,6 +21,11 @@ const STATIC_ASSETS = [
   './src/storage.js',
   './src/srs.js',
   './src/version.js',
+  './src/export-import.js',
+  './src/navigation.js',
+  './src/ui-study.js',
+  './src/ui-kamus.js',
+  './src/ui-rangkuman.js',
   './app.js',
   './icon.svg',
   './icons/icon-192.png',
@@ -37,7 +42,7 @@ const FONT_URLS = [
 self.addEventListener('install', function(event) {
   event.waitUntil(
     caches.open(CACHE_NAME).then(function(cache) {
-      console.log('[SW] Pre-caching static assets (v2.1.0)');
+      console.log('[SW] Pre-caching static assets (v2.2.0)');
       // Cache each asset individually to avoid failing all if one is missing
       return Promise.allSettled(
         STATIC_ASSETS.map(function(url) {
