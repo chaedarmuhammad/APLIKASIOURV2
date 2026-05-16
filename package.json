@@ -1,0 +1,12 @@
+{
+  "name": "n5n4-flashcard",
+  "version": "2.1.0",
+  "description": "Aplikasi flashcard bahasa Jepang N5 hingga N4 dengan spaced repetition",
+  "private": true,
+  "scripts": {
+    "build": "node build.js",
+    "test": "node tests/srs.test.js",
+    "clean": "rm -rf dist"
+  },
+  "devDependencies": {}
+}

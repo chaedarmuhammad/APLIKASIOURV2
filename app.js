@@ -1,3 +1,22 @@
+// ========== N5→N4 日本語 Flashcard — Main Application ==========
+// 
+// ARCHITECTURE (v2.1.0):
+// ┌─────────────────────────────────────────────────────┐
+// │  index.html                                         │
+// │  ├── data-n5.js     → BABS (Bab 1-35)              │
+// │  ├── data-n4.js     → BABS_N4 (Bab 36-78)          │
+// │  ├── data.js        → Merges BABS + BABS_N4         │
+// │  ├── src/utils.js   → escapeHtml, sanitize, toast   │
+// │  ├── src/storage.js → localStorage + IndexedDB      │
+// │  ├── src/srs.js     → SM-2 spaced repetition        │
+// │  ├── src/version.js → Versioning & update check     │
+// │  └── app.js         → UI, rendering, navigation     │
+// └─────────────────────────────────────────────────────┘
+//
+// SECURITY: innerHTML usage in this file is intentional for rendering
+// Japanese text with <ruby> furigana tags from TRUSTED static data.
+// User input (search queries, file names) is escaped via escapeHtml().
+
 // ========== ERROR HANDLING WRAPPER ==========
 // Global error handler — catches unhandled errors and shows fallback UI
 window.onerror = function(msg, src, line, col, err) {
@@ -20,36 +39,31 @@ function showAppError(message) {
   if (loadingScreen) loadingScreen.classList.add('hidden');
 }
 
-// Safe execution wrapper — wraps functions with try-catch
-function safeExec(fn, fallbackMsg) {
-  try {
-    return fn();
-  } catch(e) {
-    console.error('SafeExec error:', e);
-    if (fallbackMsg) {
-      showToast(fallbackMsg, 'error');
-    }
-    return null;
+// NOTE: showToast, safeExec, escapeHtml are now defined in src/utils.js
+// The following are kept as fallbacks if utils.js fails to load:
+if (typeof showToast === 'undefined') {
+  function showToast(msg, type) {
+    const existing = document.getElementById('appToast');
+    if (existing) existing.remove();
+    const toast = document.createElement('div');
+    toast.id = 'appToast';
+    toast.setAttribute('role', 'alert');
+    toast.setAttribute('aria-live', 'assertive');
+    const bg = type === 'error' ? 'rgba(248,113,113,0.95)' : 
+               type === 'success' ? 'rgba(52,211,153,0.95)' : 'rgba(124,106,247,0.95)';
+    toast.style.cssText = `position:fixed;bottom:20px;left:50%;transform:translateX(-50%);
+      background:${bg};color:white;padding:10px 20px;border-radius:10px;font-size:0.82rem;
+      font-weight:600;z-index:9999;box-shadow:0 4px 20px rgba(0,0,0,0.4);
+      animation:fadeIn 0.2s ease;max-width:90%;text-align:center`;
+    toast.textContent = msg;
+    document.body.appendChild(toast);
+    setTimeout(() => { if (toast.parentNode) toast.remove(); }, 3500);
   }
 }
-
-// Toast notification helper
-function showToast(msg, type) {
-  const existing = document.getElementById('appToast');
-  if (existing) existing.remove();
-  const toast = document.createElement('div');
-  toast.id = 'appToast';
-  toast.setAttribute('role', 'alert');
-  toast.setAttribute('aria-live', 'assertive');
-  const bg = type === 'error' ? 'rgba(248,113,113,0.95)' : 
-             type === 'success' ? 'rgba(52,211,153,0.95)' : 'rgba(124,106,247,0.95)';
-  toast.style.cssText = `position:fixed;bottom:20px;left:50%;transform:translateX(-50%);
-    background:${bg};color:white;padding:10px 20px;border-radius:10px;font-size:0.82rem;
-    font-weight:600;z-index:9999;box-shadow:0 4px 20px rgba(0,0,0,0.4);
-    animation:fadeIn 0.2s ease;max-width:90%;text-align:center`;
-  toast.textContent = msg;
-  document.body.appendChild(toast);
-  setTimeout(() => { if (toast.parentNode) toast.remove(); }, 3500);
+if (typeof safeExec === 'undefined') {
+  function safeExec(fn, fallbackMsg) {
+    try { return fn(); } catch(e) { console.error('SafeExec error:', e); return null; }
+  }
 }
 
 // ========== DATA VALIDATION ==========
@@ -355,6 +369,9 @@ async function initApp() {
     });
     
     console.log('[N5N4] App initialized. BABS:', BABS.length, 'chapters. IndexedDB:', _idbReady ? 'OK' : 'N/A');
+    
+    // Check for version update notification
+    if (typeof checkVersionUpdate === 'function') checkVersionUpdate();
     
   } catch(e) {
     console.error('[N5N4] Initialization failed:', e);
@@ -6464,11 +6481,11 @@ function renderKamusBody() {
     if (subEl) subEl.textContent = `🔍 Hasil pencarian "${q}" — ${matches.length} kata ditemukan`;
     statEl.innerHTML = `
       <span class="kamus-stat-chip">📊 ${matches.length} kata</span>
-      <span class="kamus-stat-chip" style="color:var(--amber);border-color:var(--amber)">🔍 "${q}"</span>
+      <span class="kamus-stat-chip" style="color:var(--amber);border-color:var(--amber)">🔍 "${escapeHtml(q)}"</span>
       ${kamusCoreOnly ? `<span class="kamus-stat-chip" style="color:var(--green);border-color:var(--green)">✅ Hanya inti</span>` : ''}`;
 
     if (!matches.length) {
-      bodyEl.innerHTML = `<div class="kamus-empty">😕 Tidak ada kata ditemukan untuk "<b>${q}</b>".<br><span style="font-size:0.8rem">Coba kata lain atau cek ejaan.</span></div>`;
+      bodyEl.innerHTML = `<div class="kamus-empty">😕 Tidak ada kata ditemukan untuk "<b>${escapeHtml(q)}</b>".<br><span style="font-size:0.8rem">Coba kata lain atau cek ejaan.</span></div>`;
       return;
     }
 
