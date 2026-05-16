@@ -373,7 +373,12 @@ function showScr(id) {
   }
   if (id === 'crossScr') { renderCrossCategories(); refreshForgetBanner(); }
   if (id === 'kamusScr') initKamus();
-  if (id === 'rangkumanScr') { if (!rangkumanRendered) { renderRangkuman(); rangkumanRendered = true; } }
+  if (id === 'rangkumanScr') { 
+    if (!rangkumanRendered) { 
+      try { renderRangkuman(); rangkumanRendered = true; } 
+      catch(e) { console.error('[Rangkuman] Render error:', e); rangkumanRendered = false; }
+    } 
+  }
 }
 
 function goHome() {
@@ -502,6 +507,12 @@ function resumeStudy() {
 let _rsumNavState = null; // {scrollY, tabIdx, clickedElement}
 
 function openBabFromRangkuman(babNum, tabIdx, chipEl) {
+  // Validasi: pastikan babNum ada di BABS
+  var targetBab = BABS.find(function(b) { return b.num === babNum; });
+  if (!targetBab) {
+    showToast('Bab ' + babNum + ' tidak ditemukan', 'error');
+    return;
+  }
   // Simpan posisi scroll dan tab aktif
   _rsumNavState = {
     scrollY: window.scrollY,
@@ -510,57 +521,90 @@ function openBabFromRangkuman(babNum, tabIdx, chipEl) {
     chipId: chipEl ? (chipEl.closest('[id]') || {}).id : null
   };
   // Tampilkan banner
-  const banner = document.getElementById('backToRangkumanBanner');
+  var banner = document.getElementById('backToRangkumanBanner');
   if (banner) {
     banner.classList.add('visible');
-    const tabNames = ['Pola', 'Konjugasi', 'Partikel', 'Bentuk VV', 'Kata Sifat'];
-    document.getElementById('bannerTabInfo').textContent = `› ${tabNames[rsumActiveTab] || ''}`;
+    var tabNames = ['Pola', 'Konjugasi', 'Partikel', 'Bentuk VV', 'Kata Sifat', 'Transitif & Intransitif', 'Ragam', 'Angka', 'Lainnya'];
+    var tabInfoEl = document.getElementById('bannerTabInfo');
+    if (tabInfoEl) tabInfoEl.textContent = '\u203A ' + (tabNames[rsumActiveTab] || '');
   }
   openBab(babNum);
 }
 
 function goBackToRangkuman() {
-  // Sembunyikan banner
-  const banner = document.getElementById('backToRangkumanBanner');
-  if (banner) banner.classList.remove('visible');
+  // Simpan state sebelum operasi apapun (bisa null-kan di akhir)
+  var savedState = _rsumNavState;
+  
+  try {
+    // Sembunyikan banner
+    var banner = document.getElementById('backToRangkumanBanner');
+    if (banner) banner.classList.remove('visible');
 
-  // Navigasi kembali ke rangkuman
-  showScr('rangkumanScr');
+    // Pastikan rangkuman sudah di-render
+    if (!rangkumanRendered) {
+      renderRangkuman();
+      rangkumanRendered = true;
+    }
 
-  // Restore tab
-  if (_rsumNavState) {
-    switchRsumTab(_rsumNavState.tabIdx);
+    // Navigasi kembali ke rangkuman
+    showScr('rangkumanScr');
 
-    // Restore scroll position
-    const savedY = _rsumNavState.scrollY;
-    requestAnimationFrame(() => {
-      window.scrollTo(0, savedY);
+    // Restore tab
+    if (savedState) {
+      var tabIdx = savedState.tabIdx;
+      // Validasi tabIdx
+      if (typeof tabIdx === 'number' && tabIdx >= 0 && tabIdx <= 8) {
+        switchRsumTab(tabIdx);
+      } else {
+        switchRsumTab(0);
+      }
 
-      // Highlight flash pada item yang terakhir diklik
-      setTimeout(() => {
-        const targetId = _rsumNavState.chipId;
-        if (targetId) {
-          const targetEl = document.getElementById(targetId);
-          if (targetEl) {
-            targetEl.classList.add('rsum-highlight-flash');
-            setTimeout(() => targetEl.classList.remove('rsum-highlight-flash'), 2000);
-          }
-        }
-        // Untuk tab Bentuk VV, highlight row terdekat
-        if (_rsumNavState.tabIdx === 3 && _rsumNavState.clickedBab) {
-          const chips = document.querySelectorAll('#rsum-tab-3 .rsum-bab-chip.clickable');
-          chips.forEach(chip => {
-            if (chip.textContent.includes('Bab ' + _rsumNavState.clickedBab)) {
-              const row = chip.closest('tr');
-              if (row) {
-                row.classList.add('rsum-highlight-flash');
-                setTimeout(() => row.classList.remove('rsum-highlight-flash'), 2000);
+      // Restore scroll position
+      var savedY = savedState.scrollY || 0;
+      requestAnimationFrame(function() {
+        window.scrollTo(0, savedY);
+
+        // Highlight flash pada item yang terakhir diklik
+        setTimeout(function() {
+          try {
+            var targetId = savedState.chipId;
+            if (targetId) {
+              var targetEl = document.getElementById(targetId);
+              if (targetEl) {
+                targetEl.classList.add('rsum-highlight-flash');
+                setTimeout(function() { targetEl.classList.remove('rsum-highlight-flash'); }, 2000);
               }
             }
-          });
-        }
-      }, 100);
-    });
+            // Untuk tab Bentuk VV, highlight row terdekat
+            if (savedState.tabIdx === 3 && savedState.clickedBab) {
+              var chips = document.querySelectorAll('#rsum-tab-3 .rsum-bab-chip.clickable');
+              chips.forEach(function(chip) {
+                if (chip.textContent.includes('Bab ' + savedState.clickedBab)) {
+                  var row = chip.closest('tr');
+                  if (row) {
+                    row.classList.add('rsum-highlight-flash');
+                    setTimeout(function() { row.classList.remove('rsum-highlight-flash'); }, 2000);
+                  }
+                }
+              });
+            }
+          } catch(highlightErr) {
+            console.warn('[Rangkuman] Highlight error (non-fatal):', highlightErr);
+          }
+        }, 100);
+      });
+    }
+  } catch(e) {
+    console.error('[Rangkuman] goBackToRangkuman error:', e);
+    // Fallback: navigasi ke rangkuman tanpa restore state
+    try {
+      showScr('rangkumanScr');
+      switchRsumTab(0);
+      window.scrollTo(0, 0);
+    } catch(fallbackErr) {
+      // Last resort: kembali ke beranda
+      goHome();
+    }
   }
   _rsumNavState = null;
 }
@@ -569,6 +613,14 @@ function goBackToRangkuman() {
 function openBab(num) {
   const prevBab = currentBab ? currentBab.num : null;
   currentBab = BABS.find(b => b.num === num);
+  if (!currentBab) {
+    showToast('Bab ' + num + ' tidak ditemukan', 'error');
+    // Jika dari rangkuman, kembali ke rangkuman
+    if (_rsumNavState) {
+      goBackToRangkuman();
+    }
+    return;
+  }
   lsSet('n5lastbab', num);
   document.getElementById('studyTitle').textContent = `Bab ${num} — ${currentBab.title}`;
   document.getElementById('studySub').textContent = currentBab.sub;
