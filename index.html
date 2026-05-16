@@ -9420,7 +9420,7 @@ let rsumActiveTab = 0;
 function switchRsumTab(idx) {
   rsumActiveTab = idx;
   document.querySelectorAll('#rsumTabs .tab-btn').forEach((b,i) => b.classList.toggle('active', i===idx));
-  for (let i=0;i<8;i++) {
+  for (let i=0;i<=8;i++) {
     const el = document.getElementById('rsum-tab-'+i);
     if (el) el.classList.toggle('active', i===idx);
   }
