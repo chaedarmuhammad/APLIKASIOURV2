@@ -1409,6 +1409,42 @@ body {
   margin: 4px 0;
   border-top: 1px dashed rgba(124,106,247,0.18);
 }
+/* ── KAMUS: Relasi visual (antonim/sinonim/tema) ── */
+.kamus-rel-group {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 6px 8px 8px;
+  margin-bottom: 10px;
+  background: var(--surface);
+  position: relative;
+  transition: border-color 0.2s;
+}
+.kamus-rel-group:hover { border-color: rgba(124,106,247,0.4); }
+.kamus-rel-group.rel-antonim { border-left: 3px solid #f87171; }
+.kamus-rel-group.rel-sinonim { border-left: 3px solid #34d399; }
+.kamus-rel-group.rel-tema    { border-left: 3px solid #60a5fa; }
+.kamus-rel-header {
+  display: flex; align-items: center; gap: 6px;
+  padding: 4px 6px 6px; margin-bottom: 4px;
+}
+.kamus-rel-badge {
+  font-size: 0.62rem; font-weight: 800; padding: 2px 8px;
+  border-radius: 20px; letter-spacing: 0.04em; text-transform: uppercase;
+  flex-shrink: 0;
+}
+.kamus-rel-badge.badge-antonim { background: rgba(248,113,113,0.15); color: #f87171; border: 1px solid rgba(248,113,113,0.3); }
+.kamus-rel-badge.badge-sinonim { background: rgba(52,211,153,0.15); color: #34d399; border: 1px solid rgba(52,211,153,0.3); }
+.kamus-rel-badge.badge-tema    { background: rgba(96,165,250,0.15); color: #60a5fa; border: 1px solid rgba(96,165,250,0.3); }
+.kamus-rel-label {
+  font-size: 0.7rem; color: var(--text2); font-weight: 500;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.kamus-rel-group .kamus-row {
+  border: none; background: transparent; margin-bottom: 2px;
+  padding: 7px 8px; border-radius: 8px;
+}
+.kamus-rel-group .kamus-row:hover { background: rgba(124,106,247,0.06); }
+.kamus-rel-group .kamus-row:last-child { margin-bottom: 0; }
 .kamus-empty {
   text-align: center; color: var(--text2); padding: 48px 20px; font-size: 0.9rem;
 }
@@ -11195,6 +11231,7 @@ function dedupeWords(words) {
 // Groups words by semantic clusters: antonyms, countries, animals, seasons, etc.
 // Words in the same cluster are placed together for easier learning.
 
+const _THEMATIC_GROUP_META = {}; // gid → {type:'antonim'|'sinonim'|'tema', label:'...'}
 const _THEMATIC_GROUPS = (function() {
   // Each entry: [groupId, romaji...]
   // Words in the same group get the same groupId and are sorted together.
@@ -11203,148 +11240,150 @@ const _THEMATIC_GROUPS = (function() {
   function grp(...roms) {
     const id = gid++;
     roms.forEach(r => { const k=r.toLowerCase(); if(G[k]===undefined) G[k]=id; });
+    return id; // return gid for meta registration
   }
+  function meta(id, type, label) { _THEMATIC_GROUP_META[id] = {type, label}; }
 
   // ── KATA SIFAT: Pasangan antonim ──
-  grp('ōkii','chiisai');                           // besar/kecil
-  grp('takai','hikui','yasui');                    // tinggi/rendah/murah
-  grp('nagai','mijikai');                          // panjang/pendek
-  grp('hiroi','semai');                            // luas/sempit
-  grp('omoi','karui');                             // berat/ringan
-  grp('atarashii','furui');                        // baru/lama
-  grp('ii (yoi)','warui');                         // bagus/buruk
-  grp('hayai','osoi');                             // cepat/lambat
-  grp('atsui/atsui','samui','tsumetai');           // panas/dingin
-  grp('atatakai','suzushii');                      // hangat/sejuk
-  grp('akai','aoi','kiiroi','shiroi','kuroi','chairoi'); // warna
-  grp('oishii','mazui');                           // enak/tidak enak
-  grp('nigiyaka (na)','shizuka (na)');             // ramai/sunyi
-  grp('tanoshii','tsumaranai');                    // menyenangkan/membosankan
-  grp('muzukashii','yasashii');                    // sulit/mudah
-  grp('omoshiroi','tsumaranai');                   // menarik/membosankan
-  grp('kirei (na)','kitanai');                     // cantik/kotor
-  grp('genki (na)','isogashii','hima (na)');       // sehat/sibuk/senggang
-  grp('jōzu (na)','heta (na)');                    // pandai/tidak pandai
-  grp('suki (na)','kirai (na)');                   // suka/tidak suka
-  grp('tōi','chikai');                             // jauh/dekat
-  grp('akarui','kurai');                           // terang/gelap
-  grp('hansamu (na)','shinsetsu (na)');            // tampan/baik hati
+  meta(grp('ōkii','chiisai'), 'antonim', 'besar ↔ kecil');
+  meta(grp('takai','hikui','yasui'), 'antonim', 'tinggi/mahal ↔ rendah ↔ murah');
+  meta(grp('nagai','mijikai'), 'antonim', 'panjang ↔ pendek');
+  meta(grp('hiroi','semai'), 'antonim', 'luas ↔ sempit');
+  meta(grp('omoi','karui'), 'antonim', 'berat ↔ ringan');
+  meta(grp('atarashii','furui'), 'antonim', 'baru ↔ lama');
+  meta(grp('ii (yoi)','warui'), 'antonim', 'bagus ↔ buruk');
+  meta(grp('hayai','osoi'), 'antonim', 'cepat ↔ lambat');
+  meta(grp('atsui/atsui','samui','tsumetai'), 'antonim', 'panas ↔ dingin');
+  meta(grp('atatakai','suzushii'), 'antonim', 'hangat ↔ sejuk');
+  meta(grp('akai','aoi','kiiroi','shiroi','kuroi','chairoi'), 'tema', 'warna');
+  meta(grp('oishii','mazui'), 'antonim', 'enak ↔ tidak enak');
+  meta(grp('nigiyaka (na)','shizuka (na)'), 'antonim', 'ramai ↔ sunyi');
+  meta(grp('tanoshii','tsumaranai'), 'antonim', 'menyenangkan ↔ membosankan');
+  meta(grp('muzukashii','yasashii'), 'antonim', 'sulit ↔ mudah');
+  meta(grp('omoshiroi','tsumaranai'), 'antonim', 'menarik ↔ membosankan');
+  meta(grp('kirei (na)','kitanai'), 'antonim', 'cantik/bersih ↔ kotor');
+  meta(grp('genki (na)','isogashii','hima (na)'), 'tema', 'kondisi: sehat / sibuk / senggang');
+  meta(grp('jōzu (na)','heta (na)'), 'antonim', 'pandai ↔ tidak pandai');
+  meta(grp('suki (na)','kirai (na)'), 'antonim', 'suka ↔ tidak suka');
+  meta(grp('tōi','chikai'), 'antonim', 'jauh ↔ dekat');
+  meta(grp('akarui','kurai'), 'antonim', 'terang ↔ gelap');
+  meta(grp('hansamu (na)','shinsetsu (na)'), 'tema', 'sifat positif orang');
 
-  // ── KATA BENDA: Negara & wilayah (urut abjad romaji) ──
-  grp('nihon','indoneshia','kankoku','chūgoku','igirisu','furansu',
+  // ── KATA BENDA: Negara & wilayah ──
+  meta(grp('nihon','indoneshia','kankoku','chūgoku','igirisu','furansu',
       'shingapōru','burajiru','amerika','firipin','betonamu','myānmā',
-      'taiwan','gaikoku','sekai');
+      'taiwan','gaikoku','sekai'), 'tema', 'negara & wilayah');
 
   // ── Hewan ──
-  grp('dōbutsu','inu','neko','uma','zō');
+  meta(grp('dōbutsu','inu','neko','uma','zō'), 'tema', 'hewan');
 
-  // ── Musim (semi → panas → gugur → dingin) ──
-  grp('haru','natsu','aki','fuyu');
+  // ── Musim ──
+  meta(grp('haru','natsu','aki','fuyu'), 'tema', 'musim');
 
   // ── Cuaca ──
-  grp('tenki','hare','ame','yuki','kumori');
+  meta(grp('tenki','hare','ame','yuki','kumori'), 'tema', 'cuaca');
 
-  // ── Anggota keluarga (generasi tua → muda) ──
-  grp('kazoku','ryōshin','ojīsan','obāsan',
+  // ── Anggota keluarga ──
+  meta(grp('kazoku','ryōshin','ojīsan','obāsan',
       'chichi','otōsan','haha','okāsan',
       'ani','onīsan','ane','onēsan',
       'otto','tsuma','goshujin','okusan',
       'otōto','otōto san','imōto','imōto san',
-      'kodomo','okosan','gokazoku');
+      'kodomo','okosan','gokazoku'), 'tema', 'keluarga');
 
-  // ── Anggota tubuh (atas → bawah) ──
-  grp('atama','kao','me','mimi','hana','kuchi','ha','kubi',
-      'karada','te','yubi','onaka','senaka','ashi','tsume','tsumekiri');
+  // ── Anggota tubuh ──
+  meta(grp('atama','kao','me','mimi','hana','kuchi','ha','kubi',
+      'karada','te','yubi','onaka','senaka','ashi','tsume','tsumekiri'), 'tema', 'anggota tubuh');
 
   // ── Makanan pokok ──
-  grp('gohan','pan','niku','sakana','yasai','kudamono','tamago');
+  meta(grp('gohan','pan','niku','sakana','yasai','kudamono','tamago'), 'tema', 'makanan pokok');
   // ── Minuman ──
-  grp('mizu','ocha','kōcha','kōhī','jūsu','gyūnyū','miruku','bīru','wain');
+  meta(grp('mizu','ocha','kōcha','kōhī','jūsu','gyūnyū','miruku','bīru','wain'), 'tema', 'minuman');
   // ── Waktu makan ──
-  grp('asagohan','hirugohan','bangohan');
+  meta(grp('asagohan','hirugohan','bangohan'), 'tema', 'waktu makan');
 
-  // ── Hari dalam seminggu (Senin → Minggu) ──
-  grp('getsuyōbi','kayōbi','suiyōbi','mokuyōbi','kinyōbi','doyōbi','nichiyōbi','shūmatsu');
+  // ── Hari dalam seminggu ──
+  meta(grp('getsuyōbi','kayōbi','suiyōbi','mokuyōbi','kinyōbi','doyōbi','nichiyōbi','shūmatsu'), 'tema', 'hari dalam seminggu');
 
-  // ── Waktu relatif: hari (kemarin lusa → lusa) ──
-  grp('ototoi','kinō','kyō','ashita','asatte');
+  // ── Waktu relatif: hari ──
+  meta(grp('ototoi','kinō','kyō','ashita','asatte'), 'tema', 'waktu relatif (hari)');
   // ── Waktu relatif: minggu ──
-  grp('senshū','konshū','raishū');
+  meta(grp('senshū','konshū','raishū'), 'tema', 'waktu relatif (minggu)');
   // ── Waktu relatif: bulan ──
-  grp('sengetsu','kongetsu','raigetsu');
+  meta(grp('sengetsu','kongetsu','raigetsu'), 'tema', 'waktu relatif (bulan)');
   // ── Waktu relatif: tahun ──
-  grp('kyonen','kotoshi','rainen');
+  meta(grp('kyonen','kotoshi','rainen'), 'tema', 'waktu relatif (tahun)');
   // ── Bagian hari ──
-  grp('asa','gozen','hiru','gogo','yoru','kesa','konban');
+  meta(grp('asa','gozen','hiru','gogo','yoru','kesa','konban'), 'tema', 'bagian hari');
 
   // ── Transportasi ──
-  grp('densha','chikatetsu','shinkansen','basu','takushī',
-      'jitensha','baiku','jidōsha','hikōki','fune');
+  meta(grp('densha','chikatetsu','shinkansen','basu','takushī',
+      'jitensha','baiku','jidōsha','hikōki','fune'), 'tema', 'transportasi');
 
   // ── Profesi ──
-  grp('sensei','gakusei','isha','kaishain','ginkōin',
-      'kenkyūsha','shain','yakuzaishi','kanja');
+  meta(grp('sensei','gakusei','isha','kaishain','ginkōin',
+      'kenkyūsha','shain','yakuzaishi','kanja'), 'tema', 'profesi');
 
   // ── Olahraga & hobi ──
-  grp('sakkā','tenisu','basukettobōru','yakyū','sukī','yoga','sumō','tsuri','gādeningu');
+  meta(grp('sakkā','tenisu','basukettobōru','yakyū','sukī','yoga','sumō','tsuri','gādeningu'), 'tema', 'olahraga & hobi');
 
   // ── Alat tulis ──
-  grp('enpitsu','bōrupen','pen','keshigomu','hasami','hotchikisu','serotēpu');
+  meta(grp('enpitsu','bōrupen','pen','keshigomu','hasami','hotchikisu','serotēpu'), 'tema', 'alat tulis');
 
   // ── Posisi: vertikal ──
-  grp('ue','shita');
+  meta(grp('ue','shita'), 'antonim', 'atas ↔ bawah');
   // ── Posisi: horizontal ──
-  grp('mae','ushiro','migi','hidari','naka','soto');
+  meta(grp('mae','ushiro','migi','hidari','naka','soto'), 'tema', 'arah & posisi');
 
   // ── Kata Kerja: pasangan tematik ──
-  grp('ikimasu','kimasu','kaerimasu');     // pergi/datang/pulang
-  grp('tabemasu','nomimasu');              // makan/minum
-  grp('mimasu','kikimasu');               // melihat/mendengar
-  grp('yomimasu','kakimasu');             // membaca/menulis
-  grp('kaimasu','urimasu');               // membeli/menjual
-  grp('akemasu','shimemasu');             // membuka/menutup
-  grp('tsukemasu','keshimasu');           // menyalakan/mematikan
-  grp('iremasu','dashimasu');             // memasukkan/mengeluarkan
-  grp('agemasu','moraimasu','kuremasu');  // memberi/menerima
-  grp('kashimasu','karimasu');            // meminjamkan/meminjam
-  grp('hairimasu','demasu');              // masuk/keluar
-  grp('norimasu','orimasu');              // naik/turun
-  grp('imasu','arimasu');                 // ada (hidup/benda)
-  grp('nemasu','okimasu');                // tidur/bangun
-  grp('kimasu','nugimasu');               // memakai/melepas
-  grp('oshiemasu','naraimasu');           // mengajar/belajar dari
+  meta(grp('ikimasu','kimasu','kaerimasu'), 'tema', 'pergi / datang / pulang');
+  meta(grp('tabemasu','nomimasu'), 'tema', 'makan & minum');
+  meta(grp('mimasu','kikimasu'), 'tema', 'melihat & mendengar');
+  meta(grp('yomimasu','kakimasu'), 'antonim', 'membaca ↔ menulis');
+  meta(grp('kaimasu','urimasu'), 'antonim', 'membeli ↔ menjual');
+  meta(grp('akemasu','shimemasu'), 'antonim', 'membuka ↔ menutup');
+  meta(grp('tsukemasu','keshimasu'), 'antonim', 'menyalakan ↔ mematikan');
+  meta(grp('iremasu','dashimasu'), 'antonim', 'memasukkan ↔ mengeluarkan');
+  meta(grp('agemasu','moraimasu','kuremasu'), 'tema', 'memberi & menerima');
+  meta(grp('kashimasu','karimasu'), 'antonim', 'meminjamkan ↔ meminjam');
+  meta(grp('hairimasu','demasu'), 'antonim', 'masuk ↔ keluar');
+  meta(grp('norimasu','orimasu'), 'antonim', 'naik ↔ turun');
+  meta(grp('imasu','arimasu'), 'sinonim', 'ada (hidup) ≈ ada (benda)');
+  meta(grp('nemasu','okimasu'), 'antonim', 'tidur ↔ bangun');
+  meta(grp('kimasu','nugimasu'), 'antonim', 'memakai ↔ melepas');
+  meta(grp('oshiemasu','naraimasu'), 'antonim', 'mengajar ↔ belajar dari');
 
-  // ── Kata Keterangan: frekuensi (selalu → tidak pernah) ──
-  grp('itsumo','yoku','tokidoki','amari','zenzen');
+  // ── Kata Keterangan: frekuensi ──
+  meta(grp('itsumo','yoku','tokidoki','amari','zenzen'), 'tema', 'frekuensi (selalu → tidak pernah)');
   // ── Jumlah ──
-  grp('takusan','sukoshi');
+  meta(grp('takusan','sukoshi'), 'antonim', 'banyak ↔ sedikit');
   // ── Sudah/belum ──
-  grp('mō','mada');
+  meta(grp('mō','mada'), 'antonim', 'sudah ↔ belum');
 
   // ── Kata Sifat tambahan: pasangan & kluster ──
-  grp('suki (na)','kirai (na)');                   // suka/tidak suka
-  grp('jōzu (na)','heta (na)');                    // pandai/tidak pandai
-  grp('genki (na)','hima (na)','isogashii');       // sehat/senggang/sibuk
-  grp('ōi','sukunai');                             // banyak/sedikit
-  grp('amai','karai','suppai','nigai');            // rasa: manis/pedas/asam/pahit
-  grp('futoi','hosoi');                            // gemuk/tipis(kurus)
-  grp('tsuyoi','yowai');                           // kuat/lemah
-  grp('ureshii','sabishii');                       // senang/kesepian
-  grp('hansamu (na)','kawaii','suteki (na)','kirei (na)'); // penampilan positif
-  grp('shinsetsu (na)','taisetsu (na)');           // baik hati/penting
-  grp('benri (na)','fuben na');                    // praktis/tidak praktis
-  grp('ii (yoi)','warui');                         // bagus/buruk
-  grp('shizuka (na)','nigiyaka (na)');             // sunyi/ramai
-  grp('kantan (na)','muzukashii','yasashii');      // mudah/sulit
-  grp('daijōbu (na)','abunai');                    // aman/berbahaya
-  grp('wakai','toshi ue');                         // muda/lebih tua
-  grp('atama ga ii','yōmei (na)');                // pintar/terkenal
-  grp('nemui','hoshii');                           // mengantuk/menginginkan
-  grp('sugoi','onaji');                            // menakjubkan/sama
-  grp('taihen (na)','muzukashii');                 // berat/sulit - sudah ada muzukashii, taihen bergabung
-  grp('yūmei (na)','suteki (na)');                 // terkenal/indah
-  grp('iroiro (na)','onaji');                       // berbagai macam/sama
-  grp('muda na','fuben na');                        // sia-sia/tidak praktis
+  meta(grp('suki (na)','kirai (na)'), 'antonim', 'suka ↔ tidak suka');
+  meta(grp('jōzu (na)','heta (na)'), 'antonim', 'pandai ↔ tidak pandai');
+  meta(grp('genki (na)','hima (na)','isogashii'), 'tema', 'kondisi: sehat / senggang / sibuk');
+  meta(grp('ōi','sukunai'), 'antonim', 'banyak ↔ sedikit');
+  meta(grp('amai','karai','suppai','nigai'), 'tema', 'rasa');
+  meta(grp('futoi','hosoi'), 'antonim', 'gemuk ↔ kurus');
+  meta(grp('tsuyoi','yowai'), 'antonim', 'kuat ↔ lemah');
+  meta(grp('ureshii','sabishii'), 'antonim', 'senang ↔ kesepian');
+  meta(grp('hansamu (na)','kawaii','suteki (na)','kirei (na)'), 'sinonim', 'penampilan positif');
+  meta(grp('shinsetsu (na)','taisetsu (na)'), 'sinonim', 'baik hati ≈ penting');
+  meta(grp('benri (na)','fuben na'), 'antonim', 'praktis ↔ tidak praktis');
+  meta(grp('ii (yoi)','warui'), 'antonim', 'bagus ↔ buruk');
+  meta(grp('shizuka (na)','nigiyaka (na)'), 'antonim', 'sunyi ↔ ramai');
+  meta(grp('kantan (na)','muzukashii','yasashii'), 'tema', 'tingkat kesulitan');
+  meta(grp('daijōbu (na)','abunai'), 'antonim', 'aman ↔ berbahaya');
+  meta(grp('wakai','toshi ue'), 'antonim', 'muda ↔ lebih tua');
+  meta(grp('atama ga ii','yōmei (na)'), 'sinonim', 'pintar ≈ terkenal');
+  meta(grp('nemui','hoshii'), 'tema', 'perasaan');
+  meta(grp('sugoi','onaji'), 'tema', 'derajat');
+  meta(grp('taihen (na)','muzukashii'), 'sinonim', 'berat ≈ sulit');
+  meta(grp('yūmei (na)','suteki (na)'), 'sinonim', 'terkenal ≈ indah');
+  meta(grp('iroiro (na)','onaji'), 'antonim', 'bermacam-macam ↔ sama');
+  meta(grp('muda na','fuben na'), 'sinonim', 'sia-sia ≈ tidak praktis');
 
   return G;
 })();
@@ -11804,19 +11843,44 @@ function highlight(text, q) {
     '<mark style="background:rgba(124,106,247,0.35);color:inherit;border-radius:2px">$1</mark>');
 }
 
-// Render rows with subtle thematic dividers between groups
+// Render rows with visual relationship groups
 function groupedKamusRows(words, q) {
   let html = '';
-  let prevGid = undefined;
-  words.forEach(w => {
+  let i = 0;
+  while (i < words.length) {
+    const w = words[i];
     const gid = w._gid !== undefined ? w._gid : -1;
-    if (prevGid !== undefined && gid !== prevGid && gid >= 0 && prevGid >= 0) {
-      // Different group: add thin divider
-      html += '<div class="kamus-group-sep"></div>';
+
+    // If this word is in a thematic group AND has meta info, collect all words in same group
+    if (gid >= 0 && _THEMATIC_GROUP_META[gid]) {
+      const groupMeta = _THEMATIC_GROUP_META[gid];
+      let groupWords = [w];
+      let j = i + 1;
+      while (j < words.length && words[j]._gid === gid) {
+        groupWords.push(words[j]);
+        j++;
+      }
+
+      // Only show group wrapper if there are 2+ words in the group
+      if (groupWords.length >= 2) {
+        const typeIcon = groupMeta.type === 'antonim' ? '↔' : groupMeta.type === 'sinonim' ? '≈' : '🏷';
+        html += `<div class="kamus-rel-group rel-${groupMeta.type}">
+          <div class="kamus-rel-header">
+            <span class="kamus-rel-badge badge-${groupMeta.type}">${typeIcon} ${groupMeta.type}</span>
+            <span class="kamus-rel-label">${escapeHtml(groupMeta.label)}</span>
+          </div>`;
+        groupWords.forEach(gw => { html += kamusRow(gw, q); });
+        html += `</div>`;
+      } else {
+        // Single word in group — render normally
+        html += kamusRow(w, q);
+      }
+      i = j;
+    } else {
+      html += kamusRow(w, q);
+      i++;
     }
-    html += kamusRow(w, q);
-    prevGid = gid;
-  });
+  }
   return html;
 }
 
