@@ -1602,9 +1602,9 @@ body {
   <!-- Tabs -->
   <div class="tabs" id="rsumTabs">
     <button class="tab-btn active" onclick="switchRsumTab(0)">📐 Pola</button>
-    <button class="tab-btn" onclick="switchRsumTab(1)">🔗 Partikel</button>
-    <button class="tab-btn" onclick="switchRsumTab(2)">🏃 Bentuk VV</button>
-    <button class="tab-btn" onclick="switchRsumTab(3)">🔄 Konjugasi</button>
+    <button class="tab-btn" onclick="switchRsumTab(1)">🔄 Konjugasi</button>
+    <button class="tab-btn" onclick="switchRsumTab(2)">🔗 Partikel</button>
+    <button class="tab-btn" onclick="switchRsumTab(3)">🏃 Bentuk VV</button>
     <button class="tab-btn" onclick="switchRsumTab(4)">✨ Kata Sifat</button>
     <button class="tab-btn" onclick="switchRsumTab(5)">🔀 Transitif & Intransitif</button>
     <button class="tab-btn" onclick="switchRsumTab(6)">🗣️ Ragam</button>
@@ -6669,7 +6669,7 @@ function openBabFromRangkuman(babNum, tabIdx, chipEl) {
   const banner = document.getElementById('backToRangkumanBanner');
   if (banner) {
     banner.classList.add('visible');
-    const tabNames = ['Pola', 'Partikel', 'Bentuk VV', 'Konjugasi', 'Kata Sifat'];
+    const tabNames = ['Pola', 'Konjugasi', 'Partikel', 'Bentuk VV', 'Kata Sifat'];
     document.getElementById('bannerTabInfo').textContent = `› ${tabNames[rsumActiveTab] || ''}`;
   }
   openBab(babNum);
@@ -6703,8 +6703,8 @@ function goBackToRangkuman() {
           }
         }
         // Untuk tab Bentuk VV, highlight row terdekat
-        if (_rsumNavState.tabIdx === 2 && _rsumNavState.clickedBab) {
-          const chips = document.querySelectorAll('#rsum-tab-2 .rsum-bab-chip.clickable');
+        if (_rsumNavState.tabIdx === 3 && _rsumNavState.clickedBab) {
+          const chips = document.querySelectorAll('#rsum-tab-3 .rsum-bab-chip.clickable');
           chips.forEach(chip => {
             if (chip.textContent.includes('Bab ' + _rsumNavState.clickedBab)) {
               const row = chip.closest('tr');
@@ -9469,7 +9469,7 @@ function renderRangkuman() {
     <div id="rsum-pola-list-body">${buildPolaList()}</div>
   </div>`;
 
-  // ─── Tab 1: Partikel ───
+  // ─── Tab 2: Partikel ───
   // Klasifikasi berdasarkan bab asal di data:
   //   Fungsi N4-baru: POTENSIAL(B42), INTRANSITIF(B45), TRANSITIF(B45), KONDISI(B36)
   //   Kartu N4-baru: しか〜ない (B42) — kartu partikel ini belum ada di N5
@@ -9597,7 +9597,7 @@ function renderRangkuman() {
       <div style="margin-top:8px;font-size:0.72rem;color:var(--text2)">💡 Kunci: まで=proses berlangsung sampai titik itu. までに=tindakan harus selesai sebelum titik itu (deadline).</div>
     </div>
   </div>`;
-  document.getElementById('rsum-tab-1').innerHTML = `<div style="padding:16px 14px 20px">
+  document.getElementById('rsum-tab-2').innerHTML = `<div style="padding:16px 14px 20px">
     <div class="rsum-section-title">🔗 Partikel — <span style="color:${lvColor}">${lvLabel}</span></div>
     ${n4PartInfo}
     ${waVsGaBox}
@@ -9611,7 +9611,7 @@ function renderRangkuman() {
     <div id="rsum-part-list-body">${partHtml}</div>
   </div>`;
 
-  // ─── Tab 2: Bentuk VV ───
+  // ─── Tab 3: Bentuk VV ───
   const [vvMin, vvMax] = rsumLevelRange();
   // Sort RANGKUMAN_BENTUKVV by first bab (earliest chapter the form is learned)
   const sortedVV = [...RANGKUMAN_BENTUKVV].map(g => {
@@ -9654,7 +9654,7 @@ function renderRangkuman() {
     vvIdx++;
     return result;
   }).join('');
-  document.getElementById('rsum-tab-2').innerHTML = `<div style="padding:16px 14px 20px">
+  document.getElementById('rsum-tab-3').innerHTML = `<div style="padding:16px 14px 20px">
     <div class="rsum-section-title">🏃 Pola Bunpou per Bentuk KK — <span style="color:${lvColor}">${lvLabel}</span></div>
     <div class="rsum-vv-intro">
       Tabel ini mengelompokkan pola bunpou berdasarkan <b>bentuk konjugasi kata kerja</b>. Diurutkan sesuai bab pertama kali dipelajari. Pola tanpa entri di level ini disembunyikan otomatis.
@@ -9684,7 +9684,7 @@ function renderRangkuman() {
     <div id="rsum-vv-list-body">${vvHtml || '<div style="padding:32px;text-align:center;color:var(--text2)">Tidak ada entri di level ini.</div>'}</div>
   </div>`;
 
-  // ─── Tab 3: Konjugasi KK ───
+  // ─── Tab 1: Konjugasi KK ───
   // Grup dasar I/II/III/⚠️ = N5. Grup たら/可能/ても/ながら = N4 (bab 36+)
   const konjN4Groups = ['たら', '可能', 'ても', 'ながら', '受身', '使役', '使役受身', '命令・禁止', '尊敬', '謙譲'];
   const konjBabMap = {
@@ -9958,7 +9958,7 @@ function renderRangkuman() {
     </div>
   </div>`;
 
-  document.getElementById('rsum-tab-3').innerHTML = `<div style="padding:16px 14px 20px">
+  document.getElementById('rsum-tab-1').innerHTML = `<div style="padding:16px 14px 20px">
     <div class="rsum-section-title">🔄 Konjugasi Kata Kerja — <span style="color:${lvColor}">${lvLabel}</span></div>
     ${konjTabNote}
     ${konjCheatSheet}
