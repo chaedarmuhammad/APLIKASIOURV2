@@ -1067,6 +1067,9 @@ body {
   /* Konjugasi — buat kolom Ket. lebih kecil */
   .rsum-form { font-size: 0.74rem; }
 
+  /* Ragam Sopan vs Biasa grid — 1 kolom di HP kecil */
+  [style*="grid-template-columns:1fr 1fr"] { grid-template-columns: 1fr !important; }
+
   /* Kata sifat grid — selalu 2 kolom di HP kecil */
   .rsum-adj-grid { grid-template-columns: 1fr 1fr !important; }
   .rsum-adj-cell { padding: 6px 8px; }
@@ -8506,13 +8509,13 @@ const RANGKUMAN_KONJUGASI = [
   },
   {grup:"たら", warna:"rsum-conj-tara", label:"Bentuk たら (dari lampau biasa + ら) — Bab 37-38",
    contoh: [
-    {masu:"のみます", te:"のんだら", nai:"のまなかったら", kamus:"のむ", catatan:"Grp I: た→たら"},
-    {masu:"たべます", te:"たべたら", nai:"たべなかったら", kamus:"たべる", catatan:"Grp II: た→たら"},
-    {masu:"きます", te:"きたら", nai:"こなかったら", kamus:"くる", catatan:"Grp III (<ruby>不規則<rt>ふきそく</rt></ruby>)"},
-    {masu:"します", te:"したら", nai:"しなかったら", kamus:"する", catatan:"Grp III (<ruby>不規則<rt>ふきそく</rt></ruby>)"},
-    {masu:"あついです", te:"あつかったら", nai:"あつくなかったら", kamus:"あつい", catatan:"KS い: かった→かったら"},
-    {masu:"きれいです", te:"きれいだったら", nai:"きれいじゃなかったら", kamus:"きれいだ", catatan:"KS な: だったら"},
-    {masu:"あめです", te:"あめだったら", nai:"あめじゃなかったら", kamus:"あめだ", catatan:"KB: だったら"},
+    {masu:"のみます", pos:"のんだら", neg:"のまなかったら", taPlus:"—", taMinus:"—", kamus:"のむ", catatan:"Grp I: た→たら"},
+    {masu:"たべます", pos:"たべたら", neg:"たべなかったら", taPlus:"—", taMinus:"—", kamus:"たべる", catatan:"Grp II: た→たら"},
+    {masu:"きます", pos:"きたら", neg:"こなかったら", taPlus:"—", taMinus:"—", kamus:"くる", catatan:"Grp III (<ruby>不規則<rt>ふきそく</rt></ruby>)"},
+    {masu:"します", pos:"したら", neg:"しなかったら", taPlus:"—", taMinus:"—", kamus:"する", catatan:"Grp III (<ruby>不規則<rt>ふきそく</rt></ruby>)"},
+    {masu:"あついです", pos:"あつかったら", neg:"あつくなかったら", taPlus:"—", taMinus:"—", kamus:"あつい", catatan:"KS い: かった→かったら"},
+    {masu:"きれいです", pos:"きれいだったら", neg:"きれいじゃなかったら", taPlus:"—", taMinus:"—", kamus:"きれいだ", catatan:"KS な: だったら"},
+    {masu:"あめです", pos:"あめだったら", neg:"あめじゃなかったら", taPlus:"—", taMinus:"—", kamus:"あめだ", catatan:"KB: だったら"},
    ],
    aturan:[
     "Ambil bentuk <b>lampau biasa</b> (た/だ) lalu tambahkan <b>ら</b>",
@@ -8523,20 +8526,19 @@ const RANGKUMAN_KONJUGASI = [
     "KS な: きれいだ → きれいだった → <b>きれいだったら</b>",
     "KB: あめだ → あめだった → <b>あめだったら</b>",
     "Negatif たら: ない→なかった → <b>なかったら</b>",
+    "⚠️ たら tidak memiliki bentuk lampau — hanya digunakan di klausa syarat",
    ]
   },
   {grup:"<ruby>可能<rt>かのう</rt></ruby>", warna:"rsum-conj-kano", label:"Bentuk Potensial <ruby>可能形<rt>かのうけい</rt></ruby> (bisa ~) — Bab 42",
    contoh: [
-    {masu:"のみます",   te:"のめます",       nai:"のめません",       kamus:"のむ",     catatan:"Grp I: む→め (u→eru)"},
-    {masu:"かきます",   te:"かけます",       nai:"かけません",       kamus:"かく",     catatan:"Grp I: く→け"},
-    {masu:"いきます",   te:"いけます",       nai:"いけません",       kamus:"いく",     catatan:"Grp I: く→け"},
-    {masu:"はなします", te:"はなせます",     nai:"はなせません",     kamus:"はなす",   catatan:"Grp I: す→せ"},
-    {masu:"かいます",   te:"かえます",       nai:"かえません",       kamus:"かう",     catatan:"Grp I: う→え"},
-    {masu:"たべます",   te:"たべられます",   nai:"たべられません",   kamus:"たべる",   catatan:"Grp II: +られる"},
-    {masu:"みます",     te:"みられます",     nai:"みられません",     kamus:"みる",     catatan:"Grp II: +られる"},
-    {masu:"おきます",   te:"おきられます",   nai:"おきられません",   kamus:"おきる",   catatan:"Grp II: +られる"},
-    {masu:"きます",     te:"こられます",     nai:"こられません",     kamus:"くる",     catatan:"Grp III (<ruby>不規則<rt>ふきそく</rt></ruby>)"},
-    {masu:"します",     te:"できます",       nai:"できません",       kamus:"する",     catatan:"Grp III (<ruby>不規則<rt>ふきそく</rt></ruby>)"},
+    {masu:"のみます",   pos:"のめます",       neg:"のめません",       taPlus:"のめました",       taMinus:"のめませんでした",       kamus:"のめる",     catatan:"Grp I: む→め (u→eru)"},
+    {masu:"かきます",   pos:"かけます",       neg:"かけません",       taPlus:"かけました",       taMinus:"かけませんでした",       kamus:"かける",     catatan:"Grp I: く→け"},
+    {masu:"はなします", pos:"はなせます",     neg:"はなせません",     taPlus:"はなせました",     taMinus:"はなせませんでした",     kamus:"はなせる",   catatan:"Grp I: す→せ"},
+    {masu:"かいます",   pos:"かえます",       neg:"かえません",       taPlus:"かえました",       taMinus:"かえませんでした",       kamus:"かえる",     catatan:"Grp I: う→え"},
+    {masu:"たべます",   pos:"たべられます",   neg:"たべられません",   taPlus:"たべられました",   taMinus:"たべられませんでした",   kamus:"たべられる",   catatan:"Grp II: +られる"},
+    {masu:"みます",     pos:"みられます",     neg:"みられません",     taPlus:"みられました",     taMinus:"みられませんでした",     kamus:"みられる",     catatan:"Grp II: +られる"},
+    {masu:"きます",     pos:"こられます",     neg:"こられません",     taPlus:"こられました",     taMinus:"こられませんでした",     kamus:"こられる",     catatan:"Grp III (<ruby>不規則<rt>ふきそく</rt></ruby>)"},
+    {masu:"します",     pos:"できます",       neg:"できません",       taPlus:"できました",       taMinus:"できませんでした",       kamus:"できる",     catatan:"Grp III (<ruby>不規則<rt>ふきそく</rt></ruby>)"},
    ],
    aturan:[
     "Grup I (Godan): ganti bunyi akhir <b>u → eru</b> (なに<ruby>行<rt>ぎょう</rt></ruby>→え<ruby>行<rt>ぎょう</rt></ruby>+る)",
@@ -8547,16 +8549,17 @@ const RANGKUMAN_KONJUGASI = [
     "Grup III: <b>する → できる</b> | <b>くる → こられる</b>",
     "⚠️ Partikel objek: <b>を → が</b> saat bentuk potensial",
     "  すしを たべます → すし<b>が</b> たべられます",
+    "⚠️ Potensial terkonjugasi seperti KK Grup II (ます/ません/ました/ませんでした)",
    ]
   },
   {grup:"ても", warna:"rsum-conj-temo", label:"Bentuk ても / でも (Walaupun ~) — Bab 39",
    contoh: [
-    {masu:"のみます", te:"のんでも", nai:"のまなくても", kamus:"のむ", catatan:"Grp I: て→ても"},
-    {masu:"たべます", te:"たべても", nai:"たべなくても", kamus:"たべる", catatan:"Grp II: て→ても"},
-    {masu:"きます", te:"きても", nai:"こなくても", kamus:"くる", catatan:"Grp III (<ruby>不規則<rt>ふきそく</rt></ruby>)"},
-    {masu:"あついです", te:"あつくても", nai:"あつくなくても", kamus:"あつい", catatan:"KS い: く→くても"},
-    {masu:"きれいです", te:"きれいでも", nai:"きれいじゃなくても", kamus:"きれいだ", catatan:"KS な: で→でも"},
-    {masu:"あめです", te:"あめでも", nai:"あめじゃなくても", kamus:"あめだ", catatan:"KB: で→でも"},
+    {masu:"のみます", pos:"のんでも", neg:"のまなくても", taPlus:"のんでも (lampau konteks)", taMinus:"のまなくても", kamus:"のむ", catatan:"Grp I: て→ても"},
+    {masu:"たべます", pos:"たべても", neg:"たべなくても", taPlus:"たべても (lampau konteks)", taMinus:"たべなくても", kamus:"たべる", catatan:"Grp II: て→ても"},
+    {masu:"きます", pos:"きても", neg:"こなくても", taPlus:"きても (lampau konteks)", taMinus:"こなくても", kamus:"くる", catatan:"Grp III (<ruby>不規則<rt>ふきそく</rt></ruby>)"},
+    {masu:"あついです", pos:"あつくても", neg:"あつくなくても", taPlus:"あつかっても", taMinus:"あつくなかっても", kamus:"あつい", catatan:"KS い: く→くても"},
+    {masu:"きれいです", pos:"きれいでも", neg:"きれいじゃなくても", taPlus:"きれいだっても", taMinus:"きれいじゃなかっても", kamus:"きれいだ", catatan:"KS な: で→でも"},
+    {masu:"あめです", pos:"あめでも", neg:"あめじゃなくても", taPlus:"あめだっても", taMinus:"あめじゃなかっても", kamus:"あめだ", catatan:"KB: で→でも"},
    ],
    aturan:[
     "KK: ikuti aturan bentuk <b>て</b> lalu tambah <b>も</b>",
@@ -8567,16 +8570,17 @@ const RANGKUMAN_KONJUGASI = [
     "KS な: tambah <b>でも</b> langsung (きれい → きれい<b>でも</b>)",
     "KB: tambah <b>でも</b> langsung (にちようび → にちようび<b>でも</b>)",
     "Negatif ても: ない→なくて → <b>なくても</b>",
+    "⚠️ ても tidak berubah bentuk lampau — waktu ditentukan klausa utama",
    ]
   },
   {grup:"ながら", warna:"rsum-conj-nagara", label:"Bentuk ながら (sambil ~) — Bab 43",
    contoh: [
-    {masu:"のみます",   te:"のみながら",   nai:"—",   kamus:"のむ",   catatan:"Grp I: ます stem + ながら"},
-    {masu:"かきます",   te:"かきながら",   nai:"—",   kamus:"かく",   catatan:"Grp I: ます stem + ながら"},
-    {masu:"たべます",   te:"たべながら",   nai:"—",   kamus:"たべる", catatan:"Grp II: ます stem + ながら"},
-    {masu:"みます",     te:"みながら",     nai:"—",   kamus:"みる",   catatan:"Grp II: ます stem + ながら"},
-    {masu:"します",     te:"しながら",     nai:"—",   kamus:"する",   catatan:"Grp III (<ruby>不規則<rt>ふきそく</rt></ruby>)"},
-    {masu:"きます",     te:"きながら",     nai:"—",   kamus:"くる",   catatan:"Grp III (<ruby>不規則<rt>ふきそく</rt></ruby>)"},
+    {masu:"のみます",   pos:"のみながら",   neg:"—", taPlus:"—", taMinus:"—",   kamus:"のむ",   catatan:"Grp I: ます stem + ながら"},
+    {masu:"かきます",   pos:"かきながら",   neg:"—", taPlus:"—", taMinus:"—",   kamus:"かく",   catatan:"Grp I: ます stem + ながら"},
+    {masu:"たべます",   pos:"たべながら",   neg:"—", taPlus:"—", taMinus:"—",   kamus:"たべる", catatan:"Grp II: ます stem + ながら"},
+    {masu:"みます",     pos:"みながら",     neg:"—", taPlus:"—", taMinus:"—",   kamus:"みる",   catatan:"Grp II: ます stem + ながら"},
+    {masu:"します",     pos:"しながら",     neg:"—", taPlus:"—", taMinus:"—",   kamus:"する",   catatan:"Grp III (<ruby>不規則<rt>ふきそく</rt></ruby>)"},
+    {masu:"きます",     pos:"きながら",     neg:"—", taPlus:"—", taMinus:"—",   kamus:"くる",   catatan:"Grp III (<ruby>不規則<rt>ふきそく</rt></ruby>)"},
    ],
    aturan:[
     "Ambil <b>ます-stem</b> (bentuk ます tanpa ます), lalu tambahkan <b>ながら</b>",
@@ -8587,58 +8591,57 @@ const RANGKUMAN_KONJUGASI = [
     "⚠️ Tindakan UTAMA ada di KK2 (bukan KK1+ながら)",
     "  おんがくを <b>きき</b>ながら、べんきょうします → belajar sambil dengar musik",
     "⚠️ ながら = bersamaan. て = berurutan. Berbeda!",
+    "⚠️ ながら tidak memiliki bentuk negatif/lampau — waktu ditentukan KK utama",
    ]
   },
   {grup:"<ruby>受身<rt>うけみ</rt></ruby>", warna:"rsum-conj-ukemi", label:"Bentuk Pasif <ruby>受身形<rt>うけみけい</rt></ruby> (menerima tindakan ~) — Bab 58–59",
    contoh: [
-    {masu:"かきます",   te:"かかれます",   nai:"かかれません",   kamus:"かく",   catatan:"Grp I: く→か + れます"},
-    {masu:"のみます",   te:"のまれます",   nai:"のまれません",   kamus:"のむ",   catatan:"Grp I: む→ま + れます"},
-    {masu:"よびます",   te:"よばれます",   nai:"よばれません",   kamus:"よぶ",   catatan:"Grp I: ぶ→ば + れます"},
-    {masu:"とります",   te:"とられます",   nai:"とられません",   kamus:"とる",   catatan:"Grp I: る→ら + れます"},
-    {masu:"ふみます",   te:"ふまれます",   nai:"ふまれません",   kamus:"ふむ",   catatan:"Grp I: む→ま + れます"},
-    {masu:"たべます",   te:"たべられます", nai:"たべられません", kamus:"たべる", catatan:"Grp II: る→られます"},
-    {masu:"ほめます",   te:"ほめられます", nai:"ほめられません", kamus:"ほめる", catatan:"Grp II: る→られます"},
-    {masu:"みます",     te:"みられます",   nai:"みられません",   kamus:"みる",   catatan:"Grp II: る→られます"},
-    {masu:"きます",     te:"こられます",   nai:"こられません",   kamus:"くる",   catatan:"Grp III (<ruby>不規則<rt>ふきそく</rt></ruby>)"},
-    {masu:"します",     te:"されます",     nai:"されません",     kamus:"する",   catatan:"Grp III (<ruby>不規則<rt>ふきそく</rt></ruby>)"},
+    {masu:"かきます",   pos:"かかれます",   neg:"かかれません",   taPlus:"かかれました",   taMinus:"かかれませんでした",   kamus:"かかれる",   catatan:"Grp I: く→か + れる"},
+    {masu:"のみます",   pos:"のまれます",   neg:"のまれません",   taPlus:"のまれました",   taMinus:"のまれませんでした",   kamus:"のまれる",   catatan:"Grp I: む→ま + れる"},
+    {masu:"よびます",   pos:"よばれます",   neg:"よばれません",   taPlus:"よばれました",   taMinus:"よばれませんでした",   kamus:"よばれる",   catatan:"Grp I: ぶ→ば + れる"},
+    {masu:"とります",   pos:"とられます",   neg:"とられません",   taPlus:"とられました",   taMinus:"とられませんでした",   kamus:"とられる",   catatan:"Grp I: る→ら + れる"},
+    {masu:"たべます",   pos:"たべられます", neg:"たべられません", taPlus:"たべられました", taMinus:"たべられませんでした", kamus:"たべられる", catatan:"Grp II: る→られる"},
+    {masu:"ほめます",   pos:"ほめられます", neg:"ほめられません", taPlus:"ほめられました", taMinus:"ほめられませんでした", kamus:"ほめられる", catatan:"Grp II: る→られる"},
+    {masu:"きます",     pos:"こられます",   neg:"こられません",   taPlus:"こられました",   taMinus:"こられませんでした",   kamus:"こられる",   catatan:"Grp III (<ruby>不規則<rt>ふきそく</rt></ruby>)"},
+    {masu:"します",     pos:"されます",     neg:"されません",     taPlus:"されました",     taMinus:"されませんでした",     kamus:"される",     catatan:"Grp III (<ruby>不規則<rt>ふきそく</rt></ruby>)"},
    ],
    aturan:[
-    "Grup I (Godan): ganti bunyi akhir <b>u → a + れます</b>",
-    "  かく → か<b>かれます</b> | のむ → の<b>まれます</b> | よぶ → よ<b>ばれます</b>",
-    "  とる → と<b>られます</b> | はなす → はな<b>されます</b>",
-    "Grup II (Ichidan): buang る, tambah <b>られます</b>",
-    "  たべる → たべ<b>られます</b> | みる → み<b>られます</b>",
-    "Grup III: <b>する → されます</b> | <b>くる → こられます</b>",
-    "⚠️ Pasif terkonjugasi seperti KK Grup II (たべられます → たべられて / たべられた / たべられない)",
+    "Grup I (Godan): ganti bunyi akhir <b>u → a + れる</b>",
+    "  かく → か<b>かれる</b> | のむ → の<b>まれる</b> | よぶ → よ<b>ばれる</b>",
+    "  とる → と<b>られる</b> | はなす → はな<b>される</b>",
+    "Grup II (Ichidan): buang る, tambah <b>られる</b>",
+    "  たべる → たべ<b>られる</b> | みる → み<b>られる</b>",
+    "Grup III: <b>する → される</b> | <b>くる → こられる</b>",
+    "⚠️ Pasif terkonjugasi seperti KK Grup II (ます→ません→ました→ませんでした)",
     "⚠️ Gr II potensial vs pasif: たべられます = 'bisa makan' ATAU 'dimakan' — konteks menentukan!",
    ]
   },
   {grup:"使役", warna:"rsum-conj-shieki", label:"<ruby>使役形<rt>しえきけい</rt></ruby> (Kausatif — menyuruh/izinkan)",
    contoh: [
-     {masu:"かきます", te:"かかせます", nai:"かかせない", kamus:"かかせる", catatan:"Gr.I: i→a+せる"},
-     {masu:"よみます", te:"よませます", nai:"よませない", kamus:"よませる", catatan:"Gr.I: i→a+せる"},
-     {masu:"はなします", te:"はなさせます", nai:"はなさせない", kamus:"はなさせる", catatan:"Gr.I: し→さ+せる"},
-     {masu:"たべます", te:"たべさせます", nai:"たべさせない", kamus:"たべさせる", catatan:"Gr.II: +させる"},
-     {masu:"みます", te:"みさせます", nai:"みさせない", kamus:"みさせる", catatan:"Gr.II: +させる"},
-     {masu:"きます", te:"こさせます", nai:"こさせない", kamus:"こさせる", catatan:"Gr.III: <ruby>不規則<rt>ふきそく</rt></ruby>"},
-     {masu:"します", te:"させます", nai:"させない", kamus:"させる", catatan:"Gr.III: <ruby>不規則<rt>ふきそく</rt></ruby>"},
+     {masu:"かきます", pos:"かかせます", neg:"かかせません", taPlus:"かかせました", taMinus:"かかせませんでした", kamus:"かかせる", catatan:"Gr.I: i→a+せる"},
+     {masu:"よみます", pos:"よませます", neg:"よませません", taPlus:"よませました", taMinus:"よませませんでした", kamus:"よませる", catatan:"Gr.I: i→a+せる"},
+     {masu:"はなします", pos:"はなさせます", neg:"はなさせません", taPlus:"はなさせました", taMinus:"はなさせませんでした", kamus:"はなさせる", catatan:"Gr.I: し→さ+せる"},
+     {masu:"たべます", pos:"たべさせます", neg:"たべさせません", taPlus:"たべさせました", taMinus:"たべさせませんでした", kamus:"たべさせる", catatan:"Gr.II: +させる"},
+     {masu:"みます", pos:"みさせます", neg:"みさせません", taPlus:"みさせました", taMinus:"みさせませんでした", kamus:"みさせる", catatan:"Gr.II: +させる"},
+     {masu:"きます", pos:"こさせます", neg:"こさせません", taPlus:"こさせました", taMinus:"こさせませんでした", kamus:"こさせる", catatan:"Gr.III: <ruby>不規則<rt>ふきそく</rt></ruby>"},
+     {masu:"します", pos:"させます", neg:"させません", taPlus:"させました", taMinus:"させませんでした", kamus:"させる", catatan:"Gr.III: <ruby>不規則<rt>ふきそく</rt></ruby>"},
    ],
    aturan: [
      "Gr.I: ます stem → ubah bunyi akhir i→a, tambah せます (よみ→よま+せます)",
      "Gr.II: ます stem + させます (たべ→たべさせます)",
      "Gr.III: きます→こさせます / します→させます",
-     "Kausatif terkonjugasi sebagai KK Grup II",
+     "Kausatif terkonjugasi sebagai KK Grup II (ます→ません→ました→ませんでした)",
    ]
   },
   {grup:"命令・禁止", warna:"rsum-conj-meirei", label:"<ruby>命令形<rt>めいれいけい</rt></ruby>・<ruby>禁止形<rt>きんしけい</rt></ruby> (Perintah & Larangan)",
    contoh: [
-     {masu:"のみます", te:"のめ", nai:"のむな", kamus:"のむ", catatan:"Gr.I: i→e"},
-     {masu:"かきます", te:"かけ", nai:"かくな", kamus:"かく", catatan:"Gr.I: i→e"},
-     {masu:"まちます", te:"まて", nai:"まつな", kamus:"まつ", catatan:"Gr.I: i→e"},
-     {masu:"たべます", te:"たべろ", nai:"たべるな", kamus:"たべる", catatan:"Gr.II: +ろ"},
-     {masu:"みます", te:"みろ", nai:"みるな", kamus:"みる", catatan:"Gr.II: +ろ"},
-     {masu:"きます", te:"こい", nai:"くるな", kamus:"くる", catatan:"Gr.III: <ruby>不規則<rt>ふきそく</rt></ruby>"},
-     {masu:"します", te:"しろ", nai:"するな", kamus:"する", catatan:"Gr.III: <ruby>不規則<rt>ふきそく</rt></ruby>"},
+     {masu:"のみます", pos:"のめ", neg:"のむな", taPlus:"—", taMinus:"—", kamus:"のむ", catatan:"Gr.I: i→e / kamus+な"},
+     {masu:"かきます", pos:"かけ", neg:"かくな", taPlus:"—", taMinus:"—", kamus:"かく", catatan:"Gr.I: i→e / kamus+な"},
+     {masu:"まちます", pos:"まて", neg:"まつな", taPlus:"—", taMinus:"—", kamus:"まつ", catatan:"Gr.I: i→e / kamus+な"},
+     {masu:"たべます", pos:"たべろ", neg:"たべるな", taPlus:"—", taMinus:"—", kamus:"たべる", catatan:"Gr.II: +ろ / kamus+な"},
+     {masu:"みます", pos:"みろ", neg:"みるな", taPlus:"—", taMinus:"—", kamus:"みる", catatan:"Gr.II: +ろ / kamus+な"},
+     {masu:"きます", pos:"こい", neg:"くるな", taPlus:"—", taMinus:"—", kamus:"くる", catatan:"Gr.III: <ruby>不規則<rt>ふきそく</rt></ruby>"},
+     {masu:"します", pos:"しろ", neg:"するな", taPlus:"—", taMinus:"—", kamus:"する", catatan:"Gr.III: <ruby>不規則<rt>ふきそく</rt></ruby>"},
    ],
    aturan: [
      "<ruby>命令形<rt>めいれいけい</rt></ruby> Gr.I: ます stem → ubah bunyi akhir i-row → e-row (のみ→のめ, かき→かけ)",
@@ -8646,16 +8649,17 @@ const RANGKUMAN_KONJUGASI = [
      "<ruby>命令形<rt>めいれいけい</rt></ruby> Gr.III: きます→こい / します→しろ",
      "<ruby>禁止形<rt>きんしけい</rt></ruby> SEMUA: KK bentuk kamus + な (のむな, たべるな, するな, くるな)",
      "⚠️ Sangat kasar! Hanya untuk darurat, olahraga, atau tanda.",
+     "⚠️ 命令形・禁止形 tidak memiliki bentuk lampau — hanya digunakan saat ini/langsung",
    ]
   },
   {grup:"尊敬", warna:"rsum-conj-sonkei", label:"<ruby>尊敬語<rt>そんけいご</rt></ruby> (Bahasa Hormat — meninggikan orang lain)",
    contoh: [
-     {masu:"<ruby>聞<rt>き</rt></ruby>きます", te:"<ruby>聞<rt>き</rt></ruby>かれます", nai:"<ruby>聞<rt>き</rt></ruby>かれません", kamus:"<ruby>聞<rt>き</rt></ruby>かれる", catatan:"Gr.I: pasif=尊敬"},
-     {masu:"<ruby>読<rt>よ</rt></ruby>みます", te:"<ruby>読<rt>よ</rt></ruby>まれます", nai:"<ruby>読<rt>よ</rt></ruby>まれません", kamus:"<ruby>読<rt>よ</rt></ruby>まれる", catatan:"Gr.I: pasif=尊敬"},
-     {masu:"<ruby>書<rt>か</rt></ruby>きます", te:"<ruby>書<rt>か</rt></ruby>かれます", nai:"<ruby>書<rt>か</rt></ruby>かれません", kamus:"<ruby>書<rt>か</rt></ruby>かれる", catatan:"Gr.I: pasif=尊敬"},
-     {masu:"<ruby>食<rt>た</rt></ruby>べます", te:"<ruby>食<rt>た</rt></ruby>べられます", nai:"<ruby>食<rt>た</rt></ruby>べられません", kamus:"<ruby>食<rt>た</rt></ruby>べられる", catatan:"Gr.II: +られます"},
-     {masu:"きます", te:"こられます", nai:"こられません", kamus:"こられる", catatan:"Gr.III: <ruby>不規則<rt>ふきそく</rt></ruby>"},
-     {masu:"します", te:"されます", nai:"されません", kamus:"される", catatan:"Gr.III: <ruby>不規則<rt>ふきそく</rt></ruby>"},
+     {masu:"<ruby>聞<rt>き</rt></ruby>きます", pos:"<ruby>聞<rt>き</rt></ruby>かれます", neg:"<ruby>聞<rt>き</rt></ruby>かれません", taPlus:"<ruby>聞<rt>き</rt></ruby>かれました", taMinus:"<ruby>聞<rt>き</rt></ruby>かれませんでした", kamus:"<ruby>聞<rt>き</rt></ruby>かれる", catatan:"Gr.I: pasif=尊敬"},
+     {masu:"<ruby>読<rt>よ</rt></ruby>みます", pos:"<ruby>読<rt>よ</rt></ruby>まれます", neg:"<ruby>読<rt>よ</rt></ruby>まれません", taPlus:"<ruby>読<rt>よ</rt></ruby>まれました", taMinus:"<ruby>読<rt>よ</rt></ruby>まれませんでした", kamus:"<ruby>読<rt>よ</rt></ruby>まれる", catatan:"Gr.I: pasif=尊敬"},
+     {masu:"<ruby>書<rt>か</rt></ruby>きます", pos:"<ruby>書<rt>か</rt></ruby>かれます", neg:"<ruby>書<rt>か</rt></ruby>かれません", taPlus:"<ruby>書<rt>か</rt></ruby>かれました", taMinus:"<ruby>書<rt>か</rt></ruby>かれませんでした", kamus:"<ruby>書<rt>か</rt></ruby>かれる", catatan:"Gr.I: pasif=尊敬"},
+     {masu:"<ruby>食<rt>た</rt></ruby>べます", pos:"<ruby>食<rt>た</rt></ruby>べられます", neg:"<ruby>食<rt>た</rt></ruby>べられません", taPlus:"<ruby>食<rt>た</rt></ruby>べられました", taMinus:"<ruby>食<rt>た</rt></ruby>べられませんでした", kamus:"<ruby>食<rt>た</rt></ruby>べられる", catatan:"Gr.II: +られます"},
+     {masu:"きます", pos:"こられます", neg:"こられません", taPlus:"こられました", taMinus:"こられませんでした", kamus:"こられる", catatan:"Gr.III: <ruby>不規則<rt>ふきそく</rt></ruby>"},
+     {masu:"します", pos:"されます", neg:"されません", taPlus:"されました", taMinus:"されませんでした", kamus:"される", catatan:"Gr.III: <ruby>不規則<rt>ふきそく</rt></ruby>"},
    ],
    aturan:[
      "Bentuk sama dengan <ruby>受身形<rt>うけみけい</rt></ruby> (pasif) — konteks menentukan makna",
@@ -8664,18 +8668,18 @@ const RANGKUMAN_KONJUGASI = [
      "Gr.III: きます→こられます / します→されます",
      "Lebih sopan: お＋KK stem＋になります (お<ruby>帰<rt>かえ</rt></ruby>りになります)",
      "<ruby>特別<rt>とくべつ</rt></ruby>: いらっしゃいます / めしあがります / おっしゃいます / ごぞんじです / ごらんになります",
+     "⚠️ Konjugasi: ます→ません→ました→ませんでした (seperti Grup II biasa)",
    ]
   },
   {grup:"謙譲", warna:"rsum-conj-kenjou", label:"<ruby>謙譲語<rt>けんじょうご</rt></ruby> (Bahasa Merendah — merendahkan diri sendiri)",
    contoh: [
-     {masu:"<ruby>送<rt>おく</rt></ruby>ります", te:"お<ruby>送<rt>おく</rt></ruby>りします", nai:"お<ruby>送<rt>おく</rt></ruby>りしません", kamus:"お<ruby>送<rt>おく</rt></ruby>りする", catatan:"Gr.I: お～します"},
-     {masu:"<ruby>持<rt>も</rt></ruby>ちます", te:"お<ruby>持<rt>も</rt></ruby>ちします", nai:"お<ruby>持<rt>も</rt></ruby>ちしません", kamus:"お<ruby>持<rt>も</rt></ruby>ちする", catatan:"Gr.I: お～します"},
-     {masu:"<ruby>見<rt>み</rt></ruby>せます", te:"お<ruby>見<rt>み</rt></ruby>せします", nai:"お<ruby>見<rt>み</rt></ruby>せしません", kamus:"お<ruby>見<rt>み</rt></ruby>せする", catatan:"Gr.II: お～します"},
-     {masu:"<ruby>案内<rt>あんない</rt></ruby>します", te:"ご<ruby>案内<rt>あんない</rt></ruby>します", nai:"ご<ruby>案内<rt>あんない</rt></ruby>しません", kamus:"ご<ruby>案内<rt>あんない</rt></ruby>する", catatan:"Gr.III: ご～します"},
-     {masu:"<ruby>連絡<rt>れんらく</rt></ruby>します", te:"ご<ruby>連絡<rt>れんらく</rt></ruby>します", nai:"ご<ruby>連絡<rt>れんらく</rt></ruby>しません", kamus:"ご<ruby>連絡<rt>れんらく</rt></ruby>する", catatan:"Gr.III: ご～します"},
-     {masu:"いきます/きます", te:"まいります", nai:"まいりません", kamus:"まいる", catatan:"<ruby>特別<rt>とくべつ</rt></ruby>"},
-     {masu:"います", te:"おります", nai:"おりません", kamus:"おる", catatan:"<ruby>特別<rt>とくべつ</rt></ruby>"},
-     {masu:"いいます", te:"もうします", nai:"もうしません", kamus:"もうす", catatan:"<ruby>特別<rt>とくべつ</rt></ruby>"},
+     {masu:"<ruby>送<rt>おく</rt></ruby>ります", pos:"お<ruby>送<rt>おく</rt></ruby>りします", neg:"お<ruby>送<rt>おく</rt></ruby>りしません", taPlus:"お<ruby>送<rt>おく</rt></ruby>りしました", taMinus:"お<ruby>送<rt>おく</rt></ruby>りしませんでした", kamus:"お<ruby>送<rt>おく</rt></ruby>りする", catatan:"Gr.I: お～します"},
+     {masu:"<ruby>持<rt>も</rt></ruby>ちます", pos:"お<ruby>持<rt>も</rt></ruby>ちします", neg:"お<ruby>持<rt>も</rt></ruby>ちしません", taPlus:"お<ruby>持<rt>も</rt></ruby>ちしました", taMinus:"お<ruby>持<rt>も</rt></ruby>ちしませんでした", kamus:"お<ruby>持<rt>も</rt></ruby>ちする", catatan:"Gr.I: お～します"},
+     {masu:"<ruby>見<rt>み</rt></ruby>せます", pos:"お<ruby>見<rt>み</rt></ruby>せします", neg:"お<ruby>見<rt>み</rt></ruby>せしません", taPlus:"お<ruby>見<rt>み</rt></ruby>せしました", taMinus:"お<ruby>見<rt>み</rt></ruby>せしませんでした", kamus:"お<ruby>見<rt>み</rt></ruby>せする", catatan:"Gr.II: お～します"},
+     {masu:"<ruby>案内<rt>あんない</rt></ruby>します", pos:"ご<ruby>案内<rt>あんない</rt></ruby>します", neg:"ご<ruby>案内<rt>あんない</rt></ruby>しません", taPlus:"ご<ruby>案内<rt>あんない</rt></ruby>しました", taMinus:"ご<ruby>案内<rt>あんない</rt></ruby>しませんでした", kamus:"ご<ruby>案内<rt>あんない</rt></ruby>する", catatan:"Gr.III: ご～します"},
+     {masu:"いきます/きます", pos:"まいります", neg:"まいりません", taPlus:"まいりました", taMinus:"まいりませんでした", kamus:"まいる", catatan:"<ruby>特別<rt>とくべつ</rt></ruby>"},
+     {masu:"います", pos:"おります", neg:"おりません", taPlus:"おりました", taMinus:"おりませんでした", kamus:"おる", catatan:"<ruby>特別<rt>とくべつ</rt></ruby>"},
+     {masu:"いいます", pos:"もうします", neg:"もうしません", taPlus:"もうしました", taMinus:"もうしませんでした", kamus:"もうす", catatan:"<ruby>特別<rt>とくべつ</rt></ruby>"},
    ],
    aturan:[
      "Gr.I & II: お＋KK ます stem＋します (お<ruby>送<rt>おく</rt></ruby>りします、お<ruby>持<rt>も</rt></ruby>ちします)",
@@ -8683,6 +8687,7 @@ const RANGKUMAN_KONJUGASI = [
      "<ruby>特別<rt>とくべつ</rt></ruby>: まいります / おります / もうします / いただきます / はいけんします / いたします / うかがいます / おめにかかります",
      "⚠️ <ruby>尊敬語<rt>そんけいご</rt></ruby>: <ruby>主語<rt>しゅご</rt></ruby>=<ruby>相手<rt>あいて</rt></ruby>（meninggikan orang lain）",
      "⚠️ <ruby>謙譲語<rt>けんじょうご</rt></ruby>: <ruby>主語<rt>しゅご</rt></ruby>=<ruby>自分<rt>じぶん</rt></ruby>（merendahkan diri sendiri）",
+     "⚠️ Konjugasi: します→しません→しました→しませんでした",
    ]
   },
 ];
@@ -9389,33 +9394,42 @@ function renderRangkuman() {
     const isKano   = grupPlain.includes('可能');
     const isNagara = grupPlain === 'ながら';
     const isUkemi  = grupPlain.includes('受身');
-    const isSpecial = isTara || isTemo || isKano || isNagara || isUkemi;
+    const isShieki = grupPlain.includes('使役');
+    const isMeirei = grupPlain.includes('命令');
+    const isSonkei = grupPlain.includes('尊敬');
+    const isKenjou = grupPlain.includes('謙譲');
+    const isAdvanced = isTara || isTemo || isKano || isNagara || isUkemi || isShieki || isMeirei || isSonkei || isKenjou;
     const n4Badge = '';
-    // Label kolom ke-2 disesuaikan per grup
-    const col2Label = isKano ? '<ruby>可能形<rt>かのうけい</rt></ruby> (Positif)' : isNagara ? 'ながら形' :
-                      isUkemi ? `<span class="rsum-vv-chip vv-ukemi" style="font-size:0.62rem">受身</span> Positif` :
-                      isTara ? `<span class="rsum-vv-chip vv-tara" style="font-size:0.62rem">たら</span> Positif` :
-                      isTemo ? `<span class="rsum-vv-chip vv-temo" style="font-size:0.62rem">ても</span> Positif` : '';
-    const headerHtml = isSpecial ?
-      `<th>〜ます / bentuk dasar</th>
-       <th>${col2Label}</th>
-       <th><span class="rsum-vv-chip vv-nai" style="font-size:0.62rem">ない</span> Negatif</th>
+
+    let headerHtml, rowsHtml;
+    if (isAdvanced) {
+      // Konjugasi lanjutan: 6 kolom (Dasar, ✅ Kini +, ❌ Kini −, ⏮️ Lampau +, ⏮️❌ Lampau −, Kamus, Ket.)
+      headerHtml = `<th>〜ます</th>
+       <th style="color:#60a5fa">✅ Kini +</th>
+       <th style="color:#f87171">❌ Kini −</th>
+       <th style="color:#fbbf24">⏮️ Lampau +</th>
+       <th style="color:#fb923c">⏮️❌ Lampau −</th>
        <th><span class="rsum-vv-chip vv-kamus" style="font-size:0.62rem">辞</span> Kamus</th>
-       <th>Ket.</th>` :
-      `<th>〜ます</th>
+       <th>Ket.</th>`;
+      rowsHtml = g.contoh.map(r => `
+      <tr>
+        <td class="rsum-form">${r.masu}</td>
+        <td class="rsum-form"><b style="color:#60a5fa">${r.pos}</b></td>
+        <td class="rsum-form" style="color:#f87171"><b>${r.neg}</b></td>
+        <td class="rsum-form" style="color:#fbbf24">${r.taPlus}</td>
+        <td class="rsum-form" style="color:#fb923c">${r.taMinus}</td>
+        <td class="rsum-form">${r.kamus}</td>
+        <td style="font-size:0.68rem;color:var(--text2)">${r.catatan}</td>
+      </tr>`).join('');
+    } else {
+      // Konjugasi dasar (I/II/III/⚠️): 6 kolom (ます, て, た, ない, 辞書, Ket.)
+      headerHtml = `<th>〜ます</th>
        <th><span class="rsum-vv-chip vv-te" style="font-size:0.62rem">て</span> 〜て</th>
        <th><span class="rsum-vv-chip vv-ta" style="font-size:0.62rem">た</span> 〜た</th>
        <th><span class="rsum-vv-chip vv-nai" style="font-size:0.62rem">ない</span> 〜ない</th>
        <th><span class="rsum-vv-chip vv-kamus" style="font-size:0.62rem">辞</span> Kamus</th>
        <th>Ket.</th>`;
-    const rowsHtml = g.contoh.map(r => isSpecial ? `
-      <tr>
-        <td class="rsum-form">${r.masu}</td>
-        <td class="rsum-form"><b style="color:var(--amber)">${r.te}</b></td>
-        <td class="rsum-form" style="color:var(--red)">${r.nai}</td>
-        <td class="rsum-form">${r.kamus}</td>
-        <td style="font-size:0.68rem;color:var(--text2)">${r.catatan}</td>
-      </tr>` : `
+      rowsHtml = g.contoh.map(r => `
       <tr>
         <td class="rsum-form">${r.masu.replace(/⚠️/g,'')}${r.masu.includes('⚠️')?'<span style="color:var(--amber);font-size:0.7rem"> ⚠️</span>':''}</td>
         <td class="rsum-form"><b>${r.te}</b></td>
@@ -9424,6 +9438,7 @@ function renderRangkuman() {
         <td class="rsum-form">${r.kamus}</td>
         <td style="font-size:0.68rem;color:var(--text2)">${r.catatan}</td>
       </tr>`).join('');
+    }
     const aturanHtml = g.aturan.map(a => `<li style="margin-bottom:4px">${a}</li>`).join('');
     // Poin 2: babChipsHtml — link ke bab terkait
     const grupKey = stripRuby(g.grup);
@@ -9482,8 +9497,101 @@ function renderRangkuman() {
       </table></div>
     </div>`;
 
+  // ── Penjelasan Detail Ragam Sopan vs Ragam Biasa ──
+  const ragamExplanation = `
+    <div style="margin-bottom:22px">
+      <div style="font-size:0.75rem;font-weight:700;color:var(--accent2);margin-bottom:10px;letter-spacing:0.04em">📚 RAGAM SOPAN vs RAGAM BIASA — Penjelasan Detail</div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px">
+        <div style="background:rgba(96,165,250,0.08);border:1px solid rgba(96,165,250,0.25);border-radius:10px;padding:12px 14px">
+          <div style="font-size:0.78rem;font-weight:700;color:#60a5fa;margin-bottom:6px">🎩 Ragam Sopan (丁寧体 ていねいたい)</div>
+          <div style="font-size:0.75rem;color:var(--text2);line-height:1.8">
+            <b>Kapan dipakai:</b><br>
+            • Dengan orang yang baru dikenal<br>
+            • Dengan atasan, guru, senior<br>
+            • Dalam situasi resmi / formal<br>
+            • Di tempat kerja / sekolah<br><br>
+            <b>Ciri khas:</b> berakhiran <span style="color:#60a5fa;font-family:'Noto Sans JP'">〜ます / 〜です</span><br><br>
+            <b>Contoh:</b><br>
+            <span style="font-family:'Noto Sans JP';color:var(--text)">たべ<b style="color:#60a5fa">ます</b></span> → makan (sopan)<br>
+            <span style="font-family:'Noto Sans JP';color:var(--text)">たべ<b style="color:#f87171">ません</b></span> → tidak makan<br>
+            <span style="font-family:'Noto Sans JP';color:var(--text)">たべ<b style="color:#fbbf24">ました</b></span> → sudah makan<br>
+            <span style="font-family:'Noto Sans JP';color:var(--text)">たべ<b style="color:#fb923c">ませんでした</b></span> → tidak makan (dulu)
+          </div>
+        </div>
+
+        <div style="background:rgba(45,212,191,0.08);border:1px solid rgba(45,212,191,0.25);border-radius:10px;padding:12px 14px">
+          <div style="font-size:0.78rem;font-weight:700;color:#2dd4bf;margin-bottom:6px">💬 Ragam Biasa (普通体 ふつうたい)</div>
+          <div style="font-size:0.75rem;color:var(--text2);line-height:1.8">
+            <b>Kapan dipakai:</b><br>
+            • Dengan teman dekat / keluarga<br>
+            • Dalam kalimat kasual / santai<br>
+            • Di dalam kalimat (sebelum と思う, から, のに, dll.)<br>
+            • Dalam diary / monolog batin<br><br>
+            <b>Ciri khas:</b> berakhiran <span style="color:#2dd4bf;font-family:'Noto Sans JP'">bentuk kamus / 〜ない / 〜た / 〜なかった</span><br><br>
+            <b>Contoh:</b><br>
+            <span style="font-family:'Noto Sans JP';color:var(--text)">たべ<b style="color:#2dd4bf">る</b></span> → makan (biasa)<br>
+            <span style="font-family:'Noto Sans JP';color:var(--text)">たべ<b style="color:#f87171">ない</b></span> → tidak makan<br>
+            <span style="font-family:'Noto Sans JP';color:var(--text)">たべ<b style="color:#fbbf24">た</b></span> → sudah makan<br>
+            <span style="font-family:'Noto Sans JP';color:var(--text)">たべ<b style="color:#fb923c">なかった</b></span> → tidak makan (dulu)
+          </div>
+        </div>
+      </div>
+
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:12px 14px;margin-bottom:10px">
+        <div style="font-size:0.72rem;font-weight:700;color:var(--text2);margin-bottom:8px;letter-spacing:0.04em">💡 PERBEDAAN PENTING</div>
+        <div style="font-size:0.75rem;color:var(--text2);line-height:1.8">
+          <table style="width:100%;border-collapse:collapse;font-size:0.75rem">
+            <tr style="border-bottom:1px solid var(--border)">
+              <td style="padding:6px 8px;font-weight:600;color:var(--text);width:30%">Aspek</td>
+              <td style="padding:6px 8px;color:#60a5fa;font-weight:600">🎩 Sopan</td>
+              <td style="padding:6px 8px;color:#2dd4bf;font-weight:600">💬 Biasa</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border)">
+              <td style="padding:6px 8px;color:var(--text2)">Akhiran positif</td>
+              <td style="padding:6px 8px;font-family:'Noto Sans JP'">〜ます</td>
+              <td style="padding:6px 8px;font-family:'Noto Sans JP'">〜う/る (bentuk kamus)</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border)">
+              <td style="padding:6px 8px;color:var(--text2)">Akhiran negatif</td>
+              <td style="padding:6px 8px;font-family:'Noto Sans JP'">〜ません</td>
+              <td style="padding:6px 8px;font-family:'Noto Sans JP'">〜ない</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border)">
+              <td style="padding:6px 8px;color:var(--text2)">Lampau positif</td>
+              <td style="padding:6px 8px;font-family:'Noto Sans JP'">〜ました</td>
+              <td style="padding:6px 8px;font-family:'Noto Sans JP'">〜た/だ</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border)">
+              <td style="padding:6px 8px;color:var(--text2)">Lampau negatif</td>
+              <td style="padding:6px 8px;font-family:'Noto Sans JP'">〜ませんでした</td>
+              <td style="padding:6px 8px;font-family:'Noto Sans JP'">〜なかった</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border)">
+              <td style="padding:6px 8px;color:var(--text2)">Kapan pakai</td>
+              <td style="padding:6px 8px">Akhir kalimat (ke lawan bicara)</td>
+              <td style="padding:6px 8px">Akhir kalimat santai / di tengah kalimat (sebelum と, から, のに, dll.)</td>
+            </tr>
+            <tr>
+              <td style="padding:6px 8px;color:var(--text2)">Contoh lengkap</td>
+              <td style="padding:6px 8px;font-family:'Noto Sans JP'">あした いきます。</td>
+              <td style="padding:6px 8px;font-family:'Noto Sans JP'">あした いく。</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="note-box note-teal" style="font-size:0.76rem;line-height:1.7;margin-bottom:0">
+        <b>⚠️ Penting:</b> Ragam Biasa (普通体) WAJIB digunakan di dalam kalimat kompleks:<br>
+        • あした <ruby>雨<rt>あめ</rt></ruby>が <b>ふる</b>と<ruby>思<rt>おも</rt></ruby>います。(Saya pikir besok hujan) — bukan ふりますと<br>
+        • <ruby>時間<rt>じかん</rt></ruby>が <b>ない</b>から、タクシーで <ruby>行<rt>い</rt></ruby>きます。(Karena tidak ada waktu, naik taksi) — bukan ありませんから<br>
+        • きのう <b>買った</b> <ruby>本<rt>ほん</rt></ruby> (Buku yang dibeli kemarin) — bukan 買いました本
+      </div>
+    </div>`;
+
   document.getElementById('rsum-tab-3').innerHTML = `<div style="padding:16px 14px 20px">
     <div class="rsum-section-title">🔄 Konjugasi Kata Kerja — <span style="color:${lvColor}">${lvLabel}</span></div>
+    ${ragamExplanation}
     ${kkCheatSheet}
     ${konjQuickNav}
     ${konjHtml}
