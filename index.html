@@ -983,6 +983,10 @@ body {
 .vv-kamus { background: rgba(45,212,191,0.15); color: #2dd4bf; }
 .vv-tara { background: rgba(249,115,22,0.15); color: #f97316; }
 .vv-temo { background: rgba(244,114,182,0.15); color: #f472b6; }
+.vv-masu { background: rgba(96,165,250,0.15); color: #60a5fa; }
+.vv-kanoudoshi { background: rgba(34,211,238,0.15); color: #22d3ee; }
+.vv-ikou { background: rgba(168,85,247,0.15); color: #a855f7; }
+.vv-fut  { background: rgba(163,163,163,0.15); color: #a3a3a3; }
 
 /* ── RANGKUMAN: Kata Sifat Card (Tab KS) ── */
 .rsum-adj-card {
@@ -9454,19 +9458,14 @@ function renderRangkuman() {
       : p.funcs;
     if (filteredFuncs.length === 0) return '';
     const funcsHtml = filteredFuncs.map(f => {
-      const isN4func = N4_FUNC_TAGS.has(f.tag);
-      const showBadge = isN4func && rsumLevel !== 'n5';
-      const badge = showBadge ? `<span class="rsum-level-badge badge-n4" style="margin-left:4px">N4 Baru</span>` : '';
-      return `<div class="rsum-part-func-row"${showBadge ? ' style="background:rgba(192,132,252,0.06);border-radius:6px"' : ''}>
+      return `<div class="rsum-part-func-row">
         <span class="rsum-part-func-tag ${f.tagcls}">${f.tag}</span>
         <div class="rsum-part-func-info">
-          <div class="rsum-part-func-desc">${f.desc}${badge}</div>
+          <div class="rsum-part-func-desc">${f.desc}</div>
           <div class="rsum-part-func-ex">${f.ex} <span style="color:var(--text2)">→ ${f.tr}</span></div>
         </div>
       </div>`;
     }).join('');
-    const n4CardBadge = (isN4Card && rsumLevel !== 'n5')
-      ? `<span class="rsum-level-badge badge-n4" style="margin-left:6px">N4 Baru</span>` : '';
     const firstBab = PARTIKEL_FIRST_BAB[p.part] || '?';
     const isOpen = idx === 0 ? ' open' : '';
     return `<div class="part-accordion${isOpen}" id="part-acc-${idx}">
@@ -9474,7 +9473,6 @@ function renderRangkuman() {
         <span class="part-accordion-chevron">▶</span>
         <span class="rsum-part-key" style="color:${p.color};font-size:1.1rem">${p.part}</span>
         <span style="font-size:0.78rem;color:var(--text2)">(${p.romaji})</span>
-        ${n4CardBadge}
         <span class="part-accordion-bab">Bab ${firstBab}</span>
         <span class="part-accordion-count">${filteredFuncs.length} fungsi</span>
       </div>
@@ -9500,9 +9498,7 @@ function renderRangkuman() {
     </table></div>
     <div style="margin-top:8px;font-size:0.72rem;color:var(--text2)">💡 Kunci: に = <b>titik/tujuan</b>. で = <b>arena tindakan atau alat</b>.</div>
   </div>`;
-  const n4PartInfo = rsumLevel === 'n4' ? `<div class="note-box note-purple" style="margin-bottom:14px;font-size:0.79rem;line-height:1.6">
-    💡 <b>Mode N4:</b> Semua partikel N5 tetap tampil — masih dipakai di N4. Fungsi &amp; kartu baru N4 ditandai <span class="rsum-level-badge badge-n4">N4 Baru</span>.
-  </div>` : '';
+  const n4PartInfo = '';
   document.getElementById('rsum-tab-1').innerHTML = `<div style="padding:16px 14px 20px">
     <div class="rsum-section-title">🔗 Partikel — <span style="color:${lvColor}">${lvLabel}</span></div>
     ${n4PartInfo}
@@ -9536,14 +9532,11 @@ function renderRangkuman() {
       </tr>`;
     }).join('');
     const isOpen = vvIdx === 0 ? ' open' : '';
-    const maxBab = Math.max(...g.filteredPola.map(r => r.bab));
-    const babRange = g.minBab === maxBab ? `Bab ${g.minBab}` : `Bab ${g.minBab}–${maxBab}`;
     const result = `<div class="vv-accordion${isOpen}" id="vv-acc-${vvIdx}">
       <div class="vv-accordion-head" onclick="this.parentElement.classList.toggle('open')">
         <span class="vv-accordion-chevron">▶</span>
         <span class="rsum-vv-chip ${g.chip}" style="font-size:0.72rem;padding:3px 10px">${g.bentuk}</span>
         <span style="font-size:0.82rem;font-weight:600;color:var(--text)">${g.label}</span>
-        <span class="vv-accordion-bab">${babRange}</span>
         <span class="vv-accordion-count">${g.filteredPola.length} pola</span>
       </div>
       <div class="vv-accordion-body">
