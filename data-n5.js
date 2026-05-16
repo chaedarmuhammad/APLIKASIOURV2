@@ -96,7 +96,7 @@ const BABS = [
     {jp:"ミャンマー",furigana:"",rom:"Myānmā",id:"Myanmar",cat:"Kata Benda",lv:"extra"},
     {jp:"〜から<ruby><rb>来</rb><rt>き</rt></ruby>ました",furigana:"〜からきました",rom:"~kara kimashita",id:"(saya) datang dari ~",cat:"Ekspresi",lv:"core"}
   ]
-}
+},
 {
   num: 2,
   title: "Kata Tunjuk Benda",
@@ -172,7 +172,7 @@ const BABS = [
     {jp:"タイ<ruby><rb>語</rb><rt>ご</rt></ruby>",furigana:"タイご",rom:"Taigo",id:"bahasa Thailand",cat:"Kata Benda",lv:"extra"},
     {jp:"ブラジル",furigana:"",rom:"Burajiru",id:"Brazil",cat:"Kata Benda",lv:"extra"}
   ]
-}
+},
 {
   num: 3,
   title: "Kata Tunjuk Tempat",
@@ -246,7 +246,7 @@ const BABS = [
     {jp:"コピー<ruby><rb>機</rb><rt>き</rt></ruby>",furigana:"コピーき",rom:"kopī ki",id:"mesin fotokopi",cat:"Kata Benda",lv:"extra"},
     {jp:"<ruby><rb>自動販売機</rb><rt>じどうはんばいき</rt></ruby>",furigana:"じどうはんばいき",rom:"jidōhanbaiki",id:"mesin jual otomatis",cat:"Kata Benda",lv:"extra"}
   ]
-}
+},
 {
   num: 4,
   title: "Harga dan Bilangan Besar",
@@ -284,7 +284,7 @@ const BABS = [
     {jp:"〜を<ruby><rb>見</rb><rt>み</rt></ruby>せてください",furigana:"〜をみせてください",rom:"~o misete kudasai",id:"tolong tunjukkan ~; tolong perlihatkan ~",cat:"Ekspresi",lv:"core"},
     {jp:"フリーマーケット",furigana:"",rom:"furī mākketo",id:"flea market; pasar loak",cat:"Kata Benda",lv:"extra"},
   ]
-}
+},
 {
   num: 5,
   title: "Waktu dan Hari",
@@ -351,7 +351,7 @@ const BABS = [
     {jp:"<ruby><rb>電話番号</rb><rt>でんわばんごう</rt></ruby>",furigana:"でんわばんごう",rom:"denwa bangō",id:"nomor telepon",cat:"Kata Benda",lv:"core"},
     {jp:"<ruby><rb>今</rb><rt>いま</rt></ruby>",furigana:"いま",rom:"ima",id:"sekarang",cat:"Kata Benda",lv:"core"}
   ]
-}
+},
 {
   num: 6,
   title: "Kata Kerja Bentuk ます",
@@ -400,7 +400,7 @@ const BABS = [
     {jp:"<ruby><rb>大変</rb><rt>たいへん</rt></ruby>ですね",furigana:"たいへんですね",rom:"taihen desu ne",id:"sangat repot ya; sangat menyusahkan ya",cat:"Ekspresi",lv:"core"},
     {jp:"<ruby><rb>大変</rb><rt>たいへん</rt></ruby>（な）",furigana:"たいへん（な）",rom:"taihen (na)",id:"berat; sulit; susah",cat:"Kata Sifat",lv:"core",grp:"な"},
   ]
-}
+},
 {
   num: 7,
   title: "Transportasi dan Tanggal",
@@ -499,7 +499,7 @@ const BABS = [
     {jp:"<ruby><rb>次</rb><rt>つぎ</rt></ruby>の",furigana:"つぎの",rom:"tsugi no",id:"selanjutnya",cat:"Ekspresi",lv:"core"},
     {jp:"<ruby><rb>歩</rb><rt>ある</rt></ruby>いて",furigana:"あるいて",rom:"aruite",id:"berjalan kaki",cat:"Ekspresi",lv:"core"}
   ]
-}
+},
 {
   num: 8,
   title: "Kata Kerja Transitif",
@@ -576,7 +576,7 @@ const BABS = [
     {jp:"ミルク",furigana:"",rom:"miruku",id:"susu",cat:"Kata Benda",lv:"core"},
     {jp:"<ruby><rb>卵</rb><rt>たまご</rt></ruby>",furigana:"たまご",rom:"tamago",id:"telur",cat:"Kata Benda",lv:"core"}
   ]
-}
+},
 {
   num: 9,
   title: "Memberi dan Menerima",
@@ -628,7 +628,7 @@ const BABS = [
     {jp:"ケーキ",furigana:"",rom:"kēki",id:"kue",cat:"Kata Benda",lv:"extra"},
     {jp:"すてきですね",furigana:"",rom:"suteki desu ne",id:"bagus ya; indah ya",cat:"Ekspresi",lv:"extra"}
   ]
-}
+},
 {
   num: 10,
   title: "Sudah / Belum / Ajakan",
@@ -686,7 +686,7 @@ const BABS = [
     {jp:"いいですね",furigana:"",rom:"ii desu ne",id:"bagus ya; baik ya",cat:"Ekspresi",lv:"core"},
     {jp:"<ruby><rb>荷物</rb><rt>にもつ</rt></ruby>",furigana:"にもつ",rom:"nimotsu",id:"barang bawaan",cat:"Kata Benda",lv:"core"}
   ]
-}
+},
 {
   num: 11,
   title: "Kata Sifat",
@@ -749,7 +749,7 @@ const BABS = [
     {jp:"<ruby><rb>勉強</rb><rt>べんきょう</rt></ruby>",furigana:"べんきょう",rom:"benkyō",id:"belajar",cat:"Kata Benda",lv:"core"},
     {jp:"<ruby><rb>富士山</rb><rt>ふじさん</rt></ruby>",furigana:"ふじさん",rom:"Fuji san",id:"Gunung Fuji",cat:"Kata Benda",lv:"extra"}
   ]
-}
+},
 {
   num: 12,
   title: "Kata Sifat sebagai Penerang KB",
@@ -800,7 +800,7 @@ const BABS = [
     {jp:"<ruby><rb>台湾</rb><rt>たいわん</rt></ruby>",furigana:"たいわん",rom:"Taiwan",id:"Taiwan",cat:"Kata Benda",lv:"extra"},
     {jp:"<ruby><rb>福岡</rb><rt>ふくおか</rt></ruby>",furigana:"ふくおか",rom:"Fukuoka",id:"Fukuoka",cat:"Kata Benda",lv:"extra"}
   ]
-}
+},
 {
   num: 13,
   title: "Suka, Pandai, dan Alasan",
@@ -875,7 +875,7 @@ const BABS = [
     {jp:"<ruby><rb>野球</rb><rt>やきゅう</rt></ruby>",furigana:"やきゅう",rom:"yakyū",id:"bisbol; bola kasti",cat:"Kata Benda",lv:"core"},
     {jp:"<ruby><rb>歌</rb><rt>うた</rt></ruby>",furigana:"うた",rom:"uta",id:"lagu",cat:"Kata Benda",lv:"core"}
   ]
-}
+},
 {
   num: 14,
   title: "Keberadaan",
@@ -957,7 +957,7 @@ const BABS = [
     {jp:"<ruby><rb>物</rb><rt>もの</rt></ruby>",furigana:"もの",rom:"mono",id:"barang; benda",cat:"Kata Benda",lv:"core"},
     {jp:"<ruby><rb>県</rb><rt>けん</rt></ruby>",furigana:"けん",rom:"ken",id:"prefektur",cat:"Kata Benda",lv:"extra"}
   ]
-}
+},
 {
   num: 15,
   title: "Kata Bantu Bilangan",
@@ -1021,7 +1021,7 @@ const BABS = [
     {jp:"お<ruby><rb>持</rb><rt>も</rt></ruby>ち<ruby><rb>帰</rb><rt>かえ</rt></ruby>り",furigana:"おもちかえり",rom:"omochi kaeri",id:"bawa pulang",cat:"Ekspresi",lv:"extra"},
     {jp:"<ruby><rb>日本語学校</rb><rt>にほんごがっこう</rt></ruby>",furigana:"にほんごがっこう",rom:"nihongo gakkō",id:"sekolah bahasa Jepang",cat:"Kata Benda",lv:"extra"}
   ]
-}
+},
 {
   num: 16,
   title: "Durasi dan Frekuensi",
@@ -1074,7 +1074,7 @@ const BABS = [
     {jp:"<ruby><rb>早</rb><rt>はや</rt></ruby>い/<ruby><rb>速</rb><rt>はや</rt></ruby>い",furigana:"はやい",rom:"hayai",id:"cepat",cat:"Kata Sifat",lv:"core",grp:"い"},
     {jp:"<ruby><rb>遅</rb><rt>おそ</rt></ruby>い",furigana:"おそい",rom:"osoi",id:"lambat",cat:"Kata Sifat",lv:"core",grp:"い"}
   ]
-}
+},
 {
   num: 17,
   title: "Perbandingan",
@@ -1143,7 +1143,7 @@ const BABS = [
     {jp:"バイク",furigana:"",rom:"baiku",id:"motor",cat:"Kata Benda",lv:"extra"},
     {jp:"<ruby><rb>地震</rb><rt>じしん</rt></ruby>",furigana:"じしん",rom:"jishin",id:"gempa bumi",cat:"Kata Benda",lv:"extra"}
   ]
-}
+},
 {
   num: 18,
   title: "Kata Sifat dan Kata Benda Bentuk Lampau",
@@ -1183,7 +1183,7 @@ const BABS = [
     {jp:"お<ruby><rb>祭</rb><rt>まつ</rt></ruby>り",furigana:"おまつり",rom:"omatsuri",id:"festival",cat:"Kata Benda",lv:"extra"},
     {jp:"<ruby><rb>特</rb><rt>とく</rt></ruby>に",furigana:"とくに",rom:"toku ni",id:"terutama; khususnya",cat:"Kata Keterangan",lv:"extra"}
   ]
-}
+},
 {
   num: 19,
   title: "Ingin",
@@ -1224,7 +1224,7 @@ const BABS = [
     {jp:"<ruby><rb>天気</rb><rt>てんき</rt></ruby>",furigana:"てんき",rom:"tenki",id:"cuaca",cat:"Kata Benda",lv:"core"},
     {jp:"〜のとき",furigana:"",rom:"~no toki",id:"ketika ~",cat:"Ekspresi",lv:"core"},
   ]
-}
+},
 {
   num: 20,
   title: "Tujuan Pergi",
@@ -1267,7 +1267,7 @@ const BABS = [
     {jp:"<ruby><rb>北海道</rb><rt>ほっかいどう</rt></ruby>",furigana:"ほっかいどう",rom:"Hokkaidō",id:"Hokkaido",cat:"Kata Benda",lv:"extra"},
     {jp:"<ruby><rb>ビザ</rb><rt>びざ</rt></ruby>を<ruby><rb>取</rb><rt>と</rt></ruby>ります",furigana:"びざをとります",rom:"biza o torimasu",id:"mengambil (visa)",cat:"Kata Kerja",lv:"extra",grp:"I"}
   ]
-}
+},
 {
   num: 21,
   title: "Kata Kerja Bentuk て",
@@ -1340,7 +1340,7 @@ const BABS = [
     {jp:"もう〜",furigana:"",rom:"mō~",id:"~ lagi",cat:"Ekspresi",lv:"extra"},
     {jp:"まっすぐ",furigana:"",rom:"massugu",id:"lurus",cat:"Kata Keterangan",lv:"core"},
   ]
-}
+},
 {
   num: 22,
   title: "Izin & Larangan",
@@ -1399,7 +1399,7 @@ const BABS = [
     {jp:"お<ruby><rb>腹</rb><rt>なか</rt></ruby>が<ruby><rb>痛</rb><rt>いた</rt></ruby>いです",furigana:"おなかがいたいです",rom:"onaka ga itai desu",id:"(saya) sakit perut",cat:"Ekspresi",lv:"extra"},
     {jp:"<ruby><rb>喫茶店</rb><rt>きっさてん</rt></ruby>",furigana:"きっさてん",rom:"kissaten",id:"kafe",cat:"Kata Benda",lv:"extra"},
   ]
-}
+},
 {
   num: 23,
   title: "て います",
@@ -1461,7 +1461,7 @@ const BABS = [
     {jp:"<ruby><rb>長野県</rb><rt>ながのけん</rt></ruby>",furigana:"ながのけん",rom:"Nagano ken",id:"Prefektur Nagano",cat:"Kata Benda",lv:"extra"},
     {jp:"<ruby><rb>秋葉原</rb><rt>あきはばら</rt></ruby>",furigana:"あきはばら",rom:"Akihabara",id:"Akihabara",cat:"Kata Benda",lv:"extra"},
   ]
-}
+},
 {
   num: 24,
   title: "Rangkaian Aksi",
@@ -1509,7 +1509,7 @@ const BABS = [
     {jp:"<ruby><rb>新橋</rb><rt>しんばし</rt></ruby>",furigana:"しんばし",rom:"Shinbashi",id:"Shinbashi",cat:"Kata Benda",lv:"extra"},
     {jp:"JR",furigana:"ジェイアール",rom:"jei āru",id:"Japan Railway (perusahaan kereta api Jepang)",cat:"Kata Benda",lv:"extra"},
   ]
-}
+},
 {
   num: 25,
   title: "Ciri & Deskripsi",
@@ -1565,7 +1565,7 @@ const BABS = [
     {jp:"<ruby><rb>背</rb><rt>せ</rt></ruby>が<ruby><rb>高</rb><rt>たか</rt></ruby>い",furigana:"せがたかい",rom:"se ga takai",id:"(badannya) tinggi",cat:"Ekspresi",lv:"extra"},
     {jp:"<ruby><rb>背</rb><rt>せ</rt></ruby>が<ruby><rb>低</rb><rt>ひく</rt></ruby>い",furigana:"せがひくい",rom:"se ga hikui",id:"(badannya) pendek",cat:"Ekspresi",lv:"extra"},
   ]
-}
+},
 {
   num: 26,
   title: "Kata Kerja Bentuk ない",
@@ -1638,7 +1638,7 @@ const BABS = [
     {jp:"<ruby><rb>理想</rb><rt>りそう</rt></ruby>",furigana:"りそう",rom:"risō",id:"ideal",cat:"Kata Benda",lv:"extra"},
     {jp:"２、３<ruby><rb>日</rb><rt>にち</rt></ruby>",furigana:"にさんにち",rom:"ni san nichi",id:"dua atau tiga hari",cat:"Ekspresi",lv:"extra"}
   ]
-}
+},
 {
   num: 27,
   title: "Bentuk Kamus & Kemampuan",
@@ -1693,7 +1693,7 @@ const BABS = [
     {jp:"なかなか",furigana:"",rom:"nakanaka",id:"jarang, tidak mudah (diikuti bentuk negatif)",cat:"Kata Keterangan",lv:"extra"},
     {jp:"<ruby><rb>焼きそば</rb><rt>やきそば</rt></ruby>",furigana:"やきそば",rom:"yakisoba",id:"yakisoba (mie goreng Jepang)",cat:"Kata Benda",lv:"extra"}
   ]
-}
+},
 {
   num: 28,
   title: "Bentuk た & Pengalaman",
@@ -1747,7 +1747,7 @@ const BABS = [
     {jp:"プールで<ruby><rb>泳</rb><rt>およ</rt></ruby>ぎます",furigana:"プールでおよぎます",rom:"pūru de oyogimasu",id:"berenang di kolam renang",cat:"Kata Kerja",lv:"extra",grp:"I"},
     {jp:"ピアノの<ruby><rb>練習</rb><rt>れんしゅう</rt></ruby>",furigana:"ピアノのれんしゅう",rom:"piano no renshū",id:"latihan piano",cat:"Ekspresi",lv:"extra"},
   ]
-}
+},
 {
   num: 29,
   title: "まえに & あとで",
@@ -1791,7 +1791,7 @@ const BABS = [
     {jp:"<ruby><rb>歯</rb><rt>は</rt></ruby>を<ruby><rb>磨</rb><rt>みが</rt></ruby>きます",furigana:"はをみがきます",rom:"ha o migakimasu",id:"gosok gigi",cat:"Ekspresi",lv:"core"},
     {jp:"<ruby><rb>手</rb><rt>て</rt></ruby>を<ruby><rb>洗</rb><rt>あら</rt></ruby>います",furigana:"てをあらいます",rom:"te o araimasu",id:"cuci tangan",cat:"Ekspresi",lv:"core"}
   ]
-}
+},
 {
   num: 30,
   title: "Ragam Bahasa Biasa",
@@ -1835,7 +1835,7 @@ const BABS = [
     {jp:"<ruby><rb>渋谷</rb><rt>しぶや</rt></ruby>",furigana:"しぶや",rom:"Shibuya",id:"Shibuya",cat:"Kata Benda",lv:"extra"},
     {jp:"<ruby><rb>僕</rb><rt>ぼく</rt></ruby>",furigana:"ぼく",rom:"boku",id:"aku (bentuk informal dari わたし, digunakan oleh laki-laki)",cat:"Kata Benda",lv:"core"},
   ]
-}
+},
 {
   num: 31,
   title: "Pendapat & Kutipan",
@@ -1890,7 +1890,7 @@ const BABS = [
     {jp:"かわいい",furigana:"",rom:"kawaii",id:"lucu",cat:"Kata Sifat",lv:"extra",grp:"い"},
     {jp:"<ruby><rb>値段</rb><rt>ねだん</rt></ruby>",furigana:"ねだん",rom:"nedan",id:"harga",cat:"Kata Benda",lv:"extra"},
   ]
-}
+},
 {
   num: 32,
   title: "Pakaian & Modifikasi KB",
@@ -1923,7 +1923,7 @@ const BABS = [
     {jp:"Tシャツ",furigana:"ティーシャツ",rom:"tī shatsu",id:"kaus",cat:"Kata Benda",lv:"core"},
     {jp:"どうしたらいいですか",furigana:"",rom:"dō shitara ii desu ka",id:"Apa yang sebaiknya saya lakukan?",cat:"Ekspresi",lv:"core"},
   ]
-}
+},
 {
   num: 33,
   title: "とき (ketika)",
@@ -1962,7 +1962,7 @@ const BABS = [
     {jp:"<ruby><rb>機械</rb><rt>きかい</rt></ruby>",furigana:"きかい",rom:"kikai",id:"mesin",cat:"Kata Benda",lv:"extra"},
     {jp:"お<ruby><rb>正月</rb><rt>しょうがつ</rt></ruby>",furigana:"おしょうがつ",rom:"oshōgatsu",id:"Hari Perayaan Tahun Baru Masehi",cat:"Kata Benda",lv:"core"},
   ]
-}
+},
 {
   num: 34,
   title: "なります (menjadi)",
@@ -2009,7 +2009,7 @@ const BABS = [
     {jp:"<ruby><rb>楽</rb><rt>たの</rt></ruby>しくなります",furigana:"たのしくなります",rom:"tanoshiku narimasu",id:"menjadi menyenangkan",cat:"Ekspresi",lv:"extra"},
     {jp:"<ruby><rb>上手</rb><rt>じょうず</rt></ruby>になります",furigana:"じょうずになります",rom:"jōzu ni narimasu",id:"menjadi mahir",cat:"Ekspresi",lv:"extra"}
   ]
-}
+},
 {
   num: 35,
   title: "くれます / もらいます / あげます",

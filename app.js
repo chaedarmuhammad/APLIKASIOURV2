@@ -232,88 +232,8 @@ function observeBabCards() {
 }
 
 // ========== SM-2 ENHANCED SRS ==========
-// Upgrade from Leitner 5-box to SM-2 inspired algorithm
-// Fields per word: { ef, interval, repetition, due, lapses, count }
-//   ef: easiness factor (>=1.3, starts at 2.5)
-//   interval: days until next review
-//   repetition: consecutive correct answers
-//   due: timestamp when review is due
-//   lapses: total times marked "belum hafal"
-//   count: alias for lapses (backward compat)
-//   box: kept for backward compat (mapped from repetition)
-
-function sm2RecordHafal(word, quality) {
-  // quality: 0-5 scale. For our app: Hafal=4, EasyHafal=5
-  quality = quality || 4;
-  const k = wordKey(word);
-  if (!k) return;
-  
-  let card = srs[k] || { ef: 2.5, interval: 0, repetition: 0, due: 0, lapses: 0, count: 0 };
-  
-  // Migrate old format if needed
-  if (card.box !== undefined && card.ef === undefined) {
-    card.ef = 2.5;
-    card.interval = card.box <= 1 ? 0 : card.box <= 2 ? 1 : card.box <= 3 ? 3 : card.box <= 4 ? 7 : 21;
-    card.repetition = card.box || 0;
-  }
-  
-  if (quality >= 3) {
-    // Correct response
-    if (card.repetition === 0) {
-      card.interval = 1;
-    } else if (card.repetition === 1) {
-      card.interval = 3;
-    } else {
-      card.interval = Math.round(card.interval * card.ef);
-    }
-    card.repetition++;
-  } else {
-    // Incorrect but still called hafal (edge case)
-    card.repetition = 0;
-    card.interval = 1;
-  }
-  
-  // Update easiness factor (SM-2 formula)
-  card.ef = Math.max(1.3, card.ef + (0.1 - (5 - quality) * (0.08 + (5 - quality) * 0.02)));
-  
-  // Calculate due date
-  card.due = Date.now() + (card.interval * 24 * 60 * 60 * 1000);
-  
-  // Backward compat
-  card.box = Math.min(5, card.repetition);
-  card.count = card.lapses || 0;
-  
-  srs[k] = card;
-  lsSet('n5srs', srs);
-}
-
-function sm2RecordBelum(word) {
-  const k = wordKey(word);
-  if (!k) return;
-  
-  let card = srs[k] || { ef: 2.5, interval: 0, repetition: 0, due: 0, lapses: 0, count: 0 };
-  
-  // Migrate old format if needed
-  if (card.box !== undefined && card.ef === undefined) {
-    card.ef = 2.5;
-    card.interval = 0;
-    card.repetition = 0;
-  }
-  
-  // Reset repetition, reduce EF
-  card.repetition = 0;
-  card.interval = 0; // Will show again in 10 minutes
-  card.ef = Math.max(1.3, (card.ef || 2.5) - 0.2);
-  card.lapses = (card.lapses || 0) + 1;
-  card.count = card.lapses;
-  card.due = Date.now() + (10 * 60 * 1000); // 10 minutes
-  
-  // Backward compat
-  card.box = 1;
-  
-  srs[k] = card;
-  lsSet('n5srs', srs);
-}
+// sm2RecordHafal, sm2RecordBelum, recordBelum, recordHafal
+// are now defined in src/srs.js (loaded before app.js)
 
 // ========== APP INITIALIZATION ==========
 async function initApp() {
@@ -390,161 +310,20 @@ let crossCoreOnly = false, crossBabs = [], crossCats = [];
 let fcSessionBab = null;
 
 // ========== UTILS ==========
-// Escape HTML untuk mencegah XSS saat data masuk ke innerHTML.
-// Aman dipanggil terhadap nilai yang sudah berisi tag (mis. furigana <ruby>),
-// tapi gunakan HANYA pada string yang berasal dari input pengguna / data
-// yang tidak boleh dipercaya.
-function escapeHtml(s) {
-  if (s == null) return '';
-  return String(s).replace(/[&<>"']/g, c => (
-    {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]
-  ));
-}
+// escapeHtml is now defined in src/utils.js (loaded before app.js)
 
-// ========== INDEXEDDB AUTO-SAVE (transparent backup) ==========
-// Data disimpan di localStorage (cepat, sinkron) DAN di IndexedDB (tahan clear).
-// Jika localStorage kosong saat startup (user clear browser data), app otomatis
-// restore dari IndexedDB tanpa perlu klik apa pun.
-
-const IDB_NAME = 'n5n4_backup';
-const IDB_VERSION = 1;
-const IDB_STORE = 'progress';
-let _idb = null;
-let _idbReady = false;
-let _idbSaveTimer = null;
-const IDB_DEBOUNCE_MS = 2000; // auto-save setiap 2 detik setelah perubahan terakhir
-
-function idbOpen() {
-  return new Promise(function(resolve, reject) {
-    if (!('indexedDB' in window)) { resolve(null); return; }
-    const req = indexedDB.open(IDB_NAME, IDB_VERSION);
-    req.onupgradeneeded = function(e) {
-      const db = e.target.result;
-      if (!db.objectStoreNames.contains(IDB_STORE)) {
-        db.createObjectStore(IDB_STORE);
-      }
-    };
-    req.onsuccess = function(e) { resolve(e.target.result); };
-    req.onerror = function() { resolve(null); };
-  });
-}
-
-function idbPut(db, key, val) {
-  if (!db) return;
-  try {
-    const tx = db.transaction(IDB_STORE, 'readwrite');
-    tx.objectStore(IDB_STORE).put(val, key);
-  } catch(e) { /* silent */ }
-}
-
-function idbGet(db, key) {
-  return new Promise(function(resolve) {
-    if (!db) { resolve(undefined); return; }
-    try {
-      const tx = db.transaction(IDB_STORE, 'readonly');
-      const req = tx.objectStore(IDB_STORE).get(key);
-      req.onsuccess = function() { resolve(req.result); };
-      req.onerror = function() { resolve(undefined); };
-    } catch(e) { resolve(undefined); }
-  });
-}
-
-// Debounced auto-save semua data penting ke IndexedDB
-function idbScheduleSave() {
-  if (!_idb) return;
-  if (_idbSaveTimer) clearTimeout(_idbSaveTimer);
-  _idbSaveTimer = setTimeout(function() {
-    _idbSaveTimer = null;
-    const snapshot = {
-      n5prog: progress,
-      n5stars: stars,
-      n5srs: srs,
-      savedAt: Date.now()
-    };
-    idbPut(_idb, 'all_progress', snapshot);
-  }, IDB_DEBOUNCE_MS);
-}
-
-// Restore dari IndexedDB jika localStorage kosong
-async function idbTryRestore() {
-  try {
-    _idb = await idbOpen();
-    if (!_idb) return;
-    _idbReady = true;
-
-    // Cek apakah localStorage sudah punya data
-    const hasLS = localStorage.getItem('n5prog') !== null ||
-                  localStorage.getItem('n5srs') !== null;
-    if (hasLS) return; // sudah ada — tidak perlu restore
-
-    // localStorage kosong → coba restore dari IndexedDB
-    const backup = await idbGet(_idb, 'all_progress');
-    if (!backup || typeof backup !== 'object') return;
-
-    if (backup.n5prog && Object.keys(backup.n5prog).length > 0) {
-      progress = backup.n5prog;
-      localStorage.setItem('n5prog', JSON.stringify(progress));
-    }
-    if (backup.n5stars && Object.keys(backup.n5stars).length > 0) {
-      stars = backup.n5stars;
-      localStorage.setItem('n5stars', JSON.stringify(stars));
-    }
-    if (backup.n5srs && Object.keys(backup.n5srs).length > 0) {
-      srs = backup.n5srs;
-      localStorage.setItem('n5srs', JSON.stringify(srs));
-    }
-
-    console.log('[IDB] Progres berhasil dipulihkan dari backup IndexedDB (' +
-      new Date(backup.savedAt).toLocaleString() + ')');
-    showToast('Progres dipulihkan otomatis dari backup', 'success');
-  } catch(e) {
-    console.warn('[IDB] Restore gagal:', e);
-  }
-}
-
-// ========== LOCALSTORAGE HELPERS ==========
-function lsGet(key, def) {
-  try { const v = localStorage.getItem(key); return v !== null ? JSON.parse(v) : def; }
-  catch(e) { return def; }
-}
-let _lsQuotaWarned = false;
-function lsSet(key, val) {
-  try {
-    localStorage.setItem(key, JSON.stringify(val));
-    // Auto-save ke IndexedDB (debounced)
-    idbScheduleSave();
-    return true;
-  } catch(e) {
-    if (!_lsQuotaWarned && (e.name === 'QuotaExceededError' || /quota/i.test(e.message||''))) {
-      _lsQuotaWarned = true;
-      try {
-        alert('Penyimpanan browser hampir penuh. Silakan ekspor progres dari Beranda lalu hapus data lama.');
-      } catch(_) {}
-    }
-    // Fallback: simpan langsung ke IndexedDB jika localStorage penuh
-    idbScheduleSave();
-    return false;
-  }
-}
+// ========== STORAGE & IDB ==========
+// idbOpen, idbPut, idbGet, idbScheduleSave, idbTryRestore, lsGet, lsSet
+// are now defined in src/storage.js (loaded before app.js)
 
 let progress = lsGet('n5prog', {});
 let stars    = lsGet('n5stars', {});
 let rangkumanRendered = false;
 
-// ========== SRS (Leitner 5-box) ==========
-// Per-kata: { box, due, lapses, count }
-//  - box   : 1..5 (semakin tinggi → interval semakin panjang)
-//  - due   : timestamp ms — kata muncul saat now >= due
-//  - lapses: total kali "Belum Hafal" sepanjang waktu
-//  - count : kompatibel dgn versi lama (alias dari lapses, dipakai badge "Terlupa Nx")
-const SRS_INTERVALS_MS = [
-  0,                       // box 0 (unused)
-  10 * 60 * 1000,          // box 1 → 10 menit
-  24 * 60 * 60 * 1000,     // box 2 → 1 hari
-  3  * 24 * 60 * 60 * 1000,// box 3 → 3 hari
-  7  * 24 * 60 * 60 * 1000,// box 4 → 7 hari
-  21 * 24 * 60 * 60 * 1000,// box 5 → 21 hari
-];
+// ========== SRS STATE & MIGRATION ==========
+// SRS functions (wordKey, srsGet, sm2RecordHafal, sm2RecordBelum, recordBelum,
+// recordHafal, getForgetPool, getForgetStats, forgetCount, SRS_INTERVALS_MS)
+// are now defined in src/srs.js (loaded before app.js)
 
 let srs = lsGet('n5srs', null);
 
@@ -572,90 +351,6 @@ let srs = lsGet('n5srs', null);
   lsSet('n5srs', srs);
   // legacy dipertahankan untuk fallback ekspor; tidak dihapus
 })();
-
-function wordKey(word) {
-  // Canonical key: rom (lowercased, trimmed). Single source of truth lintas bab.
-  return (word.rom || word.id || '').toString().trim().toLowerCase();
-}
-
-function srsGet(word) {
-  const k = wordKey(word);
-  if (!k) return null;
-  return srs[k] || null;
-}
-
-
-function recordBelum(word) { return sm2RecordBelum(word); }
-function recordHafal(word) { return sm2RecordHafal(word); }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Kompatibilitas dgn kode lama: forgetCount[wordKey] → jumlah lapses.
-// Pakai Proxy supaya akses `forgetCount[k]` tetap jalan tanpa rewriting massal.
-const forgetCount = new Proxy({}, {
-  get(_, prop) {
-    const e = srs[prop];
-    return e ? (e.lapses || e.count || 0) : 0;
-  },
-  has(_, prop) { return !!srs[prop]; }
-});
-
-// Pool latihan: kata yang due (siap di-review) ATAU pernah lupa (lapses>=threshold).
-// Threshold dipertahankan utk kompat — default 1 = "pernah dilupakan minimal 1×".
-function getForgetPool(threshold) {
-  threshold = threshold || 1;
-  const now = Date.now();
-  const allWords = BABS.flatMap(b => b.kotoba.map(k => ({...k, babNum: b.num})));
-  return allWords.filter(w => {
-    const e = srsGet(w);
-    if (!e) return false;
-    if ((e.lapses || 0) < threshold) return false;
-    return true;
-  }).sort((a, b) => {
-    const ea = srsGet(a) || {}, eb = srsGet(b) || {};
-    // Prioritas: yang sudah due dulu, lalu lapses tertinggi, lalu box terendah.
-    const dueA = (ea.due || 0) <= now ? 1 : 0;
-    const dueB = (eb.due || 0) <= now ? 1 : 0;
-    if (dueA !== dueB) return dueB - dueA;
-    if ((eb.lapses||0) !== (ea.lapses||0)) return (eb.lapses||0) - (ea.lapses||0);
-    return (ea.box||0) - (eb.box||0);
-  });
-}
-
-function getForgetStats() {
-  const all = BABS.flatMap(b => b.kotoba.map(k => ({...k, babNum: b.num})));
-  const now = Date.now();
-  let total = 0, struggling = 0, due = 0;
-  all.forEach(w => {
-    const e = srsGet(w);
-    if (!e) return;
-    const lap = e.lapses || 0;
-    if (lap >= 1) total++;
-    if (lap >= 3) struggling++;
-    if ((e.due || 0) <= now && lap >= 1) due++;
-  });
-  return { total, struggling, due };
-}
 
 // ========== NAVIGATION ==========
 let _homeScrollY = 0;
