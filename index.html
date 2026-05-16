@@ -9502,7 +9502,7 @@ function renderRangkuman() {
       </div>`;
     }).join('');
     const firstBab = PARTIKEL_FIRST_BAB[p.part] || '?';
-    const isOpen = idx === 0 ? ' open' : '';
+    const isOpen = '';
     return `<div class="part-accordion${isOpen}" id="part-acc-${idx}">
       <div class="part-accordion-head" onclick="this.parentElement.classList.toggle('open')">
         <span class="part-accordion-chevron">▶</span>
@@ -9516,66 +9516,86 @@ function renderRangkuman() {
       </div>
     </div>`;
   }).filter(Boolean).join('');
-  const niVsDeBox = `<div class="note-box note-amber" style="margin-bottom:16px;font-size:0.78rem">
-    <div style="font-weight:700;margin-bottom:10px;font-size:0.73rem;letter-spacing:0.05em">⚠️ PERBANDINGAN に vs で (PALING SERING KELIRU)</div>
-    <div class="tbl-scroll-wrap"><table class="rsum-vv-table" style="min-width:340px">
-      <thead><tr><th style="color:#2dd4bf">に</th><th style="color:#34d399">で</th></tr></thead>
-      <tbody>
-        <tr><td><b>Lokasi keberadaan</b><br><span style="color:var(--teal);font-family:'Noto Sans JP',sans-serif">こうえんに います</span><br><span style="color:var(--text2);font-size:0.72rem">Ada di taman</span></td>
-            <td><b>Lokasi tindakan</b><br><span style="color:var(--teal);font-family:'Noto Sans JP',sans-serif">こうえんで あそびます</span><br><span style="color:var(--text2);font-size:0.72rem">Bermain di taman</span></td></tr>
-        <tr><td><b>Tujuan pergerakan</b><br><span style="color:var(--teal);font-family:'Noto Sans JP',sans-serif">がっこうに いきます</span><br><span style="color:var(--text2);font-size:0.72rem">Pergi ke sekolah</span></td>
-            <td><b>Alat / kendaraan</b><br><span style="color:var(--teal);font-family:'Noto Sans JP',sans-serif">でんしゃで いきます</span><br><span style="color:var(--text2);font-size:0.72rem">Pergi dengan kereta</span></td></tr>
-        <tr><td><b>Waktu spesifik</b><br><span style="color:var(--teal);font-family:'Noto Sans JP',sans-serif">７じに おきます</span><br><span style="color:var(--text2);font-size:0.72rem">Bangun jam 7</span></td>
-            <td><b>Bahasa / cara</b><br><span style="color:var(--teal);font-family:'Noto Sans JP',sans-serif">にほんごで かきます</span><br><span style="color:var(--text2);font-size:0.72rem">Menulis dalam bahasa Jepang</span></td></tr>
-        <tr><td><b>Penerima (あげる/もらう)</b><br><span style="color:var(--teal);font-family:'Noto Sans JP',sans-serif">ともだちに あげます</span><br><span style="color:var(--text2);font-size:0.72rem">Memberi ke teman</span></td>
-            <td><b>Total / bahan</b><br><span style="color:var(--teal);font-family:'Noto Sans JP',sans-serif">ぜんぶで いくら</span><br><span style="color:var(--text2);font-size:0.72rem">Semuanya berapa</span></td></tr>
-      </tbody>
-    </table></div>
-    <div style="margin-top:8px;font-size:0.72rem;color:var(--text2)">💡 Kunci: に = <b>titik/tujuan</b>. で = <b>arena tindakan atau alat</b>.</div>
+  const niVsDeBox = `<div class="konj-accordion" style="scroll-margin-top:110px;margin-bottom:16px;border-color:rgba(251,191,36,0.3)">
+    <div class="konj-accordion-head" onclick="this.parentElement.classList.toggle('open')" style="background:rgba(251,191,36,0.04)">
+      <span class="konj-accordion-chevron">▶</span>
+      <span style="font-size:0.82rem;font-weight:700;color:var(--amber)">⚠️ Perbandingan に vs で</span>
+    </div>
+    <div class="konj-accordion-body">
+      <div class="tbl-scroll-wrap"><table class="rsum-vv-table" style="min-width:340px">
+        <thead><tr><th style="color:#2dd4bf">に</th><th style="color:#34d399">で</th></tr></thead>
+        <tbody>
+          <tr><td><b>Lokasi keberadaan</b><br><span style="color:var(--teal);font-family:'Noto Sans JP',sans-serif">こうえんに います</span><br><span style="color:var(--text2);font-size:0.72rem">Ada di taman</span></td>
+              <td><b>Lokasi tindakan</b><br><span style="color:var(--teal);font-family:'Noto Sans JP',sans-serif">こうえんで あそびます</span><br><span style="color:var(--text2);font-size:0.72rem">Bermain di taman</span></td></tr>
+          <tr><td><b>Tujuan pergerakan</b><br><span style="color:var(--teal);font-family:'Noto Sans JP',sans-serif">がっこうに いきます</span><br><span style="color:var(--text2);font-size:0.72rem">Pergi ke sekolah</span></td>
+              <td><b>Alat / kendaraan</b><br><span style="color:var(--teal);font-family:'Noto Sans JP',sans-serif">でんしゃで いきます</span><br><span style="color:var(--text2);font-size:0.72rem">Pergi dengan kereta</span></td></tr>
+          <tr><td><b>Waktu spesifik</b><br><span style="color:var(--teal);font-family:'Noto Sans JP',sans-serif">７じに おきます</span><br><span style="color:var(--text2);font-size:0.72rem">Bangun jam 7</span></td>
+              <td><b>Bahasa / cara</b><br><span style="color:var(--teal);font-family:'Noto Sans JP',sans-serif">にほんごで かきます</span><br><span style="color:var(--text2);font-size:0.72rem">Menulis dalam bahasa Jepang</span></td></tr>
+          <tr><td><b>Penerima (あげる/もらう)</b><br><span style="color:var(--teal);font-family:'Noto Sans JP',sans-serif">ともだちに あげます</span><br><span style="color:var(--text2);font-size:0.72rem">Memberi ke teman</span></td>
+              <td><b>Total / bahan</b><br><span style="color:var(--teal);font-family:'Noto Sans JP',sans-serif">ぜんぶで いくら</span><br><span style="color:var(--text2);font-size:0.72rem">Semuanya berapa</span></td></tr>
+        </tbody>
+      </table></div>
+      <div style="margin-top:8px;font-size:0.72rem;color:var(--text2)">💡 Kunci: に = <b>titik/tujuan</b>. で = <b>arena tindakan atau alat</b>.</div>
+    </div>
   </div>`;
   const n4PartInfo = '';
-  const waVsGaBox = `<div class="note-box note-purple" style="margin-bottom:16px;font-size:0.78rem">
-    <div style="font-weight:700;margin-bottom:10px;font-size:0.73rem;letter-spacing:0.05em">⚠️ PERBANDINGAN は vs が (PALING DASAR & SERING KELIRU)</div>
-    <div class="tbl-scroll-wrap"><table class="rsum-vv-table" style="min-width:340px">
-      <thead><tr><th style="color:#c084fc">は (topik)</th><th style="color:#60a5fa">が (subjek)</th></tr></thead>
-      <tbody>
-        <tr><td><b>Info lama/diketahui</b><br><span style="color:var(--teal);font-family:'Noto Sans JP',sans-serif">たなかさん<b>は</b> せんせいです</span><br><span style="color:var(--text2);font-size:0.72rem">Tanaka (sudah dikenal) adalah guru</span></td>
-            <td><b>Info baru/penekanan</b><br><span style="color:var(--teal);font-family:'Noto Sans JP',sans-serif">たなかさん<b>が</b> せんせいです</span><br><span style="color:var(--text2);font-size:0.72rem">Tanaka-lah yang guru (bukan orang lain)</span></td></tr>
-        <tr><td><b>Kontras dua hal</b><br><span style="color:var(--teal);font-family:'Noto Sans JP',sans-serif">さかな<b>は</b> すき、にく<b>は</b> きらい</span><br><span style="color:var(--text2);font-size:0.72rem">Ikan suka, daging tidak suka</span></td>
-            <td><b>Subjek dalam klausa</b><br><span style="color:var(--teal);font-family:'Noto Sans JP',sans-serif">あめ<b>が</b> ふったら、いきません</span><br><span style="color:var(--text2);font-size:0.72rem">Kalau hujan turun, tidak pergi</span></td></tr>
-        <tr><td><b>Topik umum kalimat</b><br><span style="color:var(--teal);font-family:'Noto Sans JP',sans-serif">きょう<b>は</b> いい てんきです</span><br><span style="color:var(--text2);font-size:0.72rem">Hari ini cuacanya bagus</span></td>
-            <td><b>Objek すき/ほしい/わかる</b><br><span style="color:var(--teal);font-family:'Noto Sans JP',sans-serif">おんがく<b>が</b> すきです</span><br><span style="color:var(--text2);font-size:0.72rem">Suka musik</span></td></tr>
-      </tbody>
-    </table></div>
-    <div style="margin-top:8px;font-size:0.72rem;color:var(--text2)">💡 Kunci: は = topik/konteks. が = info baru/penekanan/subjek klausa.</div>
+  const waVsGaBox = `<div class="konj-accordion" style="scroll-margin-top:110px;margin-bottom:16px;border-color:rgba(192,132,252,0.3)">
+    <div class="konj-accordion-head" onclick="this.parentElement.classList.toggle('open')" style="background:rgba(192,132,252,0.04)">
+      <span class="konj-accordion-chevron">▶</span>
+      <span style="font-size:0.82rem;font-weight:700;color:#c084fc">⚠️ Perbandingan は vs が</span>
+    </div>
+    <div class="konj-accordion-body">
+      <div class="tbl-scroll-wrap"><table class="rsum-vv-table" style="min-width:340px">
+        <thead><tr><th style="color:#c084fc">は (topik)</th><th style="color:#60a5fa">が (subjek)</th></tr></thead>
+        <tbody>
+          <tr><td><b>Info lama/diketahui</b><br><span style="color:var(--teal);font-family:'Noto Sans JP',sans-serif">たなかさん<b>は</b> せんせいです</span><br><span style="color:var(--text2);font-size:0.72rem">Tanaka (sudah dikenal) adalah guru</span></td>
+              <td><b>Info baru/penekanan</b><br><span style="color:var(--teal);font-family:'Noto Sans JP',sans-serif">たなかさん<b>が</b> せんせいです</span><br><span style="color:var(--text2);font-size:0.72rem">Tanaka-lah yang guru (bukan orang lain)</span></td></tr>
+          <tr><td><b>Kontras dua hal</b><br><span style="color:var(--teal);font-family:'Noto Sans JP',sans-serif">さかな<b>は</b> すき、にく<b>は</b> きらい</span><br><span style="color:var(--text2);font-size:0.72rem">Ikan suka, daging tidak suka</span></td>
+              <td><b>Subjek dalam klausa</b><br><span style="color:var(--teal);font-family:'Noto Sans JP',sans-serif">あめ<b>が</b> ふったら、いきません</span><br><span style="color:var(--text2);font-size:0.72rem">Kalau hujan turun, tidak pergi</span></td></tr>
+          <tr><td><b>Topik umum kalimat</b><br><span style="color:var(--teal);font-family:'Noto Sans JP',sans-serif">きょう<b>は</b> いい てんきです</span><br><span style="color:var(--text2);font-size:0.72rem">Hari ini cuacanya bagus</span></td>
+              <td><b>Objek すき/ほしい/わかる</b><br><span style="color:var(--teal);font-family:'Noto Sans JP',sans-serif">おんがく<b>が</b> すきです</span><br><span style="color:var(--text2);font-size:0.72rem">Suka musik</span></td></tr>
+        </tbody>
+      </table></div>
+      <div style="margin-top:8px;font-size:0.72rem;color:var(--text2)">💡 Kunci: は = topik/konteks. が = info baru/penekanan/subjek klausa.</div>
+    </div>
   </div>`;
-  const karaVsNodeBox = `<div class="note-box note-teal" style="margin-bottom:16px;font-size:0.78rem">
-    <div style="font-weight:700;margin-bottom:10px;font-size:0.73rem;letter-spacing:0.05em">⚠️ PERBANDINGAN から vs ので (ALASAN)</div>
-    <div class="tbl-scroll-wrap"><table class="rsum-vv-table" style="min-width:340px">
-      <thead><tr><th style="color:#fb923c">から (santai)</th><th style="color:#4ade80">ので (sopan)</th></tr></thead>
-      <tbody>
-        <tr><td><b>Percakapan santai</b><br><span style="color:var(--teal);font-family:'Noto Sans JP',sans-serif">いそがしい<b>から</b>、いけません</span><br><span style="color:var(--text2);font-size:0.72rem">Karena sibuk, tidak bisa pergi</span></td>
-            <td><b>Situasi formal / ke atasan</b><br><span style="color:var(--teal);font-family:'Noto Sans JP',sans-serif">いそがしい<b>ので</b>、いけません</span><br><span style="color:var(--text2);font-size:0.72rem">Karena sibuk, tidak bisa pergi (sopan)</span></td></tr>
-        <tr><td><b>Subjektif (pendapat pribadi)</b><br><span style="color:var(--teal);font-family:'Noto Sans JP',sans-serif">あぶない<b>から</b>、やめて ください</span><br><span style="color:var(--text2);font-size:0.72rem">Karena berbahaya, tolong berhenti</span></td>
-            <td><b>Objektif (fakta)</b><br><span style="color:var(--teal);font-family:'Noto Sans JP',sans-serif"><ruby>雨<rt>あめ</rt></ruby>が ふっている<b>ので</b>、かさを もって いきます</span><br><span style="color:var(--text2);font-size:0.72rem">Karena sedang hujan, bawa payung</span></td></tr>
-        <tr><td><b>Bisa akhiri kalimat</b><br><span style="color:var(--teal);font-family:'Noto Sans JP',sans-serif">すみません、ちょっと いそがしい<b>から</b>…</span><br><span style="color:var(--text2);font-size:0.72rem">Maaf, soalnya agak sibuk…</span></td>
-            <td><b>⚠️ KSな/KB + <u>な</u>ので</b><br><span style="color:var(--teal);font-family:'Noto Sans JP',sans-serif">しずか<b>な</b>ので / がくせい<b>な</b>ので</span><br><span style="color:var(--text2);font-size:0.72rem">Perhatikan な sebelum ので!</span></td></tr>
-      </tbody>
-    </table></div>
-    <div style="margin-top:8px;font-size:0.72rem;color:var(--text2)">💡 Kunci: から=santai/subjektif. ので=sopan/objektif. Dalam situasi ragu, gunakan ので yang lebih aman.</div>
+  const karaVsNodeBox = `<div class="konj-accordion" style="scroll-margin-top:110px;margin-bottom:16px;border-color:rgba(45,212,191,0.3)">
+    <div class="konj-accordion-head" onclick="this.parentElement.classList.toggle('open')" style="background:rgba(45,212,191,0.04)">
+      <span class="konj-accordion-chevron">▶</span>
+      <span style="font-size:0.82rem;font-weight:700;color:var(--teal)">⚠️ Perbandingan から vs ので</span>
+    </div>
+    <div class="konj-accordion-body">
+      <div class="tbl-scroll-wrap"><table class="rsum-vv-table" style="min-width:340px">
+        <thead><tr><th style="color:#fb923c">から (santai)</th><th style="color:#4ade80">ので (sopan)</th></tr></thead>
+        <tbody>
+          <tr><td><b>Percakapan santai</b><br><span style="color:var(--teal);font-family:'Noto Sans JP',sans-serif">いそがしい<b>から</b>、いけません</span><br><span style="color:var(--text2);font-size:0.72rem">Karena sibuk, tidak bisa pergi</span></td>
+              <td><b>Situasi formal / ke atasan</b><br><span style="color:var(--teal);font-family:'Noto Sans JP',sans-serif">いそがしい<b>ので</b>、いけません</span><br><span style="color:var(--text2);font-size:0.72rem">Karena sibuk, tidak bisa pergi (sopan)</span></td></tr>
+          <tr><td><b>Subjektif (pendapat pribadi)</b><br><span style="color:var(--teal);font-family:'Noto Sans JP',sans-serif">あぶない<b>から</b>、やめて ください</span><br><span style="color:var(--text2);font-size:0.72rem">Karena berbahaya, tolong berhenti</span></td>
+              <td><b>Objektif (fakta)</b><br><span style="color:var(--teal);font-family:'Noto Sans JP',sans-serif"><ruby>雨<rt>あめ</rt></ruby>が ふっている<b>ので</b>、かさを もって いきます</span><br><span style="color:var(--text2);font-size:0.72rem">Karena sedang hujan, bawa payung</span></td></tr>
+          <tr><td><b>Bisa akhiri kalimat</b><br><span style="color:var(--teal);font-family:'Noto Sans JP',sans-serif">すみません、ちょっと いそがしい<b>から</b>…</span><br><span style="color:var(--text2);font-size:0.72rem">Maaf, soalnya agak sibuk…</span></td>
+              <td><b>⚠️ KSな/KB + <u>な</u>ので</b><br><span style="color:var(--teal);font-family:'Noto Sans JP',sans-serif">しずか<b>な</b>ので / がくせい<b>な</b>ので</span><br><span style="color:var(--text2);font-size:0.72rem">Perhatikan な sebelum ので!</span></td></tr>
+        </tbody>
+      </table></div>
+      <div style="margin-top:8px;font-size:0.72rem;color:var(--text2)">💡 Kunci: から=santai/subjektif. ので=sopan/objektif. Dalam situasi ragu, gunakan ので yang lebih aman.</div>
+    </div>
   </div>`;
-  const madeVsMadeniBox = `<div class="note-box note-blue" style="margin-bottom:16px;font-size:0.78rem">
-    <div style="font-weight:700;margin-bottom:10px;font-size:0.73rem;letter-spacing:0.05em">⚠️ PERBANDINGAN まで vs までに (WAKTU)</div>
-    <div class="tbl-scroll-wrap"><table class="rsum-vv-table" style="min-width:340px">
-      <thead><tr><th style="color:#38bdf8">まで (sampai)</th><th style="color:#60a5fa">までに (sebelum deadline)</th></tr></thead>
-      <tbody>
-        <tr><td><b>Tindakan berlanjut SAMPAI waktu</b><br><span style="color:var(--teal);font-family:'Noto Sans JP',sans-serif">６じ<b>まで</b> はたらきます</span><br><span style="color:var(--text2);font-size:0.72rem">Bekerja sampai jam 6 (terus-menerus)</span></td>
-            <td><b>Tindakan selesai SEBELUM waktu</b><br><span style="color:var(--teal);font-family:'Noto Sans JP',sans-serif">６じ<b>までに</b> かえります</span><br><span style="color:var(--text2);font-size:0.72rem">Pulang sebelum jam 6 (kapan saja sebelumnya)</span></td></tr>
-        <tr><td><b>Durasi proses</b><br><span style="color:var(--teal);font-family:'Noto Sans JP',sans-serif"><ruby>金曜日<rt>きんようび</rt></ruby><b>まで</b> まちます</span><br><span style="color:var(--text2);font-size:0.72rem">Menunggu sampai hari Jumat</span></td>
-            <td><b>Batas waktu/deadline</b><br><span style="color:var(--teal);font-family:'Noto Sans JP',sans-serif"><ruby>金曜日<rt>きんようび</rt></ruby><b>までに</b> だして ください</span><br><span style="color:var(--text2);font-size:0.72rem">Tolong kumpulkan sebelum hari Jumat</span></td></tr>
-      </tbody>
-    </table></div>
-    <div style="margin-top:8px;font-size:0.72rem;color:var(--text2)">💡 Kunci: まで=proses berlangsung sampai titik itu. までに=tindakan harus selesai sebelum titik itu (deadline).</div>
+  const madeVsMadeniBox = `<div class="konj-accordion" style="scroll-margin-top:110px;margin-bottom:16px;border-color:rgba(96,165,250,0.3)">
+    <div class="konj-accordion-head" onclick="this.parentElement.classList.toggle('open')" style="background:rgba(96,165,250,0.04)">
+      <span class="konj-accordion-chevron">▶</span>
+      <span style="font-size:0.82rem;font-weight:700;color:#60a5fa">⚠️ Perbandingan まで vs までに</span>
+    </div>
+    <div class="konj-accordion-body">
+      <div class="tbl-scroll-wrap"><table class="rsum-vv-table" style="min-width:340px">
+        <thead><tr><th style="color:#38bdf8">まで (sampai)</th><th style="color:#60a5fa">までに (sebelum deadline)</th></tr></thead>
+        <tbody>
+          <tr><td><b>Tindakan berlanjut SAMPAI waktu</b><br><span style="color:var(--teal);font-family:'Noto Sans JP',sans-serif">６じ<b>まで</b> はたらきます</span><br><span style="color:var(--text2);font-size:0.72rem">Bekerja sampai jam 6 (terus-menerus)</span></td>
+              <td><b>Tindakan selesai SEBELUM waktu</b><br><span style="color:var(--teal);font-family:'Noto Sans JP',sans-serif">６じ<b>までに</b> かえります</span><br><span style="color:var(--text2);font-size:0.72rem">Pulang sebelum jam 6 (kapan saja sebelumnya)</span></td></tr>
+          <tr><td><b>Durasi proses</b><br><span style="color:var(--teal);font-family:'Noto Sans JP',sans-serif"><ruby>金曜日<rt>きんようび</rt></ruby><b>まで</b> まちます</span><br><span style="color:var(--text2);font-size:0.72rem">Menunggu sampai hari Jumat</span></td>
+              <td><b>Batas waktu/deadline</b><br><span style="color:var(--teal);font-family:'Noto Sans JP',sans-serif"><ruby>金曜日<rt>きんようび</rt></ruby><b>までに</b> だして ください</span><br><span style="color:var(--text2);font-size:0.72rem">Tolong kumpulkan sebelum hari Jumat</span></td></tr>
+        </tbody>
+      </table></div>
+      <div style="margin-top:8px;font-size:0.72rem;color:var(--text2)">💡 Kunci: まで=proses berlangsung sampai titik itu. までに=tindakan harus selesai sebelum titik itu (deadline).</div>
+    </div>
   </div>`;
   document.getElementById('rsum-tab-1').innerHTML = `<div style="padding:16px 14px 20px">
     <div class="rsum-section-title">🔗 Partikel — <span style="color:${lvColor}">${lvLabel}</span></div>
@@ -9612,7 +9632,7 @@ function renderRangkuman() {
         <td><span class="rsum-bab-chip clickable" onclick="openBabFromRangkuman(${r.bab}, 2, this)" title="Buka pembahasan Bab ${r.bab}">📖 Bab ${r.bab}</span>${rsumLevel==='all'?levelBadge:''}</td>
       </tr>`;
     }).join('');
-    const isOpen = vvIdx === 0 ? ' open' : '';
+    const isOpen = '';
     const result = `<div class="vv-accordion${isOpen}" id="vv-acc-${vvIdx}">
       <div class="vv-accordion-head" onclick="this.parentElement.classList.toggle('open')">
         <span class="vv-accordion-chevron">▶</span>
@@ -9639,18 +9659,23 @@ function renderRangkuman() {
     <div class="rsum-vv-intro">
       Tabel ini mengelompokkan pola bunpou berdasarkan <b>bentuk konjugasi kata kerja</b>. Diurutkan sesuai bab pertama kali dipelajari. Pola tanpa entri di level ini disembunyikan otomatis.
     </div>
-    <div class="note-box note-amber" style="margin-bottom:16px;font-size:0.78rem">
-      <div style="font-weight:700;margin-bottom:10px;font-size:0.73rem;letter-spacing:0.05em">⚠️ PERBANDINGAN 4 BENTUK KONDISIONAL (と / たら / ば / なら)</div>
-      <div class="tbl-scroll-wrap"><table class="rsum-vv-table" style="min-width:500px">
-        <thead><tr><th>Bentuk</th><th>Kapan Dipakai</th><th>Contoh</th><th>Catatan</th></tr></thead>
-        <tbody>
-          <tr><td style="color:#fbbf24;font-weight:700">〜と</td><td style="font-size:0.74rem">Kondisi <b>otomatis/alami</b> — hasil PASTI terjadi. Petunjuk arah, cara kerja alat/mesin.</td><td class="rsum-form" style="font-size:0.74rem">ボタンを おす<b>と</b>、でんきが つきます</td><td style="font-size:0.7rem;color:var(--text2)">❌ Tidak bisa + たい/ましょう/てください</td></tr>
-          <tr><td style="color:#f97316;font-weight:700">〜たら</td><td style="font-size:0.74rem">Kondisi <b>hipotetis</b> (seandainya ~) ATAU <b>urutan waktu</b> (setelah ~). Paling fleksibel!</td><td class="rsum-form" style="font-size:0.74rem">あめが ふっ<b>たら</b>、いきません</td><td style="font-size:0.7rem;color:var(--text2)">✅ Bisa + たい/ましょう/てください. Paling aman untuk pemula.</td></tr>
-          <tr><td style="color:#06b6d4;font-weight:700">〜ば</td><td style="font-size:0.74rem">Kondisi <b>logis/umum</b> — kalau A, maka B. Saran: 〜ば いいです.</td><td class="rsum-form" style="font-size:0.74rem">くすりを のめ<b>ば</b>、なおります</td><td style="font-size:0.7rem;color:var(--text2)">❌ Tidak bisa + tindakan kemauan langsung. ✅ + いいです</td></tr>
-          <tr><td style="color:#c084fc;font-weight:700">〜なら</td><td style="font-size:0.74rem"><b>Merespons</b> konteks/topik lawan bicara — kalau soal ~, maka…</td><td class="rsum-form" style="font-size:0.74rem">にほんへ いく<b>なら</b>、しんかんせんが いいですよ</td><td style="font-size:0.7rem;color:var(--text2)">✅ Untuk saran berdasarkan apa yang lawan bicara katakan</td></tr>
-        </tbody>
-      </table></div>
-      <div style="margin-top:8px;font-size:0.72rem;color:var(--text2)">💡 Bingung? Gunakan <b>たら</b> — paling fleksibel dan hampir selalu benar untuk pemula!</div>
+    <div class="konj-accordion" style="scroll-margin-top:110px;margin-bottom:16px;border-color:rgba(251,191,36,0.3)">
+      <div class="konj-accordion-head" onclick="this.parentElement.classList.toggle('open')" style="background:rgba(251,191,36,0.04)">
+        <span class="konj-accordion-chevron">▶</span>
+        <span style="font-size:0.82rem;font-weight:700;color:var(--amber)">⚠️ Perbandingan 4 Bentuk Kondisional (と / たら / ば / なら)</span>
+      </div>
+      <div class="konj-accordion-body">
+        <div class="tbl-scroll-wrap"><table class="rsum-vv-table" style="min-width:500px">
+          <thead><tr><th>Bentuk</th><th>Kapan Dipakai</th><th>Contoh</th><th>Catatan</th></tr></thead>
+          <tbody>
+            <tr><td style="color:#fbbf24;font-weight:700">〜と</td><td style="font-size:0.74rem">Kondisi <b>otomatis/alami</b> — hasil PASTI terjadi. Petunjuk arah, cara kerja alat/mesin.</td><td class="rsum-form" style="font-size:0.74rem">ボタンを おす<b>と</b>、でんきが つきます</td><td style="font-size:0.7rem;color:var(--text2)">❌ Tidak bisa + たい/ましょう/てください</td></tr>
+            <tr><td style="color:#f97316;font-weight:700">〜たら</td><td style="font-size:0.74rem">Kondisi <b>hipotetis</b> (seandainya ~) ATAU <b>urutan waktu</b> (setelah ~). Paling fleksibel!</td><td class="rsum-form" style="font-size:0.74rem">あめが ふっ<b>たら</b>、いきません</td><td style="font-size:0.7rem;color:var(--text2)">✅ Bisa + たい/ましょう/てください. Paling aman untuk pemula.</td></tr>
+            <tr><td style="color:#06b6d4;font-weight:700">〜ば</td><td style="font-size:0.74rem">Kondisi <b>logis/umum</b> — kalau A, maka B. Saran: 〜ば いいです.</td><td class="rsum-form" style="font-size:0.74rem">くすりを のめ<b>ば</b>、なおります</td><td style="font-size:0.7rem;color:var(--text2)">❌ Tidak bisa + tindakan kemauan langsung. ✅ + いいです</td></tr>
+            <tr><td style="color:#c084fc;font-weight:700">〜なら</td><td style="font-size:0.74rem"><b>Merespons</b> konteks/topik lawan bicara — kalau soal ~, maka…</td><td class="rsum-form" style="font-size:0.74rem">にほんへ いく<b>なら</b>、しんかんせんが いいですよ</td><td style="font-size:0.7rem;color:var(--text2)">✅ Untuk saran berdasarkan apa yang lawan bicara katakan</td></tr>
+          </tbody>
+        </table></div>
+        <div style="margin-top:8px;font-size:0.72rem;color:var(--text2)">💡 Bingung? Gunakan <b>たら</b> — paling fleksibel dan hampir selalu benar untuk pemula!</div>
+      </div>
     </div>
     <div class="rsum-bab-filter-bar" style="margin-bottom:12px">
       <button class="rsum-bab-filter-btn" onclick="rsumVVExpandAll(true)">⬇ Buka Semua</button>
@@ -9757,7 +9782,7 @@ function renderRangkuman() {
     const babNums = konjBabMap[grupKey] || [];
     const babChipsHtml = babNums.map(b => `<span class="rsum-bab-chip clickable" onclick="openBabFromRangkuman(${b}, 0, this)" title="Buka Bab ${b}">📖 Bab ${b}</span>`).join(' ');
     const sectionId = `konj-sec-${grupPlain.replace(/[<>\/\s]/g,'_')}`;
-    const isOpen = konjIdx === 0 ? ' open' : '';
+    const isOpen = '';
     // Contoh kalimat
     const exData = konjExamples[grupKey];
     const exHtml = exData ? `<button class="konj-example-toggle" onclick="this.nextElementSibling.classList.toggle('open');this.querySelector('.ex-chev').textContent=this.nextElementSibling.classList.contains('open')?'▾':'▸'"><span class="ex-chev">▸</span> Contoh Kalimat</button><div class="konj-example-body"><span style="color:var(--text)">${exData.jp}</span><br><span style="color:var(--text2);font-size:0.76rem;font-family:inherit">${exData.id}</span></div>` : '';
@@ -9784,7 +9809,7 @@ function renderRangkuman() {
   const konjNotes = '';
   // ── Bentuk Masu (Ragam Sopan) & Bentuk Biasa — as proper accordion tables ──
   const masuBiasaAccordions = `
-    <div id="konj-sec-masu" class="konj-accordion open" style="scroll-margin-top:110px">
+    <div id="konj-sec-masu" class="konj-accordion" style="scroll-margin-top:110px">
       <div class="konj-accordion-head" onclick="this.parentElement.classList.toggle('open')">
         <span class="konj-accordion-chevron">▶</span>
         <span class="rsum-conj-group rsum-conj-I" style="background:rgba(96,165,250,0.15);color:#60a5fa">🎩 ます</span>
@@ -9919,19 +9944,19 @@ function renderRangkuman() {
         <tbody>
           <tr><td style="font-weight:600">ます</td><td class="rsum-form">のみます</td><td class="rsum-form">たべます</td><td class="rsum-form">します</td><td class="rsum-form">きます</td></tr>
           <tr><td style="font-weight:600">て</td><td class="rsum-form">のんで</td><td class="rsum-form">たべて</td><td class="rsum-form">して</td><td class="rsum-form">きて</td></tr>
-          <tr><td style="font-weight:600">た</td><td class="rsum-form">のんだ</td><td class="rsum-form">たべた</td><td class="rsum-form">した</td><td class="rsum-form">きた</td></tr>
           <tr><td style="font-weight:600">ない</td><td class="rsum-form">のまない</td><td class="rsum-form">たべない</td><td class="rsum-form">しない</td><td class="rsum-form">こない</td></tr>
           <tr><td style="font-weight:600"><ruby>辞書<rt>じしょ</rt></ruby></td><td class="rsum-form">のむ</td><td class="rsum-form">たべる</td><td class="rsum-form">する</td><td class="rsum-form">くる</td></tr>
+          <tr><td style="font-weight:600">た</td><td class="rsum-form">のんだ</td><td class="rsum-form">たべた</td><td class="rsum-form">した</td><td class="rsum-form">きた</td></tr>
+          <tr><td style="font-weight:600"><ruby>意向<rt>いこう</rt></ruby></td><td class="rsum-form">のもう</td><td class="rsum-form">たべよう</td><td class="rsum-form">しよう</td><td class="rsum-form">こよう</td></tr>
+          <tr><td style="font-weight:600">たら</td><td class="rsum-form">のんだら</td><td class="rsum-form">たべたら</td><td class="rsum-form">したら</td><td class="rsum-form">きたら</td></tr>
+          <tr><td style="font-weight:600">ば</td><td class="rsum-form">のめば</td><td class="rsum-form">たべれば</td><td class="rsum-form">すれば</td><td class="rsum-form">くれば</td></tr>
+          <tr><td style="font-weight:600">ても</td><td class="rsum-form">のんでも</td><td class="rsum-form">たべても</td><td class="rsum-form">しても</td><td class="rsum-form">きても</td></tr>
           <tr><td style="font-weight:600"><ruby>可能<rt>かのう</rt></ruby></td><td class="rsum-form">のめる</td><td class="rsum-form">たべられる</td><td class="rsum-form">できる</td><td class="rsum-form">こられる</td></tr>
           <tr><td style="font-weight:600"><ruby>受身<rt>うけみ</rt></ruby></td><td class="rsum-form">のまれる</td><td class="rsum-form">たべられる</td><td class="rsum-form">される</td><td class="rsum-form">こられる</td></tr>
           <tr><td style="font-weight:600"><ruby>使役<rt>しえき</rt></ruby></td><td class="rsum-form">のませる</td><td class="rsum-form">たべさせる</td><td class="rsum-form">させる</td><td class="rsum-form">こさせる</td></tr>
-          <tr><td style="font-weight:600">使役受身</td><td class="rsum-form">のまされる</td><td class="rsum-form">たべさせられる</td><td class="rsum-form">させられる</td><td class="rsum-form">こさせられる</td></tr>
+          <tr><td style="font-weight:600"><ruby>使役受身<rt>しえきうけみ</rt></ruby></td><td class="rsum-form">のまされる</td><td class="rsum-form">たべさせられる</td><td class="rsum-form">させられる</td><td class="rsum-form">こさせられる</td></tr>
           <tr><td style="font-weight:600"><ruby>命令<rt>めいれい</rt></ruby></td><td class="rsum-form">のめ</td><td class="rsum-form">たべろ</td><td class="rsum-form">しろ</td><td class="rsum-form">こい</td></tr>
           <tr><td style="font-weight:600"><ruby>禁止<rt>きんし</rt></ruby></td><td class="rsum-form">のむな</td><td class="rsum-form">たべるな</td><td class="rsum-form">するな</td><td class="rsum-form">くるな</td></tr>
-          <tr><td style="font-weight:600"><ruby>意向<rt>いこう</rt></ruby></td><td class="rsum-form">のもう</td><td class="rsum-form">たべよう</td><td class="rsum-form">しよう</td><td class="rsum-form">こよう</td></tr>
-          <tr><td style="font-weight:600">たら</td><td class="rsum-form">のんだら</td><td class="rsum-form">たべたら</td><td class="rsum-form">したら</td><td class="rsum-form">きたら</td></tr>
-          <tr><td style="font-weight:600">ても</td><td class="rsum-form">のんでも</td><td class="rsum-form">たべても</td><td class="rsum-form">しても</td><td class="rsum-form">きても</td></tr>
-          <tr><td style="font-weight:600">ば</td><td class="rsum-form">のめば</td><td class="rsum-form">たべれば</td><td class="rsum-form">すれば</td><td class="rsum-form">くれば</td></tr>
         </tbody>
       </table></div>
     </div>
@@ -9976,187 +10001,209 @@ function renderRangkuman() {
   const adjSectionLabel = (txt) => `<div style="font-size:0.72rem;font-weight:700;color:var(--text2);letter-spacing:0.04em;margin:10px 0 6px;padding:3px 8px;background:var(--surface2);border-radius:6px;display:inline-block">${txt}</div>`;
 
   const adjCheatSheet = `
-    <div style="margin-bottom:18px">
-      <div style="font-size:0.75rem;font-weight:700;color:var(--text2);margin-bottom:6px;letter-spacing:0.04em">📌 RINGKASAN RUMUS CEPAT</div>
-      <div class="tbl-scroll-wrap"><table class="rsum-vv-table" style="min-width:620px">
-        <thead><tr>
-          <th style="white-space:nowrap">Jenis</th>
-          <th style="color:#60a5fa;white-space:nowrap">✅ Kini +</th>
-          <th style="color:#f87171;white-space:nowrap">❌ Kini −</th>
-          <th style="color:#fbbf24;white-space:nowrap">⏮️ Lampau +</th>
-          <th style="color:#fb923c;white-space:nowrap">⏮️❌ Lampau −</th>
-        </tr></thead>
-        <tbody>
-          <tr style="background:rgba(248,113,113,0.06)">
-            <td style="font-size:0.72rem;color:var(--text2)">い sopan</td>
-            <td style="font-family:'Noto Sans JP';color:#60a5fa">〜いです</td>
-            <td style="font-family:'Noto Sans JP';color:#f87171"><b>〜くないです</b></td>
-            <td style="font-family:'Noto Sans JP';color:#fbbf24"><b>〜かったです</b></td>
-            <td style="font-family:'Noto Sans JP';color:#fb923c"><b>〜くなかったです</b></td>
-          </tr>
-          <tr style="background:rgba(248,113,113,0.03)">
-            <td style="font-size:0.72rem;color:var(--text2)">い biasa</td>
-            <td style="font-family:'Noto Sans JP';color:#60a5fa">〜い</td>
-            <td style="font-family:'Noto Sans JP';color:#f87171"><b>〜くない</b></td>
-            <td style="font-family:'Noto Sans JP';color:#fbbf24"><b>〜かった</b></td>
-            <td style="font-family:'Noto Sans JP';color:#fb923c"><b>〜くなかった</b></td>
-          </tr>
-          <tr style="background:rgba(192,132,252,0.06)">
-            <td style="font-size:0.72rem;color:var(--text2)">な sopan</td>
-            <td style="font-family:'Noto Sans JP';color:#c084fc">〜です</td>
-            <td style="font-family:'Noto Sans JP';color:#f87171"><b>〜じゃないです</b></td>
-            <td style="font-family:'Noto Sans JP';color:#fbbf24"><b>〜でした</b></td>
-            <td style="font-family:'Noto Sans JP';color:#fb923c"><b>〜じゃなかったです</b></td>
-          </tr>
-          <tr style="background:rgba(192,132,252,0.03)">
-            <td style="font-size:0.72rem;color:var(--text2)">な biasa</td>
-            <td style="font-family:'Noto Sans JP';color:#c084fc">〜だ</td>
-            <td style="font-family:'Noto Sans JP';color:#f87171"><b>〜じゃない</b></td>
-            <td style="font-family:'Noto Sans JP';color:#fbbf24"><b>〜だった</b></td>
-            <td style="font-family:'Noto Sans JP';color:#fb923c"><b>〜じゃなかった</b></td>
-          </tr>
-        </tbody>
-      </table></div>
+    <div class="konj-accordion" style="scroll-margin-top:110px;margin-bottom:16px;border-color:rgba(124,106,247,0.3)">
+      <div class="konj-accordion-head" onclick="this.parentElement.classList.toggle('open')" style="background:rgba(124,106,247,0.04)">
+        <span class="konj-accordion-chevron">▶</span>
+        <span style="font-size:0.82rem;font-weight:700;color:var(--accent)">📌 Ringkasan Rumus Cepat — い & な</span>
+      </div>
+      <div class="konj-accordion-body">
+        <div class="tbl-scroll-wrap"><table class="rsum-vv-table" style="min-width:620px">
+          <thead><tr>
+            <th style="white-space:nowrap">Jenis</th>
+            <th style="color:#60a5fa;white-space:nowrap">✅ Kini +</th>
+            <th style="color:#f87171;white-space:nowrap">❌ Kini −</th>
+            <th style="color:#fbbf24;white-space:nowrap">⏮️ Lampau +</th>
+            <th style="color:#fb923c;white-space:nowrap">⏮️❌ Lampau −</th>
+          </tr></thead>
+          <tbody>
+            <tr style="background:rgba(248,113,113,0.06)">
+              <td style="font-size:0.72rem;color:var(--text2)">い sopan</td>
+              <td style="font-family:'Noto Sans JP';color:#60a5fa">〜いです</td>
+              <td style="font-family:'Noto Sans JP';color:#f87171"><b>〜くないです</b></td>
+              <td style="font-family:'Noto Sans JP';color:#fbbf24"><b>〜かったです</b></td>
+              <td style="font-family:'Noto Sans JP';color:#fb923c"><b>〜くなかったです</b></td>
+            </tr>
+            <tr style="background:rgba(248,113,113,0.03)">
+              <td style="font-size:0.72rem;color:var(--text2)">い biasa</td>
+              <td style="font-family:'Noto Sans JP';color:#60a5fa">〜い</td>
+              <td style="font-family:'Noto Sans JP';color:#f87171"><b>〜くない</b></td>
+              <td style="font-family:'Noto Sans JP';color:#fbbf24"><b>〜かった</b></td>
+              <td style="font-family:'Noto Sans JP';color:#fb923c"><b>〜くなかった</b></td>
+            </tr>
+            <tr style="background:rgba(192,132,252,0.06)">
+              <td style="font-size:0.72rem;color:var(--text2)">な sopan</td>
+              <td style="font-family:'Noto Sans JP';color:#c084fc">〜です</td>
+              <td style="font-family:'Noto Sans JP';color:#f87171"><b>〜じゃないです</b></td>
+              <td style="font-family:'Noto Sans JP';color:#fbbf24"><b>〜でした</b></td>
+              <td style="font-family:'Noto Sans JP';color:#fb923c"><b>〜じゃなかったです</b></td>
+            </tr>
+            <tr style="background:rgba(192,132,252,0.03)">
+              <td style="font-size:0.72rem;color:var(--text2)">な biasa</td>
+              <td style="font-family:'Noto Sans JP';color:#c084fc">〜だ</td>
+              <td style="font-family:'Noto Sans JP';color:#f87171"><b>〜じゃない</b></td>
+              <td style="font-family:'Noto Sans JP';color:#fbbf24"><b>〜だった</b></td>
+              <td style="font-family:'Noto Sans JP';color:#fb923c"><b>〜じゃなかった</b></td>
+            </tr>
+          </tbody>
+        </table></div>
+      </div>
     </div>`;
 
-  const adjHtml = `
-    <div class="rsum-adj-card">
-      <div class="rsum-adj-head">
-        <span class="rsum-adj-badge rsum-adj-i">い形容詞</span>
-        <span style="font-size:0.83rem;color:var(--text2)">Kata Sifat い — berakhiran い</span>
+  const adjHtmlI = `
+    <div class="konj-accordion" style="scroll-margin-top:110px;margin-bottom:16px;border-color:rgba(248,113,113,0.3)">
+      <div class="konj-accordion-head" onclick="this.parentElement.classList.toggle('open')" style="background:rgba(248,113,113,0.04)">
+        <span class="konj-accordion-chevron">▶</span>
+        <span style="font-size:0.82rem;font-weight:700;color:#f87171">い<ruby>形容詞<rt>けいようし</rt></ruby> — Kata Sifat い</span>
       </div>
-
-      ${adjSectionLabel('🎩 Ragam Sopan (〜です)')}
-      <div class="rsum-adj-grid">
-        ${adjCell('✅ Positif', 'たかい<b>です</b>')}
-        ${adjCell('❌ Negatif', 'たか<b>くない</b>です')}
-        ${adjCell('⏮️ Lampau +', 'たか<b>かった</b>です')}
-        ${adjCell('⏮️❌ Lampau −', 'たか<b>くなかった</b>です')}
+      <div class="konj-accordion-body">
+        <div class="rsum-adj-card" style="border:none;margin:0;padding:0">
+          ${adjSectionLabel('🎩 Ragam Sopan (〜です)')}
+          <div class="rsum-adj-grid">
+            ${adjCell('✅ Positif', 'たかい<b>です</b>')}
+            ${adjCell('❌ Negatif', 'たか<b>くない</b>です')}
+            ${adjCell('⏮️ Lampau +', 'たか<b>かった</b>です')}
+            ${adjCell('⏮️❌ Lampau −', 'たか<b>くなかった</b>です')}
+          </div>
+          ${adjSectionLabel('💬 Ragam Biasa (futsukei)')}
+          <div class="rsum-adj-grid">
+            ${adjCell('✅ Positif', 'たかい')}
+            ${adjCell('❌ Negatif', 'たか<b>くない</b>')}
+            ${adjCell('⏮️ Lampau +', 'たか<b>かった</b>')}
+            ${adjCell('⏮️❌ Lampau −', 'たか<b>くなかった</b>')}
+          </div>
+          ${adjSectionLabel('🔧 Bentuk Lain')}
+          <div class="rsum-adj-grid">
+            ${adjCell('🔗 Sambung', 'たか<b>くて</b>〜')}
+            ${adjCell('🔄 Menjadi', 'たか<b>く</b>なります')}
+            ${adjCell('🔨 Membuat jadi', 'たか<b>く</b>します')}
+            ${adjCell('📝 Penerang KB', 'たかい<b>[KB]</b>')}
+            ${adjCell('📈 Terlalu', 'たか<b>すぎます</b>')}
+            ${adjCell('👀 Tampak', 'たか<b>そうです</b>')}
+          </div>
+          ${adjSectionLabel('📚 Contoh Kata Sifat い Lain')}
+          <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px">
+            <span style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:4px 10px;font-size:0.78rem;font-family:'Noto Sans JP',sans-serif">おもしろ<b>い</b> <span style="color:var(--text2);font-size:0.7rem">menarik</span></span>
+            <span style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:4px 10px;font-size:0.78rem;font-family:'Noto Sans JP',sans-serif">あたらし<b>い</b> <span style="color:var(--text2);font-size:0.7rem">baru</span></span>
+            <span style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:4px 10px;font-size:0.78rem;font-family:'Noto Sans JP',sans-serif">おおき<b>い</b> <span style="color:var(--text2);font-size:0.7rem">besar</span></span>
+            <span style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:4px 10px;font-size:0.78rem;font-family:'Noto Sans JP',sans-serif">むずかし<b>い</b> <span style="color:var(--text2);font-size:0.7rem">sulit</span></span>
+          </div>
+          <div class="rsum-adj-special">⚠️ Pengecualian: <b>いい</b> (bagus) → sebelum akhiran, いい berubah jadi <b>よ</b><br>
+            よ<b>くない</b> | よ<b>かった</b> | よ<b>くなかった</b> | よ<b>くて</b> | よ<b>く</b>なります | よ<b>すぎます</b> | よ<b>さそうです</b>
+          </div>
+        </div>
       </div>
+    </div>`;
 
-      ${adjSectionLabel('💬 Ragam Biasa (futsukei)')}
-      <div class="rsum-adj-grid">
-        ${adjCell('✅ Positif', 'たかい')}
-        ${adjCell('❌ Negatif', 'たか<b>くない</b>')}
-        ${adjCell('⏮️ Lampau +', 'たか<b>かった</b>')}
-        ${adjCell('⏮️❌ Lampau −', 'たか<b>くなかった</b>')}
+  const adjHtmlNa = `
+    <div class="konj-accordion" style="scroll-margin-top:110px;margin-bottom:16px;border-color:rgba(192,132,252,0.3)">
+      <div class="konj-accordion-head" onclick="this.parentElement.classList.toggle('open')" style="background:rgba(192,132,252,0.04)">
+        <span class="konj-accordion-chevron">▶</span>
+        <span style="font-size:0.82rem;font-weight:700;color:#c084fc">な<ruby>形容詞<rt>けいようし</rt></ruby> — Kata Sifat な</span>
       </div>
-
-      ${adjSectionLabel('🔧 Bentuk Lain')}
-      <div class="rsum-adj-grid">
-        ${adjCell('🔗 Sambung', 'たか<b>くて</b>〜')}
-        ${adjCell('🔄 Menjadi', 'たか<b>く</b>なります')}
-        ${adjCell('🔨 Membuat jadi', 'たか<b>く</b>します')}
-        ${adjCell('📝 Penerang KB', 'たかい<b>[KB]</b>')}
-        ${adjCell('📈 Terlalu', 'たか<b>すぎます</b>')}
-        ${adjCell('👀 Tampak', 'たか<b>そうです</b>')}
+      <div class="konj-accordion-body">
+        <div class="rsum-adj-card" style="border:none;margin:0;padding:0">
+          ${adjSectionLabel('🎩 Ragam Sopan (〜です)')}
+          <div class="rsum-adj-grid">
+            ${adjCell('✅ Positif', 'きれい<b>です</b>')}
+            ${adjCell('❌ Negatif', 'きれい<b>じゃない</b>です')}
+            ${adjCell('⏮️ Lampau +', 'きれい<b>でした</b>')}
+            ${adjCell('⏮️❌ Lampau −', 'きれい<b>じゃなかった</b>です')}
+          </div>
+          ${adjSectionLabel('💬 Ragam Biasa (futsukei)')}
+          <div class="rsum-adj-grid">
+            ${adjCell('✅ Positif', 'きれい<b>だ</b>')}
+            ${adjCell('❌ Negatif', 'きれい<b>じゃない</b>')}
+            ${adjCell('⏮️ Lampau +', 'きれい<b>だった</b>')}
+            ${adjCell('⏮️❌ Lampau −', 'きれい<b>じゃなかった</b>')}
+          </div>
+          ${adjSectionLabel('🔧 Bentuk Lain')}
+          <div class="rsum-adj-grid">
+            ${adjCell('🔗 Sambung', 'きれい<b>で</b>〜')}
+            ${adjCell('🔄 Menjadi', 'きれい<b>に</b>なります')}
+            ${adjCell('🔨 Membuat jadi', 'きれい<b>に</b>します')}
+            ${adjCell('📝 Penerang KB', 'きれい<b>な</b>[KB]')}
+            ${adjCell('📈 Terlalu', 'きれい<b>すぎます</b>')}
+            ${adjCell('👀 Tampak', 'きれい<b>そうです</b>')}
+          </div>
+          ${adjSectionLabel('📚 Contoh Kata Sifat な Lain')}
+          <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px">
+            <span style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:4px 10px;font-size:0.78rem;font-family:'Noto Sans JP',sans-serif">しずか<b>な</b> <span style="color:var(--text2);font-size:0.7rem">tenang</span></span>
+            <span style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:4px 10px;font-size:0.78rem;font-family:'Noto Sans JP',sans-serif">べんり<b>な</b> <span style="color:var(--text2);font-size:0.7rem">praktis</span></span>
+            <span style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:4px 10px;font-size:0.78rem;font-family:'Noto Sans JP',sans-serif">げんき<b>な</b> <span style="color:var(--text2);font-size:0.7rem">sehat</span></span>
+            <span style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:4px 10px;font-size:0.78rem;font-family:'Noto Sans JP',sans-serif">ひま<b>な</b> <span style="color:var(--text2);font-size:0.7rem">senggang</span></span>
+          </div>
+          <div class="rsum-adj-special">💡 Negatif formal: <b>じゃない</b> → <b>ではない</b> (lebih formal/tulisan)<br>
+            Lampau+ KS な = <b>でした</b> — berbeda dengan KS い yang pakai <b>かった</b>!
+          </div>
+        </div>
       </div>
+    </div>`;
 
-      ${adjSectionLabel('📚 Contoh Kata Sifat い Lain')}
-      <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px">
-        <span style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:4px 10px;font-size:0.78rem;font-family:'Noto Sans JP',sans-serif">おもしろ<b>い</b> <span style="color:var(--text2);font-size:0.7rem">menarik</span></span>
-        <span style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:4px 10px;font-size:0.78rem;font-family:'Noto Sans JP',sans-serif">あたらし<b>い</b> <span style="color:var(--text2);font-size:0.7rem">baru</span></span>
-        <span style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:4px 10px;font-size:0.78rem;font-family:'Noto Sans JP',sans-serif">おおき<b>い</b> <span style="color:var(--text2);font-size:0.7rem">besar</span></span>
-        <span style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:4px 10px;font-size:0.78rem;font-family:'Noto Sans JP',sans-serif">むずかし<b>い</b> <span style="color:var(--text2);font-size:0.7rem">sulit</span></span>
+  const adjHtmlExtra = `
+    <div class="konj-accordion" style="scroll-margin-top:110px;margin-bottom:16px;border-color:rgba(251,191,36,0.3)">
+      <div class="konj-accordion-head" onclick="this.parentElement.classList.toggle('open')" style="background:rgba(251,191,36,0.04)">
+        <span class="konj-accordion-chevron">▶</span>
+        <span style="font-size:0.82rem;font-weight:700;color:var(--amber)">⚠️ Kata Sifat yang Sering Keliru Jenisnya</span>
       </div>
-
-      <div class="rsum-adj-special">⚠️ Pengecualian: <b>いい</b> (bagus) → sebelum akhiran, いい berubah jadi <b>よ</b><br>
-        よ<b>くない</b> | よ<b>かった</b> | よ<b>くなかった</b> | よ<b>くて</b> | よ<b>く</b>なります | よ<b>すぎます</b> | よ<b>さそうです</b>
+      <div class="konj-accordion-body">
+        <div style="line-height:1.8;font-size:0.78rem">
+          Kata-kata berikut <b>berakhiran い</b> tapi BUKAN い<ruby>形容詞<rt>けいようし</rt></ruby> — mereka <b>な<ruby>形容詞<rt>けいようし</rt></ruby></b>!<br>
+          <span style="font-family:'Noto Sans JP',sans-serif;color:var(--accent2)">きれい（な）</span> = cantik/bersih　|　
+          <span style="font-family:'Noto Sans JP',sans-serif;color:var(--accent2)">きらい（な）</span> = benci　|　
+          <span style="font-family:'Noto Sans JP',sans-serif;color:var(--accent2)">ゆうめい（な）</span> = terkenal<br>
+          <span style="font-family:'Noto Sans JP',sans-serif;color:var(--accent2)">しんせつ（な）</span> = baik hati　|　
+          <span style="font-family:'Noto Sans JP',sans-serif;color:var(--accent2)">ていねい（な）</span> = sopan　|　
+          <span style="font-family:'Noto Sans JP',sans-serif;color:var(--accent2)">ひま（な）</span> = senggang<br>
+          <div style="margin-top:6px;font-size:0.72rem;color:var(--text2)">💡 Cara ingat: jika bentuk negatifnya pakai <b>じゃない</b> (bukan くない), itu は な<ruby>形容詞<rt>けいようし</rt></ruby>！<br>
+          きれい → きれいじゃない ✅ (bukan きれくない ❌)</div>
+        </div>
       </div>
     </div>
 
-    <div class="rsum-adj-card">
-      <div class="rsum-adj-head">
-        <span class="rsum-adj-badge rsum-adj-na">な形容詞</span>
-        <span style="font-size:0.83rem;color:var(--text2)">Kata Sifat な — memerlukan な sebelum KB</span>
+    <div class="konj-accordion" style="scroll-margin-top:110px;margin-bottom:16px;border-color:rgba(96,165,250,0.3)">
+      <div class="konj-accordion-head" onclick="this.parentElement.classList.toggle('open')" style="background:rgba(96,165,250,0.04)">
+        <span class="konj-accordion-chevron">▶</span>
+        <span style="font-size:0.82rem;font-weight:700;color:#60a5fa">📐 Bentuk N4 Lanjutan: 〜すぎます・〜そうです・〜く/にする</span>
       </div>
-
-      ${adjSectionLabel('🎩 Ragam Sopan (〜です)')}
-      <div class="rsum-adj-grid">
-        ${adjCell('✅ Positif', 'きれい<b>です</b>')}
-        ${adjCell('❌ Negatif', 'きれい<b>じゃない</b>です')}
-        ${adjCell('⏮️ Lampau +', 'きれい<b>でした</b>')}
-        ${adjCell('⏮️❌ Lampau −', 'きれい<b>じゃなかった</b>です')}
-      </div>
-
-      ${adjSectionLabel('💬 Ragam Biasa (futsukei)')}
-      <div class="rsum-adj-grid">
-        ${adjCell('✅ Positif', 'きれい<b>だ</b>')}
-        ${adjCell('❌ Negatif', 'きれい<b>じゃない</b>')}
-        ${adjCell('⏮️ Lampau +', 'きれい<b>だった</b>')}
-        ${adjCell('⏮️❌ Lampau −', 'きれい<b>じゃなかった</b>')}
-      </div>
-
-      ${adjSectionLabel('🔧 Bentuk Lain')}
-      <div class="rsum-adj-grid">
-        ${adjCell('🔗 Sambung', 'きれい<b>で</b>〜')}
-        ${adjCell('🔄 Menjadi', 'きれい<b>に</b>なります')}
-        ${adjCell('🔨 Membuat jadi', 'きれい<b>に</b>します')}
-        ${adjCell('📝 Penerang KB', 'きれい<b>な</b>[KB]')}
-        ${adjCell('📈 Terlalu', 'きれい<b>すぎます</b>')}
-        ${adjCell('👀 Tampak', 'きれい<b>そうです</b>')}
-      </div>
-
-      ${adjSectionLabel('📚 Contoh Kata Sifat な Lain')}
-      <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px">
-        <span style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:4px 10px;font-size:0.78rem;font-family:'Noto Sans JP',sans-serif">しずか<b>な</b> <span style="color:var(--text2);font-size:0.7rem">tenang</span></span>
-        <span style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:4px 10px;font-size:0.78rem;font-family:'Noto Sans JP',sans-serif">べんり<b>な</b> <span style="color:var(--text2);font-size:0.7rem">praktis</span></span>
-        <span style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:4px 10px;font-size:0.78rem;font-family:'Noto Sans JP',sans-serif">げんき<b>な</b> <span style="color:var(--text2);font-size:0.7rem">sehat</span></span>
-        <span style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:4px 10px;font-size:0.78rem;font-family:'Noto Sans JP',sans-serif">ひま<b>な</b> <span style="color:var(--text2);font-size:0.7rem">senggang</span></span>
-      </div>
-
-      <div class="rsum-adj-special">💡 Negatif formal: <b>じゃない</b> → <b>ではない</b> (lebih formal/tulisan)<br>
-        Lampau+ KS な = <b>でした</b> — berbeda dengan KS い yang pakai <b>かった</b>!
+      <div class="konj-accordion-body">
+        <div class="tbl-scroll-wrap"><table class="rsum-vv-table" style="min-width:500px">
+          <thead><tr><th>Bentuk</th><th style="color:#f87171">い<ruby>形容詞<rt>けいようし</rt></ruby> (たかい)</th><th style="color:#c084fc">な<ruby>形容詞<rt>けいようし</rt></ruby> (しずか)</th><th>Arti</th></tr></thead>
+          <tbody>
+            <tr><td style="font-weight:600">〜すぎます</td><td class="rsum-form">たか<b>すぎます</b></td><td class="rsum-form">しずか<b>すぎます</b></td><td style="font-size:0.74rem">Terlalu ~ (Bab 69)</td></tr>
+            <tr><td style="font-weight:600">〜そうです</td><td class="rsum-form">たか<b>そうです</b></td><td class="rsum-form">しずか<b>そうです</b></td><td style="font-size:0.74rem">Kelihatannya ~ (Bab 68)</td></tr>
+            <tr><td style="font-weight:600">〜くする/にする</td><td class="rsum-form">たか<b>くします</b></td><td class="rsum-form">しずか<b>にします</b></td><td style="font-size:0.74rem">Membuat jadi ~ (sengaja)</td></tr>
+            <tr><td style="font-weight:600">〜くなる/になる</td><td class="rsum-form">たか<b>くなります</b></td><td class="rsum-form">しずか<b>になります</b></td><td style="font-size:0.74rem">Menjadi ~ (alami)</td></tr>
+            <tr><td style="font-weight:600">〜くて/で (<ruby>接続<rt>せつぞく</rt></ruby>)</td><td class="rsum-form">たか<b>くて</b></td><td class="rsum-form">しずか<b>で</b></td><td style="font-size:0.74rem">~ dan ~ (menghubungkan)</td></tr>
+          </tbody>
+        </table></div>
+        <div style="margin-top:8px;font-size:0.72rem;color:var(--text2)">⚠️ すぎます: buang い/な, langsung + すぎます. そうです: buang い/な, langsung + そうです. ❗ いい→よさそうです (bukan いそう！)</div>
       </div>
     </div>
 
-    <div class="note-box note-amber" style="margin-top:16px;font-size:0.78rem">
-      <div style="font-weight:700;margin-bottom:10px;font-size:0.73rem;letter-spacing:0.05em">⚠️ KATA SIFAT YANG SERING KELIRU JENISNYA</div>
-      <div style="line-height:1.8">
-        Kata-kata berikut <b>berakhiran い</b> tapi BUKAN い形容詞 — mereka <b>な形容詞</b>!<br>
-        <span style="font-family:'Noto Sans JP',sans-serif;color:var(--accent2)">きれい（な）</span> = cantik/bersih　|　
-        <span style="font-family:'Noto Sans JP',sans-serif;color:var(--accent2)">きらい（な）</span> = benci　|　
-        <span style="font-family:'Noto Sans JP',sans-serif;color:var(--accent2)">ゆうめい（な）</span> = terkenal<br>
-        <span style="font-family:'Noto Sans JP',sans-serif;color:var(--accent2)">しんせつ（な）</span> = baik hati　|　
-        <span style="font-family:'Noto Sans JP',sans-serif;color:var(--accent2)">ていねい（な）</span> = sopan　|　
-        <span style="font-family:'Noto Sans JP',sans-serif;color:var(--accent2)">ひま（な）</span> = senggang<br>
-        <div style="margin-top:6px;font-size:0.72rem;color:var(--text2)">💡 Cara ingat: jika bentuk negatifnya pakai <b>じゃない</b> (bukan くない), itu は な形容詞！<br>
-        きれい → きれいじゃない ✅ (bukan きれくない ❌)</div>
+    <div class="konj-accordion" style="scroll-margin-top:110px;margin-bottom:16px;border-color:rgba(45,212,191,0.3)">
+      <div class="konj-accordion-head" onclick="this.parentElement.classList.toggle('open')" style="background:rgba(45,212,191,0.04)">
+        <span class="konj-accordion-chevron">▶</span>
+        <span style="font-size:0.82rem;font-weight:700;color:var(--teal)">⚠️ Perbandingan: くて vs から vs ので</span>
       </div>
-    </div>
-
-    <div class="note-box note-blue" style="margin-top:12px;font-size:0.78rem">
-      <div style="font-weight:700;margin-bottom:10px;font-size:0.73rem;letter-spacing:0.05em">📐 BENTUK N4 LANJUTAN: 〜すぎます・〜そうです・〜く/にする</div>
-      <div class="tbl-scroll-wrap"><table class="rsum-vv-table" style="min-width:500px">
-        <thead><tr><th>Bentuk</th><th style="color:#f87171">い形容詞 (たかい)</th><th style="color:#c084fc">な形容詞 (しずか)</th><th>Arti</th></tr></thead>
-        <tbody>
-          <tr><td style="font-weight:600">〜すぎます</td><td class="rsum-form">たか<b>すぎます</b></td><td class="rsum-form">しずか<b>すぎます</b></td><td style="font-size:0.74rem">Terlalu ~ (Bab 69)</td></tr>
-          <tr><td style="font-weight:600">〜そうです</td><td class="rsum-form">たか<b>そうです</b></td><td class="rsum-form">しずか<b>そうです</b></td><td style="font-size:0.74rem">Kelihatannya ~ (Bab 68)</td></tr>
-          <tr><td style="font-weight:600">〜くする/にする</td><td class="rsum-form">たか<b>くします</b></td><td class="rsum-form">しずか<b>にします</b></td><td style="font-size:0.74rem">Membuat jadi ~ (sengaja)</td></tr>
-          <tr><td style="font-weight:600">〜くなる/になる</td><td class="rsum-form">たか<b>くなります</b></td><td class="rsum-form">しずか<b>になります</b></td><td style="font-size:0.74rem">Menjadi ~ (alami)</td></tr>
-          <tr><td style="font-weight:600">〜くて/で (sambung)</td><td class="rsum-form">たか<b>くて</b></td><td class="rsum-form">しずか<b>で</b></td><td style="font-size:0.74rem">~ dan ~ (menghubungkan)</td></tr>
-        </tbody>
-      </table></div>
-      <div style="margin-top:8px;font-size:0.72rem;color:var(--text2)">⚠️ すぎます: buang い/な, langsung + すぎます. そうです: buang い/な, langsung + そうです. ❗ いい→よさそうです (bukan いそう！)</div>
-    </div>
-
-    <div class="note-box note-teal" style="margin-top:12px;font-size:0.78rem">
-      <div style="font-weight:700;margin-bottom:10px;font-size:0.73rem;letter-spacing:0.05em">⚠️ PERBANDINGAN: くて (sambung) vs から (alasan) vs ので (alasan formal)</div>
-      <div class="tbl-scroll-wrap"><table class="rsum-vv-table" style="min-width:420px">
-        <thead><tr><th>Pola</th><th>Contoh</th><th>Nuansa</th></tr></thead>
-        <tbody>
-          <tr><td style="font-weight:600;color:#34d399">くて / で</td><td class="rsum-form" style="font-size:0.76rem">やすくて、おいしいです</td><td style="font-size:0.72rem;color:var(--text2)">Deskripsi sejajar: murah DAN enak (tidak ada hubungan sebab-akibat)</td></tr>
-          <tr><td style="font-weight:600;color:#fb923c">から</td><td class="rsum-form" style="font-size:0.76rem">やすいから、かいます</td><td style="font-size:0.72rem;color:var(--text2)">Alasan santai: KARENA murah, beli (subjektif/percakapan)</td></tr>
-          <tr><td style="font-weight:600;color:#4ade80">ので</td><td class="rsum-form" style="font-size:0.76rem">やすいので、かいます</td><td style="font-size:0.72rem;color:var(--text2)">Alasan sopan: Karena murah, beli (objektif/formal)</td></tr>
-        </tbody>
-      </table></div>
-      <div style="margin-top:8px;font-size:0.72rem;color:var(--text2)">💡 くて = deskripsi/sifat. から/ので = alasan → akibat. Jangan pakai くて untuk hubungan sebab-akibat!</div>
+      <div class="konj-accordion-body">
+        <div class="tbl-scroll-wrap"><table class="rsum-vv-table" style="min-width:420px">
+          <thead><tr><th>Pola</th><th>Contoh</th><th>Nuansa</th></tr></thead>
+          <tbody>
+            <tr><td style="font-weight:600;color:#34d399">くて / で</td><td class="rsum-form" style="font-size:0.76rem">やすくて、おいしいです</td><td style="font-size:0.72rem;color:var(--text2)">Deskripsi sejajar: murah DAN enak (tidak ada hubungan sebab-akibat)</td></tr>
+            <tr><td style="font-weight:600;color:#fb923c">から</td><td class="rsum-form" style="font-size:0.76rem">やすいから、かいます</td><td style="font-size:0.72rem;color:var(--text2)">Alasan santai: KARENA murah, beli (subjektif/percakapan)</td></tr>
+            <tr><td style="font-weight:600;color:#4ade80">ので</td><td class="rsum-form" style="font-size:0.76rem">やすいので、かいます</td><td style="font-size:0.72rem;color:var(--text2)">Alasan sopan: Karena murah, beli (objektif/formal)</td></tr>
+          </tbody>
+        </table></div>
+        <div style="margin-top:8px;font-size:0.72rem;color:var(--text2)">💡 くて = deskripsi/sifat. から/ので = alasan → akibat. Jangan pakai くて untuk hubungan sebab-akibat!</div>
+      </div>
     </div>`;
   document.getElementById('rsum-tab-4').innerHTML = `<div style="padding:16px 14px 20px">
     <div class="rsum-section-title">✨ Kata Sifat — い & な ${rsumLevel !== 'all' ? `<span style="color:${lvColor};font-size:0.75rem">(${lvLabel})</span>` : ''}</div>
     ${rsumLevel === 'n4' ? `<div class="note-box note-purple" style="font-size:0.8rem;line-height:1.6;margin-bottom:14px">💡 Pola kata sifat い & な adalah fondasi N5 yang terus dipakai di N4. Pastikan sudah hafal semua bentuk konjugasinya!</div>` : ''}
     ${adjCheatSheet}
-    ${adjHtml}
+    ${adjHtmlI}
+    ${adjHtmlNa}
+    ${adjHtmlExtra}
   </div>`;
 }
 
