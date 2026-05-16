@@ -933,6 +933,9 @@ body {
 .vv-plan { background: rgba(248,113,113,0.15); color: #f87171; }
 .vv-ba   { background: rgba(52,211,153,0.15); color: #34d399; }
 .vv-ukemi { background: rgba(251,146,60,0.15); color: #fb923c; }
+.vv-meirei { background: rgba(239,68,68,0.15); color: #ef4444; }
+.vv-shieki { background: rgba(245,158,11,0.15); color: #f59e0b; }
+.vv-keigo { background: rgba(99,102,241,0.15); color: #6366f1; }
 
 /* ── RANGKUMAN: Kata Sifat Card (Tab KS) ── */
 .rsum-adj-card {
@@ -984,6 +987,8 @@ body {
 .rsum-conj-kano   { background: rgba(96,165,250,0.15);  color: #3b82f6; }
 .rsum-conj-nagara { background: rgba(251,146,60,0.15);  color: #fb923c; }
 .rsum-conj-ukemi  { background: rgba(52,211,153,0.15);  color: #34d399; }
+.rsum-conj-shieki { background: rgba(245,158,11,0.15); color: #f59e0b; border: 1px solid rgba(245,158,11,0.3); }
+.rsum-conj-meirei { background: rgba(239,68,68,0.15); color: #ef4444; border: 1px solid rgba(239,68,68,0.3); }
 .rsum-form { font-family: 'Noto Sans JP', sans-serif; font-size: 0.78rem; color: var(--text); line-height:2; white-space: nowrap; }
 .rsum-form b { color: var(--red); }
 
@@ -8476,6 +8481,41 @@ const RANGKUMAN_KONJUGASI = [
     "⚠️ Gr II potensial vs pasif: たべられます = 'bisa makan' ATAU 'dimakan' — konteks menentukan!",
    ]
   },
+  {grup:"使役", warna:"rsum-conj-shieki", label:"<ruby>使役形<rt>しえきけい</rt></ruby> (Kausatif — menyuruh/izinkan)",
+   contoh: [
+     {masu:"かきます", te:"かかせます", nai:"かかせない", kamus:"かかせる", catatan:"Gr.I: i→a+せる"},
+     {masu:"よみます", te:"よませます", nai:"よませない", kamus:"よませる", catatan:"Gr.I: i→a+せる"},
+     {masu:"はなします", te:"はなさせます", nai:"はなさせない", kamus:"はなさせる", catatan:"Gr.I: し→さ+せる"},
+     {masu:"たべます", te:"たべさせます", nai:"たべさせない", kamus:"たべさせる", catatan:"Gr.II: +させる"},
+     {masu:"みます", te:"みさせます", nai:"みさせない", kamus:"みさせる", catatan:"Gr.II: +させる"},
+     {masu:"きます", te:"こさせます", nai:"こさせない", kamus:"こさせる", catatan:"Gr.III: 不規則"},
+     {masu:"します", te:"させます", nai:"させない", kamus:"させる", catatan:"Gr.III: 不規則"},
+   ],
+   aturan: [
+     "Gr.I: ます stem → ubah bunyi akhir i→a, tambah せます (よみ→よま+せます)",
+     "Gr.II: ます stem + させます (たべ→たべさせます)",
+     "Gr.III: きます→こさせます / します→させます",
+     "Kausatif terkonjugasi sebagai KK Grup II",
+   ]
+  },
+  {grup:"命令・禁止", warna:"rsum-conj-meirei", label:"命令形・禁止形 (Perintah & Larangan)",
+   contoh: [
+     {masu:"のみます", te:"のめ", nai:"のむな", kamus:"のむ", catatan:"Gr.I: i→e"},
+     {masu:"かきます", te:"かけ", nai:"かくな", kamus:"かく", catatan:"Gr.I: i→e"},
+     {masu:"まちます", te:"まて", nai:"まつな", kamus:"まつ", catatan:"Gr.I: i→e"},
+     {masu:"たべます", te:"たべろ", nai:"たべるな", kamus:"たべる", catatan:"Gr.II: +ろ"},
+     {masu:"みます", te:"みろ", nai:"みるな", kamus:"みる", catatan:"Gr.II: +ろ"},
+     {masu:"きます", te:"こい", nai:"くるな", kamus:"くる", catatan:"Gr.III: 不規則"},
+     {masu:"します", te:"しろ", nai:"するな", kamus:"する", catatan:"Gr.III: 不規則"},
+   ],
+   aturan: [
+     "命令形 Gr.I: ます stem → ubah bunyi akhir i-row → e-row (のみ→のめ, かき→かけ)",
+     "命令形 Gr.II: ます stem + ろ (たべ→たべろ, み→みろ)",
+     "命令形 Gr.III: きます→こい / します→しろ",
+     "禁止形 SEMUA: KK bentuk kamus + な (のむな, たべるな, するな, くるな)",
+     "⚠️ Sangat kasar! Hanya untuk darurat, olahraga, atau tanda.",
+   ]
+  },
 ];
 
 // ── RANGKUMAN DATA: Bentuk VV per pola ──
@@ -8510,6 +8550,10 @@ const RANGKUMAN_BENTUKVV = [
       {form:"KK(ますstem)<b>たい</b>です", pola:"KK(ます) + たいです", arti:"Ingin melakukan ~", bab:19, contoh:"たべ<b>たい</b>です → ingin makan"},
       {form:"KK(ますstem)<b>に</b> いきます", pola:"KB へ KK(ます) に いきます", arti:"Pergi/datang/pulang untuk ~ (tujuan)", bab:20, contoh:"かい<b>に</b> いきます → pergi untuk membeli"},
       {form:"KK(ますstem)<b>ながら</b> KK2", pola:"KK1 ますながら KK2", arti:"Sambil ~ (dua tindakan bersamaan, KK2 = utama)", bab:43, contoh:"おんがくを きき<b>ながら</b> べんきょうします → belajar sambil dengar musik"},
+      {form:"KK(ますstem) + <b>そうです</b>", pola:"KK(ます) そうです", arti:"Sepertinya akan ~ (prediksi dekat, kesan visual)", bab:70, contoh:"にもつが おちそうです → barang sepertinya akan jatuh"},
+      {form:"KK(ますstem) + <b>すぎます</b>", pola:"KK(ます) すぎます", arti:"Terlalu banyak ~ (berlebihan)", bab:69, contoh:"たべすぎました → makan terlalu banyak"},
+      {form:"KK(ますstem) + <b>やすいです</b>", pola:"KK(ます) やすいです", arti:"Mudah ~ / Gampang ~ (kemudahan)", bab:69, contoh:"このペンは かきやすいです → pena ini mudah ditulis"},
+      {form:"KK(ますstem) + <b>にくいです</b>", pola:"KK(ます) にくいです", arti:"Sulit ~ / Susah ~ (kesulitan)", bab:69, contoh:"このにくは たべにくいです → daging ini sulit dimakan"},
     ]
   },
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -8551,6 +8595,9 @@ const RANGKUMAN_BENTUKVV = [
       {form:"KB が KK-tr <b>て</b> あります", pola:"KB が KK-transitif て あります", arti:"Sudah ~ / keadaan hasil tindakan sengaja (Bab 48)", bab:48, contoh:"ポスターが はって あります → poster sudah ditempel"},
       {form:"まだ KK<b>て</b> いません", pola:"まだ + KK て いません", arti:"Masih belum ~ (belum dilakukan) (Bab 49)", bab:49, contoh:"まだ しゅくだいを して いません → PR masih belum dikerjakan"},
       {form:"<ruby>自動詞<rt>じどうし</rt></ruby><b>て</b> います vs <ruby>他動詞<rt>たどうし</rt></ruby><b>て</b> います", pola:"KK intransitif て います ↔ KK transitif て います", arti:"Intrans. て います = kondisi hasil | Trans. て います = sedang dilakukan / sengaja", bab:45, contoh:"まどが あい<b>て</b> います (jendela terbuka) ↔ まどを あけ<b>て</b> います (sedang membuka jendela)"},
+      {form:"KK<b>て</b> みます", pola:"KK て みます", arti:"Mencoba ~ (sesuatu yang belum pernah dicoba)", bab:64, contoh:"はいて みても いいですか → boleh coba pakai?"},
+      {form:"KK<b>て</b> いただきました", pola:"KK て いただきました", arti:"Menerima tindakan dari orang berstatus lebih tinggi", bab:66, contoh:"せんせいに おしえて いただきました → guru mengajari saya"},
+      {form:"KK<b>て</b> くださいました", pola:"KK て くださいました", arti:"Orang berstatus tinggi melakukan ~ untuk saya", bab:66, contoh:"せんせいが おしえて くださいました → guru mengajari saya"},
     ]
   },
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -8567,6 +8614,8 @@ const RANGKUMAN_BENTUKVV = [
       {form:"KK<b>た</b> とき、KK", pola:"KK た とき、KK", arti:"Ketika sudah ~ (tindakan di とき sudah terjadi)", bab:33, contoh:"たべた とき → ketika (sudah) makan"},
       {form:"[KK<b>た</b>] + KB", pola:"KK た + KB", arti:"Kata kerja lampau memodifikasi kata benda", bab:32, contoh:"たべた ごはん → nasi yang (sudah) dimakan"},
       {form:"KK<b>た</b> + ほうが いいです", pola:"KK-た + ほうが いいです", arti:"Sebaiknya lakukan ~ (saran positif)", bab:51, contoh:"はやく ねた ほうが いいです → sebaiknya segera tidur"},
+      {form:"KK<b>た</b> + ばかりです", pola:"KK た ばかりです", arti:"Baru saja selesai ~ (subjektif, perasaan 'baru')", bab:74, contoh:"さっき たべた ばかりです → baru saja makan tadi"},
+      {form:"KK<b>た</b> + ところです", pola:"KK た ところです", arti:"Baru saja selesai ~ (objektif, momen tepat)", bab:72, contoh:"たった今 シャワーを あびた ところです → baru saja selesai mandi"},
     ]
   },
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -8609,6 +8658,11 @@ const RANGKUMAN_BENTUKVV = [
       {form:"KK(kamus) + <b>のが</b> KS です", pola:"KK kamus + のが + KS", arti:"(Melakukan) ~ itu KS (nominalisasi objek preferensi)", bab:60, contoh:"<ruby>音楽<rt>おんがく</rt></ruby>を <ruby>聞<rt>き</rt></ruby>く のが すきです → suka mendengarkan musik"},
       {form:"KK(kamus) / KB の <b><ruby>予定<rt>よてい</rt></ruby>です</b>", pola:"KK(kamus) / KB の + <ruby>予定<rt>よてい</rt></ruby>です", arti:"Berencana ~ / dijadwalkan ~ (Bab 50)", bab:50, contoh:"でんしゃは 12じに つく よていです → kereta dijadwalkan tiba jam 12"},
       {form:"KS い <b>く</b> / KS な・KB <b>に</b> + なります", pola:"KS/KB + なります", arti:"Menjadi ~ (perubahan kondisi — い→く, な→に, KB→に)", bab:34, contoh:"さむ<b>く</b>なります → menjadi dingin | しずか<b>に</b>なります → menjadi hening | いしゃ<b>に</b>なります → menjadi dokter"},
+      {form:"KK(kamus) + <b>のを</b> わすれました", pola:"KK kamus のを わすれました", arti:"Lupa melakukan ~ (nominalisasi sebagai objek)", bab:61, contoh:"でんきを けす のを わすれました → lupa mematikan lampu"},
+      {form:"KK(kamus) + <b>ために</b>、KK", pola:"KK kamus ために、KK", arti:"Untuk/Demi melakukan ~ (tujuan sadar)", bab:67, contoh:"ろんぶんを かく ために、ほんを かりました → untuk menulis tesis, meminjam buku"},
+      {form:"KK(kamus) + <b>のに</b> つかいます/いいです", pola:"KK kamus のに + つかいます/いいです/べんりです", arti:"Untuk fungsi/tujuan ~ (kegunaan alat/benda)", bab:68, contoh:"たまごを きる のに つかいます → digunakan untuk memotong telur"},
+      {form:"KK(kamus) + <b>ところです</b>", pola:"KK kamus ところです", arti:"Baru akan ~ (tindakan akan segera dimulai)", bab:72, contoh:"これから ひるごはんを たべる ところです → akan makan siang sekarang"},
+      {form:"[biasa] + <b>はずです</b>", pola:"[Bentuk biasa] はずです", arti:"Seharusnya ~ (kesimpulan berdasarkan alasan logis)", bab:74, contoh:"にちようびですから、やすみの はずです → karena Minggu, seharusnya libur"},
     ],
     note: "⚠️ KK(kamus)+と: setelah と TIDAK boleh ~たい、~ましょう、~てください. Untuk kondisi yang bisa diikuti keinginan/ajakan → gunakan たら. つもり=niat pribadi, <ruby>予定<rt>よてい</rt></ruby>=jadwal terjadwal (lebih pasti)."
   },
@@ -8645,6 +8699,12 @@ const RANGKUMAN_BENTUKVV = [
       {form:"[biasa] + <b>かも しれません</b>", pola:"[Bentuk biasa] + かもしれません", arti:"Mungkin saja ~ (ketidakpastian ~50%)", bab:52, contoh:"ゆきが ふる <b>かも しれません</b> → mungkin saja turun salju"},
       {form:"[biasa] + <b>でしょう</b>", pola:"[Bentuk biasa] + でしょう", arti:"Akan / Pasti ~ (perkiraan lebih yakin ~70-80%)", bab:52, contoh:"つよい かぜが ふく <b>でしょう</b> → angin kencang akan bertiup"},
       {form:"[biasa] <b>し</b>、[biasa] <b>し</b>、それに〜", pola:"[Bentuk biasa] し、[Bentuk biasa] し、それに ~", arti:"Selain itu ~ (beberapa alasan sejajar)", bab:53, contoh:"ねだんも やすい<b>し</b>、あじも いい<b>し</b>、いつも この みせで たべています"},
+      {form:"[biasa] + <b>ので</b>、〜", pola:"[Bentuk biasa] ので、〜", arti:"Karena ~ (alasan sopan/halus)", bab:63, contoh:"いそがしい ので、いけません → karena sibuk, tidak bisa pergi"},
+      {form:"interogatif + [biasa] <b>か</b>、〜", pola:"interogatif + [bentuk biasa] か、〜", arti:"(Bertanya) kapan/di mana/siapa/apa ~ (pertanyaan terbenam)", bab:64, contoh:"なんじに しゅっぱつするか、おしえてください → tolong beritahu jam berapa berangkat"},
+      {form:"[biasa] + <b>かどうか</b>、〜", pola:"[Bentuk biasa] かどうか、〜", arti:"Apakah ~ atau tidak (pertanyaan ya/tidak terbenam)", bab:64, contoh:"まちがいが ないか どうか、たしかめてください → tolong pastikan ada kesalahan atau tidak"},
+      {form:"[biasa] + <b>のに</b>、〜", pola:"[Bentuk biasa] のに、〜", arti:"Padahal ~ (kontras/kekecewaan)", bab:71, contoh:"30ぷんも まったのに、きませんでした → padahal sudah tunggu 30 menit, tidak datang"},
+      {form:"[biasa] + <b>そうです</b> (伝聞)", pola:"[Bentuk biasa] そうです (伝聞)", arti:"Katanya ~ / Saya dengar ~ (informasi dari orang lain)", bab:73, contoh:"あした テストが あるそうです → katanya besok ada ujian"},
+      {form:"[biasa] + <b>ようです</b>", pola:"[Bentuk biasa] ようです", arti:"Tampaknya ~ / Sepertinya ~ (kesimpulan dari pengamatan)", bab:73, contoh:"だれか いるようです → sepertinya ada seseorang"},
     ]
   },
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -8706,6 +8766,44 @@ const RANGKUMAN_BENTUKVV = [
       {form:"KB は [人名] <b>によって</b> KK<b>受身</b>", pola:"KB は + pelaku + によって + KK 受身形", arti:"Pasif formal — oleh ~ (karya/penemuan/ciptaan)", bab:59, contoh:"<ruby>銀河鉄道の夜<rt>ぎんがてつどうのよる</rt></ruby>は <ruby>宮沢賢治<rt>みやざわけんじ</rt></ruby><b>によって</b> かかれました"},
     ],
     note: "⚠️ に (pelaku tindakan langsung, orang/hewan) vs によって (pelaku karya/ciptaan/penemuan, lebih formal). ⚠️ Jangan bingung dengan Gr II potensial: たべられます (bisa makan / dimakan) — konteks menentukan maknanya."
+  },
+  {
+    bentuk: "<ruby>命令形<rt>めいれいけい</rt></ruby>・<ruby>禁止形<rt>きんしけい</rt></ruby>",
+    chip: "vv-meirei", label: "Bentuk Perintah & Larangan — Darurat / Tanda",
+    desc: "命令形 = perintah langsung (darurat, olahraga, tanda). 禁止形 = larangan keras (KK kamus + な). Digunakan dalam situasi non-sopan.",
+    pola: [
+      {form:"Gr.I: bunyi i-row → <b>e-row</b>", pola:"Godan: ganti bunyi akhir i → e", arti:"Perintah Grup I", bab:75, contoh:"のむ→のめ | まつ→まて | かく→かけ | はしる→はしれ"},
+      {form:"Gr.II: buang る + <b>ろ</b>", pola:"Ichidan: KK stem + ろ", arti:"Perintah Grup II", bab:75, contoh:"たべる→たべろ | みる→みろ | ねる→ねろ | やめる→やめろ"},
+      {form:"Gr.III: する→<b>しろ</b> / くる→<b>こい</b>", pola:"Tidak beraturan", arti:"Perintah Grup III", bab:75, contoh:"する→しろ | くる→こい"},
+      {form:"KK kamus + <b>な</b>", pola:"KK kamus + な", arti:"Jangan ~ (larangan keras)", bab:75, contoh:"のむな | みるな | するな | くるな — sangat kasar, hanya untuk darurat/tanda"},
+    ],
+    note: "⚠️ Bentuk perintah dan larangan SANGAT KASAR — hanya dipakai dalam situasi darurat, semangat olahraga, atau tanda/rambu."
+  },
+  {
+    bentuk: "<ruby>使役形<rt>しえきけい</rt></ruby>",
+    chip: "vv-shieki", label: "Bentuk Kausatif — Menyuruh / Mengizinkan",
+    desc: "Menyuruh atau mengizinkan seseorang melakukan sesuatu. Digunakan oleh yang berstatus lebih tinggi.",
+    pola: [
+      {form:"Gr.I: bunyi i-row → <b>a-row + せます</b>", pola:"Godan: ganti bunyi akhir → a + せます", arti:"Kausatif Grup I", bab:76, contoh:"よむ→よませます | かく→かかせます | はなす→はなさせます"},
+      {form:"Gr.II: buang る + <b>させます</b>", pola:"Ichidan: KK stem + させます", arti:"Kausatif Grup II", bab:76, contoh:"たべる→たべさせます | みる→みさせます"},
+      {form:"Gr.III: する→<b>させます</b> / くる→<b>こさせます</b>", pola:"Tidak beraturan", arti:"Kausatif Grup III", bab:76, contoh:"する→させます | くる→こさせます"},
+      {form:"KK kausatif + <b>て いただけませんか</b>", pola:"KK kausatif て いただけませんか", arti:"Bolehkah saya ~ (meminta izin sangat sopan)", bab:76, contoh:"やすませて いただけませんか → bolehkah saya izin tidak masuk?"},
+    ],
+    note: "⚠️ KK intransitif: orang を + kausatif (こどもを いかせます). KK transitif: orang に + kausatif (がくせいに よませます)."
+  },
+  {
+    bentuk: "<ruby>敬語<rt>けいご</rt></ruby>",
+    chip: "vv-keigo", label: "Bahasa Hormat & Merendah — 尊敬語・謙譲語",
+    desc: "尊敬語 = meninggikan pelaku (orang lain). 謙譲語 = merendahkan diri sendiri. Keduanya menunjukkan hormat.",
+    pola: [
+      {form:"<b>尊敬語</b>: KK [〜(ら)れます]", pola:"KK pasif = 尊敬語 (bentuk sama dengan pasif)", arti:"(Beliau) melakukan ~ (hormat kepada pelaku)", bab:77, contoh:"しゃちょうは 9じはんに こられます → direktur datang jam 9:30"},
+      {form:"<b>お</b>(KK stem)<b>に なります</b>", pola:"お + KK stem + に なります", arti:"(Beliau) melakukan ~ (lebih sopan dari 尊敬語 biasa)", bab:77, contoh:"せんせいが おかえりに なります → guru pulang"},
+      {form:"<b>お</b>(KK stem)<b>ください</b>", pola:"お + KK stem + ください / ご + KB + ください", arti:"Silakan ~ (permintaan sopan setara てください)", bab:77, contoh:"どうぞ おはいりください → silakan masuk"},
+      {form:"<b>謙譲語</b>: お(KK stem)<b>します</b>", pola:"お + KK stem + します / ご + KB + します", arti:"Saya melakukan ~ (merendahkan diri)", bab:78, contoh:"おにもつを おもちします → saya bawakan barang Anda"},
+      {form:"Ungkapan khusus 尊敬語", pola:"いらっしゃいます / めしあがります / おっしゃいます / ごぞんじです", arti:"Bentuk khusus hormat", bab:77, contoh:"しゃちょうは かいぎしつに いらっしゃいます → direktur ada di ruang rapat"},
+      {form:"Ungkapan khusus 謙譲語", pola:"まいります / おります / もうします / いただきます / はいけんします", arti:"Bentuk khusus merendah", bab:78, contoh:"わたしが まいります → saya yang akan pergi"},
+    ],
+    note: "⚠️ 尊敬語: subjek = orang yang dihormati. 謙譲語: subjek = diri sendiri. Jangan tertukar!"
   },
 ];
 
@@ -9078,7 +9176,7 @@ function renderRangkuman() {
 
   // ─── Tab 3: Konjugasi KK ───
   // Grup dasar I/II/III/⚠️ = N5. Grup たら/可能/ても/ながら = N4 (bab 36+)
-  const konjN4Groups = ['たら', '可能', 'ても', 'ながら', '受身'];
+  const konjN4Groups = ['たら', '可能', 'ても', 'ながら', '受身', '使役', '命令・禁止'];
   let konjHtml = '';
   RANGKUMAN_KONJUGASI.forEach(g => {
     const isN4Group = konjN4Groups.includes(g.grup);
