@@ -977,6 +977,12 @@ body {
 .vv-meirei { background: rgba(239,68,68,0.15); color: #ef4444; }
 .vv-shieki { background: rgba(245,158,11,0.15); color: #f59e0b; }
 .vv-keigo { background: rgba(99,102,241,0.15); color: #6366f1; }
+.vv-te   { background: rgba(52,211,153,0.15); color: #34d399; }
+.vv-ta   { background: rgba(251,191,36,0.15); color: #fbbf24; }
+.vv-nai  { background: rgba(248,113,113,0.15); color: #f87171; }
+.vv-kamus { background: rgba(45,212,191,0.15); color: #2dd4bf; }
+.vv-tara { background: rgba(249,115,22,0.15); color: #f97316; }
+.vv-temo { background: rgba(244,114,182,0.15); color: #f472b6; }
 
 /* ── RANGKUMAN: Kata Sifat Card (Tab KS) ── */
 .rsum-adj-card {
@@ -1030,6 +1036,8 @@ body {
 .rsum-conj-ukemi  { background: rgba(52,211,153,0.15);  color: #34d399; }
 .rsum-conj-shieki { background: rgba(245,158,11,0.15); color: #f59e0b; border: 1px solid rgba(245,158,11,0.3); }
 .rsum-conj-meirei { background: rgba(239,68,68,0.15); color: #ef4444; border: 1px solid rgba(239,68,68,0.3); }
+.rsum-conj-sonkei { background: rgba(99,102,241,0.15); color: #6366f1; border: 1px solid rgba(99,102,241,0.3); }
+.rsum-conj-kenjou { background: rgba(139,92,246,0.15); color: #8b5cf6; border: 1px solid rgba(139,92,246,0.3); }
 .rsum-form { font-family: 'Noto Sans JP', sans-serif; font-size: 0.78rem; color: var(--text); line-height:2; white-space: nowrap; }
 .rsum-form b { color: var(--red); }
 
@@ -8640,7 +8648,7 @@ const RANGKUMAN_KONJUGASI = [
      "⚠️ Sangat kasar! Hanya untuk darurat, olahraga, atau tanda.",
    ]
   },
-  {grup:"尊敬", warna:"rsum-conj-ukemi", label:"<ruby>尊敬語<rt>そんけいご</rt></ruby> (Bahasa Hormat — meninggikan orang lain)",
+  {grup:"尊敬", warna:"rsum-conj-sonkei", label:"<ruby>尊敬語<rt>そんけいご</rt></ruby> (Bahasa Hormat — meninggikan orang lain)",
    contoh: [
      {masu:"<ruby>聞<rt>き</rt></ruby>きます", te:"<ruby>聞<rt>き</rt></ruby>かれます", nai:"<ruby>聞<rt>き</rt></ruby>かれません", kamus:"<ruby>聞<rt>き</rt></ruby>かれる", catatan:"Gr.I: pasif=尊敬"},
      {masu:"<ruby>読<rt>よ</rt></ruby>みます", te:"<ruby>読<rt>よ</rt></ruby>まれます", nai:"<ruby>読<rt>よ</rt></ruby>まれません", kamus:"<ruby>読<rt>よ</rt></ruby>まれる", catatan:"Gr.I: pasif=尊敬"},
@@ -8658,7 +8666,7 @@ const RANGKUMAN_KONJUGASI = [
      "<ruby>特別<rt>とくべつ</rt></ruby>: いらっしゃいます / めしあがります / おっしゃいます / ごぞんじです / ごらんになります",
    ]
   },
-  {grup:"謙譲", warna:"rsum-conj-ukemi", label:"<ruby>謙譲語<rt>けんじょうご</rt></ruby> (Bahasa Merendah — merendahkan diri sendiri)",
+  {grup:"謙譲", warna:"rsum-conj-kenjou", label:"<ruby>謙譲語<rt>けんじょうご</rt></ruby> (Bahasa Merendah — merendahkan diri sendiri)",
    contoh: [
      {masu:"<ruby>送<rt>おく</rt></ruby>ります", te:"お<ruby>送<rt>おく</rt></ruby>りします", nai:"お<ruby>送<rt>おく</rt></ruby>りしません", kamus:"お<ruby>送<rt>おく</rt></ruby>りする", catatan:"Gr.I: お～します"},
      {masu:"<ruby>持<rt>も</rt></ruby>ちます", te:"お<ruby>持<rt>も</rt></ruby>ちします", nai:"お<ruby>持<rt>も</rt></ruby>ちしません", kamus:"お<ruby>持<rt>も</rt></ruby>ちする", catatan:"Gr.I: お～します"},
@@ -9339,18 +9347,48 @@ function renderRangkuman() {
   // ─── Tab 3: Konjugasi KK ───
   // Grup dasar I/II/III/⚠️ = N5. Grup たら/可能/ても/ながら = N4 (bab 36+)
   const konjN4Groups = ['たら', '可能', 'ても', 'ながら', '受身', '使役', '命令・禁止', '尊敬', '謙譲'];
+  // Bab references per grup for babChipsHtml
+  const konjBabMap = {
+    'I': [14,19,20],
+    'II': [14,19,20],
+    'III': [14,19,20],
+    '⚠️': [10,14],
+    'たら': [37,38],
+    '可能': [42],
+    'ても': [39],
+    'ながら': [43],
+    '受身': [58,59],
+    '使役': [60],
+    '命令・禁止': [61],
+    '尊敬': [65,66],
+    '謙譲': [67,68],
+  };
+  // Helper: strip ruby tags for matching
+  const stripRuby = (s) => s.replace(/<[^>]*>/g,'');
   let konjHtml = '';
+  // Build quick-nav buttons
+  const konjVisibleGroups = RANGKUMAN_KONJUGASI.filter(g => {
+    const isN4Group = konjN4Groups.some(k => stripRuby(g.grup).includes(k));
+    if (rsumLevel === 'n5' && isN4Group) return false;
+    if (rsumLevel === 'n4' && !isN4Group) return false;
+    return true;
+  });
+  const konjQuickNav = `<div class="rsum-quicknav" style="margin-bottom:14px">
+    ${konjVisibleGroups.map(g => `<button class="rsum-qnav-btn" onclick="document.getElementById('konj-sec-${stripRuby(g.grup).replace(/[<>\/\s]/g,'_')}').scrollIntoView({behavior:'smooth',block:'start'});this.parentNode.querySelectorAll('.rsum-qnav-btn').forEach(b=>b.classList.remove('active'));this.classList.add('active');">${stripRuby(g.grup)}</button>`).join('')}
+  </div>`;
+
   RANGKUMAN_KONJUGASI.forEach(g => {
-    const isN4Group = konjN4Groups.includes(g.grup);
+    const isN4Group = konjN4Groups.some(k => stripRuby(g.grup).includes(k));
     // Filter by level
     if (rsumLevel === 'n5' && isN4Group) return;
     if (rsumLevel === 'n4' && !isN4Group) return;
 
-    const isTara   = g.grup === 'たら';
-    const isTemo   = g.grup === 'ても';
-    const isKano   = g.grup === '可能';
-    const isNagara = g.grup === 'ながら';
-    const isUkemi  = g.grup.includes('受身');
+    const grupPlain = stripRuby(g.grup);
+    const isTara   = grupPlain === 'たら';
+    const isTemo   = grupPlain === 'ても';
+    const isKano   = grupPlain.includes('可能');
+    const isNagara = grupPlain === 'ながら';
+    const isUkemi  = grupPlain.includes('受身');
     const isSpecial = isTara || isTemo || isKano || isNagara || isUkemi;
     const n4Badge = '';
     // Label kolom ke-2 disesuaikan per grup
@@ -9387,9 +9425,13 @@ function renderRangkuman() {
         <td style="font-size:0.68rem;color:var(--text2)">${r.catatan}</td>
       </tr>`).join('');
     const aturanHtml = g.aturan.map(a => `<li style="margin-bottom:4px">${a}</li>`).join('');
-    let babChipsHtml = '';
+    // Poin 2: babChipsHtml — link ke bab terkait
+    const grupKey = stripRuby(g.grup);
+    const babNums = konjBabMap[grupKey] || [];
+    let babChipsHtml = babNums.map(b => `<span class="rsum-bab-chip clickable" onclick="openBabFromRangkuman(${b}, 0, this)" title="Buka Bab ${b}">📖 Bab ${b}</span>`).join(' ');
+    const sectionId = `konj-sec-${grupPlain.replace(/[<>\/\s]/g,'_')}`;
     konjHtml += `
-      <div style="margin-bottom:18px">
+      <div id="${sectionId}" style="margin-bottom:18px;scroll-margin-top:60px">
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;flex-wrap:wrap">
           <span class="rsum-conj-group ${g.warna}">Grup ${g.grup}</span>
           <span style="font-size:0.82rem;font-weight:600;color:var(--text)">${g.label}</span>
@@ -9442,7 +9484,8 @@ function renderRangkuman() {
 
   document.getElementById('rsum-tab-3').innerHTML = `<div style="padding:16px 14px 20px">
     <div class="rsum-section-title">🔄 Konjugasi Kata Kerja — <span style="color:${lvColor}">${lvLabel}</span></div>
-    ${rsumLevel !== 'n4' ? kkCheatSheet : ''}
+    ${kkCheatSheet}
+    ${konjQuickNav}
     ${konjHtml}
     ${konjNotes}
   </div>`;
