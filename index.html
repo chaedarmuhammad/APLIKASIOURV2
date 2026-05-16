@@ -11636,7 +11636,7 @@ function renderKamusBody() {
 
   statEl.innerHTML = `
     <span class="kamus-stat-chip">📊 ${pool.length} kata</span>
-    <span class="kamus-stat-chip">📖 Bab 1–45</span>
+    <span class="kamus-stat-chip">📖 Bab 1–${BABS[BABS.length-1].num}</span>
     ${kamusCoreOnly ? `<span class="kamus-stat-chip" style="color:var(--green);border-color:var(--green)">✅ Hanya inti</span>` : ''}`;
 
   if (!pool.length) {
