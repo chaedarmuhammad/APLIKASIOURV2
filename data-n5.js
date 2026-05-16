@@ -1369,7 +1369,7 @@ const BABS = [
     }
   ],
   kotoba: [
-    {jp:"つけます",furigana:"",rom:"tsukemasu",id:"menyalakan",cat:"Kata Kerja",lv:"core",grp:"I"},
+    {jp:"つけます",furigana:"",rom:"tsukemasu",id:"menyalakan",cat:"Kata Kerja",lv:"core",grp:"II"},
     {jp:"<ruby><rb>消</rb><rt>け</rt></ruby>します",furigana:"けします",rom:"keshimasu",id:"mematikan",cat:"Kata Kerja",lv:"core",grp:"I"},
     {jp:"<ruby><rb>開</rb><rt>あ</rt></ruby>けます",furigana:"あけます",rom:"akemasu",id:"membuka",cat:"Kata Kerja",lv:"core",grp:"II"},
     {jp:"<ruby><rb>閉</rb><rt>し</rt></ruby>めます",furigana:"しめます",rom:"shimemasu",id:"menutup",cat:"Kata Kerja",lv:"core",grp:"II"},
@@ -1867,8 +1867,8 @@ const BABS = [
     {jp:"<ruby><rb>言</rb><rt>い</rt></ruby>います",furigana:"いいます",rom:"iimasu",id:"berkata",cat:"Kata Kerja",lv:"core",grp:"I"},
     {jp:"<ruby><rb>出張</rb><rt>しゅっちょう</rt></ruby>します",furigana:"しゅっちょうします",rom:"shutchō shimasu",id:"pergi perjalanan bisnis",cat:"Kata Kerja",lv:"extra",grp:"III"},
     {jp:"<ruby><rb>役</rb><rt>やく</rt></ruby>に<ruby><rb>立</rb><rt>た</rt></ruby>ちます",furigana:"やくにたちます",rom:"yaku ni tachimasu",id:"bermanfaat",cat:"Kata Kerja",lv:"core",grp:"I"},
-    {jp:"<ruby><rb>無駄</rb><rt>むだ</rt></ruby>な",furigana:"むだな",rom:"muda na",id:"sia-sia",cat:"Kata Sifat",lv:"extra",grp:"い"},
-    {jp:"<ruby><rb>不便</rb><rt>ふべん</rt></ruby>な",furigana:"ふべんな",rom:"fuben na",id:"tidak praktis",cat:"Kata Sifat",lv:"core",grp:"い"},
+    {jp:"<ruby><rb>無駄</rb><rt>むだ</rt></ruby>な",furigana:"むだな",rom:"muda na",id:"sia-sia",cat:"Kata Sifat",lv:"extra",grp:"な"},
+    {jp:"<ruby><rb>不便</rb><rt>ふべん</rt></ruby>な",furigana:"ふべんな",rom:"fuben na",id:"tidak praktis",cat:"Kata Sifat",lv:"core",grp:"な"},
     {jp:"すごい",furigana:"",rom:"sugoi",id:"menakjubkan; hebat",cat:"Kata Sifat",lv:"core",grp:"い"},
     {jp:"<ruby><rb>交通</rb><rt>こうつう</rt></ruby>",furigana:"こうつう",rom:"kōtsū",id:"transportasi; lalu lintas",cat:"Kata Benda",lv:"core"},
     {jp:"ラッシュ",furigana:"",rom:"rasshu",id:"rush (macet; sibuk)",cat:"Kata Benda",lv:"extra"},
