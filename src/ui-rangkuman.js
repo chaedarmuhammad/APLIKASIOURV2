@@ -2221,7 +2221,8 @@ function buildNumberSection() {
         <div style="font-size:0.75rem;color:var(--text2);margin-bottom:10px;line-height:1.5">
           Bilangan dasar. Angka 4, 7, 9 punya dua cara baca. Kolom <ruby>読<rt>よ</rt></ruby>み<ruby>方<rt>かた</rt></ruby> menunjukkan cara baca.
         </div>
-        <div class="tbl-scroll-wrap"><table class="rsum-vv-table" style="min-width:500px">
+        <div class="tbl-scroll-wrap"><table class="rsum-vv-table cols-6-num" style="min-width:500px">
+          <colgroup><col style="width:10%"><col style="width:12%"><col style="width:28%"><col style="width:10%"><col style="width:12%"><col style="width:28%"></colgroup>
           <thead><tr><th><ruby>漢字<rt>かんじ</rt></ruby></th><th><ruby>数字<rt>すうじ</rt></ruby></th><th><ruby>読<rt>よ</rt></ruby>み<ruby>方<rt>かた</rt></ruby></th><th><ruby>漢字<rt>かんじ</rt></ruby></th><th><ruby>数字<rt>すうじ</rt></ruby></th><th><ruby>読<rt>よ</rt></ruby>み<ruby>方<rt>かた</rt></ruby></th></tr></thead>
           <tbody>
             <tr><td style="font-weight:700;font-size:1.1rem;color:var(--text)">零</td><td style="font-weight:700;color:var(--accent2)">0</td><td class="rsum-form">ゼロ / れい</td><td style="font-weight:700;font-size:1.1rem;color:var(--text)">十</td><td style="font-weight:700;color:var(--accent2)">10</td><td class="rsum-form">じゅう</td></tr>
@@ -2238,7 +2239,8 @@ function buildNumberSection() {
         </table></div>
 
         <div style="margin-top:12px;font-size:0.76rem;font-weight:700;color:var(--accent2);margin-bottom:8px">📊 <ruby>大<rt>おお</rt></ruby>きい <ruby>数<rt>かず</rt></ruby> (Bilangan Besar)</div>
-        <div class="tbl-scroll-wrap"><table class="rsum-vv-table" style="min-width:500px">
+        <div class="tbl-scroll-wrap"><table class="rsum-vv-table cols-6-num" style="min-width:500px">
+          <colgroup><col style="width:10%"><col style="width:12%"><col style="width:28%"><col style="width:10%"><col style="width:12%"><col style="width:28%"></colgroup>
           <thead><tr><th><ruby>漢字<rt>かんじ</rt></ruby></th><th><ruby>数字<rt>すうじ</rt></ruby></th><th><ruby>読<rt>よ</rt></ruby>み<ruby>方<rt>かた</rt></ruby></th><th><ruby>漢字<rt>かんじ</rt></ruby></th><th><ruby>数字<rt>すうじ</rt></ruby></th><th><ruby>読<rt>よ</rt></ruby>み<ruby>方<rt>かた</rt></ruby></th></tr></thead>
           <tbody>
             <tr><td style="font-weight:700;font-size:1rem;color:var(--text)">百</td><td style="font-weight:700;color:var(--accent2)">100</td><td class="rsum-form">ひゃく</td><td style="font-weight:700;font-size:1rem;color:var(--text)">六百</td><td style="font-weight:700;color:var(--accent2)">600</td><td class="rsum-form" style="color:var(--amber)"><b>ろっぴゃく</b></td></tr>
@@ -2269,7 +2271,8 @@ function buildJamSection() {
         <span style="margin-left:auto;font-size:0.6rem;padding:2px 8px;border-radius:10px;background:rgba(96,165,250,0.15);color:#60a5fa;font-weight:700">⚠️ <ruby>音変化<rt>おんへんか</rt></ruby></span>
       </div>
       <div class="konj-accordion-body">
-        <div class="tbl-scroll-wrap"><table class="rsum-vv-table" style="min-width:380px">
+        <div class="tbl-scroll-wrap"><table class="rsum-vv-table cols-4-even" style="min-width:380px">
+          <colgroup><col style="width:18%"><col style="width:32%"><col style="width:18%"><col style="width:32%"></colgroup>
           <thead><tr><th>Jam</th><th><ruby>日本語<rt>にほんご</rt></ruby></th><th>Jam</th><th><ruby>日本語<rt>にほんご</rt></ruby></th></tr></thead>
           <tbody>
             <tr><td style="font-weight:700;color:var(--accent2)">1<ruby>時<rt>じ</rt></ruby></td><td class="rsum-form">いちじ</td><td style="font-weight:700;color:var(--accent2)">7<ruby>時<rt>じ</rt></ruby></td><td class="rsum-form"><b>しちじ</b></td></tr>
@@ -2298,7 +2301,8 @@ function buildMenitSection() {
         <span style="margin-left:auto;font-size:0.6rem;padding:2px 8px;border-radius:10px;background:rgba(52,211,153,0.15);color:var(--green);font-weight:700">⚠️ <ruby>音変化<rt>おんへんか</rt></ruby></span>
       </div>
       <div class="konj-accordion-body">
-        <div class="tbl-scroll-wrap"><table class="rsum-vv-table" style="min-width:380px">
+        <div class="tbl-scroll-wrap"><table class="rsum-vv-table cols-4-even" style="min-width:380px">
+          <colgroup><col style="width:18%"><col style="width:32%"><col style="width:18%"><col style="width:32%"></colgroup>
           <thead><tr><th><ruby>分<rt>ふん</rt></ruby></th><th><ruby>読<rt>よ</rt></ruby>み<ruby>方<rt>かた</rt></ruby></th><th><ruby>分<rt>ふん</rt></ruby></th><th><ruby>読<rt>よ</rt></ruby>み<ruby>方<rt>かた</rt></ruby></th></tr></thead>
           <tbody>
             <tr><td style="font-weight:700;color:var(--accent2)">1<ruby>分<rt>ぷん</rt></ruby></td><td class="rsum-form"><b>いっぷん</b></td><td style="font-weight:700;color:var(--accent2)">6<ruby>分<rt>ぷん</rt></ruby></td><td class="rsum-form"><b>ろっぷん</b></td></tr>
@@ -2327,7 +2331,8 @@ function buildDurasiJamSection() {
       </div>
       <div class="konj-accordion-body">
         <div style="font-size:0.72rem;color:var(--text2);margin-bottom:8px">〜<ruby>時<rt>じ</rt></ruby> = jam berapa (waktu) vs 〜<ruby>時間<rt>じかん</rt></ruby> = berapa jam (durasi)</div>
-        <div class="tbl-scroll-wrap"><table class="rsum-vv-table" style="min-width:380px">
+        <div class="tbl-scroll-wrap"><table class="rsum-vv-table cols-4-even" style="min-width:380px">
+          <colgroup><col style="width:18%"><col style="width:32%"><col style="width:18%"><col style="width:32%"></colgroup>
           <thead><tr><th>Durasi</th><th><ruby>日本語<rt>にほんご</rt></ruby></th><th>Durasi</th><th><ruby>日本語<rt>にほんご</rt></ruby></th></tr></thead>
           <tbody>
             <tr><td style="font-weight:700;color:var(--accent2)">1<ruby>時間<rt>じかん</rt></ruby></td><td class="rsum-form">いちじかん</td><td style="font-weight:700;color:var(--accent2)">6<ruby>時間<rt>じかん</rt></ruby></td><td class="rsum-form">ろくじかん</td></tr>
@@ -2354,7 +2359,8 @@ function buildYoubiSection() {
         <span style="font-size:0.82rem;font-weight:700;color:#a855f7">📅 <ruby>曜日<rt>ようび</rt></ruby> — Hari dalam Seminggu</span>
       </div>
       <div class="konj-accordion-body">
-        <div class="tbl-scroll-wrap"><table class="rsum-vv-table" style="min-width:420px">
+        <div class="tbl-scroll-wrap"><table class="rsum-vv-table cols-4-youbi" style="min-width:420px">
+          <colgroup><col style="width:28%"><col style="width:28%"><col style="width:18%"><col style="width:26%"></colgroup>
           <thead><tr><th><ruby>曜日<rt>ようび</rt></ruby></th><th><ruby>読<rt>よ</rt></ruby>み<ruby>方<rt>かた</rt></ruby></th><th>Arti</th><th><ruby>漢字<rt>かんじ</rt></ruby></th></tr></thead>
           <tbody>
             <tr><td style="font-weight:700;color:var(--accent2)"><ruby>月曜日<rt>げつようび</rt></ruby></td><td class="rsum-form">げつようび</td><td style="font-size:0.72rem">Senin</td><td style="font-size:0.7rem;color:var(--text2)"><ruby>月<rt>つき</rt></ruby>=Moon</td></tr>
@@ -2385,7 +2391,8 @@ function buildTanggalSection() {
       </div>
       <div class="konj-accordion-body">
         <div style="font-size:0.72rem;color:var(--text2);margin-bottom:8px">Tanggal 1-10 = cara baca <ruby>和語<rt>わご</rt></ruby> (tidak beraturan). 11+ = <ruby>漢語<rt>かんご</rt></ruby>.</div>
-        <div class="tbl-scroll-wrap"><table class="rsum-vv-table" style="min-width:520px">
+        <div class="tbl-scroll-wrap"><table class="rsum-vv-table cols-6-date" style="min-width:520px">
+          <colgroup><col style="width:14%"><col style="width:20%"><col style="width:14%"><col style="width:20%"><col style="width:14%"><col style="width:18%"></colgroup>
           <thead><tr><th><ruby>日<rt>にち</rt></ruby></th><th><ruby>読<rt>よ</rt></ruby>み<ruby>方<rt>かた</rt></ruby></th><th><ruby>日<rt>にち</rt></ruby></th><th><ruby>読<rt>よ</rt></ruby>み<ruby>方<rt>かた</rt></ruby></th><th><ruby>日<rt>にち</rt></ruby></th><th><ruby>読<rt>よ</rt></ruby>み<ruby>方<rt>かた</rt></ruby></th></tr></thead>
           <tbody>
             <tr><td style="font-weight:700;color:var(--accent2)">1<ruby>日<rt>にち</rt></ruby></td><td class="rsum-form"><b>ついたち</b></td><td style="font-weight:700;color:var(--accent2)">11<ruby>日<rt>にち</rt></ruby></td><td class="rsum-form">じゅういちにち</td><td style="font-weight:700;color:var(--accent2)">21<ruby>日<rt>にち</rt></ruby></td><td class="rsum-form">にじゅういちにち</td></tr>
@@ -2418,7 +2425,8 @@ function buildDurasiHariSection() {
       </div>
       <div class="konj-accordion-body">
         <div style="font-size:0.72rem;color:var(--text2);margin-bottom:8px">〜<ruby>日<rt>にち</rt></ruby> = tanggal vs 〜<ruby>日間<rt>にちかん</rt></ruby> = durasi (berapa hari)</div>
-        <div class="tbl-scroll-wrap"><table class="rsum-vv-table" style="min-width:380px">
+        <div class="tbl-scroll-wrap"><table class="rsum-vv-table cols-4-even" style="min-width:380px">
+          <colgroup><col style="width:18%"><col style="width:32%"><col style="width:18%"><col style="width:32%"></colgroup>
           <thead><tr><th>Durasi</th><th><ruby>日本語<rt>にほんご</rt></ruby></th><th>Durasi</th><th><ruby>日本語<rt>にほんご</rt></ruby></th></tr></thead>
           <tbody>
             <tr><td style="font-weight:700;color:var(--accent2)">1<ruby>日<rt>にち</rt></ruby></td><td class="rsum-form"><b>いちにち</b></td><td style="font-weight:700;color:var(--accent2)">6<ruby>日間<rt>にちかん</rt></ruby></td><td class="rsum-form">むいかかん</td></tr>
@@ -2446,7 +2454,8 @@ function buildDurasiMingguSection() {
         <span style="margin-left:auto;font-size:0.6rem;padding:2px 8px;border-radius:10px;background:rgba(236,72,153,0.15);color:#ec4899;font-weight:700">⚠️ <ruby>音変化<rt>おんへんか</rt></ruby></span>
       </div>
       <div class="konj-accordion-body">
-        <div class="tbl-scroll-wrap"><table class="rsum-vv-table" style="min-width:380px">
+        <div class="tbl-scroll-wrap"><table class="rsum-vv-table cols-4-even" style="min-width:380px">
+          <colgroup><col style="width:18%"><col style="width:32%"><col style="width:18%"><col style="width:32%"></colgroup>
           <thead><tr><th>Durasi</th><th><ruby>日本語<rt>にほんご</rt></ruby></th><th>Durasi</th><th><ruby>日本語<rt>にほんご</rt></ruby></th></tr></thead>
           <tbody>
             <tr><td style="font-weight:700;color:var(--accent2)">1<ruby>週間<rt>しゅうかん</rt></ruby></td><td class="rsum-form"><b>いっしゅうかん</b></td><td style="font-weight:700;color:var(--accent2)">6<ruby>週間<rt>しゅうかん</rt></ruby></td><td class="rsum-form">ろくしゅうかん</td></tr>
@@ -2475,7 +2484,8 @@ function buildBulanSection() {
       </div>
       <div class="konj-accordion-body">
         <div style="font-size:0.72rem;color:var(--text2);margin-bottom:8px">Angka + がつ. Perhatikan 4<ruby>月<rt>がつ</rt></ruby>, 7<ruby>月<rt>がつ</rt></ruby>, 9<ruby>月<rt>がつ</rt></ruby>.</div>
-        <div class="tbl-scroll-wrap"><table class="rsum-vv-table" style="min-width:380px">
+        <div class="tbl-scroll-wrap"><table class="rsum-vv-table cols-4-even" style="min-width:380px">
+          <colgroup><col style="width:18%"><col style="width:32%"><col style="width:18%"><col style="width:32%"></colgroup>
           <thead><tr><th><ruby>月<rt>がつ</rt></ruby></th><th><ruby>日本語<rt>にほんご</rt></ruby></th><th><ruby>月<rt>がつ</rt></ruby></th><th><ruby>日本語<rt>にほんご</rt></ruby></th></tr></thead>
           <tbody>
             <tr><td style="font-weight:700;color:var(--accent2)">1<ruby>月<rt>がつ</rt></ruby></td><td class="rsum-form">いちがつ</td><td style="font-weight:700;color:var(--accent2)">7<ruby>月<rt>がつ</rt></ruby></td><td class="rsum-form"><b>しちがつ</b></td></tr>
@@ -2488,7 +2498,8 @@ function buildBulanSection() {
         </table></div>
 
         <div style="margin-top:12px;font-size:0.76rem;font-weight:700;color:var(--accent2);margin-bottom:8px">📋 〜か<ruby>月<rt>げつ</rt></ruby> (Durasi bulan)</div>
-        <div class="tbl-scroll-wrap"><table class="rsum-vv-table" style="min-width:380px">
+        <div class="tbl-scroll-wrap"><table class="rsum-vv-table cols-4-even" style="min-width:380px">
+          <colgroup><col style="width:18%"><col style="width:32%"><col style="width:18%"><col style="width:32%"></colgroup>
           <thead><tr><th>Durasi</th><th><ruby>日本語<rt>にほんご</rt></ruby></th><th>Durasi</th><th><ruby>日本語<rt>にほんご</rt></ruby></th></tr></thead>
           <tbody>
             <tr><td style="font-weight:700;color:var(--accent2)">1か<ruby>月<rt>げつ</rt></ruby></td><td class="rsum-form"><b>いっかげつ</b></td><td style="font-weight:700;color:var(--accent2)">6か<ruby>月<rt>げつ</rt></ruby></td><td class="rsum-form"><b>ろっかげつ</b></td></tr>
@@ -2518,7 +2529,8 @@ function buildTahunSection() {
       </div>
       <div class="konj-accordion-body">
         <div style="font-size:0.76rem;font-weight:700;color:var(--accent2);margin-bottom:8px">📆 Cara baca tahun</div>
-        <div class="tbl-scroll-wrap"><table class="rsum-vv-table" style="min-width:380px">
+        <div class="tbl-scroll-wrap"><table class="rsum-vv-table cols-4-even" style="min-width:380px">
+          <colgroup><col style="width:18%"><col style="width:32%"><col style="width:18%"><col style="width:32%"></colgroup>
           <thead><tr><th><ruby>年<rt>ねん</rt></ruby></th><th><ruby>読<rt>よ</rt></ruby>み<ruby>方<rt>かた</rt></ruby></th><th><ruby>年<rt>ねん</rt></ruby></th><th><ruby>読<rt>よ</rt></ruby>み<ruby>方<rt>かた</rt></ruby></th></tr></thead>
           <tbody>
             <tr><td style="font-weight:700;color:var(--accent2)">2000<ruby>年<rt>ねん</rt></ruby></td><td class="rsum-form">にせんねん</td><td style="font-weight:700;color:var(--accent2)">2020<ruby>年<rt>ねん</rt></ruby></td><td class="rsum-form">にせんにじゅうねん</td></tr>
@@ -2528,7 +2540,8 @@ function buildTahunSection() {
         </table></div>
 
         <div style="margin-top:12px;font-size:0.76rem;font-weight:700;color:var(--accent2);margin-bottom:8px">📋 〜<ruby>年間<rt>ねんかん</rt></ruby> (Durasi tahun)</div>
-        <div class="tbl-scroll-wrap"><table class="rsum-vv-table" style="min-width:380px">
+        <div class="tbl-scroll-wrap"><table class="rsum-vv-table cols-4-even" style="min-width:380px">
+          <colgroup><col style="width:18%"><col style="width:32%"><col style="width:18%"><col style="width:32%"></colgroup>
           <thead><tr><th>Durasi</th><th><ruby>日本語<rt>にほんご</rt></ruby></th><th>Durasi</th><th><ruby>日本語<rt>にほんご</rt></ruby></th></tr></thead>
           <tbody>
             <tr><td style="font-weight:700;color:var(--accent2)">1<ruby>年<rt>ねん</rt></ruby></td><td class="rsum-form">いちねん</td><td style="font-weight:700;color:var(--accent2)">6<ruby>年<rt>ねん</rt></ruby></td><td class="rsum-form">ろくねん</td></tr>
@@ -2557,7 +2570,8 @@ function buildUmurSection() {
         <span style="margin-left:auto;font-size:0.6rem;padding:2px 8px;border-radius:10px;background:rgba(244,63,94,0.15);color:#f43f5e;font-weight:700">⚠️ <ruby>音変化<rt>おんへんか</rt></ruby></span>
       </div>
       <div class="konj-accordion-body">
-        <div class="tbl-scroll-wrap"><table class="rsum-vv-table" style="min-width:380px">
+        <div class="tbl-scroll-wrap"><table class="rsum-vv-table cols-4-even" style="min-width:380px">
+          <colgroup><col style="width:18%"><col style="width:32%"><col style="width:18%"><col style="width:32%"></colgroup>
           <thead><tr><th><ruby>歳<rt>さい</rt></ruby></th><th><ruby>読<rt>よ</rt></ruby>み<ruby>方<rt>かた</rt></ruby></th><th><ruby>歳<rt>さい</rt></ruby></th><th><ruby>読<rt>よ</rt></ruby>み<ruby>方<rt>かた</rt></ruby></th></tr></thead>
           <tbody>
             <tr><td style="font-weight:700;color:var(--accent2)">1<ruby>歳<rt>さい</rt></ruby></td><td class="rsum-form"><b>いっさい</b></td><td style="font-weight:700;color:var(--accent2)">7<ruby>歳<rt>さい</rt></ruby></td><td class="rsum-form">ななさい</td></tr>
@@ -2586,7 +2600,8 @@ function buildHargaSection() {
         <span style="margin-left:auto;font-size:0.6rem;padding:2px 8px;border-radius:10px;background:rgba(34,197,94,0.15);color:#22c55e;font-weight:700">⚠️ <ruby>音変化<rt>おんへんか</rt></ruby></span>
       </div>
       <div class="konj-accordion-body">
-        <div class="tbl-scroll-wrap"><table class="rsum-vv-table" style="min-width:420px">
+        <div class="tbl-scroll-wrap"><table class="rsum-vv-table cols-4-even" style="min-width:420px">
+          <colgroup><col style="width:18%"><col style="width:32%"><col style="width:18%"><col style="width:32%"></colgroup>
           <thead><tr><th><ruby>値段<rt>ねだん</rt></ruby></th><th><ruby>読<rt>よ</rt></ruby>み<ruby>方<rt>かた</rt></ruby></th><th><ruby>値段<rt>ねだん</rt></ruby></th><th><ruby>読<rt>よ</rt></ruby>み<ruby>方<rt>かた</rt></ruby></th></tr></thead>
           <tbody>
             <tr><td style="font-weight:700;color:var(--accent2)">100<ruby>円<rt>えん</rt></ruby></td><td class="rsum-form">ひゃくえん</td><td style="font-weight:700;color:var(--accent2)">1,000<ruby>円<rt>えん</rt></ruby></td><td class="rsum-form">せんえん</td></tr>
@@ -2597,7 +2612,8 @@ function buildHargaSection() {
         </table></div>
 
         <div style="margin-top:12px;font-size:0.76rem;font-weight:700;color:var(--accent2);margin-bottom:8px">📋 Contoh harga sehari-hari</div>
-        <div class="tbl-scroll-wrap"><table class="rsum-vv-table" style="min-width:380px">
+        <div class="tbl-scroll-wrap"><table class="rsum-vv-table cols-3-pattern" style="min-width:380px">
+          <colgroup><col style="width:28%"><col style="width:28%"><col style="width:44%"></colgroup>
           <thead><tr><th><ruby>物<rt>もの</rt></ruby></th><th><ruby>値段<rt>ねだん</rt></ruby></th><th><ruby>読<rt>よ</rt></ruby>み<ruby>方<rt>かた</rt></ruby></th></tr></thead>
           <tbody>
             <tr><td style="font-size:0.74rem">コーヒー</td><td style="font-weight:700;color:var(--accent2)">350<ruby>円<rt>えん</rt></ruby></td><td class="rsum-form"><b>さんびゃく</b>ごじゅうえん</td></tr>
@@ -2686,7 +2702,8 @@ function buildAgemoSection() {
           3 verba memberi/menerima. Dibedakan berdasarkan <b>siapa memberi ke siapa</b>.
         </div>
 
-        <div class="tbl-scroll-wrap"><table class="rsum-vv-table" style="min-width:480px">
+        <div class="tbl-scroll-wrap"><table class="rsum-vv-table cols-5-agemo" style="min-width:480px">
+          <colgroup><col style="width:16%"><col style="width:18%"><col style="width:12%"><col style="width:22%"><col style="width:32%"></colgroup>
           <thead><tr><th>Verba</th><th>Arah</th><th>Partikel</th><th>Arti</th><th><ruby>例文<rt>れいぶん</rt></ruby></th></tr></thead>
           <tbody>
             <tr><td style="font-weight:700;color:#34d399">あげます</td><td style="font-size:0.7rem">Saya → Orang lain</td><td style="font-size:0.72rem">〜<b>に</b></td><td style="font-size:0.7rem;color:var(--text2)">Memberi (ke orang lain)</td><td class="rsum-form" style="font-size:0.72rem"><ruby>友<rt>とも</rt></ruby>だちに<ruby>花<rt>はな</rt></ruby>を<b>あげます</b><br><span style="color:var(--text2);font-size:0.68rem">Memberi bunga ke teman</span></td></tr>
@@ -2696,7 +2713,8 @@ function buildAgemoSection() {
         </table></div>
 
         <div style="margin-top:12px;font-size:0.74rem;font-weight:700;color:var(--accent2);margin-bottom:6px">🔧 〜て + あげ/もらい/くれます</div>
-        <div class="tbl-scroll-wrap"><table class="rsum-vv-table" style="min-width:380px">
+        <div class="tbl-scroll-wrap"><table class="rsum-vv-table cols-3-pattern" style="min-width:380px">
+          <colgroup><col style="width:28%"><col style="width:36%"><col style="width:36%"></colgroup>
           <thead><tr><th>パターン</th><th>Arti</th><th><ruby>例文<rt>れいぶん</rt></ruby></th></tr></thead>
           <tbody>
             <tr><td style="font-weight:600;color:#34d399;font-size:0.72rem">KKて+あげます</td><td style="font-size:0.7rem">Melakukan utk orang lain</td><td class="rsum-form" style="font-size:0.72rem"><ruby>教<rt>おし</rt></ruby>えて<b>あげます</b></td></tr>
@@ -2719,7 +2737,8 @@ function buildWaktuSection() {
         <span style="margin-left:auto;font-size:0.6rem;padding:2px 8px;border-radius:10px;background:rgba(45,212,191,0.15);color:var(--teal);font-weight:700">6 pola</span>
       </div>
       <div class="konj-accordion-body">
-        <div class="tbl-scroll-wrap"><table class="rsum-vv-table" style="min-width:480px">
+        <div class="tbl-scroll-wrap"><table class="rsum-vv-table cols-4-waktu" style="min-width:480px">
+          <colgroup><col style="width:16%"><col style="width:22%"><col style="width:40%"><col style="width:22%"></colgroup>
           <thead><tr><th>パターン</th><th><ruby>使<rt>つか</rt></ruby>い<ruby>方<rt>かた</rt></ruby></th><th><ruby>例文<rt>れいぶん</rt></ruby></th><th>Arti</th></tr></thead>
           <tbody>
             <tr><td style="font-weight:700;color:#fbbf24">〜<ruby>前<rt>まえ</rt></ruby>に</td><td style="font-size:0.7rem">KK辞書形+まえに</td><td class="rsum-form" style="font-size:0.72rem"><b><ruby>寝<rt>ね</rt></ruby>る</b>まえに、<ruby>歯<rt>は</rt></ruby>を<ruby>磨<rt>みが</rt></ruby>きます</td><td style="font-size:0.7rem;color:var(--text2)">Sebelum~</td></tr>
