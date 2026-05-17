@@ -1726,7 +1726,7 @@ function renderRangkuman() {
     </div>`;
   document.getElementById('rsum-tab-5').innerHTML = `<div style="padding:16px 14px 20px">
     <div class="rsum-section-title">✨ Kata Sifat — い & な</div>
-    ${rsumLevel === 'n4' ? `<div class="note-box note-purple" style="font-size:0.8rem;line-height:1.6;margin-bottom:16px">💡 Pola kata sifat い & な adalah fondasi N5 yang terus dipakai di N4. Pastikan sudah hafal semua bentuk konjugasinya!</div>` : ''}
+
     ${adjCheatSheet}
     <div style="margin-top:8px"></div>
     ${adjHtmlI}
@@ -2686,53 +2686,24 @@ function buildAgemoSection() {
           3 verba memberi/menerima. Dibedakan berdasarkan <b>siapa memberi ke siapa</b>.
         </div>
 
-        <!-- 3 cards for each verb -->
-        <div style="display:grid;gap:8px;margin-bottom:12px">
-          <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:10px 12px;border-left:3px solid #34d399">
-            <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
-              <span style="font-weight:700;color:#34d399;font-size:0.82rem">あげます</span>
-              <span style="font-size:0.68rem;color:var(--text2)">Memberi (ke orang lain)</span>
-            </div>
-            <div style="font-size:0.72rem;color:var(--text2);line-height:1.5">
-              <ruby>私<rt>わたし</rt></ruby>/<ruby>他<rt>ほか</rt></ruby>の<ruby>人<rt>ひと</rt></ruby> → <ruby>他<rt>ほか</rt></ruby>の<ruby>人<rt>ひと</rt></ruby> | 〜<b>に</b> あげます<br>
-              <span style="font-family:'Noto Sans JP',sans-serif;color:var(--text)"><ruby>友<rt>とも</rt></ruby>だち<b>に</b> <ruby>花<rt>はな</rt></ruby>を <b>あげます</b></span>
-            </div>
-          </div>
-          <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:10px 12px;border-left:3px solid #60a5fa">
-            <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
-              <span style="font-weight:700;color:#60a5fa;font-size:0.82rem">もらいます</span>
-              <span style="font-size:0.68rem;color:var(--text2)">Menerima (dari orang lain)</span>
-            </div>
-            <div style="font-size:0.72rem;color:var(--text2);line-height:1.5">
-              <ruby>他<rt>ほか</rt></ruby>の<ruby>人<rt>ひと</rt></ruby> → <ruby>私<rt>わたし</rt></ruby> | 〜<b>に/から</b> もらいます<br>
-              <span style="font-family:'Noto Sans JP',sans-serif;color:var(--text)"><ruby>先生<rt>せんせい</rt></ruby><b>に</b> <ruby>本<rt>ほん</rt></ruby>を <b>もらいました</b></span>
-            </div>
-          </div>
-          <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:10px 12px;border-left:3px solid #f87171">
-            <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
-              <span style="font-weight:700;color:#f87171;font-size:0.82rem">くれます</span>
-              <span style="font-size:0.68rem;color:var(--text2)">Memberi (ke saya)</span>
-            </div>
-            <div style="font-size:0.72rem;color:var(--text2);line-height:1.5">
-              <ruby>他<rt>ほか</rt></ruby>の<ruby>人<rt>ひと</rt></ruby> → <ruby>私<rt>わたし</rt></ruby> | 〜<b>が</b> くれます<br>
-              <span style="font-family:'Noto Sans JP',sans-serif;color:var(--text)"><ruby>友<rt>とも</rt></ruby>だち<b>が</b> ケーキを <b>くれました</b></span>
-            </div>
-          </div>
-        </div>
-
-        <div style="font-size:0.76rem;font-weight:700;color:var(--accent2);margin-bottom:8px">🔧 〜て + あげます/もらいます/くれます</div>
-        <div class="tbl-scroll-wrap"><table class="rsum-vv-table" style="min-width:420px">
-          <thead><tr><th>パターン</th><th>Arti</th><th><ruby>例文<rt>れいぶん</rt></ruby></th></tr></thead>
+        <div class="tbl-scroll-wrap"><table class="rsum-vv-table" style="min-width:400px">
+          <thead><tr><th>Verba</th><th>Arah</th><th>Partikel</th><th><ruby>例文<rt>れいぶん</rt></ruby></th></tr></thead>
           <tbody>
-            <tr><td style="font-weight:600;color:#34d399">KKて+あげます</td><td style="font-size:0.72rem">Melakukan utk orang lain</td><td class="rsum-form" style="font-size:0.74rem"><ruby>教<rt>おし</rt></ruby>えて<b>あげます</b></td></tr>
-            <tr><td style="font-weight:600;color:#60a5fa">KKて+もらいます</td><td style="font-size:0.72rem">Minta/terima bantuan</td><td class="rsum-form" style="font-size:0.74rem"><ruby>手伝<rt>てつだ</rt></ruby>って<b>もらいます</b></td></tr>
-            <tr><td style="font-weight:600;color:#f87171">KKて+くれます</td><td style="font-size:0.72rem">Orang lain melakukan utk saya</td><td class="rsum-form" style="font-size:0.74rem"><ruby>作<rt>つく</rt></ruby>って<b>くれました</b></td></tr>
+            <tr><td style="font-weight:700;color:#34d399">あげます</td><td style="font-size:0.7rem">私→他人</td><td style="font-size:0.72rem">〜<b>に</b></td><td class="rsum-form" style="font-size:0.72rem"><ruby>友<rt>とも</rt></ruby>だちに<ruby>花<rt>はな</rt></ruby>を<b>あげます</b></td></tr>
+            <tr><td style="font-weight:700;color:#60a5fa">もらいます</td><td style="font-size:0.7rem">他人→私</td><td style="font-size:0.72rem">〜<b>に/から</b></td><td class="rsum-form" style="font-size:0.72rem"><ruby>先生<rt>せんせい</rt></ruby>に<ruby>本<rt>ほん</rt></ruby>を<b>もらいました</b></td></tr>
+            <tr><td style="font-weight:700;color:#f87171">くれます</td><td style="font-size:0.7rem">他人→私</td><td style="font-size:0.72rem">〜<b>が</b></td><td class="rsum-form" style="font-size:0.72rem"><ruby>友<rt>とも</rt></ruby>だちがケーキを<b>くれました</b></td></tr>
           </tbody>
         </table></div>
 
-        <div style="margin-top:10px;padding:8px 12px;background:rgba(192,132,252,0.08);border-left:3px solid #c084fc;border-radius:0 8px 8px 0;font-size:0.72rem;line-height:1.6">
-          <b style="color:#c084fc">💡</b> あげる=barang pergi DARI saya | もらう=saya MENERIMA | くれる=orang lain MEMBERI ke saya (<ruby>感謝<rt>かんしゃ</rt></ruby>)
-        </div>
+        <div style="margin-top:12px;font-size:0.74rem;font-weight:700;color:var(--accent2);margin-bottom:6px">🔧 〜て + あげ/もらい/くれます</div>
+        <div class="tbl-scroll-wrap"><table class="rsum-vv-table" style="min-width:380px">
+          <thead><tr><th>パターン</th><th>Arti</th><th><ruby>例文<rt>れいぶん</rt></ruby></th></tr></thead>
+          <tbody>
+            <tr><td style="font-weight:600;color:#34d399;font-size:0.72rem">KKて+あげます</td><td style="font-size:0.7rem">Melakukan utk orang lain</td><td class="rsum-form" style="font-size:0.72rem"><ruby>教<rt>おし</rt></ruby>えて<b>あげます</b></td></tr>
+            <tr><td style="font-weight:600;color:#60a5fa;font-size:0.72rem">KKて+もらいます</td><td style="font-size:0.7rem">Minta/terima bantuan</td><td class="rsum-form" style="font-size:0.72rem"><ruby>手伝<rt>てつだ</rt></ruby>って<b>もらいます</b></td></tr>
+            <tr><td style="font-weight:600;color:#f87171;font-size:0.72rem">KKて+くれます</td><td style="font-size:0.7rem">Orang lain melakukan utk saya</td><td class="rsum-form" style="font-size:0.72rem"><ruby>作<rt>つく</rt></ruby>って<b>くれました</b></td></tr>
+          </tbody>
+        </table></div>
       </div>
     </div>`;
 }
