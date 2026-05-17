@@ -263,7 +263,7 @@ function openBabFromRangkuman(babNum, tabIdx, chipEl) {
   var banner = document.getElementById('backToRangkumanBanner');
   if (banner) {
     banner.classList.add('visible');
-    var tabNames = ['Pola', 'Konjugasi', 'Partikel', 'Bentuk VV', 'Kata Sifat', 'Transitif & Intransitif', 'Ragam', 'Angka', 'Lainnya'];
+    var tabNames = ['Pola', 'Partikel', 'Bentuk VV', 'Konjugasi', 'Ragam', 'Kata Sifat', 'Transitif & Intransitif', 'Angka', 'Lainnya'];
     var tabInfoEl = document.getElementById('bannerTabInfo');
     if (tabInfoEl) tabInfoEl.textContent = '\u203A ' + (tabNames[rsumActiveTab] || '');
   }
@@ -315,8 +315,8 @@ function goBackToRangkuman() {
               }
             }
             // Untuk tab Bentuk VV, highlight row terdekat
-            if (savedState.tabIdx === 3 && savedState.clickedBab) {
-              var chips = document.querySelectorAll('#rsum-tab-3 .rsum-bab-chip.clickable');
+            if (savedState.tabIdx === 2 && savedState.clickedBab) {
+              var chips = document.querySelectorAll('#rsum-tab-2 .rsum-bab-chip.clickable');
               chips.forEach(function(chip) {
                 if (chip.textContent.includes('Bab ' + savedState.clickedBab)) {
                   var row = chip.closest('tr');

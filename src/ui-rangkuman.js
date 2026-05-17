@@ -1152,8 +1152,8 @@ function renderRangkuman() {
       <div style="margin-top:8px;font-size:0.72rem;color:var(--text2)">💡 Kunci: まで=proses berlangsung sampai titik itu. までに=tindakan harus selesai sebelum titik itu (deadline).</div>
     </div>
   </div>`;
-  document.getElementById('rsum-tab-2').innerHTML = `<div style="padding:16px 14px 20px">
-    <div class="rsum-section-title">🔗 Partikel — <span style="color:${lvColor}">${lvLabel}</span></div>
+  document.getElementById('rsum-tab-1').innerHTML = `<div style="padding:16px 14px 20px">
+    <div class="rsum-section-title">🔗 Partikel</div>
     ${n4PartInfo}
     ${waVsGaBox}
     ${niVsDeBox}
@@ -1209,7 +1209,7 @@ function renderRangkuman() {
     vvIdx++;
     return result;
   }).join('');
-  document.getElementById('rsum-tab-3').innerHTML = `<div style="padding:16px 14px 20px">
+  document.getElementById('rsum-tab-2').innerHTML = `<div style="padding:16px 14px 20px">
     <div class="rsum-section-title">🏃 Pola Bunpou per Bentuk KK — <span style="color:${lvColor}">${lvLabel}</span></div>
     <div class="rsum-vv-intro">
       Tabel ini mengelompokkan pola bunpou berdasarkan <b>bentuk konjugasi kata kerja</b>. Diurutkan sesuai bab pertama kali dipelajari. Pola tanpa entri di level ini disembunyikan otomatis.
@@ -1513,7 +1513,7 @@ function renderRangkuman() {
     </div>
   </div>`;
 
-  document.getElementById('rsum-tab-1').innerHTML = `<div style="padding:16px 14px 20px">
+  document.getElementById('rsum-tab-3').innerHTML = `<div style="padding:16px 14px 20px">
     <div class="rsum-section-title">🔄 Konjugasi Kata Kerja — <span style="color:${lvColor}">${lvLabel}</span></div>
     ${konjTabNote}
     ${konjCheatSheet}
@@ -1724,8 +1724,8 @@ function renderRangkuman() {
         <div style="margin-top:8px;font-size:0.72rem;color:var(--text2)">💡 くて = deskripsi/sifat. から/ので = alasan → akibat. Jangan pakai くて untuk hubungan sebab-akibat!</div>
       </div>
     </div>`;
-  document.getElementById('rsum-tab-4').innerHTML = `<div style="padding:16px 14px 20px">
-    <div class="rsum-section-title">✨ Kata Sifat — い & な <span style="color:${lvColor}">${lvLabel}</span></div>
+  document.getElementById('rsum-tab-5').innerHTML = `<div style="padding:16px 14px 20px">
+    <div class="rsum-section-title">✨ Kata Sifat — い & な</div>
     ${rsumLevel === 'n4' ? `<div class="note-box note-purple" style="font-size:0.8rem;line-height:1.6;margin-bottom:16px">💡 Pola kata sifat い & な adalah fondasi N5 yang terus dipakai di N4. Pastikan sudah hafal semua bentuk konjugasinya!</div>` : ''}
     ${adjCheatSheet}
     <div style="margin-top:8px"></div>
@@ -1736,10 +1736,10 @@ function renderRangkuman() {
     ${adjHtmlExtra}
   </div>`;
 
-  // ─── Tab 5: 自他動詞 (Transitif/Intransitif) ───
+  // ─── Tab 6: 自他動詞 (Transitif/Intransitif) ───
   renderRsumTab5(lvLabel, lvColor);
 
-  // ─── Tab 6: Ragam Sopan vs Biasa ───
+  // ─── Tab 4: Ragam Sopan vs Biasa ───
   renderRsumTab6(lvLabel, lvColor);
 
   // ─── Tab 7: Angka & Bilangan ───
@@ -1785,8 +1785,8 @@ function renderRsumTab5(lvLabel, lvColor) {
     <td style="font-size:0.72rem;color:var(--text2)">${p.desc}</td>
   </tr>`).join('');
 
-  document.getElementById('rsum-tab-5').innerHTML = `<div style="padding:16px 14px 20px">
-    <div class="rsum-section-title">🔀 <ruby>自動詞<rt>じどうし</rt></ruby> と <ruby>他動詞<rt>たどうし</rt></ruby> — Kata Kerja Intransitif & Transitif — <span style="color:${lvColor}">${lvLabel}</span></div>
+  document.getElementById('rsum-tab-6').innerHTML = `<div style="padding:16px 14px 20px">
+    <div class="rsum-section-title">🔀 <ruby>自動詞<rt>じどうし</rt></ruby> と <ruby>他動詞<rt>たどうし</rt></ruby> — Kata Kerja Intransitif & Transitif</div>
 
     <div class="konj-tab-note">
       <span style="font-size:1.1rem;flex-shrink:0">💡</span>
@@ -1912,8 +1912,8 @@ function renderRsumTab5(lvLabel, lvColor) {
 
 // ========== RANGKUMAN TAB 6: Ragam Sopan vs Biasa ==========
 function renderRsumTab6(lvLabel, lvColor) {
-  document.getElementById('rsum-tab-6').innerHTML = `<div style="padding:16px 14px 20px">
-    <div class="rsum-section-title">🗣️ Ragam Sopan (<ruby>敬体<rt>けいたい</rt></ruby>) vs Ragam Biasa (<ruby>常体<rt>じょうたい</rt></ruby>) — <span style="color:${lvColor}">${lvLabel}</span></div>
+  document.getElementById('rsum-tab-4').innerHTML = `<div style="padding:16px 14px 20px">
+    <div class="rsum-section-title">🗣️ Ragam Sopan (<ruby>敬体<rt>けいたい</rt></ruby>) vs Ragam Biasa (<ruby>常体<rt>じょうたい</rt></ruby>)</div>
 
     <div class="konj-tab-note">
       <span style="font-size:1.1rem;flex-shrink:0">💡</span>
@@ -2140,7 +2140,7 @@ function renderRsumTab7(lvLabel, lvColor) {
   const youbiSection = buildYoubiSection();
 
   document.getElementById('rsum-tab-7').innerHTML = `<div style="padding:16px 14px 20px">
-    <div class="rsum-section-title">🔢 <ruby>数<rt>かず</rt></ruby>・<ruby>助数詞<rt>じょすうし</rt></ruby> — Angka & Bilangan — <span style="color:${lvColor}">${lvLabel}</span></div>
+    <div class="rsum-section-title">🔢 <ruby>数<rt>かず</rt></ruby>・<ruby>助数詞<rt>じょすうし</rt></ruby> — Angka & Bilangan</div>
     <div class="rsum-vv-intro">
       Kumpulan lengkap cara membaca angka, waktu, tanggal, harga, umur, dan kata bantu bilangan (<ruby>助数詞<rt>じょすうし</rt></ruby>) dalam <ruby>日本語<rt>にほんご</rt></ruby>.
     </div>
@@ -2187,7 +2187,7 @@ function renderRsumTab8(lvLabel, lvColor) {
   const konjungsiSection = buildKonjungsiSection();
 
   document.getElementById('rsum-tab-8').innerHTML = `<div style="padding:16px 14px 20px">
-    <div class="rsum-section-title">📚 Lainnya — Rangkuman Tambahan — <span style="color:${lvColor}">${lvLabel}</span></div>
+    <div class="rsum-section-title">📚 Lainnya — Rangkuman Tambahan</div>
     <div class="rsum-vv-intro">
       Kumpulan materi penting lainnya: <b>Verba Memberi/Menerima</b>, <b>Ekspresi Waktu</b>, dan <b><ruby>接続詞<rt>せつぞくし</rt></ruby></b>.
     </div>
