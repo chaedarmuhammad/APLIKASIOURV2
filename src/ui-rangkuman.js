@@ -2596,14 +2596,6 @@ function buildHargaSection() {
           </tbody>
         </table></div>
 
-        <div style="margin-top:12px;font-size:0.76rem;font-weight:700;color:var(--accent2);margin-bottom:8px">📋 Contoh harga sehari-hari</div>
-        <div class="tbl-scroll-wrap"><table class="rsum-vv-table" style="min-width:420px">
-          <thead><tr><th><ruby>物<rt>もの</rt></ruby></th><th><ruby>値段<rt>ねだん</rt></ruby></th><th><ruby>読<rt>よ</rt></ruby>み<ruby>方<rt>かた</rt></ruby></th><th><ruby>物<rt>もの</rt></ruby></th><th><ruby>値段<rt>ねだん</rt></ruby></th><th><ruby>読<rt>よ</rt></ruby>み<ruby>方<rt>かた</rt></ruby></th></tr></thead>
-          <tbody>
-            <tr><td style="font-size:0.74rem">コーヒー</td><td style="font-weight:700;color:var(--accent2)">350<ruby>円<rt>えん</rt></ruby></td><td class="rsum-form"><b>さんびゃく</b>ごじゅうえん</td><td style="font-size:0.74rem">おべんとう</td><td style="font-weight:700;color:var(--accent2)">680<ruby>円<rt>えん</rt></ruby></td><td class="rsum-form"><b>ろっぴゃく</b>はちじゅうえん</td></tr>
-            <tr><td style="font-size:0.74rem"><ruby>電車<rt>でんしゃ</rt></ruby>の<ruby>切符<rt>きっぷ</rt></ruby></td><td style="font-weight:700;color:var(--accent2)">1,800<ruby>円<rt>えん</rt></ruby></td><td class="rsum-form">せん<b>はっぴゃく</b>えん</td><td style="font-size:0.74rem">スマホ</td><td style="font-weight:700;color:var(--accent2)">83,000<ruby>円<rt>えん</rt></ruby></td><td class="rsum-form">はちまん<b>さんぜん</b>えん</td></tr>
-          </tbody>
-        </table></div>
 
         <div style="margin-top:10px;padding:8px 12px;background:rgba(34,197,94,0.08);border-left:3px solid #22c55e;border-radius:0 8px 8px 0;font-size:0.72rem;line-height:1.6">
           <b style="color:#22c55e">💡</b> <b>いくら</b>=berapa? | 300=<b>さんびゃく</b>, 600=<b>ろっぴゃく</b>, 800=<b>はっぴゃく</b> | 3000=<b>さんぜん</b>, 8000=<b>はっせん</b>
