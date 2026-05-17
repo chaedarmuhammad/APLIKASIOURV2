@@ -598,6 +598,7 @@ body {
   background: var(--surface); border-radius: 10px; overflow: hidden;
   border: 1px solid var(--border);
   min-width: 560px;
+  table-layout: fixed;
 }
 .rsum-table th {
   background: var(--surface2); padding: 7px 10px;
@@ -605,14 +606,54 @@ body {
   letter-spacing: 0.04em; color: var(--text2);
   border-bottom: 1px solid var(--border);
   white-space: nowrap;
+  overflow: hidden; text-overflow: ellipsis;
 }
 .rsum-table td {
   padding: 7px 10px; border-bottom: 1px solid var(--border);
   vertical-align: middle; line-height: 1.7;
   white-space: nowrap;
+  overflow: hidden; text-overflow: ellipsis;
 }
 .rsum-table tr:last-child td { border-bottom: none; }
 .rsum-table tr:hover td { background: rgba(124,106,247,0.05); }
+
+/* ── Rangkuman Table: Consistent Column Widths ── */
+/* 4-col pattern: key | reading | key | reading (Jam, Menit, Durasi) */
+.rsum-vv-table.cols-4-even col:nth-child(odd) { width: 18%; }
+.rsum-vv-table.cols-4-even col:nth-child(even) { width: 32%; }
+
+/* 6-col pattern: kanji | number | reading | kanji | number | reading (Angka) */
+.rsum-vv-table.cols-6-num col:nth-child(3n+1) { width: 10%; }
+.rsum-vv-table.cols-6-num col:nth-child(3n+2) { width: 12%; }
+.rsum-vv-table.cols-6-num col:nth-child(3n) { width: 28%; }
+
+/* 6-col pattern for tanggal (date): 3 pairs of date|reading */
+.rsum-vv-table.cols-6-date col:nth-child(odd) { width: 14%; }
+.rsum-vv-table.cols-6-date col:nth-child(even) { width: 20%; }
+
+/* 4-col pattern for youbi: kanji | reading | arti | note */
+.rsum-vv-table.cols-4-youbi col:nth-child(1) { width: 28%; }
+.rsum-vv-table.cols-4-youbi col:nth-child(2) { width: 28%; }
+.rsum-vv-table.cols-4-youbi col:nth-child(3) { width: 18%; }
+.rsum-vv-table.cols-4-youbi col:nth-child(4) { width: 26%; }
+
+/* 5-col pattern: verba | arah | partikel | arti | reibun (Agemo) */
+.rsum-vv-table.cols-5-agemo col:nth-child(1) { width: 16%; }
+.rsum-vv-table.cols-5-agemo col:nth-child(2) { width: 18%; }
+.rsum-vv-table.cols-5-agemo col:nth-child(3) { width: 12%; }
+.rsum-vv-table.cols-5-agemo col:nth-child(4) { width: 22%; }
+.rsum-vv-table.cols-5-agemo col:nth-child(5) { width: 32%; }
+
+/* 3-col pattern: pattern | arti | reibun */
+.rsum-vv-table.cols-3-pattern col:nth-child(1) { width: 28%; }
+.rsum-vv-table.cols-3-pattern col:nth-child(2) { width: 36%; }
+.rsum-vv-table.cols-3-pattern col:nth-child(3) { width: 36%; }
+
+/* 4-col pattern: pattern | usage | reibun | arti (Waktu/Ekspresi) */
+.rsum-vv-table.cols-4-waktu col:nth-child(1) { width: 16%; }
+.rsum-vv-table.cols-4-waktu col:nth-child(2) { width: 22%; }
+.rsum-vv-table.cols-4-waktu col:nth-child(3) { width: 40%; }
+.rsum-vv-table.cols-4-waktu col:nth-child(4) { width: 22%; }
 .rsum-part-key {
   font-family: 'Noto Serif JP', serif; font-weight: 700;
   font-size: 1.1rem; color: var(--accent2);
@@ -719,6 +760,7 @@ body {
   background: var(--surface); border-radius: 10px; overflow: hidden;
   border: 1px solid var(--border);
   min-width: 500px;
+  table-layout: fixed;
 }
 .rsum-vv-table th {
   background: var(--surface2); padding: 6px 8px;
@@ -726,11 +768,13 @@ body {
   letter-spacing: 0.04em; color: var(--text2);
   border-bottom: 1px solid var(--border);
   white-space: nowrap;
+  overflow: hidden; text-overflow: ellipsis;
 }
 .rsum-vv-table td {
   padding: 6px 8px; border-bottom: 1px solid var(--border);
   vertical-align: middle; line-height: 1.6;
   white-space: nowrap;
+  overflow: hidden; text-overflow: ellipsis;
 }
 .rsum-vv-table tr:last-child td { border-bottom: none; }
 .rsum-vv-table tr:hover td { background: rgba(124,106,247,0.05); }
