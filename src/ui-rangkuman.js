@@ -2686,12 +2686,12 @@ function buildAgemoSection() {
           3 verba memberi/menerima. Dibedakan berdasarkan <b>siapa memberi ke siapa</b>.
         </div>
 
-        <div class="tbl-scroll-wrap"><table class="rsum-vv-table" style="min-width:400px">
-          <thead><tr><th>Verba</th><th>Arah</th><th>Partikel</th><th><ruby>例文<rt>れいぶん</rt></ruby></th></tr></thead>
+        <div class="tbl-scroll-wrap"><table class="rsum-vv-table" style="min-width:480px">
+          <thead><tr><th>Verba</th><th>Arah</th><th>Partikel</th><th>Arti</th><th><ruby>例文<rt>れいぶん</rt></ruby></th></tr></thead>
           <tbody>
-            <tr><td style="font-weight:700;color:#34d399">あげます</td><td style="font-size:0.7rem">私→他人</td><td style="font-size:0.72rem">〜<b>に</b></td><td class="rsum-form" style="font-size:0.72rem"><ruby>友<rt>とも</rt></ruby>だちに<ruby>花<rt>はな</rt></ruby>を<b>あげます</b></td></tr>
-            <tr><td style="font-weight:700;color:#60a5fa">もらいます</td><td style="font-size:0.7rem">他人→私</td><td style="font-size:0.72rem">〜<b>に/から</b></td><td class="rsum-form" style="font-size:0.72rem"><ruby>先生<rt>せんせい</rt></ruby>に<ruby>本<rt>ほん</rt></ruby>を<b>もらいました</b></td></tr>
-            <tr><td style="font-weight:700;color:#f87171">くれます</td><td style="font-size:0.7rem">他人→私</td><td style="font-size:0.72rem">〜<b>が</b></td><td class="rsum-form" style="font-size:0.72rem"><ruby>友<rt>とも</rt></ruby>だちがケーキを<b>くれました</b></td></tr>
+            <tr><td style="font-weight:700;color:#34d399">あげます</td><td style="font-size:0.7rem">Saya → Orang lain</td><td style="font-size:0.72rem">〜<b>に</b></td><td style="font-size:0.7rem;color:var(--text2)">Memberi (ke orang lain)</td><td class="rsum-form" style="font-size:0.72rem"><ruby>友<rt>とも</rt></ruby>だちに<ruby>花<rt>はな</rt></ruby>を<b>あげます</b><br><span style="color:var(--text2);font-size:0.68rem">Memberi bunga ke teman</span></td></tr>
+            <tr><td style="font-weight:700;color:#60a5fa">もらいます</td><td style="font-size:0.7rem">Orang lain → Saya</td><td style="font-size:0.72rem">〜<b>に/から</b></td><td style="font-size:0.7rem;color:var(--text2)">Menerima (dari orang lain)</td><td class="rsum-form" style="font-size:0.72rem"><ruby>先生<rt>せんせい</rt></ruby>に<ruby>本<rt>ほん</rt></ruby>を<b>もらいました</b><br><span style="color:var(--text2);font-size:0.68rem">Menerima buku dari guru</span></td></tr>
+            <tr><td style="font-weight:700;color:#f87171">くれます</td><td style="font-size:0.7rem">Orang lain → Saya</td><td style="font-size:0.72rem">〜<b>が</b></td><td style="font-size:0.7rem;color:var(--text2)">Memberi (ke saya)</td><td class="rsum-form" style="font-size:0.72rem"><ruby>友<rt>とも</rt></ruby>だちがケーキを<b>くれました</b><br><span style="color:var(--text2);font-size:0.68rem">Teman memberi saya kue</span></td></tr>
           </tbody>
         </table></div>
 
