@@ -350,7 +350,7 @@ const RANGKUMAN_KONJUGASI = [
     "⚠️ Gr II potensial vs pasif: たべられます = 'bisa makan' ATAU 'dimakan' — konteks menentukan!",
    ]
   },
-  {grup:"使役", warna:"rsum-conj-shieki", label:"<ruby>使役形<rt>しえきけい</rt></ruby> (Kausatif — menyuruh/izinkan)",
+  {grup:"<ruby>使役<rt>しえき</rt></ruby>", warna:"rsum-conj-shieki", label:"<ruby>使役形<rt>しえきけい</rt></ruby> (Kausatif — menyuruh/izinkan)",
    contoh: [
      {masu:"かきます", pos:"かかせます", neg:"かかせません", taPlus:"かかせました", taMinus:"かかせませんでした", kamus:"かかせる", catatan:"Gr.I: i→a+せる"},
      {masu:"よみます", pos:"よませます", neg:"よませません", taPlus:"よませました", taMinus:"よませませんでした", kamus:"よませる", catatan:"Gr.I: i→a+せる"},
@@ -367,7 +367,7 @@ const RANGKUMAN_KONJUGASI = [
      "Kausatif terkonjugasi sebagai KK Grup II (ます→ません→ました→ませんでした)",
    ]
   },
-  {grup:"使役受身", warna:"rsum-conj-shieki", label:"<ruby>使役受身形<rt>しえきうけみけい</rt></ruby> (Kausatif-Pasif — dipaksa/disuruh melakukan ~)",
+  {grup:"<ruby>使役受身<rt>しえきうけみ</rt></ruby>", warna:"rsum-conj-shieki", label:"<ruby>使役受身形<rt>しえきうけみけい</rt></ruby> (Kausatif-Pasif — dipaksa/disuruh melakukan ~)",
    contoh: [
      {masu:"かきます", pos:"かかせられます", neg:"かかせられません", taPlus:"かかせられました", taMinus:"かかせられませんでした", kamus:"かかせられる", catatan:"Gr.I: a+せられる"},
      {masu:"のみます", pos:"のまされます", neg:"のまされません", taPlus:"のまされました", taMinus:"のまされませんでした", kamus:"のまされる", catatan:"Gr.I: 短縮形 a+される"},
@@ -377,18 +377,18 @@ const RANGKUMAN_KONJUGASI = [
      {masu:"します", pos:"させられます", neg:"させられません", taPlus:"させられました", taMinus:"させられませんでした", kamus:"させられる", catatan:"Gr.III"},
    ],
    aturan: [
-     "Gabungan: 使役 + 受身 = '<b>dipaksa/disuruh</b> melakukan ~' (sudut pandang orang yang disuruh)",
-     "Gr.I: 使役せる → pasifkan → <b>〜あせられる</b>. Versi pendek: <b>〜あされる</b>",
+     "Gabungan: <ruby>使役<rt>しえき</rt></ruby> + <ruby>受身<rt>うけみ</rt></ruby> = '<b>dipaksa/disuruh</b> melakukan ~' (sudut pandang orang yang disuruh)",
+     "Gr.I: <ruby>使役<rt>しえき</rt></ruby>せる → pasifkan → <b>〜あせられる</b>. Versi pendek: <b>〜あされる</b>",
      "  のむ → のませる → <b>のまされる</b> (pendek) / のませられる (panjang)",
      "  かく → かかせる → <b>かかされる</b> (pendek) / かかせられる (panjang)",
-     "Gr.II: 使役させる → pasifkan → <b>〜させられる</b> (tidak ada versi pendek)",
+     "Gr.II: <ruby>使役<rt>しえき</rt></ruby>させる → pasifkan → <b>〜させられる</b> (tidak ada versi pendek)",
      "  たべる → たべさせる → <b>たべさせられる</b>",
      "Gr.III: する→<b>させられる</b> | くる→<b>こさせられる</b>",
-     "⚠️ Sudut pandang: 使役=atasan menyuruh. 使役受身=bawahan MERASA disuruh/dipaksa.",
+     "⚠️ Sudut pandang: <ruby>使役<rt>しえき</rt></ruby>=atasan menyuruh. <ruby>使役受身<rt>しえきうけみ</rt></ruby>=bawahan MERASA disuruh/dipaksa.",
      "⚠️ Contoh: <ruby>先生<rt>せんせい</rt></ruby>に <ruby>本<rt>ほん</rt></ruby>を <ruby>読<rt>よ</rt></ruby>ま<b>された</b> (saya disuruh guru membaca buku)",
    ]
   },
-  {grup:"命令・禁止", warna:"rsum-conj-meirei", label:"<ruby>命令形<rt>めいれいけい</rt></ruby>・<ruby>禁止形<rt>きんしけい</rt></ruby> (Perintah & Larangan)",
+  {grup:"<ruby>命令<rt>めいれい</rt></ruby>・<ruby>禁止<rt>きんし</rt></ruby>", warna:"rsum-conj-meirei", label:"<ruby>命令形<rt>めいれいけい</rt></ruby>・<ruby>禁止形<rt>きんしけい</rt></ruby> (Perintah & Larangan)",
    contoh: [
      {masu:"のみます", pos:"のめ", neg:"のむな", taPlus:"—", taMinus:"—", kamus:"のむ", catatan:"Gr.I: i→e / kamus+な"},
      {masu:"かきます", pos:"かけ", neg:"かくな", taPlus:"—", taMinus:"—", kamus:"かく", catatan:"Gr.I: i→e / kamus+な"},
@@ -404,10 +404,10 @@ const RANGKUMAN_KONJUGASI = [
      "<ruby>命令形<rt>めいれいけい</rt></ruby> Gr.III: きます→こい / します→しろ",
      "<ruby>禁止形<rt>きんしけい</rt></ruby> SEMUA: KK bentuk kamus + な (のむな, たべるな, するな, くるな)",
      "⚠️ Sangat kasar! Hanya untuk darurat, olahraga, atau tanda.",
-     "⚠️ 命令形・禁止形 tidak memiliki bentuk lampau — hanya digunakan saat ini/langsung",
+     "⚠️ <ruby>命令形<rt>めいれいけい</rt></ruby>・<ruby>禁止形<rt>きんしけい</rt></ruby> tidak memiliki bentuk lampau — hanya digunakan saat ini/langsung",
    ]
   },
-  {grup:"尊敬", warna:"rsum-conj-sonkei", label:"<ruby>尊敬語<rt>そんけいご</rt></ruby> (Bahasa Hormat — meninggikan orang lain)",
+  {grup:"<ruby>尊敬<rt>そんけい</rt></ruby>", warna:"rsum-conj-sonkei", label:"<ruby>尊敬語<rt>そんけいご</rt></ruby> (Bahasa Hormat — meninggikan orang lain)",
    contoh: [
      {masu:"<ruby>聞<rt>き</rt></ruby>きます", pos:"<ruby>聞<rt>き</rt></ruby>かれます", neg:"<ruby>聞<rt>き</rt></ruby>かれません", taPlus:"<ruby>聞<rt>き</rt></ruby>かれました", taMinus:"<ruby>聞<rt>き</rt></ruby>かれませんでした", kamus:"<ruby>聞<rt>き</rt></ruby>かれる", catatan:"Gr.I: pasif=尊敬"},
      {masu:"<ruby>読<rt>よ</rt></ruby>みます", pos:"<ruby>読<rt>よ</rt></ruby>まれます", neg:"<ruby>読<rt>よ</rt></ruby>まれません", taPlus:"<ruby>読<rt>よ</rt></ruby>まれました", taMinus:"<ruby>読<rt>よ</rt></ruby>まれませんでした", kamus:"<ruby>読<rt>よ</rt></ruby>まれる", catatan:"Gr.I: pasif=尊敬"},
@@ -426,7 +426,7 @@ const RANGKUMAN_KONJUGASI = [
      "⚠️ Konjugasi: ます→ません→ました→ませんでした (seperti Grup II biasa)",
    ]
   },
-  {grup:"謙譲", warna:"rsum-conj-kenjou", label:"<ruby>謙譲語<rt>けんじょうご</rt></ruby> (Bahasa Merendah — merendahkan diri sendiri)",
+  {grup:"<ruby>謙譲<rt>けんじょう</rt></ruby>", warna:"rsum-conj-kenjou", label:"<ruby>謙譲語<rt>けんじょうご</rt></ruby> (Bahasa Merendah — merendahkan diri sendiri)",
    contoh: [
      {masu:"<ruby>送<rt>おく</rt></ruby>ります", pos:"お<ruby>送<rt>おく</rt></ruby>りします", neg:"お<ruby>送<rt>おく</rt></ruby>りしません", taPlus:"お<ruby>送<rt>おく</rt></ruby>りしました", taMinus:"お<ruby>送<rt>おく</rt></ruby>りしませんでした", kamus:"お<ruby>送<rt>おく</rt></ruby>りする", catatan:"Gr.I: お～します"},
      {masu:"<ruby>持<rt>も</rt></ruby>ちます", pos:"お<ruby>持<rt>も</rt></ruby>ちします", neg:"お<ruby>持<rt>も</rt></ruby>ちしません", taPlus:"お<ruby>持<rt>も</rt></ruby>ちしました", taMinus:"お<ruby>持<rt>も</rt></ruby>ちしませんでした", kamus:"お<ruby>持<rt>も</rt></ruby>ちする", catatan:"Gr.I: お～します"},
@@ -1304,7 +1304,7 @@ function renderRangkuman() {
       let headerHtml = `<th>〜ます</th><th style="color:#60a5fa">✅ Kini +</th><th style="color:#f87171">❌ Kini −</th>`;
       if (hasLampauPlus) headerHtml += `<th style="color:#fbbf24">⏮️ Lampau +</th>`;
       if (hasLampauMinus) headerHtml += `<th style="color:#fb923c">⏮️❌ Lampau −</th>`;
-      headerHtml += `<th><span class="rsum-vv-chip vv-kamus" style="font-size:0.62rem">辞</span> Kamus</th>`;
+      headerHtml += `<th><span class="rsum-vv-chip vv-kamus" style="font-size:0.62rem"><ruby>辞<rt>じ</rt></ruby></span> Kamus</th>`;
       if (hasCatatan) headerHtml += `<th>Ket.</th>`;
       const rowsHtml = g.contoh.map(r => {
         let row = `<td class="rsum-form">${r.masu}</td><td class="rsum-form"><b style="color:#60a5fa">${r.pos}</b></td><td class="rsum-form" style="color:#f87171"><b>${r.neg}</b></td>`;
@@ -1317,7 +1317,7 @@ function renderRangkuman() {
       contentHtml = `<div class="tbl-scroll-wrap"><table class="rsum-table"><thead><tr>${headerHtml}</tr></thead><tbody>${rowsHtml}</tbody></table></div>`;
     } else {
       // Konjugasi dasar — hide Ket jika semua kosong
-      let headerHtml = `<th>〜ます</th><th><span class="rsum-vv-chip vv-te" style="font-size:0.62rem">て</span> 〜て</th><th><span class="rsum-vv-chip vv-ta" style="font-size:0.62rem">た</span> 〜た</th><th><span class="rsum-vv-chip vv-nai" style="font-size:0.62rem">ない</span> 〜ない</th><th><span class="rsum-vv-chip vv-kamus" style="font-size:0.62rem">辞</span> Kamus</th>`;
+      let headerHtml = `<th>〜ます</th><th><span class="rsum-vv-chip vv-te" style="font-size:0.62rem">て</span> 〜て</th><th><span class="rsum-vv-chip vv-ta" style="font-size:0.62rem">た</span> 〜た</th><th><span class="rsum-vv-chip vv-nai" style="font-size:0.62rem">ない</span> 〜ない</th><th><span class="rsum-vv-chip vv-kamus" style="font-size:0.62rem"><ruby>辞<rt>じ</rt></ruby></span> Kamus</th>`;
       if (hasCatatan) headerHtml += `<th>Ket.</th>`;
       const rowsHtml = g.contoh.map(r => {
         const taForm = r.te.replace(/て$/,'た').replace(/で$/,'だ');
@@ -1380,7 +1380,7 @@ function renderRangkuman() {
           </ul>
         </div>
         <div class="tbl-scroll-wrap"><table class="rsum-table"><thead><tr>
-          <th><span class="rsum-vv-chip vv-kamus" style="font-size:0.62rem">辞</span> Kamus</th>
+          <th><span class="rsum-vv-chip vv-kamus" style="font-size:0.62rem"><ruby>辞<rt>じ</rt></ruby></span> Kamus</th>
           <th style="color:#60a5fa">✅ Kini +</th>
           <th style="color:#f87171">❌ Kini −</th>
           <th style="color:#fbbf24">⏮️ Lampau +</th>
@@ -1798,7 +1798,7 @@ function renderRsumTab5(lvLabel, lvColor) {
     <div class="konj-accordion" style="scroll-margin-top:110px;margin-bottom:16px;border-color:rgba(124,106,247,0.3)">
       <div class="konj-accordion-head" onclick="this.parentElement.classList.toggle('open')" style="background:rgba(124,106,247,0.04)">
         <span class="konj-accordion-chevron">▶</span>
-        <span style="font-size:0.82rem;font-weight:700;color:var(--accent)">📐 Pola Dasar: が + 自動詞 vs を + 他動詞</span>
+        <span style="font-size:0.82rem;font-weight:700;color:var(--accent)">📐 Pola Dasar: が + <ruby>自動詞<rt>じどうし</rt></ruby> vs を + <ruby>他動詞<rt>たどうし</rt></ruby></span>
       </div>
       <div class="konj-accordion-body">
         <div class="tbl-scroll-wrap"><table class="rsum-vv-table" style="min-width:440px">
@@ -1823,7 +1823,7 @@ function renderRsumTab5(lvLabel, lvColor) {
       </div>
       <div class="konj-accordion-body">
         <div class="tbl-scroll-wrap"><table class="rsum-vv-table" style="min-width:440px">
-          <thead><tr><th style="color:#60a5fa">自動詞 + ています = KEADAAN HASIL</th><th style="color:#f87171">他動詞 + ています = SEDANG MELAKUKAN</th></tr></thead>
+          <thead><tr><th style="color:#60a5fa"><ruby>自動詞<rt>じどうし</rt></ruby> + ています = KEADAAN HASIL</th><th style="color:#f87171"><ruby>他動詞<rt>たどうし</rt></ruby> + ています = SEDANG MELAKUKAN</th></tr></thead>
           <tbody>
             <tr><td><span style="color:var(--teal);font-family:'Noto Sans JP',sans-serif">ドアが <b><ruby>開<rt>あ</rt></ruby>いています</b></span><br><span style="color:var(--text2);font-size:0.72rem">Pintu dalam kondisi terbuka (HASIL)</span></td>
                 <td><span style="color:var(--teal);font-family:'Noto Sans JP',sans-serif">ドアを <b><ruby>開<rt>あ</rt></ruby>けています</b></span><br><span style="color:var(--text2);font-size:0.72rem">Sedang membuka pintu (PROSES)</span></td></tr>
@@ -1833,7 +1833,7 @@ function renderRsumTab5(lvLabel, lvColor) {
                 <td><span style="color:var(--teal);font-family:'Noto Sans JP',sans-serif">まどを <b><ruby>閉<rt>し</rt></ruby>めています</b></span><br><span style="color:var(--text2);font-size:0.72rem">Sedang menutup jendela</span></td></tr>
           </tbody>
         </table></div>
-        <div style="margin-top:8px;font-size:0.72rem;color:var(--text2)">💡 <b>Kunci:</b> 自動詞ています = keadaan/kondisi saat ini. 他動詞ています = proses yang sedang berlangsung.</div>
+        <div style="margin-top:8px;font-size:0.72rem;color:var(--text2)">💡 <b>Kunci:</b> <ruby>自動詞<rt>じどうし</rt></ruby>ています = keadaan/kondisi saat ini. <ruby>他動詞<rt>たどうし</rt></ruby>ています = proses yang sedang berlangsung.</div>
       </div>
     </div>
 
@@ -1841,11 +1841,11 @@ function renderRsumTab5(lvLabel, lvColor) {
     <div class="konj-accordion" style="scroll-margin-top:110px;margin-bottom:16px;border-color:rgba(251,191,36,0.3)">
       <div class="konj-accordion-head" onclick="this.parentElement.classList.toggle('open')" style="background:rgba(251,191,36,0.04)">
         <span class="konj-accordion-chevron">▶</span>
-        <span style="font-size:0.82rem;font-weight:700;color:var(--amber)">📊 Tabel Pasangan 自動詞 ↔ 他動詞 Lengkap</span>
+        <span style="font-size:0.82rem;font-weight:700;color:var(--amber)">📊 Tabel Pasangan <ruby>自動詞<rt>じどうし</rt></ruby> ↔ <ruby>他動詞<rt>たどうし</rt></ruby> Lengkap</span>
       </div>
       <div class="konj-accordion-body">
         <div class="tbl-scroll-wrap"><table class="rsum-vv-table" style="min-width:600px">
-          <thead><tr><th style="color:#60a5fa">自動詞 (Intransitif)</th><th>Gr</th><th style="color:#f87171">他動詞 (Transitif)</th><th>Gr</th><th>Objek</th><th>Arti</th></tr></thead>
+          <thead><tr><th style="color:#60a5fa"><ruby>自動詞<rt>じどうし</rt></ruby> (Intransitif)</th><th>Gr</th><th style="color:#f87171"><ruby>他動詞<rt>たどうし</rt></ruby> (Transitif)</th><th>Gr</th><th>Objek</th><th>Arti</th></tr></thead>
           <tbody>${pairRows}</tbody>
         </table></div>
       </div>
@@ -1861,7 +1861,7 @@ function renderRsumTab5(lvLabel, lvColor) {
         <div style="font-size:0.78rem;line-height:1.8;color:var(--text)">
           <b>Pola umum yang sering muncul:</b><br>
           <table class="rsum-vv-table" style="min-width:400px;margin-top:8px">
-            <thead><tr><th>Pola Akhiran</th><th style="color:#60a5fa">自動詞</th><th style="color:#f87171">他動詞</th><th>Contoh</th></tr></thead>
+            <thead><tr><th>Pola Akhiran</th><th style="color:#60a5fa"><ruby>自動詞<rt>じどうし</rt></ruby></th><th style="color:#f87171"><ruby>他動詞<rt>たどうし</rt></ruby></th><th>Contoh</th></tr></thead>
             <tbody>
               <tr><td style="font-weight:600">〜aru ↔ 〜eru</td><td>〜<b>aru</b> (Gr.I)</td><td>〜<b>eru</b> (Gr.II)</td><td>あ<b>かる</b> ↔ あ<b>ける</b></td></tr>
               <tr><td style="font-weight:600">〜u ↔ 〜eru</td><td>〜<b>u</b> (Gr.I)</td><td>〜<b>eru</b> (Gr.II)</td><td>つ<b>く</b> ↔ つ<b>ける</b></td></tr>
@@ -1871,9 +1871,9 @@ function renderRsumTab5(lvLabel, lvColor) {
           </table>
           <div style="margin-top:12px;padding:10px 14px;background:rgba(251,191,36,0.08);border-left:3px solid var(--amber);border-radius:0 8px 8px 0">
             <b style="color:var(--amber)">⚠️ Cara cepat membedakan:</b><br>
-            • Jika ada pelaku (orang melakukan) → <b style="color:#f87171">他動詞 + を</b><br>
-            • Jika perubahan terjadi sendiri (otomatis/alami) → <b style="color:#60a5fa">自動詞 + が</b><br>
-            • Dalam percakapan: "Siapa yang melakukannya?" → Jika jawabannya "tidak ada/tidak penting" → 自動詞
+            • Jika ada pelaku (orang melakukan) → <b style="color:#f87171"><ruby>他動詞<rt>たどうし</rt></ruby> + を</b><br>
+            • Jika perubahan terjadi sendiri (otomatis/alami) → <b style="color:#60a5fa"><ruby>自動詞<rt>じどうし</rt></ruby> + が</b><br>
+            • Dalam percakapan: "Siapa yang melakukannya?" → Jika jawabannya "tidak ada/tidak penting" → <ruby>自動詞<rt>じどうし</rt></ruby>
           </div>
         </div>
       </div>
@@ -1901,7 +1901,7 @@ function renderRsumTab5(lvLabel, lvColor) {
             <div style="padding:10px 14px;background:var(--surface2);border-radius:8px;border:1px solid var(--border)">
               <b>Situasi:</b> Kamu melihat gelas pecah di lantai (tidak tahu siapa yang memecahkan).<br>
               ✅ <span style="color:var(--teal);font-family:'Noto Sans JP',sans-serif">コップが <b><ruby>割<rt>わ</rt></ruby>れています</b>。</span> (Gelas dalam keadaan pecah)<br>
-              <span style="color:var(--text2)">→ Gunakan 自動詞 karena fokus pada KEADAAN, bukan pelaku.</span>
+              <span style="color:var(--text2)">→ Gunakan <ruby>自動詞<rt>じどうし</rt></ruby> karena fokus pada KEADAAN, bukan pelaku.</span>
             </div>
           </div>
         </div>
@@ -1918,7 +1918,7 @@ function renderRsumTab6(lvLabel, lvColor) {
     <div class="konj-tab-note">
       <span style="font-size:1.1rem;flex-shrink:0">💡</span>
       <span><b>Ragam Sopan (〜です/〜ます)</b> = untuk situasi formal, dengan orang yang belum akrab, atasan, orang asing.<br>
-      <b>Ragam Biasa (futsūkei)</b> = untuk teman dekat, keluarga, dan WAJIB dalam klausa tertentu (と思います, 〜時, 〜前に, dll.)</span>
+      <b>Ragam Biasa (futsūkei)</b> = untuk teman dekat, keluarga, dan WAJIB dalam klausa tertentu (と<ruby>思<rt>おも</rt></ruby>います, 〜<ruby>時<rt>とき</rt></ruby>, 〜<ruby>前<rt>まえ</rt></ruby>に, dll.)</span>
     </div>
 
     <!-- Konversi KK -->
@@ -1937,7 +1937,7 @@ function renderRsumTab6(lvLabel, lvColor) {
             <tr><td style="font-weight:600">⏮️❌ Lampau −</td><td class="rsum-form">〜ませんでした</td><td class="rsum-form"><b>〜なかった</b></td><td class="rsum-form">のみませんでした → <b>のまなかった</b></td></tr>
           </tbody>
         </table></div>
-        <div style="margin-top:8px;font-size:0.72rem;color:var(--text2)">⚠️ Bentuk biasa KK = yang dipelajari di tab Konjugasi (辞書形, ない形, た形)</div>
+        <div style="margin-top:8px;font-size:0.72rem;color:var(--text2)">⚠️ Bentuk biasa KK = yang dipelajari di tab Konjugasi (<ruby>辞書形<rt>じしょけい</rt></ruby>, ない<ruby>形<rt>けい</rt></ruby>, た<ruby>形<rt>けい</rt></ruby>)</div>
       </div>
     </div>
 
@@ -2013,8 +2013,8 @@ function renderRsumTab6(lvLabel, lvColor) {
               <tr><td style="font-weight:600">〜と <ruby>思<rt>おも</rt></ruby>います</td><td class="rsum-form"><b>あした あめが ふる</b>と おもいます</td><td style="font-size:0.72rem;color:var(--text2)">Saya pikir besok hujan</td></tr>
               <tr><td style="font-weight:600">〜と <ruby>言<rt>い</rt></ruby>いました</td><td class="rsum-form"><b>いかない</b>と いいました</td><td style="font-size:0.72rem;color:var(--text2)">Dia bilang tidak pergi</td></tr>
               <tr><td style="font-weight:600">〜<ruby>時<rt>とき</rt></ruby></td><td class="rsum-form"><b>わかい</b> とき、よく うんどうしました</td><td style="font-size:0.72rem;color:var(--text2)">Waktu muda, sering olahraga</td></tr>
-              <tr><td style="font-weight:600">〜前に</td><td class="rsum-form"><b>ねる</b> まえに、はを みがきます</td><td style="font-size:0.72rem;color:var(--text2)">Sebelum tidur, sikat gigi</td></tr>
-              <tr><td style="font-weight:600">〜後で</td><td class="rsum-form"><b>たべた</b> あとで、さんぽします</td><td style="font-size:0.72rem;color:var(--text2)">Setelah makan, jalan-jalan</td></tr>
+              <tr><td style="font-weight:600">〜<ruby>前<rt>まえ</rt></ruby>に</td><td class="rsum-form"><b>ねる</b> まえに、はを みがきます</td><td style="font-size:0.72rem;color:var(--text2)">Sebelum tidur, sikat gigi</td></tr>
+              <tr><td style="font-weight:600">〜<ruby>後<rt>あと</rt></ruby>で</td><td class="rsum-form"><b>たべた</b> あとで、さんぽします</td><td style="font-size:0.72rem;color:var(--text2)">Setelah makan, jalan-jalan</td></tr>
               <tr><td style="font-weight:600">〜でしょう？</td><td class="rsum-form">あした <b>いい てんきだ</b> でしょう？</td><td style="font-size:0.72rem;color:var(--text2)">Besok cuaca bagus kan?</td></tr>
               <tr><td style="font-weight:600">〜たら</td><td class="rsum-form"><b>やすかったら</b>、かいます</td><td style="font-size:0.72rem;color:var(--text2)">Kalau murah, beli</td></tr>
               <tr><td style="font-weight:600">〜ても</td><td class="rsum-form"><b>あめが ふっても</b>、いきます</td><td style="font-size:0.72rem;color:var(--text2)">Walaupun hujan, pergi</td></tr>
@@ -2024,8 +2024,8 @@ function renderRsumTab6(lvLabel, lvColor) {
           </table></div>
           <div style="margin-top:10px;padding:10px 14px;background:rgba(251,191,36,0.08);border-left:3px solid var(--amber);border-radius:0 8px 8px 0">
             <b style="color:var(--amber)">⚠️ Pengecualian KB/KSな dalam klausa:</b><br>
-            • Sebelum と思います: がくせい<b>だ</b>と おもいます (KB + <b>だ</b>)<br>
-            • Sebelum 時: しずか<b>な</b> とき (KSな + <b>な</b>)<br>
+            • Sebelum と<ruby>思<rt>おも</rt></ruby>います: がくせい<b>だ</b>と おもいます (KB + <b>だ</b>)<br>
+            • Sebelum <ruby>時<rt>とき</rt></ruby>: しずか<b>な</b> とき (KSな + <b>な</b>)<br>
             • Sebelum ので: がくせい<b>な</b>ので (KB/KSな + <b>な</b>ので)
           </div>
         </div>
@@ -2215,44 +2215,44 @@ function buildNumberSection() {
       <div class="konj-accordion-head" onclick="this.parentElement.classList.toggle('open')" style="background:rgba(251,191,36,0.04)">
         <span class="konj-accordion-chevron">▶</span>
         <span style="font-size:0.82rem;font-weight:700;color:var(--amber)">🔢 <ruby>数字<rt>すうじ</rt></ruby> — Angka / Bilangan</span>
-        <span style="margin-left:auto;font-size:0.6rem;padding:2px 8px;border-radius:10px;background:rgba(251,191,36,0.15);color:var(--amber);font-weight:700">⚠️ 音変化</span>
+        <span style="margin-left:auto;font-size:0.6rem;padding:2px 8px;border-radius:10px;background:rgba(251,191,36,0.15);color:var(--amber);font-weight:700">⚠️ <ruby>音変化<rt>おんへんか</rt></ruby></span>
       </div>
       <div class="konj-accordion-body">
         <div style="font-size:0.75rem;color:var(--text2);margin-bottom:10px;line-height:1.5">
-          Bilangan dasar. Angka 4, 7, 9 punya dua cara baca.
+          Bilangan dasar. Angka 4, 7, 9 punya dua cara baca. <ruby>漢字<rt>かんじ</rt></ruby> angka ditampilkan dengan furigana angka.
         </div>
-        <div class="tbl-scroll-wrap"><table class="rsum-vv-table" style="min-width:420px">
-          <thead><tr><th><ruby>数字<rt>すうじ</rt></ruby></th><th><ruby>読<rt>よ</rt></ruby>み<ruby>方<rt>かた</rt></ruby></th><th><ruby>数字<rt>すうじ</rt></ruby></th><th><ruby>読<rt>よ</rt></ruby>み<ruby>方<rt>かた</rt></ruby></th></tr></thead>
+        <div class="tbl-scroll-wrap"><table class="rsum-vv-table" style="min-width:500px">
+          <thead><tr><th><ruby>漢字<rt>かんじ</rt></ruby></th><th><ruby>数字<rt>すうじ</rt></ruby></th><th><ruby>読<rt>よ</rt></ruby>み<ruby>方<rt>かた</rt></ruby></th><th><ruby>漢字<rt>かんじ</rt></ruby></th><th><ruby>数字<rt>すうじ</rt></ruby></th><th><ruby>読<rt>よ</rt></ruby>み<ruby>方<rt>かた</rt></ruby></th></tr></thead>
           <tbody>
-            <tr><td style="font-weight:700;color:var(--accent2)">0</td><td class="rsum-form">ゼロ / れい</td><td style="font-weight:700;color:var(--accent2)">10</td><td class="rsum-form">じゅう</td></tr>
-            <tr><td style="font-weight:700;color:var(--accent2)">1</td><td class="rsum-form">いち</td><td style="font-weight:700;color:var(--accent2)">20</td><td class="rsum-form">にじゅう</td></tr>
-            <tr><td style="font-weight:700;color:var(--accent2)">2</td><td class="rsum-form">に</td><td style="font-weight:700;color:var(--accent2)">30</td><td class="rsum-form">さんじゅう</td></tr>
-            <tr><td style="font-weight:700;color:var(--accent2)">3</td><td class="rsum-form">さん</td><td style="font-weight:700;color:var(--accent2)">40</td><td class="rsum-form">よんじゅう</td></tr>
-            <tr><td style="font-weight:700;color:var(--accent2)">4</td><td class="rsum-form"><b>よん</b> / し</td><td style="font-weight:700;color:var(--accent2)">50</td><td class="rsum-form">ごじゅう</td></tr>
-            <tr><td style="font-weight:700;color:var(--accent2)">5</td><td class="rsum-form">ご</td><td style="font-weight:700;color:var(--accent2)">60</td><td class="rsum-form">ろくじゅう</td></tr>
-            <tr><td style="font-weight:700;color:var(--accent2)">6</td><td class="rsum-form">ろく</td><td style="font-weight:700;color:var(--accent2)">70</td><td class="rsum-form">ななじゅう</td></tr>
-            <tr><td style="font-weight:700;color:var(--accent2)">7</td><td class="rsum-form"><b>なな</b> / しち</td><td style="font-weight:700;color:var(--accent2)">80</td><td class="rsum-form">はちじゅう</td></tr>
-            <tr><td style="font-weight:700;color:var(--accent2)">8</td><td class="rsum-form">はち</td><td style="font-weight:700;color:var(--accent2)">90</td><td class="rsum-form">きゅうじゅう</td></tr>
-            <tr><td style="font-weight:700;color:var(--accent2)">9</td><td class="rsum-form"><b>きゅう</b> / く</td><td style="font-weight:700;color:var(--accent2)">100</td><td class="rsum-form">ひゃく</td></tr>
+            <tr><td style="font-weight:700;font-size:1.1rem;color:var(--text)"><ruby>零<rt>れい</rt></ruby></td><td style="font-weight:700;color:var(--accent2)">0</td><td class="rsum-form">ゼロ / れい</td><td style="font-weight:700;font-size:1.1rem;color:var(--text)"><ruby>十<rt>じゅう</rt></ruby></td><td style="font-weight:700;color:var(--accent2)">10</td><td class="rsum-form">じゅう</td></tr>
+            <tr><td style="font-weight:700;font-size:1.1rem;color:var(--text)"><ruby>一<rt>いち</rt></ruby></td><td style="font-weight:700;color:var(--accent2)">1</td><td class="rsum-form">いち</td><td style="font-weight:700;font-size:1.1rem;color:var(--text)"><ruby>二十<rt>にじゅう</rt></ruby></td><td style="font-weight:700;color:var(--accent2)">20</td><td class="rsum-form">にじゅう</td></tr>
+            <tr><td style="font-weight:700;font-size:1.1rem;color:var(--text)"><ruby>二<rt>に</rt></ruby></td><td style="font-weight:700;color:var(--accent2)">2</td><td class="rsum-form">に</td><td style="font-weight:700;font-size:1.1rem;color:var(--text)"><ruby>三十<rt>さんじゅう</rt></ruby></td><td style="font-weight:700;color:var(--accent2)">30</td><td class="rsum-form">さんじゅう</td></tr>
+            <tr><td style="font-weight:700;font-size:1.1rem;color:var(--text)"><ruby>三<rt>さん</rt></ruby></td><td style="font-weight:700;color:var(--accent2)">3</td><td class="rsum-form">さん</td><td style="font-weight:700;font-size:1.1rem;color:var(--text)"><ruby>四十<rt>よんじゅう</rt></ruby></td><td style="font-weight:700;color:var(--accent2)">40</td><td class="rsum-form">よんじゅう</td></tr>
+            <tr><td style="font-weight:700;font-size:1.1rem;color:var(--text)"><ruby>四<rt>よん</rt></ruby></td><td style="font-weight:700;color:var(--accent2)">4</td><td class="rsum-form"><b>よん</b> / し</td><td style="font-weight:700;font-size:1.1rem;color:var(--text)"><ruby>五十<rt>ごじゅう</rt></ruby></td><td style="font-weight:700;color:var(--accent2)">50</td><td class="rsum-form">ごじゅう</td></tr>
+            <tr><td style="font-weight:700;font-size:1.1rem;color:var(--text)"><ruby>五<rt>ご</rt></ruby></td><td style="font-weight:700;color:var(--accent2)">5</td><td class="rsum-form">ご</td><td style="font-weight:700;font-size:1.1rem;color:var(--text)"><ruby>六十<rt>ろくじゅう</rt></ruby></td><td style="font-weight:700;color:var(--accent2)">60</td><td class="rsum-form">ろくじゅう</td></tr>
+            <tr><td style="font-weight:700;font-size:1.1rem;color:var(--text)"><ruby>六<rt>ろく</rt></ruby></td><td style="font-weight:700;color:var(--accent2)">6</td><td class="rsum-form">ろく</td><td style="font-weight:700;font-size:1.1rem;color:var(--text)"><ruby>七十<rt>ななじゅう</rt></ruby></td><td style="font-weight:700;color:var(--accent2)">70</td><td class="rsum-form">ななじゅう</td></tr>
+            <tr><td style="font-weight:700;font-size:1.1rem;color:var(--text)"><ruby>七<rt>なな</rt></ruby></td><td style="font-weight:700;color:var(--accent2)">7</td><td class="rsum-form"><b>なな</b> / しち</td><td style="font-weight:700;font-size:1.1rem;color:var(--text)"><ruby>八十<rt>はちじゅう</rt></ruby></td><td style="font-weight:700;color:var(--accent2)">80</td><td class="rsum-form">はちじゅう</td></tr>
+            <tr><td style="font-weight:700;font-size:1.1rem;color:var(--text)"><ruby>八<rt>はち</rt></ruby></td><td style="font-weight:700;color:var(--accent2)">8</td><td class="rsum-form">はち</td><td style="font-weight:700;font-size:1.1rem;color:var(--text)"><ruby>九十<rt>きゅうじゅう</rt></ruby></td><td style="font-weight:700;color:var(--accent2)">90</td><td class="rsum-form">きゅうじゅう</td></tr>
+            <tr><td style="font-weight:700;font-size:1.1rem;color:var(--text)"><ruby>九<rt>きゅう</rt></ruby></td><td style="font-weight:700;color:var(--accent2)">9</td><td class="rsum-form"><b>きゅう</b> / く</td><td style="font-weight:700;font-size:1.1rem;color:var(--text)"><ruby>百<rt>ひゃく</rt></ruby></td><td style="font-weight:700;color:var(--accent2)">100</td><td class="rsum-form">ひゃく</td></tr>
           </tbody>
         </table></div>
 
         <div style="margin-top:12px;font-size:0.76rem;font-weight:700;color:var(--accent2);margin-bottom:8px">📊 <ruby>大<rt>おお</rt></ruby>きい <ruby>数<rt>かず</rt></ruby> (Bilangan Besar)</div>
-        <div class="tbl-scroll-wrap"><table class="rsum-vv-table" style="min-width:420px">
-          <thead><tr><th><ruby>数字<rt>すうじ</rt></ruby></th><th><ruby>読<rt>よ</rt></ruby>み<ruby>方<rt>かた</rt></ruby></th><th><ruby>数字<rt>すうじ</rt></ruby></th><th><ruby>読<rt>よ</rt></ruby>み<ruby>方<rt>かた</rt></ruby></th></tr></thead>
+        <div class="tbl-scroll-wrap"><table class="rsum-vv-table" style="min-width:500px">
+          <thead><tr><th><ruby>漢字<rt>かんじ</rt></ruby></th><th><ruby>数字<rt>すうじ</rt></ruby></th><th><ruby>読<rt>よ</rt></ruby>み<ruby>方<rt>かた</rt></ruby></th><th><ruby>漢字<rt>かんじ</rt></ruby></th><th><ruby>数字<rt>すうじ</rt></ruby></th><th><ruby>読<rt>よ</rt></ruby>み<ruby>方<rt>かた</rt></ruby></th></tr></thead>
           <tbody>
-            <tr><td style="font-weight:700;color:var(--accent2)">100</td><td class="rsum-form">ひゃく</td><td style="font-weight:700;color:var(--accent2)">600</td><td class="rsum-form"><b>ろっぴゃく</b></td></tr>
-            <tr><td style="font-weight:700;color:var(--accent2)">200</td><td class="rsum-form">にひゃく</td><td style="font-weight:700;color:var(--accent2)">700</td><td class="rsum-form">ななひゃく</td></tr>
-            <tr><td style="font-weight:700;color:var(--accent2)">300</td><td class="rsum-form"><b>さんびゃく</b></td><td style="font-weight:700;color:var(--accent2)">800</td><td class="rsum-form"><b>はっぴゃく</b></td></tr>
-            <tr><td style="font-weight:700;color:var(--accent2)">400</td><td class="rsum-form">よんひゃく</td><td style="font-weight:700;color:var(--accent2)">900</td><td class="rsum-form">きゅうひゃく</td></tr>
-            <tr><td style="font-weight:700;color:var(--accent2)">500</td><td class="rsum-form">ごひゃく</td><td style="font-weight:700;color:var(--accent2)">1000</td><td class="rsum-form">せん</td></tr>
-            <tr><td style="font-weight:700;color:var(--accent2)">3000</td><td class="rsum-form"><b>さんぜん</b></td><td style="font-weight:700;color:var(--accent2)">8000</td><td class="rsum-form"><b>はっせん</b></td></tr>
-            <tr><td style="font-weight:700;color:var(--accent2)">10,000</td><td class="rsum-form">いちまん</td><td style="font-weight:700;color:var(--accent2)">100,000</td><td class="rsum-form">じゅうまん</td></tr>
+            <tr><td style="font-weight:700;font-size:1rem;color:var(--text)"><ruby>百<rt>ひゃく</rt></ruby></td><td style="font-weight:700;color:var(--accent2)">100</td><td class="rsum-form">ひゃく</td><td style="font-weight:700;font-size:1rem;color:var(--text)"><ruby>六百<rt>ろっぴゃく</rt></ruby></td><td style="font-weight:700;color:var(--accent2)">600</td><td class="rsum-form" style="color:var(--amber)"><b>ろっぴゃく</b></td></tr>
+            <tr><td style="font-weight:700;font-size:1rem;color:var(--text)"><ruby>二百<rt>にひゃく</rt></ruby></td><td style="font-weight:700;color:var(--accent2)">200</td><td class="rsum-form">にひゃく</td><td style="font-weight:700;font-size:1rem;color:var(--text)"><ruby>七百<rt>ななひゃく</rt></ruby></td><td style="font-weight:700;color:var(--accent2)">700</td><td class="rsum-form">ななひゃく</td></tr>
+            <tr><td style="font-weight:700;font-size:1rem;color:var(--text)"><ruby>三百<rt>さんびゃく</rt></ruby></td><td style="font-weight:700;color:var(--accent2)">300</td><td class="rsum-form" style="color:var(--amber)"><b>さんびゃく</b></td><td style="font-weight:700;font-size:1rem;color:var(--text)"><ruby>八百<rt>はっぴゃく</rt></ruby></td><td style="font-weight:700;color:var(--accent2)">800</td><td class="rsum-form" style="color:var(--amber)"><b>はっぴゃく</b></td></tr>
+            <tr><td style="font-weight:700;font-size:1rem;color:var(--text)"><ruby>四百<rt>よんひゃく</rt></ruby></td><td style="font-weight:700;color:var(--accent2)">400</td><td class="rsum-form">よんひゃく</td><td style="font-weight:700;font-size:1rem;color:var(--text)"><ruby>九百<rt>きゅうひゃく</rt></ruby></td><td style="font-weight:700;color:var(--accent2)">900</td><td class="rsum-form">きゅうひゃく</td></tr>
+            <tr><td style="font-weight:700;font-size:1rem;color:var(--text)"><ruby>五百<rt>ごひゃく</rt></ruby></td><td style="font-weight:700;color:var(--accent2)">500</td><td class="rsum-form">ごひゃく</td><td style="font-weight:700;font-size:1rem;color:var(--text)"><ruby>千<rt>せん</rt></ruby></td><td style="font-weight:700;color:var(--accent2)">1000</td><td class="rsum-form">せん</td></tr>
+            <tr><td style="font-weight:700;font-size:1rem;color:var(--text)"><ruby>三千<rt>さんぜん</rt></ruby></td><td style="font-weight:700;color:var(--accent2)">3000</td><td class="rsum-form" style="color:var(--amber)"><b>さんぜん</b></td><td style="font-weight:700;font-size:1rem;color:var(--text)"><ruby>八千<rt>はっせん</rt></ruby></td><td style="font-weight:700;color:var(--accent2)">8000</td><td class="rsum-form" style="color:var(--amber)"><b>はっせん</b></td></tr>
+            <tr><td style="font-weight:700;font-size:1rem;color:var(--text)"><ruby>一万<rt>いちまん</rt></ruby></td><td style="font-weight:700;color:var(--accent2)">10,000</td><td class="rsum-form">いちまん</td><td style="font-weight:700;font-size:1rem;color:var(--text)"><ruby>十万<rt>じゅうまん</rt></ruby></td><td style="font-weight:700;color:var(--accent2)">100,000</td><td class="rsum-form">じゅうまん</td></tr>
           </tbody>
         </table></div>
 
         <div style="margin-top:10px;padding:8px 12px;background:rgba(251,191,36,0.08);border-left:3px solid var(--amber);border-radius:0 8px 8px 0;font-size:0.72rem;line-height:1.6">
-          <b style="color:var(--amber)">⚠️ 音変化:</b> 百: 300=<b>さんびゃく</b>, 600=<b>ろっぴゃく</b>, 800=<b>はっぴゃく</b> | 千: 3000=<b>さんぜん</b>, 8000=<b>はっせん</b>
+          <b style="color:var(--amber)">⚠️ <ruby>音変化<rt>おんへんか</rt></ruby>:</b> <ruby>百<rt>ひゃく</rt></ruby>: 300=<b style="color:var(--amber)">さんびゃく</b>, 600=<b style="color:var(--amber)">ろっぴゃく</b>, 800=<b style="color:var(--amber)">はっぴゃく</b> | <ruby>千<rt>せん</rt></ruby>: 3000=<b style="color:var(--amber)">さんぜん</b>, 8000=<b style="color:var(--amber)">はっせん</b>
         </div>
       </div>
     </div>`;
@@ -2266,7 +2266,7 @@ function buildJamSection() {
       <div class="konj-accordion-head" onclick="this.parentElement.classList.toggle('open')" style="background:rgba(96,165,250,0.04)">
         <span class="konj-accordion-chevron">▶</span>
         <span style="font-size:0.82rem;font-weight:700;color:#60a5fa">🕐 〜<ruby>時<rt>じ</rt></ruby> — Jam</span>
-        <span style="margin-left:auto;font-size:0.6rem;padding:2px 8px;border-radius:10px;background:rgba(96,165,250,0.15);color:#60a5fa;font-weight:700">⚠️ 音変化</span>
+        <span style="margin-left:auto;font-size:0.6rem;padding:2px 8px;border-radius:10px;background:rgba(96,165,250,0.15);color:#60a5fa;font-weight:700">⚠️ <ruby>音変化<rt>おんへんか</rt></ruby></span>
       </div>
       <div class="konj-accordion-body">
         <div class="tbl-scroll-wrap"><table class="rsum-vv-table" style="min-width:380px">
@@ -2281,7 +2281,7 @@ function buildJamSection() {
           </tbody>
         </table></div>
         <div style="margin-top:10px;padding:8px 12px;background:rgba(96,165,250,0.08);border-left:3px solid #60a5fa;border-radius:0 8px 8px 0;font-size:0.72rem;line-height:1.6">
-          <b style="color:#60a5fa">⚠️</b> 4時=<b>よじ</b> | 7時=<b>しちじ</b> | 9時=<b>くじ</b> | <ruby>午前<rt>ごぜん</rt></ruby>=AM, <ruby>午後<rt>ごご</rt></ruby>=PM | なんじ=jam berapa?
+          <b style="color:#60a5fa">⚠️</b> 4<ruby>時<rt>じ</rt></ruby>=<b>よじ</b> | 7<ruby>時<rt>じ</rt></ruby>=<b>しちじ</b> | 9<ruby>時<rt>じ</rt></ruby>=<b>くじ</b> | <ruby>午前<rt>ごぜん</rt></ruby>=AM, <ruby>午後<rt>ごご</rt></ruby>=PM | なんじ=<ruby>何時<rt>なんじ</rt></ruby>?
         </div>
       </div>
     </div>`;
@@ -2295,7 +2295,7 @@ function buildMenitSection() {
       <div class="konj-accordion-head" onclick="this.parentElement.classList.toggle('open')" style="background:rgba(52,211,153,0.04)">
         <span class="konj-accordion-chevron">▶</span>
         <span style="font-size:0.82rem;font-weight:700;color:var(--green)">⏱️ 〜<ruby>分<rt>ふん</rt></ruby> — Menit</span>
-        <span style="margin-left:auto;font-size:0.6rem;padding:2px 8px;border-radius:10px;background:rgba(52,211,153,0.15);color:var(--green);font-weight:700">⚠️ 音変化</span>
+        <span style="margin-left:auto;font-size:0.6rem;padding:2px 8px;border-radius:10px;background:rgba(52,211,153,0.15);color:var(--green);font-weight:700">⚠️ <ruby>音変化<rt>おんへんか</rt></ruby></span>
       </div>
       <div class="konj-accordion-body">
         <div class="tbl-scroll-wrap"><table class="rsum-vv-table" style="min-width:380px">
@@ -2309,7 +2309,7 @@ function buildMenitSection() {
           </tbody>
         </table></div>
         <div style="margin-top:10px;padding:8px 12px;background:rgba(52,211,153,0.08);border-left:3px solid var(--green);border-radius:0 8px 8px 0;font-size:0.72rem;line-height:1.6">
-          <b style="color:var(--green)">💡</b> <b>ぷん</b>: 1,3,4,6,8,10 | <b>ふん</b>: 2,5,7,9 | 30分=<b>はん</b> | なんぷん=berapa menit?
+          <b style="color:var(--green)">💡</b> <b>ぷん</b>: 1,3,4,6,8,10 | <b>ふん</b>: 2,5,7,9 | 30<ruby>分<rt>ぷん</rt></ruby>=<b>はん</b> | なんぷん=berapa menit?
         </div>
       </div>
     </div>`;
@@ -2323,7 +2323,7 @@ function buildDurasiJamSection() {
       <div class="konj-accordion-head" onclick="this.parentElement.classList.toggle('open')" style="background:rgba(139,92,246,0.04)">
         <span class="konj-accordion-chevron">▶</span>
         <span style="font-size:0.82rem;font-weight:700;color:#8b5cf6">⏳ 〜<ruby>時間<rt>じかん</rt></ruby> — Durasi Jam</span>
-        <span style="margin-left:auto;font-size:0.6rem;padding:2px 8px;border-radius:10px;background:rgba(139,92,246,0.15);color:#8b5cf6;font-weight:700">⚠️ 音変化</span>
+        <span style="margin-left:auto;font-size:0.6rem;padding:2px 8px;border-radius:10px;background:rgba(139,92,246,0.15);color:#8b5cf6;font-weight:700">⚠️ <ruby>音変化<rt>おんへんか</rt></ruby></span>
       </div>
       <div class="konj-accordion-body">
         <div style="font-size:0.72rem;color:var(--text2);margin-bottom:8px">〜<ruby>時<rt>じ</rt></ruby> = jam berapa (waktu) vs 〜<ruby>時間<rt>じかん</rt></ruby> = berapa jam (durasi)</div>
@@ -2338,7 +2338,7 @@ function buildDurasiJamSection() {
           </tbody>
         </table></div>
         <div style="margin-top:10px;padding:8px 12px;background:rgba(139,92,246,0.08);border-left:3px solid #8b5cf6;border-radius:0 8px 8px 0;font-size:0.72rem;line-height:1.6">
-          <b style="color:#8b5cf6">⚠️</b> 4時間=<b>よじかん</b> | 9時間=<b>くじかん</b> | 〜時間半=+30分 | <ruby>何時間<rt>なんじかん</rt></ruby>=berapa jam?
+          <b style="color:#8b5cf6">⚠️</b> 4<ruby>時間<rt>じかん</rt></ruby>=<b>よじかん</b> | 9<ruby>時間<rt>じかん</rt></ruby>=<b>くじかん</b> | 〜<ruby>時間半<rt>じかんはん</rt></ruby>=+30<ruby>分<rt>ぷん</rt></ruby> | <ruby>何時間<rt>なんじかん</rt></ruby>=berapa jam?
         </div>
       </div>
     </div>`;
@@ -2381,7 +2381,7 @@ function buildTanggalSection() {
       <div class="konj-accordion-head" onclick="this.parentElement.classList.toggle('open')" style="background:rgba(251,146,60,0.04)">
         <span class="konj-accordion-chevron">▶</span>
         <span style="font-size:0.82rem;font-weight:700;color:#fb923c">📆 〜<ruby>日<rt>にち</rt></ruby> — Tanggal</span>
-        <span style="margin-left:auto;font-size:0.6rem;padding:2px 8px;border-radius:10px;background:rgba(251,146,60,0.15);color:#fb923c;font-weight:700">⚠️ 不規則</span>
+        <span style="margin-left:auto;font-size:0.6rem;padding:2px 8px;border-radius:10px;background:rgba(251,146,60,0.15);color:#fb923c;font-weight:700">⚠️ <ruby>不規則<rt>ふきそく</rt></ruby></span>
       </div>
       <div class="konj-accordion-body">
         <div style="font-size:0.72rem;color:var(--text2);margin-bottom:8px">Tanggal 1-10 = cara baca <ruby>和語<rt>わご</rt></ruby> (tidak beraturan). 11+ = <ruby>漢語<rt>かんご</rt></ruby>.</div>
@@ -2401,7 +2401,7 @@ function buildTanggalSection() {
           </tbody>
         </table></div>
         <div style="margin-top:10px;padding:8px 12px;background:rgba(251,146,60,0.08);border-left:3px solid #fb923c;border-radius:0 8px 8px 0;font-size:0.72rem;line-height:1.6">
-          <b style="color:#fb923c">⚠️</b> 14日=<b>じゅうよっか</b> | 20日=<b>はつか</b> | 24日=<b>にじゅうよっか</b> | <ruby>何日<rt>なんにち</rt></ruby>=tanggal berapa?
+          <b style="color:#fb923c">⚠️</b> 14<ruby>日<rt>にち</rt></ruby>=<b>じゅうよっか</b> | 20<ruby>日<rt>にち</rt></ruby>=<b>はつか</b> | 24<ruby>日<rt>にち</rt></ruby>=<b>にじゅうよっか</b> | <ruby>何日<rt>なんにち</rt></ruby>=tanggal berapa?
         </div>
       </div>
     </div>`;
@@ -2429,7 +2429,7 @@ function buildDurasiHariSection() {
           </tbody>
         </table></div>
         <div style="margin-top:10px;padding:8px 12px;background:rgba(251,146,60,0.08);border-left:3px solid #f97316;border-radius:0 8px 8px 0;font-size:0.72rem;line-height:1.6">
-          <b style="color:#f97316">⚠️</b> 1日=<b>いちにち</b> (bukan ついたち!) | 2-10日間=baca tanggal+かん | 11+: じゅういちにちかん dst.
+          <b style="color:#f97316">⚠️</b> 1<ruby>日<rt>にち</rt></ruby>=<b>いちにち</b> (bukan ついたち!) | 2〜10<ruby>日間<rt>にちかん</rt></ruby>=baca tanggal+かん | 11+: じゅういちにちかん dst.
         </div>
       </div>
     </div>`;
@@ -2443,7 +2443,7 @@ function buildDurasiMingguSection() {
       <div class="konj-accordion-head" onclick="this.parentElement.classList.toggle('open')" style="background:rgba(236,72,153,0.04)">
         <span class="konj-accordion-chevron">▶</span>
         <span style="font-size:0.82rem;font-weight:700;color:#ec4899">📅 〜<ruby>週間<rt>しゅうかん</rt></ruby> — Durasi Minggu</span>
-        <span style="margin-left:auto;font-size:0.6rem;padding:2px 8px;border-radius:10px;background:rgba(236,72,153,0.15);color:#ec4899;font-weight:700">⚠️ 音変化</span>
+        <span style="margin-left:auto;font-size:0.6rem;padding:2px 8px;border-radius:10px;background:rgba(236,72,153,0.15);color:#ec4899;font-weight:700">⚠️ <ruby>音変化<rt>おんへんか</rt></ruby></span>
       </div>
       <div class="konj-accordion-body">
         <div class="tbl-scroll-wrap"><table class="rsum-vv-table" style="min-width:380px">
@@ -2457,7 +2457,7 @@ function buildDurasiMingguSection() {
           </tbody>
         </table></div>
         <div style="margin-top:10px;padding:8px 12px;background:rgba(236,72,153,0.08);border-left:3px solid #ec4899;border-radius:0 8px 8px 0;font-size:0.72rem;line-height:1.6">
-          <b style="color:#ec4899">⚠️</b> 1週間=<b>いっしゅうかん</b>(っ!) | 8週間=<b>はっしゅうかん</b> | 10週間=<b>じゅっしゅうかん</b>
+          <b style="color:#ec4899">⚠️</b> 1<ruby>週間<rt>しゅうかん</rt></ruby>=<b>いっしゅうかん</b>(っ!) | 8<ruby>週間<rt>しゅうかん</rt></ruby>=<b>はっしゅうかん</b> | 10<ruby>週間<rt>しゅうかん</rt></ruby>=<b>じゅっしゅうかん</b>
         </div>
       </div>
     </div>`;
@@ -2471,10 +2471,10 @@ function buildBulanSection() {
       <div class="konj-accordion-head" onclick="this.parentElement.classList.toggle('open')" style="background:rgba(45,212,191,0.04)">
         <span class="konj-accordion-chevron">▶</span>
         <span style="font-size:0.82rem;font-weight:700;color:var(--teal)">🗓️ 〜<ruby>月<rt>がつ</rt></ruby> — Bulan & Durasi Bulan</span>
-        <span style="margin-left:auto;font-size:0.6rem;padding:2px 8px;border-radius:10px;background:rgba(45,212,191,0.15);color:var(--teal);font-weight:700">⚠️ 音変化</span>
+        <span style="margin-left:auto;font-size:0.6rem;padding:2px 8px;border-radius:10px;background:rgba(45,212,191,0.15);color:var(--teal);font-weight:700">⚠️ <ruby>音変化<rt>おんへんか</rt></ruby></span>
       </div>
       <div class="konj-accordion-body">
-        <div style="font-size:0.72rem;color:var(--text2);margin-bottom:8px">Angka + がつ. Perhatikan 4月, 7月, 9月.</div>
+        <div style="font-size:0.72rem;color:var(--text2);margin-bottom:8px">Angka + がつ. Perhatikan 4<ruby>月<rt>がつ</rt></ruby>, 7<ruby>月<rt>がつ</rt></ruby>, 9<ruby>月<rt>がつ</rt></ruby>.</div>
         <div class="tbl-scroll-wrap"><table class="rsum-vv-table" style="min-width:380px">
           <thead><tr><th><ruby>月<rt>がつ</rt></ruby></th><th><ruby>日本語<rt>にほんご</rt></ruby></th><th><ruby>月<rt>がつ</rt></ruby></th><th><ruby>日本語<rt>にほんご</rt></ruby></th></tr></thead>
           <tbody>
@@ -2500,7 +2500,7 @@ function buildBulanSection() {
         </table></div>
 
         <div style="margin-top:10px;padding:8px 12px;background:rgba(45,212,191,0.08);border-left:3px solid var(--teal);border-radius:0 8px 8px 0;font-size:0.72rem;line-height:1.6">
-          <b style="color:var(--teal)">⚠️</b> 4月=<b>しがつ</b> | 7月=<b>しちがつ</b> | 9月=<b>くがつ</b> | Durasi: 1=<b>いっかげつ</b>, 6=<b>ろっかげつ</b>, 8=<b>はっかげつ</b>, 10=<b>じゅっかげつ</b>
+          <b style="color:var(--teal)">⚠️</b> 4<ruby>月<rt>がつ</rt></ruby>=<b>しがつ</b> | 7<ruby>月<rt>がつ</rt></ruby>=<b>しちがつ</b> | 9<ruby>月<rt>がつ</rt></ruby>=<b>くがつ</b> | Durasi: 1=<b>いっかげつ</b>, 6=<b>ろっかげつ</b>, 8=<b>はっかげつ</b>, 10=<b>じゅっかげつ</b>
         </div>
       </div>
     </div>`;
@@ -2514,7 +2514,7 @@ function buildTahunSection() {
       <div class="konj-accordion-head" onclick="this.parentElement.classList.toggle('open')" style="background:rgba(234,179,8,0.04)">
         <span class="konj-accordion-chevron">▶</span>
         <span style="font-size:0.82rem;font-weight:700;color:#eab308">📅 〜<ruby>年<rt>ねん</rt></ruby> — Tahun & Durasi</span>
-        <span style="margin-left:auto;font-size:0.6rem;padding:2px 8px;border-radius:10px;background:rgba(234,179,8,0.15);color:#eab308;font-weight:700">⚠️ 音変化</span>
+        <span style="margin-left:auto;font-size:0.6rem;padding:2px 8px;border-radius:10px;background:rgba(234,179,8,0.15);color:#eab308;font-weight:700">⚠️ <ruby>音変化<rt>おんへんか</rt></ruby></span>
       </div>
       <div class="konj-accordion-body">
         <div style="font-size:0.76rem;font-weight:700;color:var(--accent2);margin-bottom:8px">📆 Cara baca tahun</div>
@@ -2540,7 +2540,7 @@ function buildTahunSection() {
         </table></div>
 
         <div style="margin-top:10px;padding:8px 12px;background:rgba(234,179,8,0.08);border-left:3px solid #eab308;border-radius:0 8px 8px 0;font-size:0.72rem;line-height:1.6">
-          <b style="color:#eab308">⚠️</b> 4年=<b>よねん</b> | 7年=<b>しちねん</b> | 9年=<b>くねん</b> | <ruby>去年<rt>きょねん</rt></ruby>=lalu, <ruby>今年<rt>ことし</rt></ruby>=ini, <ruby>来年<rt>らいねん</rt></ruby>=depan
+          <b style="color:#eab308">⚠️</b> 4<ruby>年<rt>ねん</rt></ruby>=<b>よねん</b> | 7<ruby>年<rt>ねん</rt></ruby>=<b>しちねん</b> | 9<ruby>年<rt>ねん</rt></ruby>=<b>くねん</b> | <ruby>去年<rt>きょねん</rt></ruby>=lalu, <ruby>今年<rt>ことし</rt></ruby>=ini, <ruby>来年<rt>らいねん</rt></ruby>=depan
         </div>
       </div>
     </div>`;
@@ -2554,7 +2554,7 @@ function buildUmurSection() {
       <div class="konj-accordion-head" onclick="this.parentElement.classList.toggle('open')" style="background:rgba(244,63,94,0.04)">
         <span class="konj-accordion-chevron">▶</span>
         <span style="font-size:0.82rem;font-weight:700;color:#f43f5e">🎂 〜<ruby>歳<rt>さい</rt></ruby> — Umur</span>
-        <span style="margin-left:auto;font-size:0.6rem;padding:2px 8px;border-radius:10px;background:rgba(244,63,94,0.15);color:#f43f5e;font-weight:700">⚠️ 音変化</span>
+        <span style="margin-left:auto;font-size:0.6rem;padding:2px 8px;border-radius:10px;background:rgba(244,63,94,0.15);color:#f43f5e;font-weight:700">⚠️ <ruby>音変化<rt>おんへんか</rt></ruby></span>
       </div>
       <div class="konj-accordion-body">
         <div class="tbl-scroll-wrap"><table class="rsum-vv-table" style="min-width:380px">
@@ -2569,7 +2569,7 @@ function buildUmurSection() {
           </tbody>
         </table></div>
         <div style="margin-top:10px;padding:8px 12px;background:rgba(244,63,94,0.08);border-left:3px solid #f43f5e;border-radius:0 8px 8px 0;font-size:0.72rem;line-height:1.6">
-          <b style="color:#f43f5e">⚠️</b> 1歳=<b>いっさい</b> | 8歳=<b>はっさい</b> | 10歳=<b>じゅっさい</b> | 20歳=<b>はたち</b>(khusus!) | おいくつ=sopan
+          <b style="color:#f43f5e">⚠️</b> 1<ruby>歳<rt>さい</rt></ruby>=<b>いっさい</b> | 8<ruby>歳<rt>さい</rt></ruby>=<b>はっさい</b> | 10<ruby>歳<rt>さい</rt></ruby>=<b>じゅっさい</b> | 20<ruby>歳<rt>さい</rt></ruby>=<b>はたち</b>(<ruby>特別<rt>とくべつ</rt></ruby>!) | おいくつ=sopan
         </div>
       </div>
     </div>`;
@@ -2583,7 +2583,7 @@ function buildHargaSection() {
       <div class="konj-accordion-head" onclick="this.parentElement.classList.toggle('open')" style="background:rgba(34,197,94,0.04)">
         <span class="konj-accordion-chevron">▶</span>
         <span style="font-size:0.82rem;font-weight:700;color:#22c55e">💴 〜<ruby>円<rt>えん</rt></ruby> — Harga / Uang</span>
-        <span style="margin-left:auto;font-size:0.6rem;padding:2px 8px;border-radius:10px;background:rgba(34,197,94,0.15);color:#22c55e;font-weight:700">⚠️ 音変化</span>
+        <span style="margin-left:auto;font-size:0.6rem;padding:2px 8px;border-radius:10px;background:rgba(34,197,94,0.15);color:#22c55e;font-weight:700">⚠️ <ruby>音変化<rt>おんへんか</rt></ruby></span>
       </div>
       <div class="konj-accordion-body">
         <div class="tbl-scroll-wrap"><table class="rsum-vv-table" style="min-width:420px">
@@ -2632,7 +2632,7 @@ function buildCounterSection() {
 
   let cards = '';
   counters.forEach(c => {
-    const hasRendaku = c.rendaku ? `<span style="margin-left:6px;font-size:0.58rem;padding:1px 6px;border-radius:8px;background:rgba(251,191,36,0.15);color:var(--amber);font-weight:700">音変化</span>` : '';
+    const hasRendaku = c.rendaku ? `<span style="margin-left:6px;font-size:0.58rem;padding:1px 6px;border-radius:8px;background:rgba(251,191,36,0.15);color:var(--amber);font-weight:700"><ruby>音変化<rt>おんへんか</rt></ruby></span>` : '';
     const rubyPart = c.ruby ? `<ruby>${c.name.replace('〜','')}<rt>${c.ruby}</rt></ruby>` : c.name.replace('〜','');
     cards += `
       <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:10px 12px;margin-bottom:8px;border-left:3px solid ${c.color}">
@@ -2642,7 +2642,13 @@ function buildCounterSection() {
           ${hasRendaku}
         </div>
         <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:4px;font-size:0.7rem;font-family:'Noto Sans JP',sans-serif">
-          ${c.vals.map((v,i) => `<div style="text-align:center;padding:4px 2px;background:var(--surface2);border-radius:6px;line-height:1.4"><span style="font-size:0.58rem;color:var(--text2);display:block">${i+1}</span>${v}</div>`).join('')}
+          ${c.vals.map((v,i) => {
+            const isBold = c.bold.includes(i);
+            const cellStyle = isBold
+              ? 'text-align:center;padding:4px 2px;background:rgba(251,191,36,0.12);border:1px solid rgba(251,191,36,0.3);border-radius:6px;line-height:1.4;color:var(--amber);font-weight:700'
+              : 'text-align:center;padding:4px 2px;background:var(--surface2);border-radius:6px;line-height:1.4';
+            return `<div style="${cellStyle}"><span style="font-size:0.58rem;color:var(--text2);display:block">${i+1}</span>${v}</div>`;
+          }).join('')}
         </div>
       </div>`;
   });
@@ -2656,7 +2662,7 @@ function buildCounterSection() {
       </div>
       <div class="konj-accordion-body">
         <div style="font-size:0.72rem;color:var(--text2);margin-bottom:10px;line-height:1.5">
-          Counter berbeda tergantung bentuk/jenis benda. Yang <b>tebal</b> = bentuk yang berubah (rendaku).
+          Counter berbeda tergantung bentuk/jenis benda. Yang <b style="color:var(--amber)">berwarna kuning</b> = bentuk yang berubah (<ruby>音変化<rt>おんへんか</rt></ruby>/rendaku).
         </div>
         ${cards}
         <div style="margin-top:10px;padding:8px 12px;background:rgba(251,191,36,0.08);border-left:3px solid var(--amber);border-radius:0 8px 8px 0;font-size:0.72rem;line-height:1.6">
@@ -2758,7 +2764,7 @@ function buildWaktuSection() {
           <b style="color:var(--amber)">⚠️ あとで vs てから:</b> あとで=jeda boleh lama | てから=langsung setelahnya
         </div>
         <div style="margin-top:6px;padding:8px 12px;background:rgba(45,212,191,0.08);border-left:3px solid var(--teal);border-radius:0 8px 8px 0;font-size:0.72rem;line-height:1.6">
-          <b style="color:var(--teal)">💡 Kapan pakai に?</b> Waktu spesifik (7時<b>に</b>, 月曜日<b>に</b>) = pakai. Relatif (きょう, あした, まいにち) = tidak pakai.
+          <b style="color:var(--teal)">💡 Kapan pakai に?</b> Waktu spesifik (7<ruby>時<rt>じ</rt></ruby><b>に</b>, <ruby>月曜日<rt>げつようび</rt></ruby><b>に</b>) = pakai. Relatif (きょう, あした, まいにち) = tidak pakai.
         </div>
       </div>
     </div>`;
