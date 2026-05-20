@@ -5,7 +5,7 @@
 // NOTE: Uses relative paths so the app works whether deployed at root (/)
 // or in a subdirectory (e.g., /APLIKASIOURV2/ on GitHub Pages).
 
-const CACHE_NAME = 'n5n4-flashcard-v2.2.0';
+const CACHE_NAME = 'n5n4-flashcard-v2.2.1';
 const SW_SCOPE = self.registration ? self.registration.scope : self.location.href.replace(/sw\.js.*$/, '');
 
 // Static assets to pre-cache (relative to SW scope)

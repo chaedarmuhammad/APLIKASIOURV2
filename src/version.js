@@ -3,9 +3,13 @@
 
 'use strict';
 
-const APP_VERSION = '2.2.0';
-const APP_BUILD_DATE = '2026-05-16';
+const APP_VERSION = '2.2.1';
+const APP_BUILD_DATE = '2026-05-20';
 const APP_CHANGELOG = [
+  { version: '2.2.1', date: '2026-05-20', changes: [
+    'Fix: bentuk ikoukei sekarang mengarah ke Bab 49 (sebelumnya salah ke Bab 30)',
+    'Fix: progress fitur Terlupa sekarang berkurang saat menjawab benar',
+  ]},
   { version: '2.2.0', date: '2026-05-16', changes: [
     'Refactor: split app.js menjadi modul-modul terpisah',
     'Performa: cache BABS.flatMap() di SRS module',
