@@ -605,9 +605,9 @@ const RANGKUMAN_BENTUKVV = [
     pola: [
       {form:"KK<b>ましょう</b>", pola:"KK ましょう", arti:"Ayo ~ / Mari ~ (ajakan bersama, sopan)", bab:10, contoh:"たべましょう → ayo makan"},
       {form:"KK<b>ましょうか</b>", pola:"KK ましょうか", arti:"Boleh saya ~? / Bagaimana kalau ~? (tawaran bantuan)", bab:21, contoh:"もちましょうか → boleh saya bawakan?"},
-      {form:"Gr.I: bunyi い→<b>お</b> + う", pola:"Godan: ganti bunyi i-row → o-row + う", arti:"Volitional Grup I (biasa)", bab:30, contoh:"のむ→のもう | かく→かこう | いく→いこう | かう→かおう"},
-      {form:"Gr.II: buang る + <b>よう</b>", pola:"Ichidan: KK stem + よう", arti:"Volitional Grup II (biasa)", bab:30, contoh:"たべる→たべよう | みる→みよう"},
-      {form:"Gr.III: <b>する→しよう / くる→こよう</b>", pola:"Tidak beraturan", arti:"Volitional Grup III (biasa)", bab:30, contoh:"する→しよう | くる→こよう"},
+      {form:"Gr.I: bunyi い→<b>お</b> + う", pola:"Godan: ganti bunyi i-row → o-row + う", arti:"Volitional Grup I (biasa)", bab:49, contoh:"のむ→のもう | かく→かこう | いく→いこう | かう→かおう"},
+      {form:"Gr.II: buang る + <b>よう</b>", pola:"Ichidan: KK stem + よう", arti:"Volitional Grup II (biasa)", bab:49, contoh:"たべる→たべよう | みる→みよう"},
+      {form:"Gr.III: <b>する→しよう / くる→こよう</b>", pola:"Tidak beraturan", arti:"Volitional Grup III (biasa)", bab:49, contoh:"する→しよう | くる→こよう"},
       {form:"<ruby>意向形<rt>いこうけい</rt></ruby> + <b>と<ruby>思<rt>おも</rt></ruby>っています</b>", pola:"<ruby>意向形<rt>いこうけい</rt></ruby> + と <ruby>思<rt>おも</rt></ruby>って います", arti:"Saya bermaksud / berniat ~ (Bab 49)", bab:49, contoh:"りょこうしようと おもっています → berniat pergi liburan"},
       {form:"<ruby>意向形<rt>いこうけい</rt></ruby> + <b>とする</b>", pola:"<ruby>意向形<rt>いこうけい</rt></ruby> + とする / としたとき", arti:"Mencoba ~ / Hendak ~ (usaha yang mungkin gagal/terganggu)", bab:50, contoh:"でかけようとした<b>とき</b>、ともだちが きました → saat hendak keluar, teman datang"},
     ],

@@ -303,11 +303,11 @@ describe('SM-2 integration: hafal → belum → hafal cycle', function() {
     assertEqual(srs['taberu'].lapses, 1);
     assertTrue(srs['taberu'].ef < 2.5, 'EF should decrease after lapse');
 
-    // Correct again (restart)
+    // Correct again (restart) — lapses decreases on correct answer
     sm2RecordHafal(word, 4);
     assertEqual(srs['taberu'].repetition, 1);
     assertEqual(srs['taberu'].interval, 1);
-    assertEqual(srs['taberu'].lapses, 1, 'lapses should persist');
+    assertEqual(srs['taberu'].lapses, 0, 'lapses should decrease by 1 on correct answer');
   });
 });
 
