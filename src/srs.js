@@ -91,6 +91,11 @@ function sm2RecordHafal(word, quality) {
       card.interval = Math.round(card.interval * card.ef);
     }
     card.repetition++;
+
+    // Reduce lapses on correct answer so "Terlupa" progress actually decreases
+    if ((card.lapses || 0) > 0) {
+      card.lapses = card.lapses - 1;
+    }
   } else {
     // Incorrect but still called hafal (edge case)
     card.repetition = 0;
